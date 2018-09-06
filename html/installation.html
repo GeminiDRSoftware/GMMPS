@@ -1,0 +1,251 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>1. Getting started &#8212; GMMPS 1.4.5 documentation</title>
+    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Loading Images" href="loadimage.html" />
+    <link rel="prev" title="GMMPS 1.4.5: Documentation" href="index.html" /> 
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head>
+  <body>
+<div class="pageheader">
+  <ul>
+    <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
+    <li><a href="http://www.gemini.edu/sciops/instruments/flamingos2">F2</a></li>
+  </ul>
+  <div>
+    <a href="http://www.gemini.edu/">
+      <img src="_static/logo.png" alt="GEMINI" align="left" border="0"/>
+    </a>
+  </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="loadimage.html" title="2. Loading Images"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="GMMPS 1.4.5: Documentation"
+             accesskey="P">previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. Getting started</a><ul>
+<li><a class="reference internal" href="#step-by-step-examples">1.1. Step-by-step examples</a></li>
+<li><a class="reference internal" href="#download">1.2. Download</a></li>
+<li><a class="reference internal" href="#dependencies">1.3. Dependencies</a></li>
+<li><a class="reference internal" href="#installation">1.4. Installation</a><ul>
+<li><a class="reference internal" href="#notes-for-macos-users">1.4.1. Notes for MacOS users</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">GMMPS 1.4.5: Documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="loadimage.html"
+                        title="next chapter">2. Loading Images</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started">
+<span id="index-0"></span><h1>1. Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="step-by-step-examples">
+<h2>1.1. Step-by-step examples<a class="headerlink" href="#step-by-step-examples" title="Permalink to this headline">¶</a></h2>
+<p>If you are a new user to <em>GMMPS</em> and you have it already running, then the best way
+forward is to follow these three step-by-step examples:</p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="example1.html#example1-label"><span class="std std-ref">GMOS-S: A simple redshift survey</span></a></li>
+<li><a class="reference internal" href="example2.html#example2-label"><span class="std std-ref">GMOS-S: A system of globular clusters (band-shuffling mask)</span></a></li>
+<li><a class="reference internal" href="example3.html#example3-label"><span class="std std-ref">FLAMINGOS-2: Knots in a star-forming region</span></a></li>
+</ol>
+</div>
+<div class="section" id="download">
+<h2>1.2. Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
+<p><em>GMMPS</em> 1.4.5 comes with the source code and example images.
+It is available at
+<a class="reference external" href="http://software.gemini.edu/gmmps/gmmps-1.4.5.tgz">http://software.gemini.edu/gmmps/gmmps-1.4.5.tgz</a> (136 MB). <strong>This version is mandatory.</strong></p>
+<p>The following instruments are supported:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/">GMOS-N</a> (Hamamatsu CCDs)</li>
+<li><a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/">GMOS-S</a> (Hamamatsu CCDs)</li>
+<li><a class="reference external" href="http://www.gemini.edu/sciops/instruments/flamingos2/Flamingos-2">FLAMINGOS-2</a></li>
+</ul>
+<p>Included is the new <a class="reference internal" href="wavemapper.html#wm-window-label"><span class="std std-ref">waveMapper</span></a> Skycat plugin.
+It can be used to plan the central wavelength settings for the GMOS
+long-slit, IFU-R and IFU-2 modes. This is independent of the mask making
+aspects of <em>GMMPS</em>.</p>
+<p><a class="reference external" href="../ChangeLog">Latest changes</a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Not all features in the
+<a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/gmosmaskmakingv104.ps.gz">original design specifications</a> have been implemented in the current version (e.g. curved slits, and some of the desired interactivity). Many other features have been included, though, for which the necessity arose over time. Amongst them are wavelength displays, further automatisation, much improved user friendliness, and internal consistency checks.</p>
+</div>
+</div>
+<div class="section" id="dependencies">
+<span id="index-1"></span><h2>1.3. Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>The following pre-requisites <strong>must be met</strong> before installing <em>GMMPS</em>:</p>
+<ul class="simple">
+<li>C/C++ compilers and the “make” utilities</li>
+<li><a class="reference external" href="http://archive.eso.org/cms/tools-documentation/skycat/eso-skycat-download.html">Skycat v3.1.2 (or v3.1.3)</a> (<em>GMMPS</em> is a plugin for Skycat; Skycat has its own dependencies, amongst others <a class="reference external" href="https://www.tcl.tk/software/tcltk/8.4.html">Tcl/Tk 8.4</a>. Note that for recent Debian/Ubuntu versions Skycat is available from the respective repositories including all dependencies.)</li>
+<li><a class="reference external" href="http://www.gemini.edu/sciops/data-and-results/processing-software?q=node/11823">Gemini IRAF</a> (to create the input object tables and, if necessary, pseudo-images)</li>
+<li><a class="reference external" href="https://www.gnu.org/software/gawk/manual/gawk.html">awk</a> and <a class="reference external" href="https://www.gnu.org/software/wget/">wget</a> must be found in your PATH variable</li>
+<li><a class="reference external" href="http://www.tcl.tk/software/tcllib/">Standard TCL library (tcllib)</a></li>
+<li>python-tk</li>
+<li>python (v2)</li>
+<li><a class="reference external" href="http://matplotlib.org/">matplotlib</a></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<span id="index-2"></span><h2>1.4. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p><em>GMMPS</em> is a
+<a class="reference external" href="http://archive.eso.org/cms/tools-documentation/skycat/eso-skycat-download.html">Skycat</a>
+plugin. You must have a working Skycat installation before you can install <em>GMMPS</em>.</p>
+<p>Installing <em>GMMPS</em> itself is easy:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="n">xvfz</span> <span class="n">gmmps</span><span class="o">-&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">_src</span><span class="o">.</span><span class="n">tgz</span>
+<span class="o">./</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<div class="section" id="notes-for-macos-users">
+<span id="index-3"></span><h3>1.4.1. Notes for MacOS users<a class="headerlink" href="#notes-for-macos-users" title="Permalink to this headline">¶</a></h3>
+<p>You must use MacOS 10.6 or later. There might be a version conflict depending on
+which compiler suite (<em>clang</em>, <em>gcc</em>) was installed on your Mac, and how it was
+installed (<em>homebrew</em>, <em>Xcode</em>, …). To test whether you are affected, do the
+following:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>cd gmmps-&lt;version&gt;/src/
+make
+</pre></div>
+</div>
+<p>If this runs without errors then you are fine. Just execute the installation script.</p>
+<p>If you encounter a problem, edit <em>src/Makefile</em>. Therein, you find the following
+section:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span># For Darwin / uncomment if needed
+ifeq ($(os),Darwin)
+#  CC=gcc
+#  CXX=g++
+#  INCLUDE_DIRS += /usr/X11R6/include/X11
+#  INCLUDE_DIRS += /usr/X11R6/include
+#  INCLUDE_DIRS += /opt/include/X11/
+#  INCLUDE_DIRS += /opt/X11/include
+#  LIBRARY_DIRS += /usr/X11R6/lib
+#  LIBRARY_DIRS += /opt/X11/
+endif
+</pre></div>
+</div>
+<p>If you have <em>gcc/g++</em> installed (the real ones, not the <em>clang</em> derivatives),
+uncomment the lines that set the CC and CXX variables and try again.
+Perhaps you need to provide the full path to the executables to distinguish
+them from their <em>clang</em> cousins.</p>
+<p>The <em>make</em> utility should then be able to automatically pick up the relevant
+include and library paths. If not, try uncommenting one or more
+of the INCLUDE_DIRS and LIBRARY_DIRS lines.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="loadimage.html" title="2. Loading Images"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="GMMPS 1.4.5: Documentation"
+             >previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Mischa Schirmer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

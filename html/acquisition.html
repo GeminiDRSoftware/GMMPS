@@ -1,0 +1,228 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>14. Appendix: Acquisition stars &#8212; GMMPS 1.4.5 documentation</title>
+    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="15. Appendix: Slit selection algorithm" href="spoc.html" />
+    <link rel="prev" title="13. Appendix: Mask check instructions" href="ngo.html" /> 
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head>
+  <body>
+<div class="pageheader">
+  <ul>
+    <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
+    <li><a href="http://www.gemini.edu/sciops/instruments/flamingos2">F2</a></li>
+  </ul>
+  <div>
+    <a href="http://www.gemini.edu/">
+      <img src="_static/logo.png" alt="GEMINI" align="left" border="0"/>
+    </a>
+  </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="spoc.html" title="15. Appendix: Slit selection algorithm"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ngo.html" title="13. Appendix: Mask check instructions"
+             accesskey="P">previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">14. Appendix: Acquisition stars</a><ul>
+<li><a class="reference internal" href="#requirements">14.1. Requirements</a></li>
+<li><a class="reference internal" href="#recommendations">14.2. Recommendations</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ngo.html"
+                        title="previous chapter">13. Appendix: Mask check instructions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="spoc.html"
+                        title="next chapter">15. Appendix: Slit selection algorithm</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="appendix-acquisition-stars">
+<span id="acquisition-label"></span><h1>14. Appendix: Acquisition stars<a class="headerlink" href="#appendix-acquisition-stars" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">MOS masks are acquired by centering at least two acquisitions stars in
+reference slits (2x2 arcsec square boxes). To this end, the centroids of
+the reference slit and of the star are measured.</p>
+<p>A list of requirements and recommendations is given below.</p>
+<div class="section" id="requirements">
+<h2>14.1. Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><strong>How many stars:</strong> At least two (recommended: three)
+acquisition stars are required if the mask was designed based on
+pre-imaging data. If the mask was designed using
+<a class="reference internal" href="createOT.html#external-catalog-label"><span class="std std-ref">external catalogs and pseudo-images</span></a>,
+then at least three (recommended: four) acquisition stars are required.
+More stars will increase the overhead unnecessarily.</li>
+<li><strong>Same astrometric reference system:</strong> It is paramount that acquisition
+stars and science targets are taken from the same catalog or data source.</li>
+<li><strong>Must not saturate in pre-image:</strong> If saturated in the pre-image, then
+the centroids of the acquisition stars are uncertain, and the
+acquisition will likely fail.</li>
+<li><strong>No proper motion stars:</strong> Do not use high proper motion stars, as
+the pre-images and the actual science observations may be taken months
+or years apart. <em>GMMPS</em> checks the proper motion vectors.</li>
+<li><strong>Where on the detector:</strong> Acquisition stars should be placed as far from
+each other as possible, and ideally in a triangular fashion.</li>
+<li><strong>Stay clear of detector gaps and field border:</strong>
+<em>GMMPS</em> issues a warning if an acquisition star is less than 4.0” from a
+detector gap or the border of the slit placement area. An additional
+acquisition star must be included in the mask design as backup unless
+there are already 2 (pre-image) or 3 (pseudo-image) good acquisition
+stars present. Distances
+less than 2.0” are not permitted by <em>GMMPS</em> because the centroid measurements
+will likely fail due to truncation and / or shadowing. In this case, the
+star’s <a class="reference internal" href="editOT.html#priority-label"><span class="std std-ref">priority</span></a> must be changed to a non-zero value.</li>
+<li><strong>No OIWFS guide stars:</strong> OIWFS guide stars are shadowed by the guide
+probe arm. They cannot be used as acquisition stars.</li>
+</ol>
+</div>
+<div class="section" id="recommendations">
+<h2>14.2. Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><strong>Stars, not galaxies:</strong> Stars should always be preferred over galaxies as
+they have better defined centroids, and the centroid is independent of the
+light distribution as a function of seeing. This is not the case for
+galaxies, where substructures may bias the centroiding. Galaxies may
+be used as a last ressort, only, e.g. if insufficient guide stars are
+available. In that case, choose featureless galaxies with compact bright
+nuclei.</li>
+<li><strong>Bright enough:</strong> Acquisition stars should be bright enough (between
+mag 12-19) and ideally within 2 magnitudes (so that they can be displayed
+properly in a single exposure by the observer). Fainter stars may be used
+if necessary, but this will increase the overheads as the observer possibly
+needs to increase the exposure times.</li>
+<li><strong>If in doubt:</strong> If you are not certain about a particular acquisition
+source, for whatever reason (e.g. close to gap, possibly proper motion),
+an additional acquisition star must be provided.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The rms offset of the acquisition stars from the center of the acquisition
+boxes must be less than 25% of the slit width of the narrowest science
+slit. Otherwise the observing software decides that the mask cannot be
+aligned.</p>
+</div>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="_images/gmmps_acq_proximity.png"><img alt="_images/gmmps_acq_proximity.png" src="_images/gmmps_acq_proximity.png" style="width: 411.18px; height: 344.52px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 14.1 </span><span class="caption-text"><em>The acquisition star to the lower right is within 4.0” of the border of
+the slit placement area. Most likely this is ok, but its spectrum is shown
+yellow to highlight it as potentially problematic. An additional
+acquisition star must be included in the mask design unless there are
+already 2 (pre-image) or 3 (pseudo-image) good acquisition stars present.
+The acquisition star to the upper left has a safe distance to the GMOS
+detector gap.</em></span></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="spoc.html" title="15. Appendix: Slit selection algorithm"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ngo.html" title="13. Appendix: Mask check instructions"
+             >previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Mischa Schirmer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

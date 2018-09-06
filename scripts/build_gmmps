@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Used to construct the gmmps executable.
+
+echo "#!/bin/bash"
+echo
+echo "export GMMPS=$1"
+echo 'OPTION="-with_grid 1 -scrollbars 1 -rtd 0"'
+echo 'export INTROOT=$GMMPS; export INTROOT;'
+echo 'export SKYCAT_PLUGIN=$INTROOT/src/SkyCat_plugin.tcl; export SKYCAT_PLUGIN'
+echo "export PATH=$1/bin"':$PATH:'
+echo "$1/scripts/version_check.sh $1"
+
+
+if [ "$3" == "Darwin" ]; then
+    echo 'export DYLD_LIBRARY_PATH=$GMMPS/lib:'"$2"':/usr/lib:$DYLD_LIBRARY_PATH'
+else
+    echo 'export LD_LIBRARY_PATH=$GMMPS/lib:'"$2"':/usr/lib:$LD_LIBRARY_PATH'
+fi
+
+# Find the skycat binary
+skycat=`which skycat`
+
+echo "export SKYCAT=${skycat}"	
+
+echo '$SKYCAT $OPTION $*'

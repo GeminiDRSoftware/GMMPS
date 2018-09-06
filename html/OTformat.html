@@ -1,0 +1,273 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>3. Object Tables (OTs) – Format &#8212; GMMPS 1.4.5 documentation</title>
+    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Creating OTs" href="createOT.html" />
+    <link rel="prev" title="2. Loading Images" href="loadimage.html" /> 
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head>
+  <body>
+<div class="pageheader">
+  <ul>
+    <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
+    <li><a href="http://www.gemini.edu/sciops/instruments/flamingos2">F2</a></li>
+  </ul>
+  <div>
+    <a href="http://www.gemini.edu/">
+      <img src="_static/logo.png" alt="GEMINI" align="left" border="0"/>
+    </a>
+  </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="createOT.html" title="4. Creating OTs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="loadimage.html" title="2. Loading Images"
+             accesskey="P">previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. Object Tables (OTs) – Format</a><ul>
+<li><a class="reference internal" href="#mandatory-columns">3.1. Mandatory columns</a></li>
+<li><a class="reference internal" href="#optional-columns">3.2. Optional columns</a><ul>
+<li><a class="reference internal" href="#priority">3.2.1. Priority</a></li>
+<li><a class="reference internal" href="#slitsize-and-slitpos">3.2.2. slitsize and slitpos</a></li>
+<li><a class="reference internal" href="#tilted-and-curved-slits">3.2.3. Tilted and curved slits</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="loadimage.html"
+                        title="previous chapter">2. Loading Images</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="createOT.html"
+                        title="next chapter">4. Creating OTs</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="object-tables-ots-format">
+<span id="index-0"></span><h1>3. Object Tables (OTs) – Format<a class="headerlink" href="#object-tables-ots-format" title="Permalink to this headline">¶</a></h1>
+<p>Object Tables (OTs) are FITS tables containing all necessary information
+for the mask design. This section describes the OT format, and the next
+section <a class="reference internal" href="createOT.html#create-ot-label"><span class="std std-ref">how to create an OT</span></a>.</p>
+<div class="section" id="mandatory-columns">
+<span id="mandatory-ot-columns-label"></span><span id="index-1"></span><h2>3.1. Mandatory columns<a class="headerlink" href="#mandatory-columns" title="Permalink to this headline">¶</a></h2>
+<p>OTs have the following mandatory columns, ideally in this order:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ID:</th><td class="field-body">Unique object id (16-bit <strong>integer</strong>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">RA:</th><td class="field-body">Right ascension in hours (<strong>float</strong>)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">DEC:</th><td class="field-body">Declination in degrees (<strong>float</strong>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">x_ccd:</th><td class="field-body">X coordinate of object position in pixels (<strong>float</strong>)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">y_ccd:</th><td class="field-body">Y coordinate of object position in pixels (<strong>float</strong>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">MAG:</th><td class="field-body">Relative magnitude (<strong>float</strong>)</td>
+</tr>
+</tbody>
+</table>
+<p>The column names are <strong>case sensitive</strong>.</p>
+<p>The numeric format is <strong>mandatory</strong>, in particular <strong>the ID must be an integer</strong>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The RA and DEC columns are used to plot the object
+positions in the image. Cartesian x and y coordinates are used to define
+(and plot) the positions of the slits.</p>
+</div>
+</div>
+<div class="section" id="optional-columns">
+<span id="optional-ot-columns-label"></span><span id="index-2"></span><h2>3.2. Optional columns<a class="headerlink" href="#optional-columns" title="Permalink to this headline">¶</a></h2>
+<p>The following columns (if absent) will be added automatically by <em>GMMPS</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">slitsize_x:</th><td class="field-body">Slit extent in X-direction in arcsec (<strong>float</strong>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">slitsize_y:</th><td class="field-body">Slit extent in Y-direction in arcsec (<strong>float</strong>)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">slitpos_x:</th><td class="field-body">Offset in X-direction relative to the object in arcsec (<strong>float</strong>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">slitpos_y:</th><td class="field-body">Offset in Y-direction relative to the object in arcsec (<strong>float</strong>)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">slittilt:</th><td class="field-body">Slit position angle in degrees (<strong>float</strong>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">slittype:</th><td class="field-body">Slit type. Currently, only rectangular slits are allowed (slittype = R; <strong>char*1</strong>)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">priority:</th><td class="field-body">Priority (<strong>char*1</strong>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">redshift:</th><td class="field-body">Redshift of the source (if any, otherwise zero) (<strong>float</strong>)</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="priority">
+<span id="index-3"></span><h3>3.2.1. Priority<a class="headerlink" href="#priority" title="Permalink to this headline">¶</a></h3>
+<p>An object’s priority is represented by a single character with 5 possible
+values.</p>
+<ul class="simple">
+<li><em>priority = 0</em>: Acquisition star (at least two required, better three)</li>
+<li><em>priority = 1</em>: Highest priority</li>
+<li><em>priority = 2</em>: Medium priority</li>
+<li><em>priority = 3</em>: Lowest priority</li>
+<li><em>priority = X</em>: Ignore object</li>
+</ul>
+<p>More information on <a class="reference internal" href="spoc.html#gmmakemasks-label"><span class="std std-ref">how GMMPS uses priorities</span></a>.</p>
+</div>
+<div class="section" id="slitsize-and-slitpos">
+<span id="index-4"></span><h3>3.2.2. slitsize and slitpos<a class="headerlink" href="#slitsize-and-slitpos" title="Permalink to this headline">¶</a></h3>
+<p><strong>GMOS has a horizontal dispersion</strong> (in image coordinates), and
+therefore <em>slitsize_x/y</em> refer to the slit width and slit length,
+respectively. To offset the object along the slit you would introduce
+a non-zero value for <em>slitpos_y</em>. A non-zero value for <em>slitpos_x</em>
+would quickly lead to flux losses for point-like objects as they are
+driven off the slit.</p>
+<p><strong>F2 has a vertical dispersion</strong>. Therefore, <em>slitsize_x/y</em> refer to
+the slit length and slit width, respectively. To offset the object
+along the slit you would introduce a non-zero value for <em>slitpos_x</em>.
+A non-zero value for <em>slitpos_y</em> would quickly lead to flux losses
+for point-like objects as they are driven off the slit.</p>
+<p id="index-5"><strong>Defaults:</strong> The following values are used if optional columns are added:</p>
+<ul class="simple">
+<li>slit width = 1.0 (<em>slitsize_x</em> for <strong>GMOS</strong>, <em>slitsize_y</em> for <strong>F2</strong>)</li>
+<li>slit length = 5.0 (<em>slitsize_y</em> for <strong>GMOS</strong>, <em>slitsize_x</em> for <strong>F2</strong>)</li>
+<li><em>slitpos_x = 0.0</em></li>
+<li><em>slitpos_y = 0.0</em></li>
+<li><em>slittilt = 0.0</em></li>
+<li><em>priority = 2</em></li>
+</ul>
+</div>
+<div class="section" id="tilted-and-curved-slits">
+<span id="tilted-slits-label"></span><span id="index-6"></span><h3>3.2.3. Tilted and curved slits<a class="headerlink" href="#tilted-and-curved-slits" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Positive angles rotate the slit counter-clockwise.</li>
+<li>Angles larger than 45 degrees are not permitted.</li>
+<li>A tilted slit is represented by a parallelogram. Its width
+in dispersion direction remains unchanged (i.e. <em>slitsize_x</em>
+for GMOS, and <em>slitsize_y</em> for F2). The spectral resolution is
+conserved among slits with different tilt angles and identical
+widths.</li>
+<li>Tilted slits are permitted in Nod &amp; Shuffle masks, provided
+a <span class="math">q=0</span> offset is used in the GMOS Nod &amp; Shuffle component
+of the <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>
+(<a class="reference internal" href="ngo.html#tiltslit-in-ns-label"><span class="std std-ref">see here</span></a>).</li>
+<li>Curved slits are not supported. They can be mimicked by
+concatenating neighboring slits with different tilt angles.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="createOT.html" title="4. Creating OTs"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="loadimage.html" title="2. Loading Images"
+             >previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Mischa Schirmer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

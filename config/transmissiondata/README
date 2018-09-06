@@ -1,0 +1,20 @@
+atmosphere.txt is based on measured Paranal atmospheric transmission at 
+airmass 1.0 between 330 and 850nm with low sampling. The part redder than 
+850nm was taken from the E-ELT atmospheric models (airmass 1.0, dry, very 
+high resolution), mean filtered on a 10nm scale, and normalized so that 
+it would smoothly fit to the optical throughput spectrum at 850nm.
+Somewhat rought, but sufficiently good for GMMPS purposes.
+GMOS-S_z_G0328 has been extended from 1000 to 1100nm using the essentially 
+identical transmission curve from GMOS-N.
+
+Y and Z band filters were sorted wrt. decreasing wavelengths, and the
+throughput was in %. The GMOS-S Y-band filter had a tiny bump at around
+700-800nm, which confused the automatic wavelength calculation, so I truncated
+the data at 810nm.
+
+The F2_HK_G0806.txt is spliced together from the F2_Kshort and the F2_HK 
+filters, with a splice point at 2310nm; for the time being until data
+are available.
+
+The F2 quantum efficiency is my best guess given QE curves of other Teledyne
+Hawaii-2 arrays and the J and K QEs actually measured for the F2 detector.

@@ -1,0 +1,72 @@
+# INSTRUMENT: FLAMINGOS2
+#
+# This file defines:
+# (1) Full detector extent
+# (2) Illuminated field of view
+# (3) Gaps (if any)
+# Used by gmmps_fov.cc, gmMakeMasks_2, vmAstroCat.tcl
+#
+#
+# FORMAT:
+# keyword value_x value_y
+#
+#
+# NOTE: 
+# --------------------------------------------------------------------------
+# --- Keywords must be sequential running through corners 1-8 (1-4 for gaps)
+# --- All corners must be present (8 for FOV, 4 for gaps)
+# --- All values must be in arc seconds
+# --- All values are with respect to a fiducial pointing center
+# --------------------------------------------------------------------------
+# 
+#
+# CORNER SCHEME (must stick to that!)
+# 'X' displays the pointing center (not necessarily centered within the FoV) 
+#
+#       X4-Y4 ----- X5-Y5
+#       /              \
+#      /                \
+#   X3-Y3              X6-Y6
+#     |                  | 
+#     |         X        | 
+#     |                  | 
+#   X2-Y2              X7-Y7
+#      \                /
+#       \              /
+#       X1-Y1 ----- X8-Y8
+#
+#
+#
+# GAP and DETECTOR ARRAY SCHEME (must stick to that!)
+# 'X' displays the pointing center (not necessarily centered within the FoV) 
+#
+#   X2-Y2 --- X3-Y3
+#     |         | 
+#     |         | 
+#     |         | 
+#     |    X    |
+#     |         | 
+#     |         | 
+#     |         | 
+#   X1-Y1 --- X4-Y4
+#
+#
+#
+# Field of view
+#
+FOV_CORNER1 -87.0 -30.0
+FOV_CORNER2 -91.5 -10.5
+FOV_CORNER3 -91.5  10.5
+FOV_CORNER4 -87.0  30.0
+FOV_CORNER5  86.5  30.0
+FOV_CORNER6  91.0  10.5
+FOV_CORNER7  91.0 -10.5
+FOV_CORNER8  86.5 -30.0 
+#
+#
+# Overall detector dimensions
+#
+DIM_CORNER1 -92.0 -91.5
+DIM_CORNER2 -92.0  92.0
+DIM_CORNER3  91.5  92.0
+DIM_CORNER4  91.5 -91.5

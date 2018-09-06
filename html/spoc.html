@@ -1,0 +1,221 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>15. Appendix: Slit selection algorithm &#8212; GMMPS 1.4.5 documentation</title>
+    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="16. Appendix: GMMPS wavelength overlays" href="moswavegrid.html" />
+    <link rel="prev" title="14. Appendix: Acquisition stars" href="acquisition.html" /> 
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head>
+  <body>
+<div class="pageheader">
+  <ul>
+    <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
+    <li><a href="http://www.gemini.edu/sciops/instruments/flamingos2">F2</a></li>
+  </ul>
+  <div>
+    <a href="http://www.gemini.edu/">
+      <img src="_static/logo.png" alt="GEMINI" align="left" border="0"/>
+    </a>
+  </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="moswavegrid.html" title="16. Appendix: GMMPS wavelength overlays"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="acquisition.html" title="14. Appendix: Acquisition stars"
+             accesskey="P">previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">15. Appendix: Slit selection algorithm</a><ul>
+<li><a class="reference internal" href="#field-of-view">15.1. Field of View</a></li>
+<li><a class="reference internal" href="#acquisition-stars">15.2. Acquisition stars</a></li>
+<li><a class="reference internal" href="#handling-object-priorities">15.3. Handling object priorities</a></li>
+<li><a class="reference internal" href="#details-of-the-slit-selection-algorithm">15.4. Details of the slit selection algorithm</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="acquisition.html"
+                        title="previous chapter">14. Appendix: Acquisition stars</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="moswavegrid.html"
+                        title="next chapter">16. Appendix: <em>GMMPS</em> wavelength overlays</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="appendix-slit-selection-algorithm">
+<span id="index-0"></span><h1>15. Appendix: Slit selection algorithm<a class="headerlink" href="#appendix-slit-selection-algorithm" title="Permalink to this headline">¶</a></h1>
+<p>This section describes how <em>GMMPS</em> decides which slits are kept
+for a particular mask.</p>
+<div class="section" id="field-of-view">
+<h2>15.1. Field of View<a class="headerlink" href="#field-of-view" title="Permalink to this headline">¶</a></h2>
+<p>The algorithm discards an object if more than 10% of the slit
+is truncated by the edge of the slit placement area, or if the
+object falls entirely outside. In case of band-shuffling mode,
+an object is also dropped if the slit is not entirely contained
+within a science band.</p>
+</div>
+<div class="section" id="acquisition-stars">
+<span id="index-1"></span><h2>15.2. Acquisition stars<a class="headerlink" href="#acquisition-stars" title="Permalink to this headline">¶</a></h2>
+<p><em>GMMPS</em> will place <em>all</em> acquisition stars defined in the OT in <em>all</em>
+masks derived from that OT.</p>
+<span class="target" id="gmmakemasks-label"></span></div>
+<div class="section" id="handling-object-priorities">
+<span id="index-2"></span><h2>15.3. Handling object priorities<a class="headerlink" href="#handling-object-priorities" title="Permalink to this headline">¶</a></h2>
+<p>Once the acquisition stars are placed, as many priority 1 objects as
+possible will be placed, followed by priority 2 and then priority 3
+targets. An object of higher priority will always be placed on a mask
+at the expense of any number of lower-priority objects.</p>
+</div>
+<div class="section" id="details-of-the-slit-selection-algorithm">
+<h2>15.4. Details of the slit selection algorithm<a class="headerlink" href="#details-of-the-slit-selection-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>The follwoing information is not required for using <em>GMMPS</em>.
+The slit selection algorithm is implemented in C++ and works as follows:</p>
+<ol class="arabic simple">
+<li>Each target is represented in a <em>Slit</em> object, and an array of <em>Slit</em>
+objects is created, too.</li>
+<li>A <em>conflict graph</em> is constructed for all <em>Slit</em> objects. This is a
+representation of all the slits on the mask, with the vectors representing
+each respective object and edges between any two vectors that cannot both
+be placed on the same mask. This first conflict map is made so that when
+a slit is placed the program will know which slits it can remove (and
+therefore remove from consideration for placement) from the main Slits
+array. This will be useful in the following steps when we are
+considering slits of the same priority only (but nonetheless cannot place
+overlapping slits from different priorities).</li>
+<li>The acquisition slits are placed on the mask. This step is similar to the
+following step for slits with priorities 1 to 3, with two exceptions:
+First, acquisition slits will be placed on all masks. Second, the spectra
+of acquisition stars are allowed to overlap (i.e. they do not create conflicts
+amongst each other). In general, a conflict graph is made for all acquisition
+stars, the objects are then ranked by degree of the object’s graph representation
+(the number of edges connected to the vertex in the conflict graph) in the
+conflict graph that was based on objects of the same-priority. Objects are
+then placed on
+the graph starting with the lowest-degree object and proceeding until no
+more objects can be placed on the graph. When an object is placed any other
+object that conflicted with that object is removed from the Slits array, as
+well as the local (same priority level) and global (all priority levels)
+conflict graphs. The local conflict graph is updated during this step to
+reflect the removal of these objects. When the local conflict graph is
+empty then no more objects can be placed on the graph, and the program
+moves on to the next-lower priority level and repeats this process.</li>
+<li>If no auto-expansion is desired then the program moves on to the final ODF
+creation. Otherwise the algorithm sorts all slits by the non-dispersion
+direction (the x-direction for F2 and the y-direction for GMOS) and expands
+each slit as much as possible in that direction without causing spectra to
+overlap (taking into account the
+<a class="reference internal" href="createODF.html#min-slit-sep-label"><span class="std std-ref">minimum slit separation</span></a>). The modified slit
+array is stored and the final ODFs are created.</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="moswavegrid.html" title="16. Appendix: GMMPS wavelength overlays"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="acquisition.html" title="14. Appendix: Acquisition stars"
+             >previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Mischa Schirmer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

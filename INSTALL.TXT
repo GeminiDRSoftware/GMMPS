@@ -1,0 +1,79 @@
+Both pre-compiled binaries as well as the source code are
+contained in the GMMPS distribution package. Installation 
+instructions for both are given below.
+
+The GMMPS users manual is available online at
+   
+   http://www.gemini.edu/node/10458
+
+
+1. Dependencies
+=============================================================
+
+You must have 'skycat' installed. GMMPS was designed and 
+tested for use with Skycat 3.1.2 and YOU MUST USE that 
+version. Both installer scripts check the presence of the
+required shared libraries.
+You can download Skycat at:
+
+   http://archive.eso.org/cms/tools-documentation/skycat/eso-skycat-download.html
+
+NOTE for Ubuntu and other Debian-based systems:
+
+Skycat and its associated Tcl/Tk modules are distributed as
+rpm packages. To install them on a Debian-based system they 
+must be converted to a 'deb' package using 'alien'. For example:
+
+   sudo apt-get update
+   sudo apt-get install alien
+   sudo alien -k tcltk-8.4.1-1.el5.x86_64.rpm
+   sudo alien -k --scripts skycat-3.1.2-1.el5.x86_64.rpm
+   sudo dpkg -i tcltk_8.4.1-1_amd64.deb
+   sudo dpkg -i skycat_3.1.2-1_amd64.deb
+
+NOTE for MacOS users:
+
+You must use MacOS 10.6 or later. Earlier versions require an older
+skycat library which is not supported anymore by GMMPS.
+
+
+2. Source Code Installation Instructions (default)
+=============================================================
+
+Run:
+
+    ./install.sh
+
+
+3. Launching GMMPS
+=============================================================
+
+Launch GMMPS directly from its installation directory:
+
+    gmmps-<version>/bin/gmmps
+
+More conveniently, add gmmps-<version>/bin to your PATH variable:
+
+For 'bash' add this line your .bashrc:
+    export PATH=$PATH:<PATH-TO-GMMPS>/gmmps-<version>/bin
+
+For 'csh' add this line to your .cshrc:
+    setenv PATH ${PATH}:<PATH-TO-GMMPS>/gmmps-<version>/bin
+
+Open a new terminal and type:
+gmmps &
+
+
+
+4. Earlier versions of GMMPS
+=============================================================
+
+Earlier version of GMMPS on your system must be renamed, or 
+removed from the PATH variable.
+
+To ensure maximum compatibility and the best mask design, 
+Gemini Observatory will NOT accept masks that have been 
+designed with earlier versions of GMMPS.
+
+GMMPS performs a version check upon startup, and will 
+notify you if a new version of GMMPS has become available.

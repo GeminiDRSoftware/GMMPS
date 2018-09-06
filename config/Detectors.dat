@@ -1,0 +1,28 @@
+# Detectors Definition File
+#
+# This file describes the detectors currently in place for the GMOS-N, GMOS-S,
+# and Flamingos-2 instruments, as well as legacy detectors. Each line in this 
+# file describes the properties of a single detector
+#
+# Column entries may be separated by blanks and/or tabs or a combination thereof.
+# Value entries, such as the DETID for GMOS-N, have blanks inside the string
+# replaced with underscores.
+#
+# The properties are (in order):
+# 
+# Installed Flag  : 0 or 1. A 1 indicates that this detector is currently
+#                   installed in its respective instrument. 
+# Instrument Name : The instrument in which this detector was/is installed.
+# Detector Id     : Reflects the DET_ID present in the fits header of images
+#                   when this detector was/is installed.
+# Detector Name   : A more human-friendly name for each detector.
+# Dispersion direction: The dispersion direction of the spectra (horizontal or vertical)
+# Band size (GMOS-N/S only): The default Nod & Shuffle band shuffling band size.
+#
+#
+1 GMOS-S BI5-36-4k-2,BI11-33-4k-1,BI12-34-4k-1	 GMOS-S_HAM   horizontal 1392
+0 GMOS-S EEV2037-06-03EEV8194-19-04EEV8261-07-04 GMOS-S_EEV   horizontal 1536
+1 GMOS-N BI13-20-4k-1,BI12-09-4k-2,BI13-18-4k-2  GMOS-N_HAM   horizontal 1392
+0 GMOS-N e2v_10031-23-05,10031-01-03,10031-18-04 GMOS-N_E2VDD horizontal 1536
+0 GMOS-N EEV9273-16-03EEV9273-20-04EEV9273-20-03 GMOS-N_EEV   horizontal 1536
+1 F2 109 F2_HAWAII2 vertical

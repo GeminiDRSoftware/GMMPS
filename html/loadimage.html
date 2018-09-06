@@ -1,0 +1,178 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2. Loading Images &#8212; GMMPS 1.4.5 documentation</title>
+    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Object Tables (OTs) – Format" href="OTformat.html" />
+    <link rel="prev" title="1. Getting started" href="installation.html" /> 
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head>
+  <body>
+<div class="pageheader">
+  <ul>
+    <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
+    <li><a href="http://www.gemini.edu/sciops/instruments/flamingos2">F2</a></li>
+  </ul>
+  <div>
+    <a href="http://www.gemini.edu/">
+      <img src="_static/logo.png" alt="GEMINI" align="left" border="0"/>
+    </a>
+  </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="OTformat.html" title="3. Object Tables (OTs) – Format"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="1. Getting started"
+             accesskey="P">previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2. Loading Images</a><ul>
+<li><a class="reference internal" href="#loading">2.1. Loading</a></li>
+<li><a class="reference internal" href="#adjusting-the-dynamic-range">2.2. Adjusting the dynamic range</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">1. Getting started</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="OTformat.html"
+                        title="next chapter">3. Object Tables (OTs) – Format</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="loading-images">
+<span id="load-image-skycat-label"></span><span id="index-0"></span><h1>2. Loading Images<a class="headerlink" href="#loading-images" title="Permalink to this headline">¶</a></h1>
+<p>An image for visual reference is always required when designing a mask with <em>GMMPS</em>.
+The image is either a reduced GMOS/F2 image (<em>pre-image</em>) supplied by Gemini, or a
+reduced image from a different telescope that has been re-formatted so that it appears
+as if it was taken with GMOS or F2 (a <a class="reference internal" href="createOT.html#pseudo-image-label"><span class="std std-ref">pseudo-image</span></a>).</p>
+<div class="section" id="loading">
+<h2>2.1. Loading<a class="headerlink" href="#loading" title="Permalink to this headline">¶</a></h2>
+<p>Launch <em>GMMPS</em> directly with the image name,</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gmmps</span> <span class="o">&lt;</span><span class="n">image</span><span class="o">.</span><span class="n">fits</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>or use the <em>File -&gt; Open</em> command in the <em>Skycat</em> menu.</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="_images/gmmps_loadimage.png"><img alt="_images/gmmps_loadimage.png" src="_images/gmmps_loadimage.png" style="width: 673.0px; height: 434.5px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text"><em>FITS image displayed in Skycat.</em></span></p>
+</div>
+<span class="target" id="adjust-skycat-cutlevels-label"></span></div>
+<div class="section" id="adjusting-the-dynamic-range">
+<span id="index-1"></span><h2>2.2. Adjusting the dynamic range<a class="headerlink" href="#adjusting-the-dynamic-range" title="Permalink to this headline">¶</a></h2>
+<p>Click on <em>Auto Set Cut Levels</em> or go to <em>View -&gt; Cut levels</em> to adjust the dynamic
+range. Alternatively, enter <em>Low</em> and <em>High</em> levels. For the low value, choose a
+number somewhat less than the background value. Pixels exceeding the <em>High</em> threshold
+will be displayed white.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="OTformat.html" title="3. Object Tables (OTs) – Format"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="1. Getting started"
+             >previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Mischa Schirmer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

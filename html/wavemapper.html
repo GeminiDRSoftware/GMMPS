@@ -1,0 +1,393 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>17. Appendix: GMOS WaveMapper &#8212; GMMPS 1.4.5 documentation</title>
+    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="18. Appendix: Troubleshooting" href="tt.html" />
+    <link rel="prev" title="16. Appendix: GMMPS wavelength overlays" href="moswavegrid.html" /> 
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head>
+  <body>
+<div class="pageheader">
+  <ul>
+    <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
+    <li><a href="http://www.gemini.edu/sciops/instruments/flamingos2">F2</a></li>
+  </ul>
+  <div>
+    <a href="http://www.gemini.edu/">
+      <img src="_static/logo.png" alt="GEMINI" align="left" border="0"/>
+    </a>
+  </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tt.html" title="18. Appendix: Troubleshooting"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="moswavegrid.html" title="16. Appendix: GMMPS wavelength overlays"
+             accesskey="P">previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">17. Appendix: GMOS WaveMapper</a><ul>
+<li><a class="reference internal" href="#purpose-and-scope">17.1. Purpose and scope</a></li>
+<li><a class="reference internal" href="#user-interface">17.2. User Interface</a></li>
+<li><a class="reference internal" href="#useful-ifu-2-configurations">17.3. Useful IFU-2 configurations</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="moswavegrid.html"
+                        title="previous chapter">16. Appendix: <em>GMMPS</em> wavelength overlays</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tt.html"
+                        title="next chapter">18. Appendix: Troubleshooting</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="appendix-gmos-wavemapper">
+<span id="wm-window-label"></span><h1>17. Appendix: GMOS WaveMapper<a class="headerlink" href="#appendix-gmos-wavemapper" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose-and-scope">
+<h2>17.1. Purpose and scope<a class="headerlink" href="#purpose-and-scope" title="Permalink to this headline">¶</a></h2>
+<p>The <em>WaveMapper</em> is a tool to adjust the central wavelength
+for the <strong>standard longslit, IFU-R and IFU-2 modes of GMOS-N and GMOS-S.</strong>
+It is not part of the MOS mask creation process. However, it utilizes the
+mathematical models developed for <em>GMMPS</em>, and shares a substantial part
+of the <em>GMMPS</em> source code. <em>WaveMapper</em> comes bundled with <em>GMMPS</em> v1.4.0
+or later, and is available in <em>Skycat</em> as a separate menu item after the
+installation of <em>GMMPS</em>.</p>
+<p>The <em>WaveMapper</em> facilitates optimal central wavelength (CWL) choices, such
+that important spectral features do not get lost to detector gaps, boundaries,
+and bad columns (GMOS-S).</p>
+<p>The following configurations are supported for GMOS-N/S:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Mode</th>
+<th class="head">Grating</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Longslit, IFU-R, IFU-2</td>
+<td>R150, R400, R831, B600, B1200</td>
+</tr>
+<tr class="row-odd"><td>Longslit, IFU-R, IFU-2</td>
+<td>R150, R400, R831, B600, B1200</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="user-interface">
+<h2>17.2. User Interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="_images/gmmps_WM_intro.png"><img alt="_images/gmmps_WM_intro.png" src="_images/gmmps_WM_intro.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 17.1 </span><span class="caption-text"><em>The WaveMapper user interface. The control panel (left) offers a range of display
+options, which are then shown on top of the GMOS image (right panel).</em></span></p>
+</div>
+<ol class="arabic simple">
+<li>Select the configuration you want to analyze. GMOS-N/S and their respective longslit,
+IFU-R and IFU-2 modes are available. Upon selection, a (2x2 binned) background image
+will be shown with the correct detector size and gap positions.</li>
+<li>Select the grating, and optionally a filter. <em>WaveMapper</em> will display the normalized
+(blue) and absolute (gray) throughput curves, including contributions from the grating,
+filter, detector, and the atmosphere. The CWL will be set to the midpoint of the
+effective bandpass.</li>
+<li><strong>Warnings</strong> will be issued in the following cases:<ul>
+<li>Occurrence of 2nd order overlap. Wavelengths will be indicated. You may then
+select a suitable order sorting filter.</li>
+<li>Overlap of the two spectral banks for the IFU-2. This is always shown as a red
+hashed area (see examples below). Some of the IFU-2 configurations have
+significant overlap rendering the entire central detector (or more) useless.
+Yet these can be very useful if one is just interested in single emission lines
+that fall into the clean areas.</li>
+<li>Overlap of the 2nd order of the right spectral bank with the first order of the
+left spectral bank. There is not much you can do about that, because you already
+have a filter in the beam to accommodate both spectral banks on the detector.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Display options:</strong></p>
+<ol class="arabic">
+<li><p class="first"><strong>Spectra:</strong> Activates the display, and shows the extent of the spectrum
+(or the two spectra in case of the IFU-2.)</p>
+</li>
+<li><p class="first"><strong>Wavelength grid:</strong> Enables the wavelength overlays. Displays a regular wavelength
+grid of yellow lines with numeric wavelength labels. Also displays a red line for
+the CWL, and the wavelengths of the detector gaps. Note how the gap wavelengths
+change as a function of detector y-position because of optical aberrations.</p>
+<p>Use the <strong>CWL spinbox</strong> to see the effect of different CWL settings.</p>
+</li>
+<li><p class="first"><strong>Second order:</strong> Toggles off/on the second order overlap, if any. This will
+be shown as a orange hashed area.</p>
+</li>
+<li><p class="first"><strong>Slit position:</strong> Shows a green vertical line indicating where on the detector
+the long-slit, IFU-R and IFU-2 slits fall.</p>
+</li>
+<li><p class="first"><strong>Other wavelengths [nm] / redshift:</strong>
+Takes a blank-separated list of user-defined wavelengths and / or the
+<a class="reference internal" href="loadODF.html#atomic-identifiers-label"><span class="std std-ref">atomic identifiers used in GMMPS</span></a>.
+The wavelengths will be displayed using a cyan color. Optionally, they
+can be redshifted.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="useful-ifu-2-configurations">
+<h2>17.3. Useful IFU-2 configurations<a class="headerlink" href="#useful-ifu-2-configurations" title="Permalink to this headline">¶</a></h2>
+<p>The CWL ranges listed below may be adjusted somewhat if only small wavelength ranges or
+single emission lines are of interest. The screen-shot wavelength maps are for GMOS-S
+and the default CWL that allows for equal wavelength coverage of both spectral
+banks (about midway of the given min-max range). Maps are very similar for GMOS-N.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="16%" />
+<col width="11%" />
+<col width="7%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Grating</th>
+<th class="head">Filter</th>
+<th class="head">CWL min-max</th>
+<th class="head">Overlap</th>
+<th class="head">Wavelength maps</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>B600</td>
+<td>u</td>
+<td>350–410</td>
+<td>–</td>
+<td><a class="reference external" href="_images/IFU2_B600_u.png">IFU2_B600_u.png</a></td>
+</tr>
+<tr class="row-odd"><td>B600</td>
+<td>g</td>
+<td>420–550</td>
+<td>small</td>
+<td><a class="reference external" href="_images/IFU2_B600_g.png">IFU2_B600_g.png</a></td>
+</tr>
+<tr class="row-even"><td>B600</td>
+<td>g+GG455</td>
+<td>450–550</td>
+<td>–</td>
+<td><a class="reference external" href="_images/IFU2_B600_g+GG455.png">IFU2_B600_g+GG455.png</a></td>
+</tr>
+<tr class="row-odd"><td>B600</td>
+<td>r</td>
+<td>580–680</td>
+<td>small</td>
+<td><a class="reference external" href="_images/IFU2_B600_r.png">IFU2_B600_r.png</a></td>
+</tr>
+<tr class="row-even"><td>B600</td>
+<td>r+RG610</td>
+<td>610–700</td>
+<td>–</td>
+<td><a class="reference external" href="_images/IFU2_B600_r+RG610.png">IFU2_B600_r+RG610.png</a></td>
+</tr>
+<tr class="row-odd"><td>R400</td>
+<td>r</td>
+<td>570–700</td>
+<td>–</td>
+<td><a class="reference external" href="_images/IFU2_R400_r.png">IFU2_R400_r.png</a></td>
+</tr>
+<tr class="row-even"><td>R400</td>
+<td>i</td>
+<td>710–850</td>
+<td>–</td>
+<td><a class="reference external" href="_images/IFU2_R400_i.png">IFU2_R400_i.png</a></td>
+</tr>
+<tr class="row-odd"><td>R400</td>
+<td>z</td>
+<td>890–980</td>
+<td>small</td>
+<td><a class="reference external" href="_images/IFU2_R400_z.png">IFU2_R400_z.png</a></td>
+</tr>
+<tr class="row-even"><td>R400</td>
+<td>CaT</td>
+<td>780–920</td>
+<td>–</td>
+<td><a class="reference external" href="_images/IFU2_R400_CaT.png">IFU2_R400_CaT.png</a></td>
+</tr>
+<tr class="row-odd"><td>B1200</td>
+<td>u</td>
+<td>350–400</td>
+<td>–</td>
+<td><a class="reference external" href="_images/IFU2_B1200_u.png">IFU2_B1200_u.png</a></td>
+</tr>
+<tr class="row-even"><td>B1200</td>
+<td>g+GG455</td>
+<td>490–530</td>
+<td>medium</td>
+<td><a class="reference external" href="_images/IFU2_B1200_g+GG455.png">IFU2_B1200_g+GG455.png</a></td>
+</tr>
+<tr class="row-odd"><td>B1200</td>
+<td>g+OG515</td>
+<td>510–550</td>
+<td>–</td>
+<td><a class="reference external" href="_images/IFU2_B1200_g+OG515.png">IFU2_B1200_g+OG515.png</a></td>
+</tr>
+<tr class="row-even"><td>B1200</td>
+<td>r+RG610</td>
+<td>630–680</td>
+<td>medium</td>
+<td><a class="reference external" href="_images/IFU2_B1200_r+RG610.png">IFU2_B1200_r+RG610.png</a></td>
+</tr>
+<tr class="row-odd"><td>R831</td>
+<td>r</td>
+<td>600–680</td>
+<td>large</td>
+<td><a class="reference external" href="_images/IFU2_R831_r.png">IFU2_R831_r.png</a></td>
+</tr>
+<tr class="row-even"><td>R831</td>
+<td>r+RG610</td>
+<td>620–700</td>
+<td>small</td>
+<td><a class="reference external" href="_images/IFU2_R831_r+RG610.png">IFU2_R831_r+RG610.png</a></td>
+</tr>
+<tr class="row-odd"><td>R831</td>
+<td>i</td>
+<td>750–800</td>
+<td>large</td>
+<td><a class="reference external" href="_images/IFU2_R831_i.png">IFU2_R831_i.png</a></td>
+</tr>
+<tr class="row-even"><td>R831</td>
+<td>i+RG780 (GMOS-S)</td>
+<td>750–850</td>
+<td>small</td>
+<td><a class="reference external" href="_images/IFU2_R831_i+RG780.png">IFU2_R831_i+RG780.png</a></td>
+</tr>
+<tr class="row-odd"><td>R831</td>
+<td>i+CaT</td>
+<td>750–850</td>
+<td>small</td>
+<td><a class="reference external" href="_images/IFU2_R831_i+CaT.png">IFU2_R831_i+CaT.png</a></td>
+</tr>
+<tr class="row-even"><td>R831</td>
+<td>z+CaT</td>
+<td>860–930</td>
+<td>medium</td>
+<td><a class="reference external" href="_images/IFU2_R831_z+CaT.png">IFU2_R831_z+CaT.png</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The characterizations of the spectral bank overlap tabulated above are
+approximate. They depend on where the throughput bandpass is set to start and end
+(fixed at 1% of the maximum relative throughput). If very bright spectral
+features are present outside this bandpass, then they may still be visible in the
+other spectral bank. This can easily be recognized in the exposures because the
+spectra of the right bank are offset downwards by about 5 pixels with respect to
+the left bank (for e.g. GMOS-S).</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tt.html" title="18. Appendix: Troubleshooting"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="moswavegrid.html" title="16. Appendix: GMMPS wavelength overlays"
+             >previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Mischa Schirmer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

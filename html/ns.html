@@ -1,0 +1,259 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>7. Nod &amp; Shuffle masks (GMOS only) &#8212; GMMPS 1.4.5 documentation</title>
+    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="8. The ODF window" href="loadODF.html" />
+    <link rel="prev" title="6. Creating Masks (ODFs)" href="createODF.html" /> 
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head>
+  <body>
+<div class="pageheader">
+  <ul>
+    <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
+    <li><a href="http://www.gemini.edu/sciops/instruments/flamingos2">F2</a></li>
+  </ul>
+  <div>
+    <a href="http://www.gemini.edu/">
+      <img src="_static/logo.png" alt="GEMINI" align="left" border="0"/>
+    </a>
+  </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="loadODF.html" title="8. The ODF window"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="createODF.html" title="6. Creating Masks (ODFs)"
+             accesskey="P">previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">7. Nod &amp; Shuffle masks (GMOS only)</a><ul>
+<li><a class="reference internal" href="#setting-the-n-s-specific-parameters">7.1. Setting the N&amp;S specific parameters</a><ul>
+<li><a class="reference internal" href="#band-shuffling-mode">7.1.1. Band-shuffling Mode</a></li>
+<li><a class="reference internal" href="#micro-shuffling-mode">7.1.2. Micro-shuffling Mode</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#continue-with-mask-design">7.2. Continue with mask design</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="createODF.html"
+                        title="previous chapter">6. Creating Masks (ODFs)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="loadODF.html"
+                        title="next chapter">8. The ODF window</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="nod-shuffle-masks-gmos-only">
+<span id="index-0"></span><h1>7. Nod &amp; Shuffle masks (GMOS only)<a class="headerlink" href="#nod-shuffle-masks-gmos-only" title="Permalink to this headline">¶</a></h1>
+<p>The <em>Nod &amp; Shuffle mode</em> (hereafter N&amp;S mode) and the definition of micro-shuffling and
+band-shuffling are described in the
+<a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/nod-and-shuffle">GMOS N&amp;S pages</a>.
+The main difference between the two is summarized as:</p>
+<p><strong>Band-shuffling mode:</strong> In <em>band-shuffling</em> mode the user controls which areas of the
+detector are used as storage bands for a particular mask. Storage bands (and science bands)
+have equal sizes. If multiple masks are created
+from one OT, they will all share the same band definition (see below), unless a new
+set of masks is created based on a different band definition. Several (many) objects with
+different slit lengths may be placed within one band. This is the preferred mode if a large
+number of (possibly very short) slits should be placed within a small area. It allows for
+very high slit density.</p>
+<p><strong>Micro-shuffling mode:</strong> In <em>micro-shuffling</em> mode, <em>GMMPS</em> picks the sources as it does
+for a normal mask, and blocks storage areas above and below each science spectrum. Storage bands
+of adjacent objects may be shared (i.e. they may overlap), and thus have different sizes.
+Storage bands will be different from mask to mask if several masks are created from the same
+OT. Only one object may be present in each science band, and the slit length must be identical for
+all slits.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The nod amount is <strong>not</strong> part of the mask design.
+<a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/nod-and-shuffle/nodding">Nodding is a telescope offset</a>
+and defined in the
+<a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>, not in <em>GMMPS</em>.
+You may either nod in the slits (increasing the observing efficiency) or nod off to
+sky. <em>GMMPS</em> will design the masks with the objects centered in the slits.
+If you use tilted slits, then one of the nod positions must be <span class="math">q=0</span>, as otherwise
+the object will never be placed in the slit.</p>
+</div>
+<span class="target" id="bdf-label"></span><div class="admonition note" id="index-1">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>Band definition files are obsolete (and unsupported)</strong> as of
+<em>GMMPS</em> v1.4.0. Nod &amp; Shuffle parameters are stored in the ODF, and
+displayed when loading the ODF. Values that must be entered in the
+<a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a> when defining
+the phase II observations are highlighted.</p>
+</div>
+<div class="section" id="setting-the-n-s-specific-parameters">
+<h2>7.1. Setting the N&amp;S specific parameters<a class="headerlink" href="#setting-the-n-s-specific-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Your first action when designing a Nod &amp; Shuffle mask is to decide between <em>micro-shuffling mode</em> and <em>band-shuffling mode</em>.</p>
+<div class="section" id="band-shuffling-mode">
+<span id="index-2"></span><h3>7.1.1. Band-shuffling Mode<a class="headerlink" href="#band-shuffling-mode" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="_images/gmmps_nscombo.png"><img alt="_images/gmmps_nscombo.png" src="_images/gmmps_nscombo.png" style="width: 635.58px; height: 350.46px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text"><em>Band-shuffling windows.: Left: N&amp;S parameters. Right: Image window with the forbidden storage areas marked yellow. Objects in the OT table that fall in the storage areas will be removed from the mask design.</em></span></p>
+</div>
+<p>The following parameters need to be set:</p>
+<ul class="simple">
+<li>Set <em>Band Size (unbinned pix)</em>. Default gives one band of slits at the center of the
+array in the y-direction.</li>
+<li>Set <em>Shuffle amt (arcsec)</em> or <em>Shuffle amt (unbinned pix)</em> to an amount greater than or
+equal to <em>Band Size (unbinned pix)</em>. Changing either field will automatically
+update the other field. They are forced to be consistent with the band size.</li>
+<li>Hit return or click on <em>Recalculate Bands</em> to see where the bands fall. The storage areas where no slits will be
+placed are displayed yellow (see figure above).</li>
+<li>Adjust the offset of the bands in the Y-direction, using the <em>Bands y Offset (unbinned pix)</em>
+as needed. To see the effect, hir return or click on <em>Recalculate Bands</em>.</li>
+</ul>
+<p>For <em>band-shuffling</em> mode the forbidden regions that will be used as storage areas, and
+where no slitlets will be placed, are marked red. To cover the full area, you need
+at least two different band definitions complementing each other (e.g. using
+different <em>y offset</em> settings).</p>
+</div>
+<div class="section" id="micro-shuffling-mode">
+<span id="index-3"></span><h3>7.1.2. Micro-shuffling Mode<a class="headerlink" href="#micro-shuffling-mode" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="_images/gmmps_ns2.png"><img alt="_images/gmmps_ns2.png" src="_images/gmmps_ns2.png" style="width: 305.58px; height: 349.8px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7.2 </span><span class="caption-text"><em>Nod &amp; Shuffle parameters for micro-shuffling mode</em></span></p>
+</div>
+<p>The following parameters need to be set:</p>
+<ul class="simple">
+<li>Set <em>Shuffle Amt (arcsec)</em> or <em>Shuffle Amt (unbinned pix)</em> to a value greater than or equal to your slit length. These two fields will automatically update relative to one another.</li>
+</ul>
+<p>In <em>micro-shuffling</em> mode the position of the storage bands depends on the objects that will be
+included during the mask design process. These areas are undetermined at this point (and,
+contrary to <em>band-shuffling</em>, not shown in the image window).</p>
+</div>
+</div>
+<div class="section" id="continue-with-mask-design">
+<span id="ns-autoexpansion-label"></span><h2>7.2. Continue with mask design<a class="headerlink" href="#continue-with-mask-design" title="Permalink to this headline">¶</a></h2>
+<p>When the N&amp;S parameters have been set, click <em>Continue</em>. This brings up the
+<a class="reference internal" href="createODF.html#creating-odf-label"><span class="std std-ref">mask design window</span></a> that allows you to select the grating,
+filter, and in case of GMOS, the central wavelength. From here, proceed as for other masks.</p>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="_images/gmmps_ns4.png"><img alt="_images/gmmps_ns4.png" src="_images/gmmps_ns4.png" style="width: 495.66px; height: 430.32px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7.3 </span><span class="caption-text"><em>Mask design window for a Nod &amp; Shuffle mask (micro-shuffling).
+The auto expansion and wiggle amount parameters are deactivated
+in this mode, because slits must have the same lengths, and objects
+must be located at identical positions in the slit (otherwise some of
+them might be driven off the slit by a nod offset). All other settings
+are identical as for normal masks. Auto-expansion is available for
+band-shuffle masks, though.</em></span></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="loadODF.html" title="8. The ODF window"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="createODF.html" title="6. Creating Masks (ODFs)"
+             >previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Mischa Schirmer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

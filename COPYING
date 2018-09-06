@@ -1,0 +1,54 @@
+Copyright (C) 2000-2003, European Southern Observatory (E.S.O.)
+                         Karl-Schwarzschild-Str.2, 85748 GARCHING, GERMANY
+
+VIMOS Mask Preparation Software (VMMPS) is a copyright protected
+software product of the European Southern Observatory, and provides a
+tool to design masks for the VIMOS spectrograph MOS observations.
+VMMPS is a Skycat plugin developed by Dario Bottini at the Istituto di
+Fisica Cosmica G.Occhialini - CNR, Milano - Italy, in the framework of
+the VIRMOS Consortium activities under ESO Contract
+50979/INS/97/7569/GWI.
+
+VMMPS is available under the GNU General Public License. 
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or (at
+your option) any later version, however, that you may not remove the
+following announcement:
+
+Developed by Dario Bottini (bottini@ifctr.mi.cnr.it)
+Istituto di Fisica Cosmica G.Occhialini - CNR, Italy
+in the framework of the VIRMOS Consortium activities 
+
+printed during VMMPS plugin loading and each time vmmps_spoc (the main
+program package) is run.
+
+The GNU General Public License text is included in the file
+GNU_PUBLIC_LICENSE in this directory.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+
+Correspondence concerning VMMPS should be addressed as follows:
+Internet e-mail: bottini@ifctr.mi.cnr.it
+Postal  address: Istituto di Fisica Cosmica G.Occhialini
+                 via Bassini, 15
+                 20133 Milano
+                 ITALY
+
+
+
+Copyright (C) 2001-2013 Association of Universities for Research in Astronomy, Inc.
+
+The Gemini Mask Making Prototype Software (GMMPS) is built on the
+VIMOS Mask Preparation Software, after agreement with E.S.O. Only
+modifications specific to GMOS and FLAMINGOS-2 are copyright of
+AURA. The Gemini Mask Making Prototype Software is distributed under
+the GNU General Public License.
+
+Questions concerning the GMOS Mask Making Software should be submitted
+through the Gemini HelpDesk: http://helpdesk.gemini.edu/
+

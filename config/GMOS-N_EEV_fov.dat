@@ -1,0 +1,98 @@
+# INSTRUMENT: GMOS-N_EEV
+#
+# This file defines:
+# (1) Full detector extent
+# (2) Illuminated field of view
+# (3) Gaps (if any)
+# Used by gmmps_fov.cc, gmMakeMasks_2, vmAstroCat.tcl
+#
+#
+# FORMAT:
+# keyword value_x value_y
+#
+#
+# NOTE: 
+# --------------------------------------------------------------------------
+# --- Keywords must be sequential running through corners 1-12 (1-4 for gaps)
+# --- All corners must be present (12 for FOV, 4 for gaps)
+# --- All values must be in arc seconds
+# --- All values are with respect to a fiducial pointing center
+# --------------------------------------------------------------------------
+# 
+#
+# CORNER SCHEME (must stick to that!)
+# 'X' displays the pointing center (not necessarily centered within the FoV) 
+# Vi is a vertex with (Xi|Yi) coordinates
+#
+#       V4 ----------------------- V5
+#       /                           \
+#      /                             \
+#     V3                             V6
+#     |                               | 
+#     |                               | 
+#     |                               | 
+#     |                          V8---V7 
+#     |                          |     
+#     |               X          |     (barcode vignetting)
+#     |                          |     
+#     |                          V9--V10 
+#     |                               | 
+#     |                               | 
+#     |                               | 
+#    V2                              V11
+#      \                             /
+#       \                           /
+#       V1 ---------------------- V12
+#
+#
+#
+# GAP and DETECTOR ARRAY SCHEME (must stick to that!)
+# 'X' displays the pointing center (not necessarily centered within the FoV) 
+#
+#   X2-Y2 --- X3-Y3
+#     |         | 
+#     |         | 
+#     |         | 
+#     |    X    |
+#     |         | 
+#     |         | 
+#     |         | 
+#   X1-Y1 --- X4-Y4
+#
+#
+#
+# Field of view
+#
+FOV_CORNER1  -131.0 -162.0
+FOV_CORNER2  -165.0 -127.0
+FOV_CORNER3  -165.0  127.0
+FOV_CORNER4  -129.0  163.0
+FOV_CORNER5   123.0  163.0
+FOV_CORNER6   161.0  124.0
+FOV_CORNER7   161.0   37.0
+FOV_CORNER8   152.0   37.0
+FOV_CORNER9   152.0  -37.0
+FOV_CORNER10  161.0  -37.0
+FOV_CORNER11  161.0 -125.0
+FOV_CORNER12  125.0 -162.0
+#
+#
+# Detector gaps (up to two, otherwise you must adjust plotBoundaries() )
+#
+GAP1_CORNER1 -77.6 -162.0
+GAP1_CORNER2 -77.6  163.0
+GAP1_CORNER3 -74.3  163.0
+GAP1_CORNER4 -74.3 -162.0
+#
+GAP2_CORNER1  74.6 -162.0
+GAP2_CORNER2  74.6  163.0
+GAP2_CORNER3  77.8  163.0
+GAP2_CORNER4  77.8 -162.0
+#
+#
+# Overall detector dimensions
+#
+DIM_CORNER1 -226.0 -167.3
+DIM_CORNER2 -226.0  168.0
+DIM_CORNER3  226.0  168.0
+DIM_CORNER4  226.0 -167.3

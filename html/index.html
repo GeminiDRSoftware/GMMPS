@@ -1,0 +1,199 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>GMMPS 1.4.5: Documentation &#8212; GMMPS 1.4.5 documentation</title>
+    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Getting started" href="installation.html" /> 
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head>
+  <body>
+<div class="pageheader">
+  <ul>
+    <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
+    <li><a href="http://www.gemini.edu/sciops/instruments/flamingos2">F2</a></li>
+  </ul>
+  <div>
+    <a href="http://www.gemini.edu/">
+      <img src="_static/logo.png" alt="GEMINI" align="left" border="0"/>
+    </a>
+  </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="installation.html" title="1. Getting started"
+             accesskey="N">next</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">GMMPS 1.4.5: Documentation</a><ul>
+<li><a class="reference internal" href="#about-gmmps">About GMMPS</a></li>
+<li><a class="reference internal" href="#contents">Contents</a></li>
+<li><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="next chapter">1. Getting started</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gmmps-version-documentation">
+<h1>GMMPS 1.4.5: Documentation<a class="headerlink" href="#gmmps-version-documentation" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Last update:</th><td class="field-body">Oct 24, 2017</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Latest changes:</th><td class="field-body"><a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/gmmps/ChangeLog">ChangeLog</a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="about-gmmps">
+<h2>About GMMPS<a class="headerlink" href="#about-gmmps" title="Permalink to this headline">¶</a></h2>
+<p><em>GMMPS</em> is Gemini’s mask making software. It supports the following multi-object spectrographs:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/">GMOS</a> (optical, Gemini North and South)</li>
+<li><a class="reference external" href="http://www.gemini.edu/sciops/instruments/flamingos2/">F2</a> (near-infrared, Gemini South)</li>
+</ul>
+</div>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Obtaining GMMPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loadimage.html">2. Loading Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OTformat.html">3. The Object Table (OT) - Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="createOT.html">4. Creating an OT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editOT.html">5. The OT window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="createODF.html">6. Creating Masks (ODFs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ns.html">7. Nod &amp; Shuffle masks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loadODF.html">8. The ODF window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submit.html">9. Submitting the mask designs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example1.html">10. Example 1: Redshift survey (GMOS-S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example2.html">11. Example 2: Band-shuffle mask (GMOS-S)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example3.html">12. Example 3: F2 mask design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ngo.html">13. Appendix: Mask check instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acquisition.html">14. Appendix: Acquisition stars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spoc.html">15. Appendix: Slit selection algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="moswavegrid.html">16. Appendix: GMMPS wavelength overlays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wavemapper.html">17. Appendix: GMOS WaveMapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tt.html">18. Appendix: Troubleshooting</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p><em>GMMPS</em> has been originally derived from the ESO/VIMOS Mask Preparation
+Software (<a class="reference external" href="https://www.eso.org/sci/observing/phase2/SMGuidelines/VMMPS.html">VMMPS</a>), after agreement with the European Southern Observatory.
+<em>VMMPS</em> was developed originally by Dario Bottini at the Istituto di
+Fisica Cosmica G.Occhialini - CNR, Italy. It has been modified by
+Jennifer Dunn, Craig Allen, Dustin Fennell, Bryan Miller and Mischa
+Schirmer to work with Gemini Instrumentation.</p>
+<p>Current <em>GMMPS</em> support: Bryan Miller</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="installation.html" title="1. Getting started"
+             >next</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Mischa Schirmer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

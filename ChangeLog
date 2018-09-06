@@ -1,0 +1,3202 @@
+2017-10-24  mischa  <mischa@lab>
+
+	* VERSION
+	Pushed version number to 1.4.5
+
+	* scripts/version_check.sh
+	Making the user acknowledge when a new version is found
+	on the server.
+
+2017-10-23  mischa  <mischa@lab>
+
+	* install.sh, scripts/check_libraries.sh
+	Cleaned up, updated.
+
+	* src/gmmps_spoc.tcl
+	Slit expansion is still buggy in gmMakeMasks.cc when in
+	band-shuffling mode. I thought that was fixed, but I just
+	found a case where a slit was expanded nonetheless into the
+	storage bands. I'll deactivate it for band-shuffling mode.
+
+	* src/vmAstroCat.tcl, src/gmmps_spoc.tcl
+	Made code compatible for future F2-AO mode
+
+2017-10-18  mischa  <mischa@lab>
+
+	* src/vmAstroCat.tcl
+	Removed support to create new masks based on old pseudo-images.
+	ODFs created previously for old pseudo-images can still be visualized
+	for legacy reasons, but new mask designs based on old pseudo-image
+	transformations are not permitted anymore.
+
+2017-10-17  mischa  <mischa@lab>
+
+	* src/waveMapper.tcl
+	Reformatting, code simplifications, adjustment of color scheme,
+	removal of R831 in 2nd order (which was never measured in this
+	context).
+
+	* src/vmAstroCat.tcl
+	Reformatting, code simplifications, font adjustments.
+	Removed the alternative detector overlay, which was hardly ever
+	used (I guess) and just bloated the code.
+
+2017-10-10  mischa  <mischa@lab>
+
+	* install.sh
+	Updated several install scripts, to accomodate recent skycat 3.1.3
+	release, and the fact that debian/Ubuntu now come with their
+	own skycat implementations (which don't require Tcl/Tk8.4 anymore)
+
+	* wavemaps/GMOS-S.fits
+	Updated with 4 bad columns
+
+	* src/waveMapper.tcl
+	Fixed the wavelength transformations for GMOS-N.
+	Had to hardcode the old E2VDD pixel scale for 2x2 binning to
+	properly calculate positions / wavelengths with the Hamamatsus.
+
+2017-07-15  mischa  <mischa@greenbean>
+
+	* gemwm/gemwm.cc
+	* src/gmMakeMasks.cc
+	* src/gmmps_fov.cc
+	* src/calc_throughput.cc
+	Fixed potential issues with reading beyond end of files,
+	classical C++ pitfall with file streams.
+
+2017-06-20  mischa  <mischa@greenbean>
+
+	* config/F2-AO_gfcombo.dat
+	Added Kblue and Kred filters to F2-AO_gfcombo.dat,
+	and the HK filter as an option to the JH grism.
+
+	* gemwm/gemwm.cc
+	Made an error message more accurate.
+
+	* src/vmAstroCat.tcl
+	Backwards compatibility for F2 masks created with older
+	versions of GMMPS (mostly F2 MOS commissioning masks)
+
+2017-05-18  mischa  <mischa@greenbean>
+
+	* VERSION
+	Pushed version number to 1.4.4
+
+	* html
+	Extensive updates to the documentation.
+
+	* scripts/version-check.sh
+	Reflecting the new source location on software.gemini.edu/gmmps/
+
+2017-05-17  mischa  <mischa@greenbean>
+
+	* Installation
+	Collected all installer scripts in scripts/.
+	Replaced check_skycat.sh, check_tcltk.sh, skycatlibs.sh by
+	locate_libs.sh
+	If 'locate' does not find the libraries, the user is
+	asked to manually provide the skycat and tcltk path names.
+
+	* src/vmSkySearch
+	Stray file, deleted. Not sure why that's been there in first place
+	since v1.0.4
+
+	* src/gmmps_spoc.tcl
+	* src/vmAstroCat.tcl
+	Extracting GAIA magnitudes for the acq stars and displaying them
+	in the ODF info window.
+
+2017-05-14  mischa  <mischa@greenbean>
+
+	* config/GMOS-N_HAM_fov.dat
+	Updated vignetted areas and chip gaps based on transparent mask
+
+	* src/vmAstroCat.tcl
+	Catching more nonsensical results from wavelength inversion
+	for 2nd orders
+
+	* html/
+	Updated documentation
+
+2017-05-07  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Individual source redshifts were not set to zero when loading
+	an old ODF without redshift column.
+
+2017-04-26  mischa  <mischa@greenbean>
+
+	* VERSION
+	Pushed version number to 1.4.3
+	Bug fixes for release candidate, and some more features
+
+	* src/gmmps_spoc.tcl
+	Added proper motion check against PPMXL for acq stars
+
+	* src/Makefile
+	Copying get_propermotion.sh and vizquery to bin/
+
+	* src/get_propermotion.sh
+	Does the PPMXL lookup using vizquery
+
+	* src/vizquery
+	Added
+
+	* src/vmAstroCat.tcl
+	Implement corrections for pseudo-images using the old
+	GMOS-N E2VDD detector format.
+
+	* src/waveMapper.tcl
+	Calculations for GMOS-N were made with E2VDD detectors. Must
+	transform spatial coordinates to maintain validity for the new
+	GMOS-N Hamamatsu arrays.
+
+	* src/check_skycat.sh
+	* src/check_tcltk.sh
+	Using 'locate' before running a lengthy "find"
+
+	* src/get_OT_posangle.cc
+	Fixed a bug for F2. OT angle was not calculated correctly.
+
+	* html
+	Documentation updated
+
+2017-03-29  mischa  <mischa@greenbean>
+
+	* src/gmmps_spoc.tcl
+	* src/vmAstroCat.tcl
+	* src/gmMakeMasks.cc
+	Further adjustments of hardcoded pixel scales.
+
+2017-03-28  mischa  <mischa@greenbean>
+
+	* src/gmMakemasks.cc
+	Locking the ODF PIXSCALE string onto default pixel
+	scales for odf2mdf.cl (gprepare.cl).
+
+2017-03-27  mischa  <mischa@greenbean>
+
+	* src/gmmps_spoc.tcl
+	* src/vmAstroCat.tcl
+	Accomodating GMOS-N pseudo-images with the old E2V geometry
+
+	* src/vmAstroCat.tcl
+	Changed 'protected' transform_gmos_... methods to 'public'.
+	They are called from gmmps_spoc.tcl when creating ODFs from OTs.
+
+	* config/Detectors.dat
+	Updated for GMOS-N_HAM
+
+	* config/GMOS-N_HAM_fov.dat
+	Created based on pre-image. Slit placement area still needs to
+	be checked using the transparent mask.
+
+	* src/gmOdf2Cat.c
+	Removed. Was never used!
+
+	* src/gmFits2Cat.c
+	Renamed from gmConvert2Cat.c
+	Removed PIXSCALE calculations / pass-through. Handled in GMMPS:
+	Pseudo-image OT tables may not always contain PIXSCALE keyword,
+	which broke the code because the old version would put in a default
+	value of 0.0728, ignoring GMOS-S and F2. One of the reasons why
+	GMMPS got rid of the PIXSCALE dependence in first place.
+
+	* src/Makefile
+	Updated to reflect changes to gmFits2Cat, and removal of
+	gmOdf2Convert.c
+
+2017-03-22  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Showing warning for wavelength defaults for old ODF/MDFs only once.
+	Do not show order overlap in acq star highlighting mode.
+
+2017-03-08  mischa  <mischa@greenbean>
+
+	* VERSION
+	Pushed version number to 1.4.2
+	This is the release candidate.
+
+	* src/Makefile
+	Included the gemwm compilation.
+
+	* html
+	Documentation updated.
+
+2017-03-07  mischa  <mischa@greenbean>
+
+	* src/gmMakemasks.cc
+	Rewrote slit expansion algorithm, was buggy for packed spectra,
+	overlapping acq star spectra, and also rather inefficient.
+	Rewrote algorithm to force slits back into science bands, was buggy
+	and also overly complicated.
+
+	* src/gmmps_spoc.tcl
+	Allow simultanous packing and slit expansion.
+	Allow slit expansion in band-shuffling mode.
+
+	* src/band_def_UI.tcl
+	Was not initialized correctly and did not push the new
+	list with global variables through to spoc.
+
+2017-03-06  mischa  <mischa@greenbean>
+
+	* src/gmMakeMasks.cc
+	Formerly gmMakemasks_2.cc.
+	Feeding spectrum start and end from gemwm, calculated externally,
+	instead of using linear grating equation.
+
+	* src/gmmps_spoc.tcl
+	Using gemwm to calculate spectrum dimensions instead of linear
+	theory.
+
+	* src/create_gemwm_input.sh
+	Needed to run gemwm to create input for gmMakeMasks.
+	That was a lesson that once more showed it is not trivial to
+	extract the catalog information from gmmps if you are in the
+	wrong position in the code. Required significant rewrite and
+	restructuring, including passing around more globals.
+
+	* src/band_def_UI.tcl
+	Passing through globals to run gemwm before making ODFs.
+
+	* src/gmConvert2Cat.c
+	* src/gmCat2Fits.c
+	* src/gmMakeMasks.cc
+	* src/gmmps_spoc.tcl
+	* src/vmAstroCat.tcl
+	Enabling specleft, specright, specbottom, spectop columns in the ODF.
+
+	* src/vmAstroCat.tcl
+	Added backwards compatibility for older ODFs and spectral plots.
+	Allowing MDFs to be loaded instead of ODFs (using less accurate
+	wavelength displays)
+
+	* src/gmConvert2Cat.c
+	* src/gmOdf2Cat.c
+	Removed hardcoded 0.0727 fallback pixel scale. Leave with error instead.
+
+	* src/gmmps_spoc.tcl
+	Forbid simultaneous slit expansion and spectral packing.
+
+2017-03-02  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	* src/gmmps_spoc.tcl
+	* gemwm/gemwm.cc
+	Fixed issues with 2nd order overlap, in particular for the R831_2nd
+	which has less stable mathematical models.
+	Using the non-linear inversion to predict the beginning of the
+	overlap that falls within the first order, and then predict the
+	end based on twice (or half) the length of the first (second)
+	order spectrum. Much more stable.
+
+	* src/vmAstroCat.tcl
+	Plotting order overlap after plotting everything else,
+	so that they can stay on top.
+	Plotting zero order for R150.
+
+	* src/gmmps_spoc.tcl
+	Added option to pack short spectra (default: on).
+
+	* html
+	Documentation updated.
+
+2017-03-01  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Deactivated 2nd order overlap for F2; uses a grism, therefore
+	simple order overlap estimates would be too inaccurate. In any
+	case, configs are fixed for F2.
+	Changed gap wavelengths from ceil/floor to normal rounding.
+	Too confusing for B1200 and R831 when cycling through wavelengths.
+	Capping spec_min/max for R831_2nd because wavelength inversion
+	is too instable and spectral boxes would not be plotted correctly.
+	Added a warning about wavelength solutions if displaying the ODF
+	for the R600 grating.
+	ODFs for F2 R3000 masks could not overlay wavelength grid due to
+	a filter string formatting problem.
+
+	* gemwm/data/
+	Added an entry for the R600. For the time being, using a copy
+	of the B600 coefficients. Should be reasonably accurate and better
+	than nothing.
+
+	* src/gmmps_spoc.tcl
+	Added a warning if a mask is designed using the R600.
+	Put the order overlap warning further to the beginning so it
+	appears a bit more quickly. Made it an "OK Cancel" choice
+	instead of just approval.
+	Added a choice dialog for the slit separation if smaller than 4",
+	instead of just approving it.
+	Added a choice dialog when using the R150 grating, that warns about
+	order overlap between spectra in case of packing. Offers the option to
+	project only a single spectrum per dispersion line.
+
+	* gemwm/gemwm.cc
+	Leaving with an error if F2 grism-filter ID string is not recognized.
+
+
+2017-02-28  mischa  <mischa@greenbean>
+
+	* src/gmmps_spoc.tcl
+	A wiggle amplitude larger than 50% could be sent to gmMakeMasks
+	if the value was entered manually instead of using the SpinBox
+	up/down arrows. Added a check that tops it off at 50%.
+
+	* html
+	Updates to the documentation.
+	Fixed broken links to IFU-2 wavelength maps
+
+	* gemwm/gemwm.cc
+	Changed the 2nd order mode to overplot the full 2nd order box.
+	Added linear wavelength solution models. Used when converting
+	wavelengths to detector coordinates for position far outside the
+	detector array.
+
+	* gemwm/instrument.cc/h
+	Added 0th order and 1st order overlaps.
+	Added linear wavelength solution models. Used when converting
+	wavelengths to detector coordinates for position far outside the
+	detector array.
+
+	* src/vmAstroCat.tcl
+	Fixed a bug that would display acq spectra boxes outside the
+	detector area for extreme CWL settings.
+	Plotting full 2nd order spectral boxes, not only the
+	contaminated area of the 1st order. That better reflects what is
+	actually recorded by the detector.
+	Plotting 0th order, too (only visible for R150).
+	Plotting 1st order for R831_2nd.
+	Showing the "spectrum outside detector area" warning box only once
+	for an opened ODF.
+
+2017-02-27  mischa  <mischa@greenbean>
+
+	* VERSION
+	Pushed version number to 1.4.1
+
+	* src/vmAstroCat.tcl
+	Suppressing a warning when changing the slit
+	geometries for a selection of targets that include acquisition stars.
+	The latter have their geometries enforced in any case.
+	Changed the label of the "Make Mask" button in the OT window
+	to "Configure Mask".
+
+	* html
+	Updated documentation.
+	Added an example for F2 mask design.
+
+	* src/band_def_UI.tcl
+	Changed the label of the "Make Nod&Shuffle Mask" button	to "Continue".
+
+	* gemwm/Makefile
+	* src/Makefile
+	Removed explicit dirs from LIBRARY_DOIRS and INCLUDE_DIRS
+	for MacOS. Appear to cause more problems than preventing them
+	on later MacOS versions.
+	Added (commented out) explicit settings of CC=gcc and CXX=g++
+	for Mac in case the stuff does not compile with clang.
+
+2017-02-24  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	F2 slits not plotted correctly after recent code simplifications.
+	F2 object labels plotted with too large an offset.
+	Allowing for tilted slits in nod&shuffle mode.
+	Printing a warning when displaying a shuffle ODF with tilted slits.
+
+	* config/transmissiondata
+	Added F2_Kred and F2_Kblue filters.
+
+	* src/gmMakeMasks_2.cc
+	Fixed a bug in the calculation of the spectral FOV for F2
+	that prevented packing of short spectra in the dispersion
+	direction.
+	Removed condition that would exit if tilted slit present in
+	Nod&Shuffle mask. Curiously, that part of the code would never
+	be executed.
+	Added TILTSLIT flag to output catalog.
+	Ordered plotting symbols with respect to priority.
+
+	* src/gmOdf2Cat.c
+	Ordered plotting symbols with respect to priority.
+
+	* html/
+	Updated help web pages.
+
+2017-02-23  mischa  <mischa@greenbean>
+
+	* src/gmmps_fov.cc
+	Simplified output text.
+
+	* src/gmMakeMasks_2.cc
+	Simplified output text.
+	Microshuffling mode not as buggy as previously thought. Works fine
+	apart from slit wiggling. Storage bands must not
+	contain science spectra only for the area of the science spectra
+	they belong to. Hence I'm allowing packed spectra in dispersion
+	direction. GMOS masks have been designed outside GMMPS for 10+ years
+	with this setup...
+	Bypassing a bug with slit wiggling: wiggling unplaced slits
+	may cause slit overlap with acq sources if producing more than one
+	mask; only problematic for the subsequent masks, hence wiggling
+	of unplaced slits is deactivated for masks 2, 3, ..., n.
+	Wiggling of placed slits appears fine. This wiggling code is
+	very obfuscating.
+	Allowing acq star spectra to overlap with each other. Very helpful
+	for band-shuffling mode.
+
+	* src/vmAstroCat.tcl
+	Changed plotting of microshuffle storage areas, the latter are now
+	confined to the extent of the science spectra instead of extending
+	across the entire detector range.
+	Reimplementing choice_dialog -> my_choice_dialog,
+	info_dialog -> my_info_dialog, confirm_dialog -> my_confirm_dialog
+	from skycat sources, to avoid problem with huge fonts. Hopefully,
+	this finally fixes all these ugly unreadable dialog windows.
+
+	* src/tclIndex
+	Updated
+
+	* src/gmmps_spoc.tcl
+	* src/band_def_UI.tcl
+	* src/waveMapper.tcl
+	* src/vmSkySearch.tcl
+	* src/vmSkyQueryResult.tcl
+	* src/vmTableList.tcl
+	* src/vmSkyQuery.tcl
+	* src/vmQueryResult.tcl
+	* src/vmRtdImagePick.tcl
+	Referring to the error/info/warning/input/choice/confirm dialogs
+	defined in vmAstroCat.tcl
+
+	* src/gmmps_spoc.tcl
+	Simplified the dialog about the ODF file overwrite warning.
+	Added a proper filename selection sequence from the skycat library
+	instead of the poor makeshift dialog.
+
+2017-02-21  mischa  <mischa@greenbean>
+
+	* VERSION
+	Pushed version number to 1.4.0
+
+	* src/vmAstroCat.tcl
+	Backwards compatibility for old ODFs which had the
+	grating / filter ID still appended, which prevented throughput
+	and wavelength calculations.
+	Fixed calculation and display of tilted slits (had wrong width).
+	Significant code simplifications for plotting slits and
+	spectral overlays.
+
+	* src/band_def_UI.tcl
+	Removed leftover global "protected common <varnames>"
+
+	* src/gmmps_spoc.tcl
+	gmMakemasks_2.cc is buggy in case of micro-shuffling and slit
+	wiggling. Deactivated slit wiggling in case of microshuffling
+	-- and bandshuffling, too.
+	I don't know exactly where it fails, so better bypass.
+	Wiggling is dangerous anyway if nodding within the slit,
+	might lose objects half of the time if the wiggle offset pushes
+	the close to the edge.
+
+
+2017-02-20  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	When changing plotting symbols under "Options", the order was
+	quasi-random with respect to priority. Ordered with respect to
+	priority.
+	Force deleting of gemwm.input and gemwm.output upon opening
+	new ODF catalog.
+
+	* src/gmmps_spoc.tcl
+	Allow to modify min spec dist in micro-shuffling mode.
+	Show a warning if min distance is less than 4 pixels.
+	Always show error if separation is negative (independent of
+	auto-expansion mode or not).
+
+
+2017-02-16  mischa  <mischa@greenbean>
+
+	* html/
+	Updated documentation.
+
+	* src/vmAstroCat.tcl
+	Using [file rootname ...] to create the name of the ODF summary file
+	instead of some convoluted and unstable string functions.
+
+
+2017-02-15  mischa  <mischa@greenbean>
+
+	* src/Makefile
+	Removed explicit /usr/lib and /usr/local/lib from LIBRARY_DIRS.
+	Wrong 32bit libs would be pulled in on 64 bit systems when
+	the 64bit libs are in /usr/lib64, and the 32bit libs in /usr/lib.
+	Let make do it automatically.
+	Changed $(PWD) to $(shell pwd) because the PWD env var is not
+	necessarily available on all systems.
+
+	* gemwm/Makefile
+	Removed explicit /usr/lib and /usr/local/lib from LIBRARY_DIRS.
+	Wrong 32bit libs would be pulled in on 64 bit systems when
+	the 64bit libs are in /usr/lib64, and the 32bit libs in /usr/lib.
+	Let make do it automatically.
+
+	* src/band_def_UI.tcl
+	Moved drawbands to vmAstroCat.tcl
+
+	* src/vmAstroCat.tcl
+	Removed Nod&Shuffle band display option. Storage bands are
+	always shown for both microshuffling masks (red) and
+	bandshuffle masks (yellow) when the spectral overlay is activated.
+
+
+2017-02-14  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Showing storage areas for microshuffle files.
+	Hiding the "N&S bands" option, storage areas are always shown.
+	Various updates concerning version number checking.
+
+	* src/gmMakeMasks_2.cc
+	Fixed the broken bands mode. I thought I know how this stuff works,
+	but now it is clear that I definitely do not, because some of it
+	just doesn't make sense (in particular the part where
+	ccdw is subtracted when calculating the spectrum midpoint).
+	Just put it back to where it was before.
+	Bypassing a huge bug in microshuffling mode that would place spectra
+	in storage bands if spectra are short enough so that several would
+	fit next to each other. This means the slit conflict mapping has a
+	severe shortcoming somewhere that I can't identify. Bypassed by
+	artificially increasing the spectral length to sth very large
+	if in microshuffling mode.
+
+	* src/waveMapper.tcl
+	Showing all wavelengths in [nm], now consistent with the rest of GMMPS.
+
+
+2017-02-09  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	* src/waveMapper.tcl
+	Massive speed-up, getting rid of multiple repeated fifos
+	about detector size, gap positions, fov, pixel scale, wcs etc etc.
+	Interface is much more snappy now.
+	Using more "globals" for this purpose, gmmps is full of them
+	anyway. In this case, however, it made the code much simpler.
+	gmMakeMasks_2.cc still broken; doesn't recognize bands, introduced
+	in 1.3.1 when removing the specpos variables from the output.
+
+2017-02-06  mischa  <mischa@greenbean>
+
+	* VERSION
+	Pushed version number to 1.3.1
+
+	* src/gmConvert2Cat.c
+	* src/gmCat2Fits.c
+	* src/vmTableList.tcl
+	* src/gmmps_fov.cc
+	* src/gmMakeMasks_2.cc
+	* src/gmmps_spoc.tcl
+	* src/vmAstroCat.tcl
+	Enabling individual redshifts in the OT/ODF tables.
+	Removed specpos_x, specpos_y, wave_ccd columns from ODF table, they
+	weren't needed for anything, not even in IRAF (searched all gemini iraf source code).
+	Making the ODF display independent of
+	the order of columns in the ODF table.
+
+2017-01-24  mischa  <mischa@greenbean>
+
+	* VERSION
+	Pushed version number to 1.3.0
+
+	* vmAstroCat.tcl
+	Unified acquisition star proximity warnings: warning if closer than 4"
+	to gap or boundary, error if closer than 2".
+	Always using yellow color for acq stars that have a warning.
+	The distance to the slit placement area boundary was calculated
+	for infinite lines, not for line segments. That caused warnings when
+	there shouldn't be any (because of the bar code accomodation).
+
+	* src/gmmps_spoc.tcl
+	Simplified output in logfile
+
+2017-01-17  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Bug fixes for wavelength overlays (mostly better placement of labels).
+	F2: all wavelengths shown in microns.
+	Added new wavelength models based on dense MOS arc masks.
+	Added support for R831 2nd order mode.
+	Bug fixes for "wrong" pseudo-images that are still in EEV geometry:
+	wavelength grids, placement of gap labels
+
+	* src/waveMapper.tcl
+	Bug fix individual wavelengths: forgot to add blanks after some of
+	the atomic wavelength series. Carbon lines were wrongly identified
+	as nitrogen.
+
+	* gemwm/gemwm.cc
+	* gemwm/instrument.cc
+	* gemwm/include/instrument.h
+	* gemwm/data/GMOS-S_wavecal_coeffs.dat
+	New wavelength models based on dense MOS arc masks. Yay!
+
+2017-01-05  mischa  <mischa@greenbean>
+
+	* cfitsio
+	Updated to v3.410
+
+2016-12-07  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	F2 spectral banks not shown with correct slit length. Fixed.
+
+2016-12-02  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Modularized truncation of spectral boxes, shaded boxes,
+	wavelengths and wavelength labels; significant code
+	simplifications and code fixes because of this.
+	Overlays were partially broken after I pushed everything
+	through full nonlinear wavelength maps; in particular for
+	old GMOS-S pseudo-images that still have the E2V geometry.
+	General cleanup (old comments, unused globs).
+	Significant speed-up of the overlay plotting.
+	At this point, everything seems to be working as intended.
+
+	* src/calc_throughpout.cc
+	Made the python plotting optional (for OT only),
+	resulting in much quicker ODF and wavemapper interactions.
+
+2016-11-29  mischa  <mischa@greenbean>
+
+	* config/GMOS-S_HAM_fov.dat
+	Updated slit placement area based on transparent mask.
+	Significant change compared to GMOS-N. Seems somehow mirrored.
+
+	* src/vmAstroCat.tcl
+	* src/gmmakeMasks_2.cc
+	* src/gmOdf2Cat.c
+	Changed the color scheme and symbols for the various priorities,
+	better highlighting priority 1 targets. The dark blue triangles
+	were badly visible, and it was difficult to judge the centroiding.
+	Priority 1: red circle
+	Priority 2: green square
+	Priority 3: turquoise triangle
+	Ignore: yellow cross
+	Acq object: orange diamond
+
+2016-11-24  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	* gemwm/gemwm.cc
+	Added support to overlay individual wavelengths
+
+2016-11-23  mischa  <mischa@greenbean>
+
+	* src/waveMapper.tcl
+	Updated all wavelength coefficients.
+	Hiding switches for gap, linear and shading modes.
+	IFU-2: Fixed significant inaccuracies.
+	IFU-2: Right gap would always have wavelengths of right
+	spectral bank plotted, even if CWL was such that
+	left bank overlaps the right gap. Fixed.
+	IFU-2: Right spectral bank has different wavelength color.
+	IFU-2: Wavelength labels for spectral banks have different y-offset.
+
+2016-11-18  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	An ASCII txt file is created for each ODF that is loaded in GMMPS.
+	It contains the main mask parameters, the OT setup, and comments
+	to help the SOS interpret the mask images.
+
+	* config/GMOS-N_E2VDD_fov.dat
+	* config/GMOS-S_HAM_fov.dat
+	Added the positions of the amplifier boundaries (for mask checking)
+
+2016-11-17  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Added object IDs to the OT and ODF windows' slit and
+	spectra displays.
+	Simplified the OT and ODF dialogs:
+	Removed toggle options for gaps and slit placement area (OT);
+	Removed toggle options for gaps (ODF);
+	Showing slit placement area and gaps only for alternative detectors,
+	but not the overall size anymore.
+	Changed color scheme to sth more friendly for the color blind.
+	Increased thickness for gap wavelength labels.
+
+	* src/gmmps_fov.cc
+	Not printing object statistics for objects outside the slit
+	placement area if none are found outside (lots of zeros).
+
+	* src/gmmps_spoc.tcl
+	Plotting wavelength range and linear dispersion below throughput
+	plot. Removed output to the command line window.
+
+2016-11-16  mischa  <mischa@greenbean>
+
+	* src/waveMapper.tcl
+	Added support for GMOS-N IFU-2 B1200.
+	Reporting error for GMOS-N IFU-2 R150 (not yet supported).
+	Removed wavelength and dispersion output to commandline window.
+
+2016-11-14  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Enabled accurate wavelength overlays for ODFs created with
+	GMMPS v1.0.4 or earlier.
+	Removed dead code (not executed / needed anymore) due to
+	on-the-fly wavelength calculations.
+	Old (EEV format) pseudo-image ODFs now have proper
+	wavelength overlays etc, too (big hack).
+	Assuming optics of GMOS-N and GMOS-S is similar enough to
+	produce the same wavelength mappings. Thus, we can use
+	the measured GMOS-S maps and apply them to GMOS-N E2VDD
+	images (which have the same geometry as the "bad" GMOS-S
+	pseudo-images).
+
+2016-11-10  mischa  <mischa@greenbean>
+
+	* gemwm/gemwm.cc
+	Changed cerr to cout (tests in install_sources.sh were broken by this)
+
+	* gemwm/instrument.cc
+	Added a static_cast<int> in one of the pow() functions to fix
+	compiler error on Mac
+
+	* install_sources.sh
+	Added gemwm to the checklist
+
+	* src/vmAstroCat.tcl
+	Acquisition stars had their slit drawings dropped; fixed.
+	Enabled automatic acquisition star checks (proximity to
+	slit placement area broder) also for F2.
+	Updated hardcodes pixel scales to be consistent with gmskimg.cl.
+
+2016-11-09  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	"Make Masks" produces an error when acquisition boxes are too close
+	to a detector gap or the field boundary. Hence there should be no
+	mask designs anymore with badly positioned acquisition stars.
+
+	* sphinx
+	Documentation updated
+
+2016-11-08  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Fixed several features that were broken with introduction
+	of wavelength overlays: toggling of acq stars, slit shading,
+	wavelength overlay, wavelength labels
+
+2016-11-07  mischa  <mischa@greenbean>
+
+	* src/wavemapper.tcl
+	Remeasured the IFU-2, IFU-R and longslit configs, doing individual
+	fits per grating now instead of more general, common fits. Better
+	accuracy. The IFU-2 is still too inaccurate, needs a special
+	translation between commanded CWL and actually established CWL.
+
+2016-10-27  mischa  <mischa@greenbean>
+
+	* config/F2* and src/*.tcl
+	* src/*.tcl
+	* gemwm/*.cc
+	Homogenized F2 grism names to R1200_JH, R1200_HK, and R3000
+
+	* src/*.tcl
+	Homogenized F2 grism names to R1200_JH, R1200_HK, and R3000
+
+	* src/get_gmos_posangle
+	Replaced by get_OT_posangle, to include F2 which has unflipped data
+
+	* src/vmAstroCat.tcl
+	Replaced get_gmos_posangle by get_OT_posangle.
+	Support for F2 R3000_YJHK combinations and wavelength overlay.
+	Fixed F2 specbox shading and wavelength labels.
+
+	* gemwm/data/F2_wavecal_coeffs.dat
+	Fixed F2 transformation equation
+
+2016-04-04  mischa  <mischa@greenbean>
+
+	* VERSION
+	Pushed version number to 1.2.0
+
+	* src/wavemapper.tcl
+	WaveMapper finished. Cleaned up left-over bugs.
+
+	* src/band_def_UI.tcl
+	* src/gmmps_spoc.tcl
+	* src/vmAstroCat.tcl
+	Added inline help buttons that directly load the associated html
+	webpages. Cleaned up left-over bugs.
+
+	* html/
+	Added the online documentation to the distribution.
+
+2016-03-29  mischa  <mischa@greenbean>
+
+	* src/wavemapper.tcl
+	Wavemapper module essentially complete. Still need the GMOS-S IFU-R
+	sequences. Few tiny bug fixes missing, documentation for 1.1.0 and
+	1.2.0 still pending.
+
+2016-03-17  mischa  <mischa@greenbean>
+
+	* src/get_gmos_posangle.cc
+	Previous version did not interpret the CD matrix the same way as
+	the Gemini OCS. GMOS flipping caused 180 degrees different angles
+	in some cases.
+
+	* src/waveMapper.tcl
+	Wrote a large piece of this code over the last two weeks. Had to
+	improve my automatic wavelength calibration code a lot to deal
+	with the large number of arcs (not part of GMMPS). Looking good.
+	Still working on numerous nonlinear wavelength models.
+
+	* src/tclIndex
+	Finally figured out that I have to add all procedures that I want
+	to call from other source files in the tclIndex.
+
+2016-03-02  mischa  <mischa@greenbean>
+
+	* config/version.dat
+	Pushed version number to 1.1.0
+
+	* src/vmAstroCat.tcl
+	Added a Spinbox to the ODF window that allows the user to display the
+	spectra for a different CWL. An Undo Button has been added that reads
+	the original CWL from the ODF header.
+
+	* src/gmmps_spoc.tcl
+	* src/calc_throughput.cc
+	Deleting temporary throughput tables and plots when closing
+	the OT window. Making them also hidden files in first place.
+
+	* src/gmmps_spoc.tcl
+	Cleaned up the FITS/ascii catalog conversion processes. They were
+	unnecessary convoluted, under certain circumstances buggy (i.e.
+	secondary "." in the file names, and had several if constructs left
+	where the code would never enter.
+	Writing filter, grating and CWL into the GMMPS configuration,
+	and loading them upon restarting the SPOC window. CWL auto button
+	background will be red if possibly inconsistent with best CWL.
+
+	* src/vmAstroCat.tcl
+	Cleaned up the Fits2Ascii conversion process.
+	Updated the "Reload Catalog" task to update the CWL as well.
+
+
+2016-02-29  mischa  <mischa@greenbean>
+
+	* src/band_def_UI.tcl
+	* src/gmmps_spoc.tcl
+	* src/vmAstroCat.tcl
+	Do not rely on CCDSUM keyword anymore to determine the binning factor.
+	Custom-made software run by users may not update the non-standard
+	CCDSUM keyword when resampling the pre-images / pseudo-images
+	to a different pixel scale. Binning factor is determined directly
+	by comparing the pixelscale (derived from the WCS) to the native
+	pixel scale of the instrument. Allowing for a tolerance of 5%.
+
+2016-02-23  mischa  <mischa@greenbean>
+
+	* src/band_def_UI.tcl
+	* src/gmmps_spoc.tcl
+	* src/vmAstroCat.tcl
+	Removed remaining traces of the band definition files.
+	Finally, consistent handling of the central wavelength and
+	the way it is propagated / calculated throughput the code;
+	e.g., the itk_option(-bw) variable is gone. I'm trying to
+	avoid the globals whenever possible.
+
+
+2016-02-22  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Not allowing to load OT files through the "load ODF" menu,
+	and vice versa. The following tables would likely be corrupted
+	in unpredictable ways.
+	Built in several checks that catch if an old ODF (older than v1.1.0)
+	is loaded. In such instances, for example, the plotting of 2nd order
+	overlap and wavelength scales will be suppressed. Displays of the
+	spectral boxes will be inaccurate (well, they were even more
+	inaccurate before, so that's an improvement nonetheless). The user
+	is warned accordingly.
+	Not showing N&S elements if the loaded ODF is from F2 or a normal
+	mask; previously, these elements were greyed out.
+	Incorrectly plotting the shaded spectral boxes if the slit was
+	outside the spectral box, but the CWL was still inside. So far,
+	I only checked against the CWL being outside.
+	Showing additional mask information and OT setup parameters in
+	the ODF window.
+
+	* src/band_def_UI.tcl
+	* src/gmmps_spoc.tcl
+	* src/vmAstroCat.tcl
+	* src/gmMakeMasks_2.cc
+	Removed the need for band definition files. Relevant parameters are
+	now stored directly in the ODF. Getting rid of this dependence
+	resulted in substantial simplifications of the source code in
+	many places, more transparent use, and easier mask checking.
+
+	* src/gmmps_spoc.tcl
+	Found another reason why sometimes double RA_IMAG keywords would
+	be propagated into the ODF. It had to do with the silly omni-present
+	FITS->ASCII->FITS->ASCII... conversion of the catalogs which by
+	now is certainly driving me crazy (one of the reasons why I weeded
+	out the band def files). Under some circumstances GMMPS
+	would read from the wrong temporary file that was created for
+	different purposes.
+
+
+2016-02-19  mischa  <mischa@greenbean>
+
+	* config/transmission/
+	Added filter, grating, detector efficiencies and atmospheric
+	transmission as much as that information is currently available.
+
+	* src/gmmps_spoc.tcl
+	Calculating effective bandpass width and optimal CWLs based on
+	the above data. Allowing for much more reasonable spectral lengths.
+	Automatically updating CWL for GMOS when choosing a new
+	filter/grating information.
+	Added an "Auto CWL" button.
+	Showing a throughput plot with CWL, and cut-on and cut-offs
+	that is calculated on the fly based on the user's filter/grating
+	or filter/grism choice.
+	Not showing the "Auto CWL" button and line edit field for F2,
+	as the CWL is fixed.
+
+	* src/calc_throughput.cc
+	Calculating the effective throughput based on the various
+	throughput curves using interpolation. Also creates the
+	throughput plot by calling an external python module.
+
+	* gmmps_throughput.py
+	Creates the thoughput plot based on the interpolated data
+	of calc_thoughput().
+
+	* config/various
+	Removed the hardcoded cut-on and cut-offs, which are now
+	calculated much more accurately on the fly.
+
+	* src/band_def_UI.tcl
+	* src/gmmps_spoc.tcl
+	* src/vmAstroCat.tcl
+	Cleaned up all the addXSIZE addTILT addPX addPY occurrences.
+	They were not needed anymore because I enforce the presence
+	of these columns from the very beginning, so there is no need
+	anymore to have all these countless checks and propagation
+	of check parameters and itk_option(xxx) variables that were
+	cluttering the code everywhere, and in some parts inflated it
+	considerably.
+	Finally, after years, in vmAstroCat.tcl, I found that unbalanced
+	opening curly brace in a comment that was balanced by that spurious
+	closing curly brace at the very end of the class. It's a miracle
+	that this stuff has not caused any problems. And that the interpreter
+	just swallows it is another reason that all of this should be
+	ported asap to a modern language.
+	Significant code cleanup in all three modules.
+
+2016-02-17  mischa  <mischa@greenbean>
+
+	* src/vmTableList.tcl
+	myprint() would arbitrarily divide the y slit dimension by two,
+	breaking the symmetry between horizontal and vertical dispersion.
+	Possibly affected the exclusion of slits if close to the masking
+	area. No idea why that was done in first place.
+
+	* src/gmmps_fov.cc
+	Correct handling of slit width and length (see the entry above).
+
+	* src/gmMakeMasks_2.cc
+	Finally removed mystery factor 2 for slit dimension (see the
+	entry above).
+	If slits had exactly the same numeric value for their absolute
+	start/end points in the spatial dimension, then they would not
+	enter the conflict resolution routine and their spectra would
+	overlap. That badly affected masks meant for spectral
+	mapping of an area using regular grids.
+	Removed several unused arguments to main().
+	Slit offsets in dispersion direction (e.g. for 2D mapping of a source)
+	were applied twice in loadSlits() when calculating the extent of
+	the spectrum, resulting in misplaced spectra and therefore causing
+	some spectra to still overlap, and/or other slits to be removed due
+	to false positive conflicts.
+
+	* src/gmmps_spoc.tcl
+	Removed several unused arguments to gmMakeMasks_2()
+
+	* src/vmAstroCat.tcl
+	Added backwards compatibility to show spectral boxes for ODFs
+	created with GMMPS 1.0.4 or older. No wavelength overlays and
+	2nd order overlaps will be shown in this case. Spectral boxes
+	are displayed approximately, only.
+
+2016-02-15  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Total rewrite of the ODF plotting functionality. It was very
+	obfuscatingly written and essentially not maintainable. I made
+	it more general and symmetric for horizontal and vertical dispersion
+	directions, strictly separating between image and canvas
+	coordinates, and now miraculously everything works and displays
+	correctly; even when one flips and rotates the image view from
+	within skycat. Also works properly for F2.
+	Showing an optional wavelength grid and, for GMOS, the wavelengths
+	of the detector gaps
+
+	* config/*_filters.lut
+	Updated all filter and wavelength throughput tables. Filter
+	throughputs are now cut-off when dropping below 10% of their
+	peak transmission curve; previously, this was at 50% absolute
+	throughput, which resulted in too short spectra, and even that
+	was not consistently implemented. GMOS-S throughput values are
+	now based on actual measurements and are not a simple copy of
+	GMOS-N data. Differences are up to 8nm for some filters, and up
+	to 2nm for narrow-band filters.
+
+	* config/filtertransmission
+	Constains all filter throughput curves and a script that will
+	generate a copy of the lookup tables in that directory. The
+	relative cut-off is given as a first argument to the script.
+
+2016-02-11  mischa  <mischa@greenbean>
+
+	* src/gmmps_spoc.tcl
+	Removed the aofold argument from calcSpectrum().
+	Checking for really nonsensical Grating/Filter combos for
+	GMOS in checkGratingFilterCombo(); previously: unchecked.
+	Adjusted output to screen (including wavelength range, removing
+	grating tilt, gRequest and #Rulings which were for debugging
+	purposes).
+	Fixed long-standing syntax errors for error dialogs that were
+	essentially never invoked because GMMPS now has a large number
+	of redundant safety checks.
+	Made new warning and information dialogs that do not not suffer
+	from HUGE fonts.
+	Showing a warning if the CWL falls outside the filter wavelength
+	range, or is within 25% of the spectral boundary. Suggesting
+	ideal CWL instead.
+
+	* src/band_def_UI.tcl
+	Updated recommendations for the B1200 and the R831 if CWL is
+	too large or too low.
+
+	* src/gmOdf2Cat.c
+	Removed #SpectrumLength output line
+
+	* src/gmMakeMasks_2.cc
+	Removed #SpectrumLength output line
+
+	* src/vmAstroCat.tcl
+	Completely rewrote how spectral footprints are drawn. Positions
+	were totally off for at least three reasons. Now plotting with
+	respect to the CWL position, using min and max lambdas; previously,
+	half the spectrum length was attached to the left and to the right
+	of the slit position, which made no sense whatsoever. Besides, the
+	spectrum length was badly calculated.
+	Had to add SPEC_MIN, SPEC_MAX and SPEC_DIS to the ODF.cat.
+	Fixed long-standing syntax errors for error dialogs that were
+	essentially never invoked because GMMPS now has a large number
+	of redundant safety checks.
+	Optionally showing second order overlap in the ODF window.
+	Showing information dialog when creating the ODF if 2nd order
+	overlap will occur.
+	Showing 2nd order starting wavelength in ODF window.
+	Showing warning in ODF window if CWL outside spectral range
+	selected by filter.
+
+2016-02-10  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Removing the check whether spectra are truncated by the detector
+	boundary. They almost always are (at least if no filter is used),
+	in particular now that the gratings lookup tables reflect the
+	correct wavelength coverage.
+	Spectral footprints are shown truncated by the detector boundary.
+
+	* src/gmmps_spoc.tcl
+	Updated recommendations for the B1200 and the R831 if CWL is
+	too large or too low.
+	Fixed the calculation of the spectral length (was totally wrong,
+	and I did not understand it in first place).
+
+2016-02-09  mischa  <mischa@greenbean>
+
+	* wcstools-3.9.2
+	Included the wcstools, using xy2sky (and possibly, in the future,
+	sky2xy)
+
+	* src/vmAstroCat.tcl
+	Printing RA, DEC and position angle in the ODF message window.
+	These are to be copied by the PI into the Observing Tool.
+
+	* config/GMOS-N_gratings.lut
+	* config/GMOS-S_gratings.lut
+	Added header comment.
+	Updated blue end of throughput curve. Was arbitrarily set to
+	an absolute value of 0.3. Now set to 0.05*peak value, increasing
+	the blue length of the spectrum by 50-100nm in some cases.
+	Actually, the limit is replaced by the QE limit if that is the more
+	constraining part (e.g. 1050nm upper limit for all gratings).
+
+	* config/F2_gfcombo.dat
+	Added header comment.
+
+	* src/gmmps_spoc.tcl
+	Allowing for comment line in F2_gfcombo.dat
+
+	* config/F2_gfcombo.dat
+	* config/F2-AO_gfcombo.dat
+	* config/F2_filters.lut
+	* config/F2-AO_filters.lut
+	Included the K-long filter
+
+2016-02-05  mischa  <mischa@greenbean>
+
+	* config/*fov.dat
+	Removed barcode entries; added barcode vignetting to the field of
+	view vertices; vignetted area is probably not yet accurately shown;
+	I'm using the old measurements from v0.402
+
+	* src/vmAstroCat.tcl
+	Removed all code concerning barcode plotting.
+	Removed consistency check that the field of view must have 8 vertices,
+	because in general it is different from instrument to instrument
+
+	* src/gmmps_fov.cc
+	Removed consistency check that the field of view must have 8 vertices.
+
+	* src/gmMakeMasks_2.cc
+	Removed consistency check that the field of view must have 8 vertices.
+	Changed calculation of illuminated field of view from average to
+	min/max values (so it won't get confused by the asymmetric bar code
+	placement, and possibly magnetic holders once implemented);
+	Renamed RA_IMG to RA_IMAG, DEC_IMG to DEC_IMAG in the ascii output
+	catalogs
+
+	* src/gmmps_spoc.tcl
+	Included calculation of position angle (MASK_PA keyword in the ODF)
+	based on CD matrix elements; previously, MASK_PA was always set to zero.
+	Renamed RA_IMG to RA_IMAG, DEC_IMG to DEC_IMAG; this is what is
+	conserved by odf2mdf;
+	Renamed RA and DEC keywords in the ODF.fits to RA_IMAG and DEC_IMAG
+
+	* src/vmAstroCat.tcl
+	Included calculation of position angle (MASK_PA keyword in the ODF)
+	based on CD matrix elements; previously, MASK_PA was always set to zero.
+	Renamed RA_IMG to RA_IMAG, DEC_IMG to DEC_IMAG.
+	Changed the way RA or CRVAL1 (DEC or CRVAL2) are searched in header.
+	Previously, the first occurrence was returned. In case of pseudo-images,
+	however, the CRVAL1/2 might be far off, whereas RA/DEC would be
+	correct.
+
+	* src/get_posangle.cc
+	New C++ routine to determine position angle from CD matrix
+
+	* src/Makefile
+	Included get_posangle.cc
+
+	* src/band_def_UI.tcl
+	Included calculation of position angle (MASK_PA keyword in the ODF);
+	Renamed RA_IMG to RA_IMAG, DEC_IMG to DEC_IMAG
+
+2016-02-01  mischa  <mischa@greenbean>
+
+	* src/gmmps_spoc.tcl
+	Parsing out HISTORY lines to avoid problems with unclosed quotes etc.
+
+	* src/vmAstroCat.tcl
+	Added checks for the OT and ODF table whether the ID column is numeric.
+
+	* src/vmAstroCat.tcl
+	Fixed a bug in the MacOS version which would cause an error if the user
+	included "---" strings in the comment fields of the pseudo-image FITS
+	header
+
+2015-03-23  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Clear bands overlay when closing the OT/ODF windows.
+
+	* src/vmAstroCat.tcl
+	Bug fix: auto-expansion was nominally deactivated in the GUI for
+	for N&S mode, but still applied by gmMakeMasks_2. In case of
+	short spectra that may exist next to each other in dispersion
+	direction, auto-expansion may lead to totally flawed mask designs,
+	such as overlapping slits, slits protruding into forbidden band
+	areas etc. This is a "bug" in gmMakeMasks_2, in the sense that it
+	works on sorted trees but only considers next neighbors, not
+	all other sources in the tree. Fixing this would probably be a major
+	effort, so I rather switch it off as auto-expansion is unnecessary
+	for N&S masks anyway.
+
+2015-03-04  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Moved the pink "Acquisition" button to the top.
+
+2015-03-02  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Priority column is optional. However, the original parsing of
+	the ASCII catalog was broken as the search string "priority"
+	would ALWAYS be found in the line "symbol: " (together
+	with x_ccd and y_ccd). Hence GMMPS would think that a priority
+	is present, and then crash when it doesn't find any. These blind
+	"grep" commands are dangerous and I replaced this one by a more
+	robust file parsing. Now the input FITS catalogs may actually lack
+	the priority, and one doesn't have to add it manually e.g. to a
+	SExtractor caatalog. Default value: 2
+
+	* sextractor/gmmps.*
+	Added minimum sextractor configuration files for extracting source
+	catalogs from the preimages.
+
+
+2015-02-24  mischa  <mischa@greenbean>
+
+	* config/version.dat
+	Pushed version number to 1.0.4
+
+	* src/build_gmmps
+	Removed an obsolete path setting from DYLD_LIBRARY_PATH (Darwin)
+
+
+2015-02-17  mischa  <mischa@greenbean>
+
+	* src/vmSkySearch.tcl
+	Uncommented add_search_options(). For some unknown reasons,
+	if I leave that function commented (because it doesn't seem
+	to be used anywhere), SOME ODFs created with v0.402 come up
+	empty (others don't).
+
+
+2015-02-10  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Made the pattern matching (searching for the dividing "--- ---- ..."
+	line) in the ASCII ODF more robust against occurrences of multiple
+	dashes in the header section
+
+	* src/vmAstroCat.tcl
+	Made the PIXSCALE treatment more robust against errors
+
+
+2015-02-06  mischa  <mischa@greenbean>
+
+	* src/*.tcl
+	Overloading my own error_dialog() function over skycat's default
+	version. The latter has a problem on more recent linuxes in the
+	sense that the fonts used for the display are HUUUUGE and only a
+	very small part of the error dialog is actually readable.
+
+	* src/vmAstroCat.tcl
+	When collecting the plotting options, the band definition detection
+	was not robust for a band shuffling mask ('file not found'). Working
+	with absolute paths now and doing explicit checks that the file
+	actually exists, rather than probing for a non-empty string.
+	For this to work, it is required that GMMPS is launched in the same
+	directory that contains the preimage, ODF and the band definition
+	file.
+
+
+2015-01-30  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Pseudoimages can have very different CRPIX values, e.g. they might
+	be totally outside the field of view. In case of a pseudo-image, i.e.
+	OBJECT  = 'pseudo...'", the CRPIX values used to plot the instrument's
+	field of view are set to half the NAXIS values.
+
+	* install_sources.sh
+	* install.sh
+	Largely rewritten to run more stable on different platforms.
+
+	* src/check_skycat.sh
+	New. Doing explicit check for the presence of valid skycat libraries:
+	libskycat3.1.2 (not needed, but I check for complete installation)
+	libcat4.1.0
+	libastrotcl2.1.0
+	libtclutil2.1.0
+
+	* src/check_tcltk.sh
+	New. Doing explicit check for the presence of valid skycat libraries:
+	libBLT24
+	libtcl8.4
+	libtk8.4
+
+	* src/check_os_compatibility.sh
+	New. Checks if a shared library is compatible with the architecture
+	of the present machine.
+
+	* setplatform
+	Removed
+
+	* src/createplatform
+	Removed
+
+
+2014-12-04  mischa  <mischa@greenbean>
+
+	* config/version.dat
+	Pushed version number to 1.0.3
+
+	* src/vmAstroCat.tcl
+	Added proximity warnings for alignment stars. If in
+	'acq highlighting mode', acq sources truncated or within 0.5"
+	of a gap (i.e. the box boundaries) are colored red, if within
+	1.5" they are colored yellow. Likewise warnings are issued if
+	the closest edge of the box is within 3" (1.5") of the boundary
+	of the slit placement area. The number of 'good' acq stars is
+	the number of all acq stars minus the red and yellow ones.
+
+	* src/GMOS-S_HAM_fov.dat
+	Vertices of the second gap were not given in the right order,
+	which broke the proximity warning (see above), but nothing else.
+
+	* src/vmAstroCat.tcl
+	N&S band plotting in the ODF window was not working for
+	bandshuffling. Odd ::skycat:bandDefUI getShuffleMode construct
+	did not work in first place, and would not work if the ODF was
+	loaded directly after startup (shuffleMode variable would not
+	be set). Reading shuffleMode directly from the band definition file
+	linked in the ODF instead.
+	The treatment of the band/micro shuffling modes is still a
+	mysterium to me.
+
+	* src/band_def_UI.tcl
+	Several small layout changes (e.g. fixed truncated lines, made
+	disabled entries have higher contrast, etc).
+
+	* src/gmmps_sel.c
+	Fixed a compiler warning about an unused variable
+
+	* src/vmQueryResult.tcl
+	Uncommented because apparently unused (a few of many):
+	-- enter_new_object()
+	-- tilt_object()
+	-- check_row()
+	-- updater_object()
+	-- set_angle()
+	I might remove them later...
+
+	* src/vmRtdImagePick.tcl
+	Note to self (or to whomever picks up GMMPS after me):
+	Apparently totally unused, but someone put a lot of functionality in
+	it to manually add objects using the "pick object" method, and also to
+	define curved slits. I have no idea though how to make this functionality
+	visible. In any case, even the normal "pick object" method does not
+	return its parameters to the OT catalog window. No, wait, it highlights
+	the entry in the OT catalog window when picking an object that is already
+	contained in the table. Misleading, naively I'd interpret it as a way to
+	select and enter a new object into the OT table
+
+	* src/vmAstroCat.tcl
+	-- Removed the "Clear Slits" option from the "Edit" pulldown menu.
+	This functionality is entirely (and consistently) controlled by the
+	checkbuttons in the OT/ODF windows.
+	-- Commented out the "Open" functionality from the OT/ODF "File" pulldown
+	menu, as it did not offer a pre-selection of OT or ODF catalogs, and thus
+	catalog types might get mixed up. I'm not sure what would happen in that
+	case...
+
+	* src/vmAstroCat.tcl
+	Note to self: about iscat()
+	If I understand correctly, in our case this always returns 1, and thus
+	a lot of the case distinctions here and in vmAstroQuery.tcl,
+	vmSkyQuery.tcl and vmSkySearch.tcl could go away.
+	I have a vague understanding only of what an "image server" might
+	be. I might delete all of that at some point to have a "minimum functionality"
+	GMMPS where the code base contains only what it needs, and not this giant
+	conglomerate of passive code with duplicated function names across routines
+	where one never knows which function gets called, which one doesn't, and what was
+	potentially written for future use in GMMPS and what is a left over from VMMPS
+	that will never apply to GMMPS.
+
+
+2014-12-03  mischa  <mischa@greenbean>
+
+	* config/version.dat
+	Pushed version number to 1.0.2
+
+	* src/vmAstroCat.tcl
+	-- Renamed F2 detector fov files (needed an underscore for correct
+	display)
+	-- Added a checkbutton to highlight acquisition stars only
+	-- Plotting acq stars with denser bitmap and cyan color
+
+
+2014-11-30  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	-- Added grayscale options to OT window
+	-- Layout changes in OT window
+	-- Added mask info window to ODF window
+
+
+2014-11-29  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Removed the individual case distinctions when editing slits.
+	If more than one value was edited and 'return' pressed at the
+	end, only the value for the field which had the focus would be
+	edited.
+
+
+2014-11-28  mischa  <mischa@greenbean>
+
+	* config/version.dat
+	Pushed version number to 1.0.1
+
+	* src/*.c *.cc
+	Updated so that a "USAGE:" string is printed if executed
+	without arguments (needed for viability check during installation).
+
+	* install.sh, install_sources.sh, setplatform, createplatform
+	Updated for easier and more foolproof installation (single step).
+	install_sources.sh does several consistency checks.
+
+
+2014-11-27  mischa  <mischa@greenbean>
+
+	* INSTALL.txt
+	Small updates
+
+	* src/vmAstroCat.tcl
+	-- Renamed detector names in the detector overlay combobox
+	-- Renamed the mask making buttons (the ones that launch SPOC)
+	to something more meaningful
+	-- By default have the pointing center switched off
+	-- Renamed the "Masking area" to "Slit placement area" button
+	-- Not hiding but just disabling the N&S band plotting checkbutton
+	if not GMOS or no bandshuffling mask
+	-- Slit shading also for tilted slits
+	-- Plotting two shaded areas to the left and right of a slit, to
+	leave the object uncovered
+	-- Optional toggling for the slit shading
+	-- Greying out checkbuttons that do not apply for an instrument
+	instead of hiding them. In this way the dialog looks nicer without
+	unmotivated empty space.
+	-- Plotting green line from CWL to object horizontally, not tilted
+	in case the object is displaced along the slit
+	-- Layout changes in the ODF dialog
+
+	* src/gmmps_spoc.tcl
+	-- Changed the background color of the SPOC window to white
+	-- Added a Cancel button to the overwrite warning (the window
+	manager would hang if the window itself was closed)
+
+	* src/vmAstroCat.tcl
+	For the record: Tilted slits are not allowed in N&S mode (nodding
+	would drive the object off the slit). It has been like that before,
+	but we couldn't figure out at first why that shouldn't be allowed.
+
+	* src/Makefile
+	Static linking of the FITS library. Binaries would not necessarily
+	work when copied across hardwares, or e.g. look for a dynamic cfitsio
+	lib. Avoiding to add the lib dir to LD_LIBRARY_PATH.
+	Removed linking the *.cc sources against cfitsio (which they don't
+	need and which might cause runtime errors if the libdir with the
+	shared cfitsio is not in LD_LIBRARY_PATH).
+
+
+2014-11-26  mischa  <mischa@greenbean>
+
+	* config/version.dat
+	Pushed version number to 1.0.0
+
+	* src/vmAstroCat.tcl
+	Added a slit plotting functionality to the OT window, so one doesn't
+	have to iterate forth and back between ODF and OT in order to manually
+	fine-tune slits. For some reason one cannot toggle the slits display
+	on/off directly through the "update (slits)" button. One has to click
+	the checkbox instead to display the new slit dimensions.
+
+
+2014-11-23  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	-- Changes in reading FITS headers (primary, then first extension);
+	working towards a solution that would allow mask making from general
+	images with a valid WCS that did not run through the
+	"make fake preimage" step
+
+	* src/vmAstroCat.tcl
+	-- Removed getPixelScale()
+
+	* config/Detectors.dat
+	Removed pixel scale entries.
+	Instruments are not guessed by pixel scales anymore. Too much uncertainty
+	and ambiguity.
+
+
+2014-11-21  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	-- A wild mix of pixel scales, retrieved either from the catalog, the image,
+	or config/Detectors.dat. The only relevant is the one in the image as it
+	is supposed to have a valid WCS. So I rewrote the relevant parts of this code
+	to take the pixel scale from the preimage exclusively.
+	-- BUG: getPixelScale() had an error in the sense that the instrument type
+	returned would always be F2. Since that hasn't bugged anyone in the last years
+	it probably means that instType has been properly set before getPixelScale()
+	is called. Anyway, I fixed it just in case, and probably we can get rid off it.
+	-- Simplified the retrieval of the instrument type (less nested routines,
+	prioritising FITS header, then catalog). Ultimately, will add a menu choice
+	in the OT window to change the type.
+
+	* config/GMOS-N_EEV_fov.dat
+	Updated based on single mosaiced preimage
+
+	* config/GMOS-N_E2VDD_fov.dat
+	Updated based on single mosaiced preimage
+
+	* src/SkyCat_plugin.tcl
+	Switch to grey-scale image color map. Not sure I want it there permanently
+	as it gets applied every time a catalog is loaded, which might be annoying for
+	some.
+
+
+2014-11-18  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Completely rewrote slit_add_dialog_buttons() to be consistent with the
+	OT window and to have more control over plotting stuff.
+	Finally got the option to change the object symbols back working again,
+	and got rid of that mutual cross inheritance of set_plot_symbols()
+	between vmAstroCat and vmSkySearch (they were doing totally different
+	things).
+
+	* src/vmSkySearch.tcl
+	-- Rewrote slit_add_dialog_buttons() to support new toggling of graphical
+	elements.
+	-- Removed get_plot_symbols() and set_plot_symbols() and all instances
+	to that flag variable
+
+	* src/vmAstroCat.tcl
+	-- Removed feedback()
+	-- Bandshuffling is still somewhat inconsistent in terms of when a button
+	is shown to plot the bands or not (if the ODF is loaded directly in GMMPS
+	without the bandshuffling design being done in the same session).
+	The band file should just be part of the ODF. For the time being I'll
+	just show the buttons and if the user clicks on it without actually having
+	done a bandshuffle mask a warning/error will be shown. Same behaviour as
+	in the previous versions.
+
+	* src/vmAstroCat.tcl
+	Added the option to overlay all other detectors in the field of view,
+	from within the OT and the ODF windows. Removed the radio buttons in the
+	'Options' menu. They are not needed anymore, and I think they were actually
+	confusing (and might have lead to wrong mask designs).
+
+
+2014-11-17  mischa  <mischa@greenbean>
+
+	* src/vmSkySearch.tcl
+	-- Rewrote mps_add_dialog_buttons() to support new toggling of graphical
+	elements
+
+	* src/vmAstroCat.tcl
+	-- removed set_feedback()
+	-- Completely rewrote mps_add_dialog_buttons() which arranges all the
+	editing, plotting and mask making options. This was a giant jungle of
+	frames, some of which unused, which made it nearly impossible to just
+	add a new element at a certain position. So I wiped it out and set it
+	up from the beginning. Has a much nicer and cleaner look now. Different
+	graphical elements, such as gaps, mask area etc can be toggled on/off.
+	Options are not shown if not applicable, e.g. F2 has no gaps.
+	-- Since we are toggling, I removed all instances of the relevant global
+	variable and functions that would change the button text
+	-- Toggling of graphical elements is now done within drawBoundaries()
+
+	* src/vmastroCat.tcl
+	-- Removed odfBandSearch() (never used)
+	-- Layout changes in the bandfile selection dialog
+
+	* src/gmmps_spoc.tcl
+	-- Layout changes in the SPOC dialog
+	-- Merged make_short_help() and add_buttons() into add_widgets()
+	-- Merged add_widgets into make_layout()
+
+
+2014-11-15  mischa  <mischa@greenbean>
+
+	* src/gmmps.sh
+	Removed the "-with_grid" and "-scrollbar" options from $OPTIONS.
+	They are not (anymore?) supported by skycat, at least
+	http://archive.eso.org/cms/tools-documentation/skycat/skycat-faq.html#xref:cmdlineop
+	does not list them
+
+	* src/vmAstroCat.tcl
+	-- Automatically adding a slittilt column when not present in input catalog
+	-- Merged the (up to 5) I/O streams (adding missing columns) into a single one,
+	reducing the waiting time significantly upon catalog loading. I still need a
+	silly sleep() function though.
+	-- Removed col_PRIO(), col_ST(), col_STXSIZE(), col_STYSIZE(). All merged into
+	a single call in search().
+	-- I still haven't understood all the jumps and loops the input catalogs
+	are sent through upon loading. Totally obfuscating, immensely complex, hard to
+	follow where the data goes next (and why!). A silly bug in this part sent me
+	hurling through almost all tcl sources for 16 hours...
+
+	* src/vmAstroCat.tcl
+	-- select_catalog(): Removed col_XSLIT variables (never used);
+	Removed nonfunctional code: The string $line that was assigned to
+	itk_option(-headingx) and 'headings_' was declared previously inside
+	a loop, and thus had no scope outside the loop. Fortunately, that had
+	no effect whatsoever.
+	-- getInstType(): Simplified string cleaning using regsub -all instead of
+	a lot of case distinctions
+	-- getInstType(): Greping for INSTRUME and PIXSCALE instead of "INSTRUME =" and
+	"PIXSCALE =". The '=' sign may appear at the 9th or the 10th column (depending on
+	how the catalog was produced) and then the string comparison would break.
+
+	* config/
+	-- flamingos2.cfg: Renamed to F2.cfg and F2-AO.cfg. Changed max slit
+	length/width from 1000000" to 120" (60" for F2-AO). Added missing newline at
+	the end.
+	-- gmos.cfg: renamed to GMOS-N.cfg and GMOS-S.cfg. Added missing newline.
+	-- Renamed gratings.lut  -> GMOS-N_gratings.lut  and GMOS-S_gratings.lut
+	-- Renamed gratingeq.lut -> GMOS-N_gratingeq.lut and GMOS-S_gratingeq.lut
+	-- Renamed filters.lut   -> GMOS-N_filters.lut   and GMOS-S_filters.lut
+	Like this I can remove all the numerous case distinctions that are hardcoded
+	with the respective intrument names in the various tcl sources
+
+	* src/gmmps_spoc.tcl
+	-- Removed hardcoding of GMOS/F2 instrument specific parameter files whereever
+	possible. Pushing towards more general code that is better suited for new
+	instruments.
+	-- Some reformatting of output printed to the command line
+	-- Using general dispersion direction than case distinctions based on hardcoded
+	instrument names
+	-- Removed the hardcoding of the Detector sizes
+
+	* src/vmAstroCat.tcl
+	-- Removed hardcoding of GMOS/F2 instrument specific parameter files whereever
+	possible. Pushing towards more general code that is better suited for new
+	instruments.
+        -- Changed 'itk_option define -pixs pixs Pixs "0.0725"' to
+	'itk_option define -pixs pixs Pixs "0.0"'
+	such that GMMPS can exit with an error instead of working with some "random"
+	pixel scale that might erroneously select the wrong instrument. Hopefully, that
+	was the last hardcoded pixel scale around...
+	-- Using general dispersion direction than case distinctions based on hardcoded
+	instrument names
+	-- If between 10% and 20% of the spectrum's full length are truncated by the
+	detector array, then draw it with a yellow outline. If truncated by more than 20%
+	draw it with a red outline.
+
+	* config/Detectors.dat
+	Removed the gap parameterization. Added the dispersion direction.
+
+	* src/gmMakeMasks_2.cc
+	-- Replaced all F2/GMOS hardcoding by dispersion direction
+	-- Bug fix: would hang if more masks than necessary are specified.
+	-- There still seems to be another bug: the more masks are produced
+	in one go, the less objects are packed into it.
+
+	* src/band_def_UI.tcl
+	Do not draw yellow box around allowed band areas (too much cluttering graphics).
+	It's enough to show the forbidden areas.
+
+	* src/gmmps_spoc.tcl
+	Switched OFF auto-expansion mode for band-shuffling masks. Some slitlets
+	were extended into the bands and I can't find the reason for it. In any case
+	N&S mode does away with the requirement of having lots of sky area in a slit.
+	Therefore not having autoexpansion does not have a negative impact on the science.
+	Nonetheless, one day I'd like to understand why this happens. I suspect it occurs
+	only when slitlets are placed next to each other in dispersion direction, which
+	may occur when the spectra are sufficiently short.
+
+
+2014-11-13  mischa  <mischa@greenbean>
+
+	* src/band_def_UI.tcl
+	-- Added CRPIX1/2 to the constructor and to the call of SPOC.
+	-- Replaced manually drawn hatch marks for forbidden bands with
+	stippled rectangles. Much more compact code.
+	-- Removed the progress bar. It didn't display anything.
+
+	* src/gmmps_spoc.tcl
+	-- Adjusted GMOS useful wavelength range (was 300 < CWL < 1200) to
+	350 < CWL < 1050 as is defined everywhere else.
+	-- calcSpectrum() did not check for useful wavelength range for
+	B1200 and R831 grating
+	-- replaced some error messages by warnings as routines aren't exited
+	and default values used instead
+	-- Removed the progress bar as gmMakeMasks is basically instantaneous
+
+	* src/gmMakeMasks_2.cc
+	Added CRPIX1/2 as extra arguments and propagating them accordingly.
+	Put loadFov() into main() so we have to do it only once.
+
+
+2014-11-12  mischa  <mischa@greenbean>
+
+	* src/gmmps_fov.cc
+	Added CRPIX1/2 as extra arguments to main()
+
+	* src/gmmps_spoc.tcl
+	Added CRPIX1/2 as extra arguments to the gmmps_fov() call.
+	Argh... HUGE HACK: calcSpectrum() had identical detector sizes hardcoded
+	for GMOS-N and GMOS-S. I have fixed the numeric values so they match each
+	instrument, but the hardcoding is still in place (for the time being)
+
+	* src/vmAstroCat.tcl
+	-- Plotting hashed untilted slits (using rectangles). Tilted slits must
+	be drawn using lines and therefore cannot be hashed.
+	-- Renamed plotTags_ to plotFieldLayout_
+	-- Removed F2 specific plotting functions
+	-- Removed several instrument specific case distinctions (not necessary anymore
+	due to code generalisations) concerning placement of graphics elements
+
+	* src/vmAstroCat.tcl
+	One single instrument-independent routine for plotting the field of view,
+	the full detector geometry, possible gaps (hashed) and the barcode:
+	drawBoundaries().
+	Deleted: plotGmosGaps(), plotGmosBarcode(), and plotF2Detector().
+
+	* config/GMOS_S_current_fov.dat
+	Included information about gap and barcode positions.
+
+	* config/F2_current_fov.dat
+	Included information about gap and barcode positions.
+
+	* config/barcode.dat
+	Deleted.
+
+2014-11-11  mischa  <mischa@greenbean>
+
+	* src/vmAstrCat.tcl
+	-- get_ra_image() searches also for CRVAL1 and returns an error if no RA/CRVAL1 is found.
+	-- get_dec_image() searches also for CRVAL2 and returns an error if no DEC/CRVAL2 is found.
+	-- Added get_crpix1/2_image() which searches for CRPIX1/2 and, if not found, replaces them by
+	NAXIS1/2 (while issueing a warning).
+	-- The red frame outlining the illuminated field of view is toggled on/off as the gaps when
+	plotting the gaps
+	-- Added a cross hair indicating CRPIX1/CRPIX2
+	-- Switched to CRPIX1/2-based coordinate system for the boundary drawing
+
+	* config/GMOS_S_current_fov.dat
+	* src/F2_current_fov.dat
+	Switched to CRPIX1/2-based coordinate system for the boundary drawing
+
+2014-11-07  mischa  <mischa@greenbean>
+
+	* gmmps_spoc.tcl
+	Automatic slit expansion expands some slits into bands if in
+	band-shuffling mode. Also present in v0.402, hence not something I have
+	introduced. Switched off slit expansion in N&S mode for the time being.
+
+	* src/GMOS_S_current_fov.dat
+	* src/F2_current_fov.dat
+	Introduced a new description of the illuminated field. All vertices are
+	now explicitly specified. This is much more flexible than the previous scheme,
+	and also safer to code. The previous way was obfuscating.
+
+	* src/gmmps_fov.cc
+	* src/gmMakeMasks_2.cc
+	* src/vmAstroCat.tcl
+	Adjusted to work with the new fov scheme.
+
+	* src/gmmps_fov.cc
+	Slitlets are kept if at least 90% of them are inside the FoV.
+	Eventually I'll make that a user-definable parameter.
+
+	* src/gmmakeMasks.cc
+	ExpandSlitToFoV() was rather buggy. Corners were swapped. Expansion of
+	start slit was towards zero instead of LSTART. I completely rewrote that
+	function and am using a more general testing scheme that has less case
+	distinctions.
+
+	* src/gmmakeMasks.cc
+	It appears that the wiggling amplitude is larger than the specified parameter.
+	There must still be a bug somewhere.
+
+	* src/vmAstroCat.tcl
+	Changed the plotting of the barcode. Put a filled rectangle there and
+	a "barcode" string.
+
+2014-11-05  mischa  <mischa@greenbean>
+
+	* src/gmmakeMasks_2.cc
+	BUG: loadFov() reads in the field-of-view config file (in arcsec)
+	and converts it to pixels. Subsequently, placeSlits() calculates
+	the middle of the field of view and had it erroneously divided by
+	the pixelscale once more. Once I fixed that, by changing
+	fovMid = ((fovEnd - fovStart) / 2 + fovStart) / pixelScale
+	to
+	fovMid = (fovStart + fovEnd) / 2.
+	the overlapping pairs of slits I have observed yesterday are placed
+	correctly. Hence I re-activated the two wiggleNear() function calls.
+	What I still see is that wiggling may cause two slits to be placed
+	too close to each other (less than the auto expansion parameter).
+	Seems to happen rarely though, but nonetheless there must be yet
+	another bug somewhere.
+
+	* src/gmmps_FoV.c -> gmmps_fov.cc
+	Total rewrite. Using generic polygon tester to check whether
+	slit is inside field of view. Replaced by gmmps_fov.cc
+
+	* src/gmmps_spoc.tcl
+	Calling gmmps_fov.cc instead of gmmps_fov.c
+
+	* config/GMOS-S_current_fov.dat
+	* config/GMOS-N_current_fov.dat
+	* config/F2_current_fov.dat
+	Introducing a new FoV format by explicitly specifying the vertices
+	of each corner. In this way we can handle the somewhat asymmetric
+	shadowing of GMOS, which wasn't possible with the previous
+	parameterization.
+
+	* src/vmAstroCat.tcl
+	Changes to accomodate the new parameterization in the
+	config/<instrument>_fov.dat descriptor files (plotting the
+	fov and the bar code)
+
+	* src/Detectors.dat
+	Fine-tuned the GMOS-S gap sizes and locations
+
+
+2014-11-04  mischa  <mischa@greenbean>
+
+	* src/gmmps_spoc.tcl
+	Fixed a bug in the slit wiggling process. The wiggling number,
+	a percentage, was divided by integer 100 instead of float 100,
+	effectively turning wiggling OFF even if it has been requested.
+	Subsequent asymmetric auto slit expansion, leading to an off-centering
+	of the object in the slit, would mask that wiggling actually has
+	not occurred.
+
+	* src/vmAstroCat.tcl
+	Slit plotting was wrong. Now that wiggling effectively had been
+	activated it became apparent.
+
+	* src/gmMakeMasks_2.cc
+	Fixed a bug in Slit::changePosition():
+	this->slitEnd += deltaW       must read instead:
+	this->slitBottom += deltaW
+	Oddly enough the effect seems to be microscopic or absent.
+
+	* src/gmMakeMasks_2.cc
+	BUG: wiggleNear() may place slitlets too close to each other or
+	actually have them overlap and the conflictGraph does not seem
+	to recognize that. I have no idea what could cause this, and thus
+	I have commented out the two wiggleNear() function calls. It might
+	be related, or only occur, if the mask design has two slits placed
+	next to each other in dispersion direction. Something where one
+	should continue looking. Wiggling of unplaced slits (wiggleUnplaced)
+	still takes place.
+
+	* src/gmMakeMasks_2.cc
+	The slit auto expansion does not work correctly if two slits
+	are placed next to each other in dispersion direction. The slit
+	ordering (which sorts in spatial direction) assumes that all spectra
+	extend fully in dispersion direction. I leave this unfixed for the
+	time being as it requires a major rewrite of that routine.
+
+
+2014-11-03  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Forcing slitsize_x and slitsize_y to be displayed upon loading
+	from an OT fits catalog (to be symmetric for instruments with
+	dispersion direction perpendicular to GMOS, such as F2.
+	Increased loading time due to stupid "sleep" commands required
+	for the column addition to take effect.
+
+	* src/vmSkySearch.tcl
+	Labeling a symbol with the object ID was broken. For whatever reason
+	label_object_in_image() was put under "$w_.progress -text label...()"
+	which is not working. Probably some progress bar that was never in
+	place? Calling it directly works fine. Yet another GMMPS mystery I'm
+	afraid.
+
+	* src/gmmps_spoc.tcl
+	Renamed XSIZE -> WIDTH, as for F2 it would be YSIZE.
+
+	* src/vmAstroCat.tcl
+	Changed gmmps_spoc function call (replaced "xsize" by "width", as for
+	F2 it would be ysize). I prefer more symmetric codes...
+
+	* src/vmAstroCat.tcl
+	Commented set_feedback() and feedback() routines as they were not
+	doing anything. Will delete them later when I'm sure they are really
+	not needed.
+
+
+2014-10-30  mischa  <mischa@greenbean>
+
+	* config/F2-gfcombo.dat
+	The CWL entry (4th column) for the H_K_grism+JH filter combo
+	was wrong. Was 1390 but should have been 1871.
+
+	* src/vmAstroCat.tcl
+	Renamed several variables so they are more meaningful, and
+	giving same variable names to the same parameters across
+	procedures. Mainly col_SIZE -> col_YSIZE and pixScale -> pixelScale.
+
+	* src/gmmps_spoc.tcl
+	SPEC_LEN and ANAMORPH keywords written to the ODF (fits and cat)
+	were strings and not floats. gmOdf2Cat.c seems to have survived
+	that so far (reading the string into a double variable) but
+	nonetheless, I made it consistent. Can't be too careful with such
+	things.
+
+
+2014-10-29  mischa  <mischa@greenbean>
+
+	* src/gmmps_menu.tcl
+	Restructured the GMMPS main pulldown menu for easier accessibility.
+	Inserted disabled menu items as "comments"
+
+	* src/vmAstroCat.tcl
+	The dialog window to select a new OT or ODF catalog would only be
+	displayed in the foreground when invoked the first time. All
+	subsequent times it'd be hidden by the main skycat window.
+	By explicitly specifying the parent widget as an additional
+	argument to filename_dialog it could be forced on top every time.
+	'raise' would be another more Tcl-like way of doing it but I can't
+	get it to work.
+
+	* src/vmAstroCat.tcl
+	The wrong detector would be selected in the OT/ODF window's
+	Options menu upon launch. This was because Tcl does not treat
+	a group of radio buttons as its own entity, but all entries in
+	the menu are indexed consecutively. Since I have removed two
+	dead entries from the Options menu, the indexing has shifted by
+	two as well, and thus the wrong detector for plotting the gaps
+	was selected. So this one was actually my fault...
+	To make it worse, Tcl did not complain that the chosen
+	index was higher than the number of available indices...
+
+	* src/vmAstroCat.tcl
+	* src/band_def_UI.tcl
+	Changed the parsing of src/Detectors.dat toward a more consistent
+	way. Multiple white space (tabs, empty chars) are condensed to
+	single white space in a line before the line gets split into a
+	Tcl list. In this way it doesn't matter that columns in
+	Detectors.dat are separated by blanks or tabs, which sometimes
+	were mixed.
+
+	* config/Detectors.dat
+	The GMOS-N detector string contains a blank. Super dangerous if
+	one isn't careful. As if the format of Detectors.dat wasn't
+	inhomogeneous enough already. I have replaced the blank by
+	an underscore. The DETID keyword, upon reading from the FITS
+	file / catalog, has the blank replaced by an underscore.
+	The tab-formatting between columns is now obsolete.
+
+	* config/Detectors.dat
+	Updated the F2 detector ID (was 65, should be 109)
+	Chose a more accurate F2 "detector name"
+	Updated the F2 pixel scale (was wrong: 0.1810->0.1790)
+	Renamed the GMOS "detector names" to a more homogeneous format
+
+	* src/vmAstroCat.tcl
+	Reformatted the button string for the Plot/Clear chip gaps /
+	field layouts to be more consistent across instruments
+
+	* src/vmAstroCat.tcl
+	-- get_pixelscale_image() now reconstructs the pixel scale
+	from the CD matrix, if the PIXSCALE keyword is not present and
+	CD1_1 and CD1_2 are available in the header. If CD1_1/2 are not
+	present, then we try CDELT1/2 as a last ressort.
+	-- getPixelScale() sets the pixel scale to zero and returns an error
+	if the pixel scale could not be found/reconstructed (instead of
+	providing a dummy pixel scale of 0.073 that does not match GMOS-S
+	nor F2)
+	-- select_catalog() returns an error if the pixel scale could not
+	be found/reconstructed
+
+	* src/vmAstroCat.tcl
+	getInstType(): Changed the pixel scale tolerance from 1e-5 to 1e-4.
+	The former seemed too conservative given the uncertainties in the
+	true physical pixel scale and what is written in the PIXSCALE
+	keyword. Need to re-evaluate this at a later stage.
+
+	* src/vmAstroCat.tcl
+	slits(), plotGmosGaps(), plotGmosBarcode() return with an error
+	message when the pixel scale could not be determined.
+	getPixelScale() returns 0.0 instead of 0.073 if no pixel scale could
+	be found. GMOS-N, GMOS-S and F2 have very different scales now, and
+	we can't accept fake pre-images with no pixel scale information
+	anymore.
+
+
+2014-10-28  mischa  <mischa@greenbean>
+
+	* config/version.dat
+	Pushed version number to 0.4.2
+	This is an intermediate bugfix release. It is not yet fully
+	backwards compatible with respect to old GMOS-S CCD pre-imaging.
+
+	* Updated installer scripts
+
+	* src/SkyCat_plugin.tcl
+	Commented out the loading of previously opened files.
+	Probably never worked.
+
+
+2014-10-24  mischa  <mischa@greenbean>
+
+	* src/vmSkySearch.tcl
+	Removed (never used):
+	make_short_help()
+
+	* src/vmSkySearch.tcl
+	Removed add_dialog_buttons(), after adding the "Plot/Clear Symbol"
+	button to the respective procedures where they should have been
+	in first place.
+
+	* src/vmAstroCat.tcl
+	The following routines and procedures were removed. They formed
+	a network of zombie-code deeply interwoven with the live code, but it
+	had essentially no function at all in GMMPS. Nonetheless it created
+	and defined a lot of elements that were never displayed. Yet some
+	of the routines were inherited in vmSkySearch.tcl where a tiny
+	bit of real functionality was added, so I couldn't just weed it out
+	easily. Everything was connected to everything else so this dead
+	code was really hard to get rid off. What's worse is that some
+	elements were operated on but they were never defined in first place
+	and this did not cause an exception during run time even though
+	these procedures were launched. Just weird, very weird.
+	And then there are these bizarre mutual dependencies between
+	vmAstroCat and vmSkySearch, I'll get to them another day...
+
+	add_dialog_buttons()
+	interrupt()
+	select_result_row()
+	preview()
+	get_preview()
+	preview_done()
+
+	* src/vmAstroCat.tcl
+	Removed the "Set name server..." buttons from the "Options" menu
+	in the OT/ODF dialogs. There is nothing to be resolved as there
+	isn't any "search" option in the dialogs in first place.
+	Likewise, removed the "Set Search Columns..." from the same menu.
+	Removed:
+	get_name_servers()
+	set_namesvr()
+	set_search_cols()
+
+
+2014-10-23  mischa  <mischa@greenbean>
+
+	* src/gmmps_spoc.tcl
+	Cleaned up output printed to screen / information windows
+
+	* src/gmmps_menu.tcl
+	Renamed GMMPS-Plugin to GMMPS
+
+	* src/version_check.sh
+	Reformatted screen output
+
+	* src/vmAstroCat.tcl
+	Removed unused/ancient/empty/dead/incomplete routines:
+	add_canvas_bindings()
+	add_progress_bar()
+	apply_color_scheme()
+	conv()
+	getimage_from_args()
+	help()
+	more()
+	open_catalog_window()
+	send_to_netscape()
+	tilt()
+	tilt_selected_object()
+	updateCat()
+	reload_config_file()
+	check_proxies()
+	proxies()
+	get_col()
+	disable_search()
+	add_catalog_menu()
+	catalog_directory()
+	fill_catalog_menu()
+	arch()
+	set_info()
+
+2014-10-21  mischa  <mischa@greenbean>
+
+	* src/gmMakeMasks_2.cc
+	Added support for dynamical minimum slit separation parameter
+
+	* src/gmmps_spoc.tcl
+	Added a minimum slit separation parameter (in pixels).
+	Default: 4.0 pixels, must be zero or larger
+
+	* src/gmmps_spoc.tcl
+	Removed the menu bar from the "Define mask" dialog, as it
+	just contained File->Close and a "Close" button is already
+	on display
+
+	* src/gmmps_spoc.tcl
+	Removed an error when creating a F2 mask (it would incorrectly
+	report the CWL out of range assuming GMOS was the instrument)
+
+	* src/gmmps_spoc.tcl
+	Fixed a stack smashing error on newer gcc compilers, that
+	prevented the ODF.fits from being written. The reason was that
+	the configuration file written on the fly (and deleted later on)
+	could contain a larger number of trailing blanks than what would
+	fit into a single FITS header line for he RA, DEC, EPOCH and EQUINOX
+	keywords. The problem would also go away by adding
+	-fno-stack-protector to the compiler options for
+	gmCat2Fits.c, but that's not a clean solution.
+
+	* src/band_def_UI.tcl
+	Checking whether the band definition file listed in the ODF
+	actually exists before plotting the bands; this suppresses a
+	cryptic error message.
+
+2014-10-20  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Added RA and DEC from the preimage to the ODF output catalog
+
+	* src/gmmps_spoc.tcl
+	Added RA and DEC from the preimage to the ODF output catalog
+
+	* src/gmMakeMasks_2.cc
+	Added RA and DEC from the preimage to the ODF output catalog;
+	Named RA_IMG and DEC_IMG
+
+	* src/vmAstroCat.tcl
+	The instrument type is not read from the input FITS table, but from
+	the ASCII version after conversion. As if that wasn't odd enough,
+	it includes a potential comment and thus breaks the string comparison,
+	for example when figuring out which instrument we are using.
+	I have added a "cut -f1 -d/" to remove possible comments.
+
+2014-08-27  mischa  <mischa@greenbean>
+
+	* config/version.dat
+	Pushed version number to 0.4.1
+	This is an intermediate release working with new GMOS-S
+	Hamamatsu pre-imaging data, but not yet with old GMOS-S
+	preimaging.
+
+	* src/version_check.sh
+	Suppressing a warning message if the new version of GMMPS is run
+	the first time (deleting a non-existant ~/.gmmps/VERSION)
+
+	* install
+	Fixed empty string comparisons (may fail under some circumstances)
+	Replaced 'locate' (not generally installed) by 'find'.
+
+	* setplatform
+	Fixed empty string comparisons (may fail under some circumstances)
+	Replaced 'locate' (not generally installed) by 'find'.
+
+	* src/createplatform
+	Fixed empty string comparisons (may fail under some circumstances)
+
+	* src/Makefile
+	Removed the -std=c++03 compiler flag again as it is invalid on (some?)
+	MacOs.
+
+2014-08-26  mischa  <mischa@greenbean>
+
+	* src/createplatform
+	Removed the copying of the cfitsio library (now a dependency)
+
+	* src/Makefile
+	Using the $(USER_LIB) variable for Darwin, only. Under Linux, it
+	was pointing to a non-existent directory (where the skycat binary
+	lives, appended	by a "/lib"). I guess this was done because, if
+	skycat is compiled from the sources, the libcat library may be found
+	in that directory. But that is a very fragile construct as the skycat
+	binary may be copied anywhere on the system and libcat may live
+	somewhere else. Yet another reason to put all of this under automake
+	or Sconf.
+	The non-existant directory resulted in probably harmless but strange
+	linker flags such as "-L-L/usr/local/bin/lib"
+
+	* src/skycatlib.sh
+	Removed the Linux case as it results in bogus linker flags
+	if skycat is not installed from sources; see above.
+	Modified string comparison which may fail if string is empty.
+
+2014-08-19  mischa  <mischa@greenbean>
+
+	* src/vmAstroCat.tcl
+	Vertical shift for the green line connecting the CWL with the
+	slit center has some odd pixel scale dependence which I haven't
+	figured out yet. Deactivated the shift for the moment.
+
+2014-08-18  mischa  <mischa@greenbean>
+
+	* config/Detectors.dat
+	Fixed the new GMOS-S Hamamatsu pixel scale to 0.080"/pixel
+
+	* src/vmAstroCat.tcl
+	Plotting spectral boxes correctly for tilted slits. Old code was rather
+	obfuscating so I rewrote that section.
+
+	* INSTALL.TXT
+	Removed cfitsio installation instructions
+
+	* src/makefile
+	Adjustment such that linking happens against a system-wide
+	cfitsio installation.
+
+	* include/fitsio.h
+	Removed. Part of cfitsio
+
+	* include/longnam.h
+	Removed. Part of cfitsio
+
+	* src/cfitsio
+	Removed. Earlier cfitsio versions have a licensing issue.
+	This went away with the latest version v3.370 I have temprarily included
+	in GMMPS (to fix compiler problems with newer gcc versions).
+	As I cannot see a reason anymore why GMMPS must come with a particular
+	version of the cfitsio library, I might as well simply remove it
+	from the GMMPS distribution and make it a general dependence.
+	It is probably one of the most wide-spread and matured packages in
+	Astronomy anyway.
+
+2014-08-14  mischa  <mischa@greenbean>
+
+	* Licensing
+	Added GPL headers to all C, C++ and tcl sources as required by the GPL.
+	Changed some "Gemini" copyright holder statements to AURA, Inc., as
+	this is what is mentioned in the COPYING file. Still have to figure
+	out if some DAO and ESO copyright statements pose some conflict.
+	If theirs are compatible with GPL, and we have modified the source
+	code and re-release it under the GPL, AURA should be the primary
+	copyright holder as far as I understand the GPL. Need to do some
+	research here. Either all of this is GPL, or it is not. If it is,
+	then it has to be done properly, or it is not legally binding.
+
+	* src/vmAstroCat.tcl
+	Shifted the green line connecting the CWL and the slit such that
+	it passes through the science object (in case the slitlet has been
+	shifted in spatial direction).
+	Bug fix: F2 CWL red line would have been drawn even if
+	$waveccd was undefined because 'if' condition was misplaced.
+	Bug fix: vmAstroCat::set_plot_symbols() was shadowed by
+	vmSkySearch::set_plot_symbols() even though the latter inherits
+	from the former, not vice versa. I renamed
+	vmAstroCat::set_plot_symbols() to vmAstroCat::my_set_plot_symbols(),
+	and now the plotting symbols in the ODF display can be changed.
+
+2014-08-13  mischa  <mischa@greenbean>
+
+	* unused/
+	Moved the following sources to an "unused" directory as they
+	are currently, well, not used by GMMPS. That's mainly for me
+	to keep a better overview. I'll develop them further when I
+	find time for it, e.g. gmCatOT2FitsOT.cc:
+	gmCatOT2FitsOT.cc
+	gmMakeMasks_2_only_center_bias.cc
+	gmMakeMasks.cc
+
+	* src/version_check.sh
+	Called by src/build_gmmps
+	Compares the version string in a small text file on our
+	servers with that in the user's distribution.
+	The startup script exits if the version is found to be smaller.
+	This requires the user to have 'wget' installed. If no 'wget' is
+	installed, the user is asked to check manually for a newer version.
+
+	* install
+	Small reformatting changes of the output;
+	Added a line for the version check that is put
+	into src/build_gmmps
+
+2014-08-12  mischa  <mischa@greenbean>
+
+	* src/SkyCat_plugin.tcl
+	Changed the error message printed to screen if previously used files are not found.
+	This is very confusing if the user deleted or moved them. Also, some variable values
+	were printed as well which made for a very strange output. I deleted them; Maybe they
+	were there for some debugging purposes, or whoever wrote this never fully tested it.
+
+	* bin/build_gmmps
+	Now performing version check if 'wget' is installed on the user's
+	machine. wget will time-out after 5 seconds, it appears our servers
+	are very slow to respond.
+
+	* src/gmCat2FitsOT.cc
+	Fixed possible buffer overrun / compiler warning (fgets())
+	Fixed some (not all) of the
+	"deprecated conversion from string constant to ‘char*’" compiler warnings
+
+	* src/gmOdf2Cat.c
+	Some code cleanup
+
+	* src/gmCat2Fits.c
+	Some code cleanup; fixed a possible buffer overrun/compiler warning
+	in fgets(), reading up to 256 chars into a buffer 82 char long.
+
+	* src/gmmps_FoV.c
+	Removed metacharacters, some code beautification;
+	Removed 'extern copysign' declaration, does not produce compiler warning
+	anymore; probably caused by old compilers.
+
+	* src/gmmps_sel.c
+	Removed strange metacharacters from source; leftover from windows editor?
+	Removed 'register' commands. The compiler knows better whether to do that
+	or not.
+
+	* src/*.tcl
+	Code beautification (auto-indent in emacs).
+	Some of that stuff was just unreadable.
+
+	* src/vmAstroCat.tcl
+	Replaced 'fov.dat' by GMOS-N/S specific config files
+
+	* src/gmmps_spoc.tcl
+	Replaced 'fov.dat' by GMOS-N/S specific config files
+
+	* config/fov.dat
+	Obsolete
+
+	* config/GMOS[N,S]_current_fov.dat
+	New, as fov vertices are different for E2V and Hamamatsu detectors.
+	Soft links to actual config files (for backwards compatibility)
+
+	* config/Detectors.dat
+	Adjusted for GMOS-S Hamamatsu
+
+	* src/Makefile
+	Complete rewrite. The old one was a complete mess with lots of
+	dead code and could have better been a simple shell script collecting
+	the compilation commands.
+	Removed all references to SunOS.
+	Using implicit variables.
+	Could remove almost all Darwin-related dependencies.
+	Switched -lm -lcfitsio_$(os) to -lcfitsio_$(os) -lm as otherwise math
+	functions in cfitsio would not be found. Did the same for Darwin, tentatively.
+	-static-libgcc option now only for Linux (problems on some Macs)
+
+	* include/fitsio.h
+	Replaced with fitsio.h that came with cfitsio v3.370.
+
+	* cfitsio/
+	Replaced cfitsio v2.5 with cfitsio v3.370 (10 years old!!!);
+	This eliminated pthread compiler errors on Ubuntu 12.04.
+	As I cannot recover the knowledge why such an old version of cfitsio
+	has been shipped with GMMPS, and as the latest version is working fine,
+	this switch should pose no problem.
+
+Version 0.402.14 - April 14, 2013
+  Change by Bryan Miller
+  Internally instType and targetInst must be capitalized. Some images headers,
+  especially the example fake GMOS image, have the instrument in lower case.
+  So, after reading INSTRUME from the header in vmAstroCat.tcl we set the result
+  to be upper case with [string toupper ...].
+
+Version 0.402.13 - June 7, 2013
+  Change by Bryan Miller
+  Added an additional check and attempt to read PIXSCALE from the image header.
+  This is similar to the CCDSUM workaround on March 18. It seems to help make
+  sure that the keyword is read, especially from fake GMOS images.
+
+Version 0.402.12 - April 23, 2013
+  Change by Dustin Fennell
+  Removed 'fov_check' function from gmMakeMasks_2 because it was
+  dropping slits that shouldn't be dropped. All field of view
+  calculations are now done in gmmps_FoV.c, as they always should
+  have been... slits whose lower ends extend below the field are
+  still incorrectly not being dropped, however.
+
+  Change by Bryan Miller
+  NS_DIST odf header renamed to SHUFSIZE and changed to output the
+  shuffle size in unbinned pixels.
+
+Version 0.402.11 - March 18, 2013
+  Changes by Bryan Miller
+  Added a new procedure "get_ccdsum_image" in vmAstroCat.tcl to get
+  CCDSUM if nothing returned by the original method (can happen if
+  INHERIT=T).  This will take the CCDSUM parameter from extension 1
+  instead of the PHU in the case that it exists in both.
+
+Version 0.402.10 - March 15, 2013
+  Changes by Bryan Miller
+  Updated the install scripts to handle both Skycat 3.0 and Skycat
+  3.1.2 on Mac. Updated the installation instructions.
+
+Version 0.402.9 - January 3, 2013
+  Changes by Dustin Fennell
+
+  Implemented slit _length_ limit (oops).
+
+Version 0.402.8 - November 25, 2012
+  Changes by Dustin Fennell
+
+  Implemented slit expansion in Nod and Shuffle mode.
+
+  Added NS_DIST keyword to ODF files.
+    Value is in arcseconds, this is indicated in a .fits style comment.
+
+
+Version 0.402.7 - November 22, 2012
+	Changes by Dustin Fennell
+
+  Refactored gmMakeMasks_2.cc for ease of maintenance and clarity.
+  (No semantic changes)
+
+
+Version 0.402.6 - November 21, 2012
+  Changes by Dustin Fennell
+
+  Implemented max slit width check for gmos, set max value to 120.
+    (it turns out we were not checking for maximum width at all)
+
+  Added two new config because of the above change: "gmos.cfg" and
+    "flamingos2.cfg". Max width is set to 1000000 in the F2 file, because I do
+    not know what it should be.
+
+  Modified method "myprint" in vmTableList.tcl to return a warning message if
+    slits are dropped because of having invalid priority or being over max width
+    (this message is then displayed to the user in gmmps_spoc.tcl method spoc).
+
+  Renamed a couple (minor) methods in gmmps_spoc.tcl for clarity.
+
+  Replaced tabs with spaces in changelog.txt (meta!)
+
+
+Version 0.402.5 - November 20, 2012
+  Changes by Dustin Fennell
+
+  If column slitsize_x is not present in the OT gmmps now loads slit width from
+  the gmmps_spoc.tcl user interface.
+
+  Changes made to: gmmps_spoc.tcl (method:spoc),
+    vmTableList.tcl (method:myprint)
+
+  ODF .fits now contains RA, DEC, EQUINOX and EPOCH information from the image
+  header.
+  Changes made to: gmmps_spoc.tcl (method:spoc)
+  New functions: getImageInfo (gmmps_spoc.tcl)
+
+Version 0.402.4 - October, 2012
+  Changes by Bryan Miller
+  vmAstroCat.tcl:
+  In proc getInstType, detInst is not passed to
+  it when using the fake preimage, changed pixScale to
+  pixScaleCat in lines 6553 and 6572.
+
+Version 0.402.3 - January, 2012
+  Changes by Bryan Miller and Dustin Fennell
+
+  Summary:
+  - GMOS-N E2V DD detectors added
+        - Column names should now be more case-insensitive
+        - Catalogs are now always reloaded from the .cat file (not .fits)
+
+    **** General Changes ****
+      In gmmps_spoc.tcl:
+  Added at line 1311
+    } else {
+      set itk_option(-bw) [getF2Wave $Grate $Filter]
+    }
+
+        In AstroCat.tcl:
+
+        Removed at line ~6085:
+        #set col_RA ""
+        #set col_XSLIT ""
+        #catch {set col_RA [exec grep - i ra $name ]}
+        #catch {set col_XSLIT [exec grep - i slitpos_x $name ]}
+
+    **** Changes for "Case-insensitive OT column names" bugfix ****
+
+        Possibly fixed by changing:
+
+        In vmAstroCat.tcl:
+        lines 3208 to 3215 changed from
+        "               set PRIORITY [lsearch $head priority]
+                        set TYPE [lsearch $head slittype]
+                        set ID [lsearch $head ID]
+                        set SLITSIZEY [lsearch $head slitsize_y]
+                        set SLITSIZEX [lsearch $head slitsize_x]
+                        set SLITTILT  [lsearch $head slittilt]
+                        set SLITPOSX  [lsearch $head slitpos_x]
+                        set SLITPOSY  [lsearch $head slitpos_y]",
+       to
+        "                set PRIORITY [lsearch -regex $head {(?i)priority}]
+                        set TYPE [lsearch -regex $head {(?i)slittype}]
+                        set ID [lsearch -regex $head {(?i)ID}]
+                        set SLITSIZEY [lsearch -regex $head {(?i)slitsize_y}]
+                        set SLITSIZEX [lsearch -regex $head {(?i)slitsize_x}]
+                        set SLITTILT  [lsearch -regex $head {(?i)slittilt}]
+                        set SLITPOSX  [lsearch -regex $head {(?i)slitpos_x}]
+                        set SLITPOSY  [lsearch -regex $head {(?i)slitpos_y}]"
+
+        Similarly lines 4772 to 4774 become:
+        "                set tilt_col [lsearch  -regex $columns {(?i)slittilt} ]
+                        set id_col [lsearch -regex $columns {(?i)ID} ]
+                        set prio_col [lsearch -regex $columns {(?i)priority} ]"
+
+        In vmQueryResult.tcl
+            line 505 becomes "set angleCol [lsearch -regex $headings_ {(?i)slittilt} ]", and
+            line 513 becomes "set idCol [lsearch -regex $headings_ {(?i)ID} ]".
+
+        In vmTableList.tcl
+            added lines 1117 to 1122
+            "    set slitsize_yName ""
+                set slitsize_yIndex [lsearch -regex $headings_ "(?i)slitsize_y" ]
+            if {$slitsize_yIndex != -1 && [lindex $headings_ $slitsize_yIndex ] != "slitsize_y"} {
+                # slitsize_y is present but not in the correct case, save name for array lookup.
+                set slitsize_yName [lindex $headings_ $slitsize_yIndex ]
+            }",
+
+        changed line 1138 from "set col $ord_(slitsize_y)" to "set col $ord_($slitsize_yName)",
+        changed line 1142 from
+        "set sep [$itk_component(config_file) get_option slitsize_y Separator]" to
+        "set sep [$itk_component(config_file) get_option $slitsize_yName Separator]",
+        changed line 1151 from "set col $ord_(slitsize_y)" to "set col $ord_($slitsize_yName)",
+        changed line 1155 from
+           "set sep [$itk_component(config_file) get_option slitsize_y Separator]" to
+            "set sep [$itk_component(config_file) get_option $slitsize_yName Separator]",
+            (similarly for lines 1164, 1168; 1177, 1181),
+
+        added lines 1187 to 1192
+            "            set knownIndex [lsearch -regex $headings_ "(?i)$name" ]
+                        if {$knownIndex != -1 && [lindex $headings_ $knownIndex ] != $name} {
+                            # This heading is a case-insensitive match with a known column,
+                            # so set name to the case of the actual heading.
+                            set name [lindex $headings_ $knownIndex ]
+                        }"
+
+
+    **** Changes for "Cannot edit slit values after converting OT FITS to cat" bugfix ****
+
+        Fixed by (in vmAstroCat.tcl):
+            - removing line 3539 ""set catType $itk_option(-catType)"" in vmAstroCat.tcl
+            - changing line 3543 from
+                ""select_catalog $catalogName local ""namespace inscope ::skycat::SkyCat .skycat1.image"" ""::skycat::vmSkySearch"" 0 $catType """" $instType""
+                to
+                ""select_catalog $catalogName local ""namespace inscope ::skycat::SkyCat .skycat1.image"" ""::skycat::vmSkySearch"" 0 1 """" $instType""
+
+
+    **** Changes for "Allow priorities with values >10" bug ****
+        Fixed by (in vmTableList.tcl):
+            Added lines 1235 to 1238
+                "
+                # Slits with invalid priorities should not be added.
+                if {[lindex $linez $numOrder_(12)] > 3} {
+                    continue
+                }
+                "
+
+    **** Changes for "pick object" bug ****
+
+        Changed line 2128 to "set tags slitMark" from "set tags mark"
+        Changed line 2429 to "$target_canvas_ delete slitMark".
+        Changed line 3559 to "$target_canvas_ delete slitMark"
+
+
+        Changed line 1959 to "set tags boundary" from "set tags mark"
+        Added lines 566, 577:
+        "           $target_canvas_ delete boundary
+                    $target_canvas_ delete slitMark"
+
+        Commented out line 2126 "set fg green" (fg is set later in the function)
+        Changed line 2224 to "set fg GhostWhite" from "set fg white" (stops the white objects from blinking)
+
+
+Version 0.402.2 - August 18, 2011
+  Changes by Bryan Miller
+
+  Summary:
+    - Object symbol updates to reflect change in priority (bugfix)
+    - Add warning if less than 2 acquisition objects
+    - Change "Guide objects" to "Acquisition objects"
+    - "Plot Gaps" button plots the imaging boundary
+    - Acquisition stars can be used in multiple masks
+    - Extremely thin slits are avoided in multi-bank mode
+    - Slit tilt values are checked when "Update Row" is
+  pressed.
+    - Central wavelength is always saved when a mask is
+  designed (bugfix)
+     - The input slitpos_y is respected and slitpos_y and
+  specpos_y are updated when slit expansion is on.
+
+Version 0.402.1 -
+  Changes by Dustin Fennell
+
+  Summary:
+    - Version 0.402 forked from version 0.401.12.
+    - Added a bias towards the center of the detector for slits.
+    - Slitlen box is now disabled in microshuffle bandfile edit widget.
+    - Bugfixes.
+
+    * F2-dpix.dat removed from repository.
+    * F2-gfcombo.dat column 3 is now F2 dpix for that combo.
+
+    In gmMakeMasks_2.cc:
+      - new 'int findMaxSpectrumSid': Given a list of ids return the id
+        that represents a slit with a spectrum closest to the center of
+        the ccd.
+      - 'void placeSlits':
+        -Reworked to support bias towards the center.
+      - new 'int wiggleNear': Tries to wiggle slits into thier neighbors
+        on slit placement.
+      - 'Slit' contructor: Added wiggle items to slit class def.
+      - new 'int wiggleUnplaced': Tries to fit more slits post-placement
+        via wiggling.
+
+    In vmAstroCat.tcl:
+      - 'method sel': Added a confirmation dialog when editing acq objects.
+
+    In gmmps_spoc.tcl:
+      * Copied from version 0.401.13 for changes.
+      - removed binding to checkCombo
+      - Added slider for automatic slit movement.
+
+    In band_def_UI.tcl:
+      - Various places: wrapped slitlen changes and loads in a
+        enable/disable cocoon.
+      - 'method add_widgets': changed the color of the disabled
+        text in the slitlen entrybox.
+      - 'method calcShufflePx': now also update slitlen in ms mode.
+      - 'method calcShuffleAmt: ditto above.
+      - Replaced any "info_dialog"s with "tk_messageBox"es.
+
+
+**** Version 0.401 Changelog Below ****
+
+Version 0.401.12 - April 25th 2011
+  Changes by Dustin Fennell
+
+  Summary:
+    - Bugfixes
+
+  In vmAstroCat.tcl:
+    - 'method _sel':
+      - Can now handle catalog edits when ID's aren't in order, while
+        taking advantage where they are (efficiency).
+      - Fixed bug prio-change complaining on slittilt-less catalogs.
+      - Fixed "X1", "X2", etc bug.
+    - 'method promptBandFileSelect': Fixed "bands.tmp" typo.
+    - 'method define_bands': Now passes in parent window when in 'draw
+      only' mode.
+
+  In gmMakeMasks_2.cc:
+    - 'initOutputFile':
+      - Now does not write blank bdfile if no bdfile is provided.
+
+  In band_def_UI.tcl:
+    - 'proc drawBands':
+      - Grep crash bugfix.
+      - Changed to tk_messageBox from info_dialog.
+
+
+
+Version 0.401.11 - April 19th 2011
+  Changes by Dustin Fennell
+
+  Summary:
+    - Max mode is now not allowed in n&s mode.
+    - Fixed n&s file reading error introduced in the previous update.
+    - gmMakeMasks now makes sure an object does not have prio 'X' before
+      having a fit about tilted slits in N&S.
+    - Band Definition Files are now stored only by thier file name in ODFs,
+      without the full path.
+    - Fixed bug where new catalogs would crash if the plotGaps_ variable
+      was set to 1.
+
+  In gmMakeMasks:
+    - 'main': now detects bdfile parameter again.
+    - 'loadSlits': now makes sure objects are not prio 'X' when checking
+      for invalid N&S tilts.
+    - 'void initOutputFile': Now stores short bdfile name in .cat ODF.
+
+  In gmmps_spoc.tcl:
+    - 'method spoc':
+      - now makes sure max mode cannot be active in N&S mode.
+      - F2 grating/filter warning is now an info_dialog not a error_dia..
+
+  In vmAstroCat.tcl:
+    - 'destructor':
+      - All markers are now cleared from the skycat window when the last
+        instance is closed.
+      - plotGaps_ variable is now set to 0 on last window close.
+    - 'method set_detector':
+      - Enclosed plotGmosGaps call and plotF2Detector call in catch
+        statements.
+
+
+Version 0.401.10 - April 15th 2011
+  Changes by Dustin Fennell
+
+  Summary:
+    - Fixed N&S bug when loading bandfiles.
+    - Fixed Max-mode bug.
+    - Added a cancel button to the N&S selection dialog.
+    - Barcode is now plotted in the skycat display when 'plot gaps' is
+      pressed.
+
+  In band_def_UI.tcl:
+    - 'method add_widgets': Adjusted behavour when loading a bandshuffle
+      bandfile.
+    - MOVED methods 'promptBandFileSelect', 'chooseBandFile',
+      'makeTmpBands', 'odfBandSearch', 'findBandFiles' from this class
+      into vmAstroCat.tcl
+
+  In gmMakeMasks_2.cc:
+    - 'void maxOptProcessLine': Now takes slit_pos values into account when
+      storing new max mode values.
+    - MIN_SPEC_DIST is now in arcseconds, and converted to pixels when
+      needed (to adjust for binning).
+
+  In vmAstroCat.tcl:
+    - 'method mps_add_dialog_buttons': Updated "short help" text.
+    - 'method slit_add_dialog_buttons': Updated "short help" text.
+    - MOVED methods 'promptBandFileSelect', 'chooseBandFile',
+      'makeTmpBands', 'odfBandSearch', 'findBandFiles' into this class
+      from band_def_UI.tcl .
+    - new method 'plotGmosBarcode': Plots a barcode rectangle on the
+      skycat display.
+
+
+Version 0.401.9 - April 8th 2011
+  Changes by Dustin Fennell
+
+  Summary:
+    - Fixed .cat window name bug.
+    - Fixed yOffset multiple-slit N&S bug.
+    - Fixed "not saving catalog changes to file" bug.
+    - Band Math now 1-relative.
+    - Fixed F2 ODF loading bug.
+
+  In gmMakeMasks_2.cc:
+    - 'int main': Fixed bug when making multiple masks.
+
+  In vmAstroCat.tcl:
+    - 'method init': Window title is now
+      "[file tail $name] ($itk_option(-number))"
+    - 'method open_catalog': Window title is now
+      "[file tail $name] ($itk_option(-number))"
+    - 'method check_tilts':  Now saves changes to file.
+    - 'method _sel': Now saves changes to file.
+    - 'method set_detector': updated to such that it doesn't crash on F2
+      ODF loads.
+    - 'method slit_add_dialog_buttons': For some reason the ODF UI was
+      calling the 'close' method in place of plotting the F2 detector
+      (my bad).
+
+  In band_def_UI.tcl:
+    - 'method saveBandDef': yOffset now only gets written once per band def
+      file not once per band.
+    - 'method calcBandAry': Band math now 1-relative (as opposed to 0).
+    - 'proc drawBands': Band math now 1-relative.
+
+  In vmQueryResults.tcl:
+    - 'method save_to_file': made headings argument an optional argument
+      defaulting to the class' "headings_" variable.
+
+
+
+Version 0.401.8 - March 7th 2011
+  Changes by Dustin Fennell
+
+  Summary:
+  - Bandfiles are now associated with OT and ODF files. For OT files
+  - Nod & Shuffle now checks current values against default values from other
+    detectors and warns the user then they are using the default for
+    another detector.
+
+  In vmAstroCat.tcl:
+    - 'proc getInstType': Fixed typo in error message form==>from.
+    - 'method define_bands': drawBands proc is now called with the name of
+      the catalog as an additional argument.
+
+  In band_def_UI.tcl:
+    - Set float precision for most N&S entry boxes to %.3f.
+
+    - 'method init':
+      - Now sets bandHtDefault_ by calling getDefaultBandHt.
+      - Now trys to find .bands file associated with the OT file that is
+        opening the window, and promts the user to load one if found or
+        use temp.bands by calling promptBandFileSelect.
+    - 'method validateBandDef':
+      - Now attempts to correct incorrect values instead of just throwing
+        up an error message (and sometimes freezing the UI).
+      - Checks shuffle amt (pix) against default values for other masks
+        and alerts the user if it is possible an incorrect default is
+        being used.(and allows options for changing or keeping the value)
+      - Doesn't validate when called from calcBandAry.
+      - If another detector's default value is detected on startup GMMPS
+        automatically loads the default for the current detector.
+    - 'method calcBandAry': Now calls validateBandDef with a "calcBandAry"
+      argument.
+    - 'method restoreDefaults':
+      - Bandshuffle restore defaults now calls calcBandAry to redraw
+        bands.
+    - 'proc drawBands': No longer calls odfBandSearch. Now looks for bdfile
+      name in ODF header.
+
+    - new variable 'bandHtDefault_': a list of default band shuffling band
+      height for all detectors. The most relevant is in index 0, the
+      others are for validation purposes.
+    - new variable 'bandHtDefaultNames_': A list of detector names
+      corresponding to the values in bandHtDefault_.
+    - new method 'setDefaultBandHt': Sets and returns the defaultBandHt_
+      and defaultBandHtNames_ lists for this instrument, formatted as
+      descibed above.
+    - new method 'findBandFiles': Searches a directory for .bands files
+      associated with the current OT file that created the N&S window.
+    - new method 'promptBandFileSelect': Creates a dialog window prompting
+      the user to select or create a band definition file for use with
+      any created ODF.
+    - new method 'chooseBandFile': Handles post-file selection logic for
+      the band file selection prompt.
+    - new method 'checkShufflePx': Formats and checks the shuffle amt px.
+    - new method 'makeTmpBands': Creates a new tmp.bands file if one
+      doesn't already exist.
+    - new proc 'odfBandSearch': Searches the directory of a given odf for
+      associated *.bands files.
+
+  In gmmps_spoc.tcl:
+    - 'method init': calls new method bandfileAppendOdfName to append ODF
+      name to band definition file.
+    - 'method spoc': Now adds a "BDFILE = ' ... '" line to the .fits ODF
+      file.
+    - new method 'bandfileAppendOdfName': adds an "ODF: ... " line to the
+      band definition file.
+
+
+  In gmMakeMasks_2.cc:
+    - 'void initOutputFile': now adds "#fits BDFILE = ..." to .cat ODF file
+
+
+  In Detectors.dat:
+    - Cleaned up useage instructions.
+
+
+  In gratings.lut:
+    - Removed part names from grating descriptions.
+
+
+
+
+Version 0.401.7 - March 31th 2011
+  Changes by Dustin Fennell
+
+  Summary: GMMPS now remembers n&s settings. Bugfixes.
+
+  In gmmps_spoc.tcl:
+    - 'method spoc': Adjusted how the .cfg file was deleted, such that it
+      will actually be deleted when a new filename is given.
+
+  In band_def_UI.tcl:
+    - 'method saveBandDef':
+      - Added "mode" parameter to get around strange call from entry box
+        widget.
+      - Added call to 'config_save_info'.
+    - new method 'config_save_values': Saves information to the configuration
+      file, based on N&S mode and instType.
+    - new method 'config_get_values': Fetches info from the config file.
+    - new method 'restoreDefaults': Restores the default values to the N&S
+      widget.
+    - 'method switchShuffleMode': Now tries to load values from config file
+      when switching modes, also saves data in current mode before
+      switching.
+    - 'method add_widgets': Now tries to load values from configuration
+      file on load.
+    - 'constructor': EXTRABANDSEP set to 0.
+    - 'proc draw_bands':
+      - Fixed bug involing missing $.
+
+  In vmAstroCat.tcl:
+    - 'method slit_add_dialog_buttons':
+      - Now trys to detect an open N&S window in bandShuffle mode, and
+        adjusts the name of the "plot bands" button if one is found.
+      - Queries 'plotGaps_' value to set GMOS gap button name.
+    - 'method mps_add_dialog_buttons': Queries 'plotGaps_' value to set
+      GMOS gap button name.
+    - 'method _sel': Replaced 0.401 _sel with 0.501 version. Compatibility
+      changes made.
+    - new method 'is_sorted': copied from V501. Checks if a list of rows is
+      sorted by ID or not.
+    - new method 'sort_rowlist': sorts a list of rows.
+
+
+Version 0.401.6 - March 29th 2011
+  Changes by Dustin Fennell
+
+  SUMMARY: "Plot/Clear Bands" improvement. Moved config file.
+
+  In band_def_UI.tcl:
+    - 'method saveBandDef': added 'yOffset:%s' value to tmp.bands.
+    - new proc 'drawBands':
+      - Copied band drawing code from method calcBandAry and modified to
+        query values from tmp.bands file.
+      - GMMPS now looks for tmp.bands in pwd instead of in $GMMPS.
+      - Error messages updated.
+
+  In vmAstroCat.tcl:
+    - 'method close':
+      - clear bands for ODF files on close, if plotting bands.
+      - only clear slits for ODF if plotting slits for this ODF.
+    - 'variable config_file': now set to "::env(HOME)/.gmmps.cfg"
+
+
+
+Version 0.401.5 - March 28th 2011
+  Changes by Dustin Fennell
+
+  SUMMARY:
+    ODF files will now have 'DET_IMG' and 'DET_SPEC' keywords.
+    Opening a new Mask Design or Band Def window now closes any existing
+      windows of that kind.
+    Changed colorscheme.
+    Bugfix in slit selection algorithm.
+
+  In vmAstroCat.tcl:
+    - new variable - DET_IMG_: will store the detector id of the preimage.
+    - new variable - DET_SPEC_: will store the detector id the mask is
+      being designed for.
+    - 'method export':
+      - added DET_IMG_ and DET_SPEC_ to parameters in gmmps_spoc call.
+      - delete mask design window if it is already open.
+      - added call to 'setDetInfo'.
+    - 'method define_bands':
+      - added DET_IMG_ and DET_SPEC_ to parameters in band_def_UI call.
+      - delete band def window if it is aleady open before you create a
+        new window. (also delete any mask design window)
+      - added call to 'setDetInfo'
+    - new proc - 'setDetInfo': Searches and stores detector information
+      from the preimage file and detector configuration file.
+
+  In gmmps_spoc.tcl:
+    - new variable - DET_IMG_: will store the detector id of the preimage.
+    - new variable - DET_SPEC_: will store the detector id the mask is
+      being designed for.
+    - 'constructor': Adjustments to handle new parameters being passed in
+      from vmAstroCat.tcl.
+    - 'method spoc':
+      - Added DET_IMG_ and DET_SPEC_ to parameters in gmMakeMasks_2 call.
+      - Added DET_IMG and DET_SPEC to fits keywords in fits ODF.
+
+  In band_def_UI.tcl:
+    - new variable - DET_IMG_: will store the detector id of the preimage.
+    - new variable - DET_SPEC_: will store the detector id the mask is
+      being designed for.
+    - 'constructor': Adjustments to handle new parameters being passed in
+      from vmAstroCat.tcl.
+    - 'method designMask': added DET_IMG_ and DET_SPOC_ to parameters for
+      gmmps_spoc call.
+
+  In gmMakeMasks_2.cc:
+    - 'int main': adjusted how input parameters are handled to account for
+      new DET_IMG_ and DET_SPEC_ args.
+    - 'int conflicts': fixed bug in conflict detection.
+    - 'void maxSlitMode': commented out debugging print statements.
+
+
+Version 0.401.4 - March 25th 2011
+  Changes by Dustin Fennell
+
+  SUMMARY:
+      OT and ODf now have distinct color schemes.
+      Added 'reload catalog' button.
+      'Clear/Plot Symbol' button re-added to ODF window.
+      Close button re-added.
+      Symbols/Slits now disappear when a catalog window is closed.
+      Removed "GMOS" and "F2" skycat menu forks. Now handled by software.
+      'Clear/Plot Slits' buttons merged.
+      'Clear/Plot Bands' buttons merged.
+
+  In vmAstroCat.tcl:
+    - new protected variable - 'plotSlits_': A flag to tell whether or not
+      slits are currently being plotted.
+    - new protected variable - 'plotBands_': Similar to above, but with nod
+      and shuffle bands.
+    - removed $w_.clearslits button from OT and ODF windows and merged its
+      functionality into $w_.plot aka "Plot Slits".
+    - 'method slits': added some simple logic to determine if slits are
+      being plotted and either clearing or plotting slits.
+    - 'method define_bands': similar to method slits, but with n&s bands.
+    - 'method mps_add_dialog_buttons':
+      - Added "Reload Catalog" button (supporting function below).
+      - Reorganized "Mask Display and Design" buttons.
+      - Adjusted colors of buttons and other elements.
+    - 'method slit_add_dialog_buttons':
+      - Added "reload Catalog" button.
+      - Adjusted colors of buttons.
+    - 'method layout_dialog':
+      - Resized catalog display widget.
+      - Adjusted color scheme of the catalog display widget.
+      - Adjusted color scheme of the menubar.
+    - 'method init': Adjusted color of OT/ODF catalog window.
+    - new method - 'reload_catalog': provides functionality for the
+      'reload_catalog' button.
+    - 'method close': closing a catalog now deletes associated symbols.
+    - 'method setPixelScale' renamed to 'proc getPixelScale'
+    - new proc - 'getInstType': sets the instrument type based on:
+      - first the header value in the catalog file, if not present then...
+      - based on pixelscale
+    - 'proc select_catalog':
+      - now calls 'setPixelScale'
+      - instrument type detecting section put into new procedure.
+    - getPixelScale is now ONLY called in 'proc select_catalog', refs
+      removed from: slits, define_bands, plotGmosGaps, export
+
+  In vmSkySearch.tcl:
+    - new method - 'slit_add_dialog_buttons': extends vmAstroCat.tcl class
+      to add "Plot/Clear Symbols" button to ODF files.
+    - 'method mps_add_dialog_buttons':
+      - Adjusted where 'Clear/Plot Symbols' button is located to reflect
+        changes in vmAstroCat.tcl.
+      - Adjusted colorscheme of 'Clear/Plot Symbols' button, to reflect
+        changes in vmAstroCat.tcl.
+    - 'method slit_add_dialog_buttons':
+      - Similar changes as mps_add_dialog_buttons, above.
+    - various places: made it so 'Clear Symbols' doesn't get activated and
+      deactivated on catalog load.
+    - new method - 'get_plot_symbols': returns the value of the symbols
+      plotting flag.
+    - new method - 'set_plot_symbols: sets the values of the symbols
+      plotting flag.
+
+  In gmmps_menu.tcl:
+    - removed one level on the menu tree. no longer need to choose between
+      GMOS or F2.
+
+
+
+Version 0.401.3 - March 23rd 2011
+  Changes by Dustin Fennell
+
+  Summary: Grating, Filter, Central wavelength and slit expansion mode
+    settings are now remembered for each instrument. Reset button is
+    present.
+    "Plot/Clear GMOS $detname Gaps" button values are now consistant if
+    there are multiple windows open.
+    'x' button now calls vmAstrocat.tcl "close" method.
+
+  In vmAstroCat.tcl:
+    - 'method gmmps_config_' created so gmmps_spoc.tcl objects can access
+      the config file read/write code.
+    - 'proc new_catalog': "instrument" value is sent to the configuration
+      file.
+    - 'method define_bands': band_def_ui is now called with two extra
+      arguments, outlined below.
+    - 'method export': spoc is now called with extra arguments, outlined
+      below.
+    - 'method select_catalog': insttype 'Flam' or 'flam' are now converted
+      to 'F2' on load.
+    - new method - 'get_pixelscale_image': finds a pixelscale value in the
+      currently loaded image.
+    - 'method setPixelScale': If a pixelscale cannot be found in the
+      Detectors.dat config file using instType and detector ID GMMPS now
+      searches the loaded .fits image for a pixelscale.
+      This situation also indicates to GMMPS that a fake preimage is
+      being used (more development on that front will follow sometime)
+    - new method - 'change_gap_button_names' : Coordinates the changing of
+       Plot GMOS gaps buttons across any open windows.
+    - method 'add_menubar' : If another window instance is open then find
+      out which detector is selected there and try to select it in the
+      window being currently created.
+    - constructor : added
+      "wm protocol $w_ WM_DELETE_WINDOW [code $this close ]" so that the
+      "x" button will also call the close function.
+    - 'proc gmmps_config' : Now creates a new config file for writing if
+      one does not already exist.3
+
+  In gmmps_spoc.tcl:
+    - constructor is now called with two extra arguments:
+      1. config_file is the name of the gmmps configuration file
+      2. catClass is a reference to the catalog class instance that
+        called spoc
+    - 'method add_widgets': grating and filter values are now sent to the
+      configuration file from this method.
+    - 'method add_widgets': if grating or filter information is
+      present in the config file, they are re-loaded here if the
+      instrument is the same.
+    - 'method add_widgets': "Code Method: Normal_Opt / Max_Opt" changed to
+      "Slit Expansion: Off/On", for clarity.
+    - 'method add_widgets': new binding created for central wavelength
+      widget. Update config file and check validity of integer on
+      FocusOut.
+    - new method - bias_change : writes slit expansion mode to config file.
+    - new method - restore_defaults : restores default values for filter,
+      grating, cenwave, expansion mode widgets in the spoc window.
+    - 'mehtod add_widgets': new binding for slit expansion widget,
+      call 'method bias_change' on FocusOut.
+
+  In band_def_UI.tcl:
+    - constructor is now called with three extra arguments:
+      1. and 2. catClass and config_file, passed along to spoc
+      3. instType: the instrument type, also passed along to spoc.
+    - added "-instType" itk_option, as needed to pass insttype into to spoc
+    - gmmps spoc call modified to reflect the changes above
+
+
+Version 0.401.2 - March 21st 2011
+  Changes by Dustin Fennell
+
+  "Edit Selected Object" bugfix, created a program configuration file.
+
+  -Created gmmps.cfg configuration file.
+
+  In vmAstroCat.tcl:
+  -Added config_file_ protected variable to point to gmmps config file.
+  -Added gmmps_config proc for reading/writing from/to config file.
+  -Last fits file open and last catalog loaded are now sent to config file in
+    'proc new_catalog'.
+  -Modified 'proc local_catalog' so that the open file dialog now starts in
+    the last known directory. The directory is pruned from the last opened
+    catalog in the config file.
+  -Modified 'method set_detector' so the current detector is always displayed
+    on the 'Plot $detName Gmos Gaps' button.
+  -Changed the name of $w_.plotF2Detector to $w_.plotGmosGaps, to simplify
+    button placement from vmSkySearch.tcl
+  -Modified 'method add_menubar' so that legacy detectors are disabled if a
+    current-detector preimage is loaded into GMMPS.
+  -Modified 'proc local_catalog' so that gmmps check that an image is loaded
+    into skycat before a catalog can be opened.
+  Edit Selected Object bug fix:
+  -Modified 'method _sel' so that it uses the same object editing procedure as
+    the "Edit Selected Objects" menuitem. The old method was removing tabs
+    from the OT table, which is not ideal.
+  -'proc select_catalog': catalogs are now made sure to have tab-separated
+    data on load.
+
+  In vmQueryResult.tcl:
+  -Removed "Edit Object ##?" confirmation dialog from
+    'method enter_object'. To preserve catalog GUI based editing behavour
+    and because the dialog was not really nessicary.
+
+
+
+Version 0.401.1 - March 18th 2011
+  Development continues regarding new CCD's.
+
+  In vmAstrocat.tcl and vmSkySearch.tcl:
+  - Pixel scales are now loaded for all instruments from the values stored in
+    config/Detectors.dat based on the instrument type (from the OT file)
+    and detector ID (from the fits image). For F2 the pixel scale also
+    takes into consideration the AOFOLD keyword from the fits image.
+  - Removed all items, save one, from the "Search Options" section of the OT
+    file.
+    NOTE: They are not actually fully removed, they just aren't being
+    'packed'... gmmps needs them to still be present because thier values
+    are queried on occasion (this is an ESO code phantom).
+  - Except "Plot" / "Clear" which were merged into one button named "Plot
+    Symbols"/"Clear Symbols" and moved into the "Display and Design"
+    section.
+
+  In discoverOS.sh:
+  - Changed to reflect changes made in discoverOS.sh in 0.303

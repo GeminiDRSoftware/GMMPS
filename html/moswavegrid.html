@@ -1,0 +1,315 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>16. Appendix: GMMPS wavelength overlays &#8212; GMMPS 1.4.5 documentation</title>
+    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="17. Appendix: GMOS WaveMapper" href="wavemapper.html" />
+    <link rel="prev" title="15. Appendix: Slit selection algorithm" href="spoc.html" /> 
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head>
+  <body>
+<div class="pageheader">
+  <ul>
+    <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
+    <li><a href="http://www.gemini.edu/sciops/instruments/flamingos2">F2</a></li>
+  </ul>
+  <div>
+    <a href="http://www.gemini.edu/">
+      <img src="_static/logo.png" alt="GEMINI" align="left" border="0"/>
+    </a>
+  </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="wavemapper.html" title="17. Appendix: GMOS WaveMapper"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="spoc.html" title="15. Appendix: Slit selection algorithm"
+             accesskey="P">previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">16. Appendix: <em>GMMPS</em> wavelength overlays</a><ul>
+<li><a class="reference internal" href="#nonlinear-model-per-grating">16.1. Nonlinear model (per grating)</a></li>
+<li><a class="reference internal" href="#cwl-displacement-and-dispersion-factor">16.2. CWL displacement and dispersion factor</a></li>
+<li><a class="reference internal" href="#residuals-of-the-wavelength-maps">16.3. Residuals of the wavelength maps</a></li>
+<li><a class="reference internal" href="#cwl-repeatability">16.4. CWL repeatability</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="spoc.html"
+                        title="previous chapter">15. Appendix: Slit selection algorithm</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="wavemapper.html"
+                        title="next chapter">17. Appendix: GMOS WaveMapper</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="appendix-gmmps-wavelength-overlays">
+<span id="gmmps-wavelength-calculations-label"></span><span id="index-0"></span><h1>16. Appendix: <em>GMMPS</em> wavelength overlays<a class="headerlink" href="#appendix-gmmps-wavelength-overlays" title="Permalink to this headline">¶</a></h1>
+<p>GMOS is a highly versatile spectrograph with interchangable gratings, and
+adjustable central wavelength (CWL) settings. Optical aberrations introduce significant
+non-linear dependencies. A MOS mask with 135 slits evenly covering the slit placement area
+was observed with all gratings, stepping from 380nm to 950nm. Wavelength solutions were
+obtained for each slit. In total, 17224 arc spectra were calibrated.</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="_images/grid.png"><img alt="_images/grid.png" src="_images/grid.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 16.1 </span><span class="caption-text"><em>A special mask was cut with 135 evenly spaced slits to determine the
+wavelength models for GMOS.</em></span></p>
+</div>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="_images/arcfield.jpg"><img alt="_images/arcfield.jpg" src="_images/arcfield.jpg" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 16.2 </span><span class="caption-text"><em>A typical arc spectrum obtained using the special mask, observed with
+the B600 grating.</em></span></p>
+</div>
+<div class="section" id="nonlinear-model-per-grating">
+<h2>16.1. Nonlinear model (per grating)<a class="headerlink" href="#nonlinear-model-per-grating" title="Permalink to this headline">¶</a></h2>
+<p>Up to 80 arc lines per slit were matched with a reference line catalog, and a third order
+polynomial was fit to the arc spectrum with a typical accuracy of 0.15 pixel for both
+GMOS-N and GMOS-S. The wavelength at a certain detector position <span class="math">(x_d/y_d)</span> depends on
+the slit position <span class="math">(x_s/y_s)</span> and the chosen central wavelength, <span class="math">{\rm CWL}</span>.
+Each grating is modeled independently using a cubic polynomial:</p>
+<div class="math">
+<p><span class="math">\lambda = \sum_{i=0}^3 c_i(x_s,y_s,{\rm CWL}) \, x_d^i</span></p>
+</div><p>The coefficients <span class="math">c_i</span> themselves have a cubic dependence on <span class="math">x_s</span>, and
+a quadratic dependence on <span class="math">y_s</span>, the latter describing the typical curved appearance
+of the GMOS arcs:</p>
+<div class="math">
+<p><span class="math">c_i = \sum_{j=0}^3 p_{ij}({\rm CWL})\,x_s^j + \sum_{j=1}^2 q_{ij}({\rm CWL})\,y_s^j</span></p>
+</div><p>with</p>
+<div class="math">
+<p><span class="math">q_{ij} = 0\; {\rm for\;} i\geq2\;{(\rm\;i.e.\;}c_{2,3}{\;\rm do\;not\;dependend\;on\;}y_s),</span></p>
+</div><p>and a quadratic dependence on <span class="math">{\rm CWL}</span>:</p>
+<div class="math">
+<p><span class="math">p_{ij} = \sum_{k=0}^2 r_{ijk}\;{\rm CWL}^k</span></p>
+</div><div class="math">
+<p><span class="math">q_{ij} = \sum_{k=0}^2 s_{ijk}\;{\rm CWL}^k\;.</span></p>
+</div><p>In total, there are 60 free parameters per grating. The models are accurate to about 1 Angstrom,
+and mostly limited by the
+<a class="reference internal" href="#grating-mechanism-accuracy-label"><span class="std std-ref">grating mechanism and its calibrating equation</span></a>
+(yielding a typical accuracy of one or a few nm, usually smaller than the wavelength interval
+cut out by the detector gaps). To be conservative, one should assume that the wavelength
+uncertainty is comparable to the detector gap width.</p>
+</div>
+<div class="section" id="cwl-displacement-and-dispersion-factor">
+<h2>16.2. CWL displacement and dispersion factor<a class="headerlink" href="#cwl-displacement-and-dispersion-factor" title="Permalink to this headline">¶</a></h2>
+<p>The following images illustrate the behaviour of just two low order descriptors derived from the
+mathematical models for each of the gratings. The square panels represent the slit placement area
+for GMOS, about <span class="math">4200\times4200</span> pixel wide.</p>
+<p>The first descriptor is the <em>offset of the central wavelength from the slit position</em>, displayed
+in the upper panel.
+If the <a class="reference external" href="https://nickkonidaris.com/2014/10/17/anamorphic-factor/">anamorphic factor</a>
+was equal to <span class="math">A=1.0</span>, then the central wavelength would appear at the slit position.
+For <span class="math">A&gt;1.0</span>, the central wavelengths are offsets inwards, towards the central column
+of the GMOS detector array; for <span class="math">A&lt;1</span>, they are pushed outwards. The contour lines
+reflect the typical curvature observed in GMOS longslit arcs. It can be seen that the
+anamorphic factor is highly non-uniform across the GMOS detector array, and also strongly
+dependent on central wavelength.</p>
+<p>The second descriptor is the <em>spectral dispersion factor measured at the slit position</em>
+(lower panel in each figure). Again, it is evident that the dispersion depends signifcantly
+on the position of the slit as well as the central wavelength.</p>
+<a class="reference internal image-reference" href="_images/r150_anim.gif"><img alt="_images/r150_anim.gif" src="_images/r150_anim.gif" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="_images/r400_anim.gif"><img alt="_images/r400_anim.gif" src="_images/r400_anim.gif" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="_images/r831_anim.gif"><img alt="_images/r831_anim.gif" src="_images/r831_anim.gif" style="width: 31%;" /></a>
+<p>Fig. 16.3 <em>CWL offset and dispersion factor for R150, R400 and R831.</em></p>
+<a class="reference internal image-reference" href="_images/r831_2nd_anim.gif"><img alt="_images/r831_2nd_anim.gif" src="_images/r831_2nd_anim.gif" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="_images/b600_anim.gif"><img alt="_images/b600_anim.gif" src="_images/b600_anim.gif" style="width: 30%;" /></a>
+<a class="reference internal image-reference" href="_images/b1200_anim.gif"><img alt="_images/b1200_anim.gif" src="_images/b1200_anim.gif" style="width: 30%;" /></a>
+<p>Fig. 16.4 <em>CWL offset and dispersion factor for R831 (2nd order), B600 and B1200.</em></p>
+</div>
+<div class="section" id="residuals-of-the-wavelength-maps">
+<span id="grating-mechanism-accuracy-label"></span><h2>16.3. Residuals of the wavelength maps<a class="headerlink" href="#residuals-of-the-wavelength-maps" title="Permalink to this headline">¶</a></h2>
+<p>The CWL is chosen by sending a certain tilt angle to the grating mechanism.
+The grating calibration equation, which ultimately relates CWL and tilt angle,
+is updated infrequently; an effort has been made at Gemini-North for more
+frequent updates. As a result, the wavelength maps displayed by <em>GMMPS</em> may
+be offset by small amounts (on the order of a nm, or less than a detector gap
+width) with respect to the currently established calibration. This is
+uncritical, as the models allow accurate (within about one nm) placement of the
+wavelengths on desired detector positions with <em>GMMPS</em>.</p>
+<p><strong>For GMOS-S, the two figures below</strong> show the differences between the
+observed central wavelength and the commanded central wavelength, for a
+slit at the detector center where anamorphic displacement is zero. The
+residuals are shown in Angstrom and (unbinned) pixels, respectively.
+The gratings were stepped through the CWLs continuously without interruption.</p>
+<a class="reference internal image-reference" href="_images/GMOS-S_wavecal_solution_lambda.png"><img alt="_images/GMOS-S_wavecal_solution_lambda.png" src="_images/GMOS-S_wavecal_solution_lambda.png" style="width: 349.65px; height: 209.7px;" /></a>
+<a class="reference internal image-reference" href="_images/GMOS-S_wavecal_solution_pixel.png"><img alt="_images/GMOS-S_wavecal_solution_pixel.png" src="_images/GMOS-S_wavecal_solution_pixel.png" style="width: 349.65px; height: 209.7px;" /></a>
+<p>Fig. 16.5 <em>CWL residuals for GMOS-S, in Angstrom (left) and unbinned pixels (right).</em></p>
+<p><strong>R150:</strong> Shows a CWL oscillation of <span class="math">\pm</span> 80 nm, which is of little
+relevance because of the grating’s low spectral resolution. The amplitude corresponds to about 40 pixel.</p>
+<p><strong>R400:</strong> The CWL is reproduced within 1 nm across the entire wavelength
+range.</p>
+<p><strong>R831:</strong> The CWL is reproduced within 0.5 nm across the entire wavelength
+range. In 2nd order mode, the CWL for the R831 is badly reproduced between
+475 and 550nm, which is currently under investigation. This is critical,
+because the second order of the R831 grating has high blue sensitivity
+(comparable to the B1200, but with 40% higher resolution).</p>
+<p><strong>B600:</strong> Shows an oscillation with an amplitude of about <span class="math">\pm</span> 2 nm
+(30 pixel) and periodicity of about 90-100 CWL nm. The cause of this is
+unknown, perhaps a mechanical issue with the grating mechanism. Note that 2 nm
+is still smaller than the detector gap width.</p>
+<p><strong>B1200:</strong> The CWL is reproduced within 0.5 nm over its commonly used range.
+At wavelengths redder than 750 nm (where the grating is inefficient),
+large deviations occur.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>While these systematic offsets are easily measured, they are not reflected
+in the mathematical models which use a quadratic polynomial, only, to
+describe the CWL dependence of the wavelength solutions.</p>
+<p class="last">Wavelength mapping for GMOS-N is pending. For the time being, the same
+models as for GMOS-S are used, because the optics are very similar.</p>
+</div>
+</div>
+<div class="section" id="cwl-repeatability">
+<h2>16.4. CWL repeatability<a class="headerlink" href="#cwl-repeatability" title="Permalink to this headline">¶</a></h2>
+<p>To study the long-term repeatability of the CWL, GMOS-N and GMOS-S long-slit
+archival data (taken over several years) were analyzed. The histograms below
+show the difference between the requested CWL and the observed CWL for both
+instruments, in nm (top) and pixels (2x binning in spectral direction).</p>
+<p>For GMOS-S and the B600 it is on the order of 0.2 nm (with a few notable
+outliers), suggesting that the 2 nm oscillation observed with the MOS data
+in December 2016 has a more recent origin.</p>
+<p>Note that the R150, R831 and B1200 gratings are interchanged frequently,
+whereas the R400 and the B600 are permanently installed. Further comments
+in the Figure captions.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="_images/global_grating_accuracy_GMOS-N.png"><img alt="GMOS-Nnm" class="align-middle" src="_images/global_grating_accuracy_GMOS-N.png" style="width: 303.0px; height: 379.5px;" /></a></td>
+<td><a class="reference internal" href="_images/global_grating_accuracy_GMOS-S.png"><img alt="GMOS-Snm" class="align-middle" src="_images/global_grating_accuracy_GMOS-S.png" style="width: 303.0px; height: 380.1px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<p>Fig. 16.6 <em>Repeatability of the CWL setting. Shown is the difference between the
+observed CWL and the requested CWL for GMOS-N (left) and GMOS-S (right). Data for
+GMOS-N were taken between January 2012 and April 2016, and for GMOS-S between August
+2014 (commissioning of the GMOS-S Hamamatsu detectors) and April 2016. Used were all
+available arcs taken with 2x2 binning, central spectrum readout, and slit widths of
+1 arcsecond or less.</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="_images/global_grating_accuracy_GMOS-N_pixel.png"><img alt="GMOS-Npix" class="align-middle" src="_images/global_grating_accuracy_GMOS-N_pixel.png" style="width: 303.0px; height: 365.7px;" /></a></td>
+<td><a class="reference internal" href="_images/global_grating_accuracy_GMOS-S_pixel.png"><img alt="GMOS-Spix" class="align-middle" src="_images/global_grating_accuracy_GMOS-S_pixel.png" style="width: 303.0px; height: 380.1px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<p>Fig. 16.7 <em>Repeatability of the CWL setting. Same as above, but normalized by the
+grating dispersion. The histograms appear mirrored compared to the plot above,
+because the dispersion is negative (wavelengths increase towards lower detector
+coordinates).</em></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="wavemapper.html" title="17. Appendix: GMOS WaveMapper"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="spoc.html" title="15. Appendix: Slit selection algorithm"
+             >previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Mischa Schirmer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

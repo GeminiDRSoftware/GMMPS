@@ -1,0 +1,281 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>11. Example 2: Band-shuffling (GMOS-S) &#8212; GMMPS 1.4.5 documentation</title>
+    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. Example 3: Flamingos-2 mask" href="example3.html" />
+    <link rel="prev" title="10. Example 1: Redshift survey (GMOS-S)" href="example1.html" /> 
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head>
+  <body>
+<div class="pageheader">
+  <ul>
+    <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
+    <li><a href="http://www.gemini.edu/sciops/instruments/flamingos2">F2</a></li>
+  </ul>
+  <div>
+    <a href="http://www.gemini.edu/">
+      <img src="_static/logo.png" alt="GEMINI" align="left" border="0"/>
+    </a>
+  </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="example3.html" title="12. Example 3: Flamingos-2 mask"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="example1.html" title="10. Example 1: Redshift survey (GMOS-S)"
+             accesskey="P">previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">11. Example 2: Band-shuffling (GMOS-S)</a><ul>
+<li><a class="reference internal" href="#creating-the-ot">11.1. Creating the OT</a></li>
+<li><a class="reference internal" href="#prioritizing-objects">11.2. Prioritizing objects</a></li>
+<li><a class="reference internal" href="#sorting-the-ot">11.3. Sorting the OT</a></li>
+<li><a class="reference internal" href="#define-the-science-bands">11.4. Define the science bands</a></li>
+<li><a class="reference internal" href="#acquisition-stars">11.5. Acquisition stars</a></li>
+<li><a class="reference internal" href="#mask-design">11.6. Mask design</a></li>
+<li><a class="reference internal" href="#displaying-the-mask-design">11.7. Displaying the mask design</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="example1.html"
+                        title="previous chapter">10. Example 1: Redshift survey (GMOS-S)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="example3.html"
+                        title="next chapter">12. Example 3: Flamingos-2 mask</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="example-2-band-shuffling-gmos-s">
+<span id="example2-label"></span><span id="index-0"></span><h1>11. Example 2: Band-shuffling (GMOS-S)<a class="headerlink" href="#example-2-band-shuffling-gmos-s" title="Permalink to this headline">¶</a></h1>
+<p>This step-by-step example shows how to create a band-shuffle mask for GMOS-S.
+It is assumed that you have <a class="reference external" href="http://www.astromatic.net/software/sextractor">SExtractor</a>
+installed.</p>
+<div class="section" id="creating-the-ot">
+<span id="example2-object-detection-label"></span><h2>11.1. Creating the OT<a class="headerlink" href="#creating-the-ot" title="Permalink to this headline">¶</a></h2>
+<p>Now we are interested in the globular cluster system around that large
+elliptical galaxy. You want to get spectra for a large number of objects
+in a small region, and therefore the GMOS bandshuffle mode is your best
+choice.</p>
+<p>Compared to the <a class="reference internal" href="example1.html#example1-object-detection-label"><span class="std std-ref">first example</span></a>,
+you’d need to detect fainter objects,
+and further inside the galaxy halo. Create a working directory and copy
+the test data like for the <a class="reference internal" href="example1.html#example1-object-detection-label"><span class="std std-ref">first example</span></a>.</p>
+<p>Adjust the detection thresholds in <em>gmmps.conf</em> to detect fainter sources:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>DETECT_THRESH   = 3
+DETECT_MINAREA  = 3
+DEBLEND_MINCONT = 0.000001
+</pre></div>
+</div>
+<p>Run SExtractor:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>sex -c gmmps.conf NGC7796_GMOS-S.fits -CATALOG_NAME objects_globclus.fits
+</pre></div>
+</div>
+<p>Don’t forget to run this table through <em>stsdas2objt</em> as in the <a class="reference internal" href="example1.html#example1-object-detection-label"><span class="std std-ref">first example</span></a>.</p>
+</div>
+<div class="section" id="prioritizing-objects">
+<h2>11.2. Prioritizing objects<a class="headerlink" href="#prioritizing-objects" title="Permalink to this headline">¶</a></h2>
+<p>Launch <em>GMMPS</em> and load the new OT FITS table.</p>
+<p>Many objects are present in the OT table, and the view is cluttered.
+In the dark red top menu bar of the OT window, click on
+<em>Options -&gt; Set Plot Symbols…</em>. In the table at the very top of the dialog,
+locate the column called <em>Condition</em> and the entries for <em>$priority == “1”</em>
+and <em>$priority == “2”</em>. Highlight them, and reduce their symbol size from
+15 to 7.</p>
+<p>Next, manually click on all your globular cluster candidates and assign
+them priority 1 (probably you have some multi-color information available
+that helped you to filter the SExtractor table in first place).</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="_images/example_globclus_objselection.png"><img alt="_images/example_globclus_objselection.png" src="_images/example_globclus_objselection.png" style="width: 371.4px; height: 279.3px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11.1 </span><span class="caption-text"><em>Selection of globular cluster candidates.</em></span></p>
+</div>
+</div>
+<div class="section" id="sorting-the-ot">
+<h2>11.3. Sorting the OT<a class="headerlink" href="#sorting-the-ot" title="Permalink to this headline">¶</a></h2>
+<p>You have set the priority to 1, but forgot to decrease the slit length to
+0.6” at the same time. In band-shuffle mode, you can use very short slits
+because the sky will be obtained in separate exposures where the telescope
+nods to an empty sky position.</p>
+<p>Instead of tediously picking all objects again, you can sort the table view
+in the OT window with respect to the “priority” column:</p>
+<p>In the dark red top menu bar, select <em>Options -&gt; Set Sort Columns…</em>.
+Locate <em>priority</em> under <em>Table Headings</em>, and then press the left arrow
+to move <em>priority</em> into the “Sort Keys”.</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="_images/example_globclus_sorting.png"><img alt="_images/example_globclus_sorting.png" src="_images/example_globclus_sorting.png" style="width: 336.6px; height: 257.4px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11.2 </span><span class="caption-text"><em>The object table can be sorted.</em></span></p>
+</div>
+<p>In the table view of the OT window, scroll to the top where you will find
+all priority 1 objects. Click on the first, and shift-click on the last
+priority 1 object to select all of them. Skycat will highlight the selected
+objects with yellow color, and probably auto-adjust the scroll bar
+(don’t get irritated by this). Enter <em>Size Y = 0.6</em> and click on the
+yellow <em>Update Slit(s)</em> button.</p>
+</div>
+<div class="section" id="define-the-science-bands">
+<h2>11.4. Define the science bands<a class="headerlink" href="#define-the-science-bands" title="Permalink to this headline">¶</a></h2>
+<p>Click on <em>Configure Nod &amp; Shuffle Mask</em>. Select <em>Band-shuffle Mode</em>, and set</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Band Size (unbinned pix)      = 810
+Bands y Offset (unbinned pix) = 50
+Shuffle Amt (unbinned pix)    = 810
+</pre></div>
+</div>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="_images/example_globclus_bandshuffle.png"><img alt="_images/example_globclus_bandshuffle.png" src="_images/example_globclus_bandshuffle.png" style="width: 668.0px; height: 494.0px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11.3 </span><span class="caption-text"><em>Fine-tune the height of the science and storage bands, and a global
+starting offset, to match your scientific needs.
+In this example we want a wide(r) science band on top of the large elliptical
+galaxy. A storage band at least as high as the science band is required above
+the science band. If you wanted a very wide science band, you would need to
+take another pre-image with the galaxy centered in the detector center.</em></span></p>
+</div>
+<p>This will define two science and three storage bands. The top science
+band is centered on the large elliptical galaxy.</p>
+</div>
+<div class="section" id="acquisition-stars">
+<h2>11.5. Acquisition stars<a class="headerlink" href="#acquisition-stars" title="Permalink to this headline">¶</a></h2>
+<p>Next, we need to find some acquisition stars. These must be located inside
+the science bands. Let’s pick the stars at 798/1515, 801/593 and 1532/517.</p>
+</div>
+<div class="section" id="mask-design">
+<h2>11.6. Mask design<a class="headerlink" href="#mask-design" title="Permalink to this headline">¶</a></h2>
+<p>Let’s assume we are interested in a small spectral range only, for example
+the Ca triplett at 850, 854 and 866 nm, at the galaxy’s hypothetical
+redshift of z=0.08. We choose the R400 grating and the z+CaT filter
+combination, selecting a small wavelength range of 830-970 nm. The latter
+will allow two spectral banks to be mapped next to each other on the detector,
+so that more slits can be placed at the same time.</p>
+<p>For the moment, let’s accept the default CWL of 896nm suggested by
+<em>GMMPS</em>. Because of the high number of objects, we set
+<em>Number of Masks = 2</em> and click on “Make Masks”.</p>
+<p>The information window tells us how many objects of each priority
+were included in the two mask designs. The same three acquisition
+stars are used in both masks.</p>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="_images/example_globclus_makemask.png"><img alt="_images/example_globclus_makemask.png" src="_images/example_globclus_makemask.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11.4 </span><span class="caption-text"><em>Summary of the object types placed in the masks</em></span></p>
+</div>
+</div>
+<div class="section" id="displaying-the-mask-design">
+<h2>11.7. Displaying the mask design<a class="headerlink" href="#displaying-the-mask-design" title="Permalink to this headline">¶</a></h2>
+<p>The two masks are called <em>objects_globclus_OTODF1.fits</em> and
+<em>objects_globclus_OTODF2.fits</em>. Load the first one, enter the redshift of
+the bright elliptical galaxy (z=0.08), and enter “Ca” in the field
+<em>Show other wavelengths</em>. Set CWL=920 to avoid any of the Ca triplet
+lines being lost in the detector gaps.</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="_images/example_globclus_ODF1.png"><img alt="_images/example_globclus_ODF1.png" src="_images/example_globclus_ODF1.png" style="width: 90%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11.5 </span><span class="caption-text"><em>The CWL has been adjusted so that the Ca triplet lines stay clear
+of the detector gaps.</em></span></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="example3.html" title="12. Example 3: Flamingos-2 mask"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="example1.html" title="10. Example 1: Redshift survey (GMOS-S)"
+             >previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Mischa Schirmer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

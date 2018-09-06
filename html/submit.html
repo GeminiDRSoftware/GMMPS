@@ -1,0 +1,221 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>9. Submitting the mask designs &#8212; GMMPS 1.4.5 documentation</title>
+    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. Example 1: Redshift survey (GMOS-S)" href="example1.html" />
+    <link rel="prev" title="8. The ODF window" href="loadODF.html" /> 
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head>
+  <body>
+<div class="pageheader">
+  <ul>
+    <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
+    <li><a href="http://www.gemini.edu/sciops/instruments/flamingos2">F2</a></li>
+  </ul>
+  <div>
+    <a href="http://www.gemini.edu/">
+      <img src="_static/logo.png" alt="GEMINI" align="left" border="0"/>
+    </a>
+  </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="example1.html" title="10. Example 1: Redshift survey (GMOS-S)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="loadODF.html" title="8. The ODF window"
+             accesskey="P">previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">9. Submitting the mask designs</a><ul>
+<li><a class="reference internal" href="#standard-naming-convention-for-odfs">9.1. Standard naming convention for ODFs</a></li>
+<li><a class="reference internal" href="#uploading-odfs-et-al">9.2. Uploading ODFs (et al.)</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="loadODF.html"
+                        title="previous chapter">8. The ODF window</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="example1.html"
+                        title="next chapter">10. Example 1: Redshift survey (GMOS-S)</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="submitting-the-mask-designs">
+<span id="submit-masks-label"></span><h1>9. Submitting the mask designs<a class="headerlink" href="#submitting-the-mask-designs" title="Permalink to this headline">¶</a></h1>
+<p>Once the ODFs have been created and verified, you submit the ODF <strong>FITS</strong>
+to Gemini by means of the <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>
+for double-checking and final cutting.</p>
+<span class="target" id="odf-naming-convention-label"></span><div class="section" id="standard-naming-convention-for-odfs">
+<span id="index-0"></span><h2>9.1. Standard naming convention for ODFs<a class="headerlink" href="#standard-naming-convention-for-odfs" title="Permalink to this headline">¶</a></h2>
+<p>The standard naming convention when submitting a mask is as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">G</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="n">S</span><span class="p">)</span><span class="n">YYYYS</span><span class="o">&lt;</span><span class="nb">type</span><span class="o">&gt;</span><span class="n">PPP</span><span class="o">-</span><span class="n">XX_ODF</span><span class="o">.</span><span class="n">fits</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">N/S:</th><td class="field-body">North or South</td>
+</tr>
+<tr class="field-even field"><th class="field-name">YYYY:</th><td class="field-body">Year</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">S:</th><td class="field-body">Semester (A or B)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">type:</th><td class="field-body">Q (Normal Queue Programs), LP (Large and Long Programs), DD (Director’s Discretionary Time), FT (Fast Turnaround)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">PPP:</th><td class="field-body">Your program number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">XX:</th><td class="field-body">The mask number</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<ul class="simple">
+<li><strong>GS2015AQ023-01_ODF.fits:</strong> Regular queue program at Gemini South, mask 01</li>
+<li><strong>GN2014BLP001-04_ODF.fits:</strong> Long-term program at Gemini North, mask 04</li>
+<li><strong>GS2014BDD008-03_ODF.fits:</strong> Director’s time at Gemini South, mask 03</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Masks that do not follow this naming convention will be removed from the
+<a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a> and must be re-submitted.</p>
+</div>
+<p id="index-1">The root name (e.g. GS2015AQ023-01) of a mask must be entered into the
+Observing Tool’s <em>Custom Mask MDF</em> field in the instrument static component
+when defining the phase II observations:</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="_images/gmmps_GMOS_MDF_component.png"><img alt="_images/gmmps_GMOS_MDF_component.png" src="_images/gmmps_GMOS_MDF_component.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 9.1 </span><span class="caption-text"><em>Entering the ODF’s root name in the Observing Tool.</em></span></p>
+</div>
+<span class="target" id="index-2"></span></div>
+<div class="section" id="uploading-odfs-et-al">
+<span id="index-3"></span><h2>9.2. Uploading ODFs (et al.)<a class="headerlink" href="#uploading-odfs-et-al" title="Permalink to this headline">¶</a></h2>
+<p>Use the Observing Tool’s
+<a class="reference external" href="http://www.gemini.edu/node/11200#summary">file attachment facility</a>
+to upload the following files:</p>
+<ul class="simple">
+<li>ODF FITS files (*.cat files are not accepted)</li>
+<li>Pre-images or <a class="reference internal" href="createOT.html#pseudo-image-label"><span class="std std-ref">pseudo-images</span></a> (if the masks are based on external catalogs instead of pre-imaging)</li>
+</ul>
+<p>Once the ODF is uploaded, you must add a comment to it in the
+<a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a> that unambiguously associates
+the ODF with its pre-image (or pseudo-image). Likewise, you may add a comment to each
+pre-image associating it with its respective ODF(s). At least one of the two is
+required.</p>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="_images/gmmps_fileattachment.png"><img alt="_images/gmmps_fileattachment.png" src="_images/gmmps_fileattachment.png" style="width: 591.36px; height: 396.66px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 9.2 </span><span class="caption-text"><em>Add comments to the preimages (or ODFs) that
+unambiguously tell us which ones belong together.</em></span></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="example1.html" title="10. Example 1: Redshift survey (GMOS-S)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="loadODF.html" title="8. The ODF window"
+             >previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Mischa Schirmer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

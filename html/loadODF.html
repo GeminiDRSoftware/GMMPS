@@ -1,0 +1,419 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>8. The ODF window &#8212; GMMPS 1.4.5 documentation</title>
+    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9. Submitting the mask designs" href="submit.html" />
+    <link rel="prev" title="7. Nod &amp; Shuffle masks (GMOS only)" href="ns.html" /> 
+    <script type="text/javascript">
+      // intelligent scrolling of the sidebar content
+      $(window).scroll(function() {
+        var sb = $('.sphinxsidebarwrapper');
+        var win = $(window);
+        var sbh = sb.height();
+        var offset = $('.sphinxsidebar').position()['top'];
+        var wintop = win.scrollTop();
+        var winbot = wintop + win.innerHeight();
+        var curtop = sb.position()['top'];
+        var curbot = curtop + sbh;
+        // does sidebar fit in window?
+        if (sbh < win.innerHeight()) {
+          // yes: easy case -- always keep at the top
+          sb.css('top', $u.min([$u.max([0, wintop - offset - 10]),
+                                $(document).height() - sbh - 200]));
+        } else {
+          // no: only scroll if top/bottom edge of sidebar is at
+          // top/bottom edge of window
+          if (curtop > wintop && curbot > winbot) {
+            sb.css('top', $u.max([wintop - offset - 10, 0]));
+          } else if (curtop < wintop && curbot < winbot) {
+            sb.css('top', $u.min([winbot - sbh - offset - 20,
+                                  $(document).height() - sbh - 200]));
+          }
+        }
+      });
+    </script>
+
+  </head>
+  <body>
+<div class="pageheader">
+  <ul>
+    <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
+    <li><a href="http://www.gemini.edu/sciops/instruments/flamingos2">F2</a></li>
+  </ul>
+  <div>
+    <a href="http://www.gemini.edu/">
+      <img src="_static/logo.png" alt="GEMINI" align="left" border="0"/>
+    </a>
+  </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="submit.html" title="9. Submitting the mask designs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ns.html" title="7. Nod &amp; Shuffle masks (GMOS only)"
+             accesskey="P">previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">8. The ODF window</a><ul>
+<li><a class="reference internal" href="#loading-an-odf">8.1. Loading an ODF</a></li>
+<li><a class="reference internal" href="#display-options">8.2. Display Options</a></li>
+<li><a class="reference internal" href="#examples">8.3. Examples</a></li>
+<li><a class="reference internal" href="#observing-tool-setup">8.4. Observing Tool Setup</a></li>
+<li><a class="reference internal" href="#odf-summary-file">8.5. ODF summary file</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ns.html"
+                        title="previous chapter">7. Nod &amp; Shuffle masks (GMOS only)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="submit.html"
+                        title="next chapter">9. Submitting the mask designs</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-odf-window">
+<span id="index-0"></span><h1>8. The ODF window<a class="headerlink" href="#the-odf-window" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id6">
+<span id="odf-window-label"></span><a class="reference internal image-reference" href="_images/gmmps_ODFcombo.png"><img alt="_images/gmmps_ODFcombo.png" src="_images/gmmps_ODFcombo.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.1 </span><span class="caption-text"><em>Visualizing the mask design. Left: The ODF window shows a table with the objects that
+have been placed in the mask. It also offers some visualization options. The text window offers
+information about acquisition stars and parameters for the phase II definition in the
+Observing Tool. The image window on the right displays the objects and spectra in this mask.</em></span></p>
+</div>
+<span class="target" id="load-odf-label"></span><div class="section" id="loading-an-odf">
+<span id="index-1"></span><h2>8.1. Loading an ODF<a class="headerlink" href="#loading-an-odf" title="Permalink to this headline">¶</a></h2>
+<p>To load a mask, select <em>GMMPS -&gt; Load Object Definition File (ODF *.fits)</em>. The ODF
+window looks similar to the <a class="reference internal" href="editOT.html#ot-window-label"><span class="std std-ref">OT window</span></a> and is distinguished
+by a blue menu bar. A single mask can be visualized at a time. If the ODF FITS has changed
+(e.g. you manually edited it outside <em>GMMPS</em>), then the ODF window can be updated using
+the <em>Reload ODF</em> button.</p>
+<p>For internal purposes, <em>GMMPS</em> also creates ASCII versions of the ODFs, recognized by
+their suffix (<em>.cat</em>). They can also be loaded:
+<em>GMMPS -&gt; Load Object Definition File (ODF *.cat)</em>; however, you should avoid doing this:</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>In <em>GMMPS</em>, you may modify the ODF table and visualize the effects on the mask design.
+<strong>However, you cannot store these modifications.</strong> Any changes you want to make to the
+ODF (removing objects, changing slit lengths, …) must be done to the OT, and then you
+recreate the ODF. Alternatively, the ODF may be
+edited directly <a class="reference internal" href="editOT.html#external-fits-editors-label"><span class="std std-ref">using an external FITS table editor</span></a>,
+and visualized again in <em>GMMPS</em> to verify the validity of the changes (e.g. no slit
+overlaps etc.).</p>
+<p class="last"><strong>You must submit the ODF FITS to Gemini.</strong> Changes you make to the ASCII file, in case you
+have loaded it, will not be reflected in the FITS file.</p>
+</div>
+</div>
+<div class="section" id="display-options">
+<h2>8.2. Display Options<a class="headerlink" href="#display-options" title="Permalink to this headline">¶</a></h2>
+<p>Various overlays may be toggled on/off in the image window:</p>
+<ul>
+<li><p class="first"><strong>Objects:</strong> Displays the objects in the ODF. They are plotted based on their
+(RA,DEC) coordinates. If you want to select an object in the image window, this
+option must be <em>ON</em>. <a class="reference internal" href="editOT.html#priority-label"><span class="std std-ref">Priorities</span></a> are represented by
+<a class="reference internal" href="editOT.html#priority-symbol-label"><span class="std std-ref">different symbols</span></a>.</p>
+</li>
+<li><p class="first"><strong>Slits and spectra:</strong>
+Displays the slits (yellow), the spectral footprints (gray), as well as general information
+about the mask design and phase II <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>
+parameters. You may need to toggle this option off/on to update the display.</p>
+</li>
+<li id="index-2"><p class="first"><strong>Shading:</strong> Toggles on/off the shading of the spectral boxes.</p>
+</li>
+<li id="index-3"><p class="first"><strong>Wavelengths:</strong> Toggles on/off the wavelength grids. For F2, the wavelength
+grid is based on the linear grism dispersion factor and should be accurate to within
+30 nm. For GMOS, the wavelength grid is based on extensive fully nonlinear models
+of the spectrograph and accurate to within about one nm (smaller than the gap
+diameter). The wavelength intervals cut out by the GMOS detector gaps are also
+displayed for each spectrum. The CWL is shown as a red line connected to the object.
+<a class="reference external" href="https://nickkonidaris.com/2014/10/17/anamorphic-factor/">Anamorphism</a> offsets the
+CWL with respect to the slit positions.</p>
+</li>
+<li id="index-4"><p class="first"><strong>Order overlap:</strong> Displays any order overlap that occurs for the configuration
+of this mask design. This includes 2nd order overlap for all GMOS gratings used
+in first order mode. For the R831 used in 2nd order mode (the only grating <em>GMMPS</em>
+allows to use in 2nd order mode), overlap by the first order will be shown.
+In case the R150 grating is used, the zero-th order position will be shown.
+Order overlap is not available for F2: First, it uses grisms and thus the order
+positions are not straight forward to calculate. Second, F2 uses fixed grism
+positions and thus there is nothing you can do about the (negligible) order overlap.</p>
+</li>
+<li><p class="first"><strong>Grayscale:</strong> Toggles between a grayscale image and the native <em>Skycat</em> color scheme.</p>
+</li>
+<li id="index-5"><p class="first"><strong>Highlight acq stars:</strong> Only the acquisition stars are shown for easier mask checking.</p>
+</li>
+<li><p class="first"><strong>Slit placement area:</strong> A cyan polygon indicating where slits may be placed. This area
+is smaller than the detector array. Its size and shape is determined by the opto-mechanical
+design of the instrument and (in case of GMOS) by the bar code stuck to the mask.</p>
+</li>
+<li><p class="first"><strong>Pointing center:</strong> This corresponds to the (RA, DEC) you must specify in the
+phase II observations (corresponding to your pre-imaging data). Actually, what is plotted
+are the <em>CRPIX1/2</em> coordinates in case of pre-imaging, and the image center in case of
+a <a class="reference internal" href="createOT.html#pseudo-image-label"><span class="std std-ref">pseudo-image</span></a> (which may have its <em>CRPIX1/2</em> at wildly
+different locations).</p>
+</li>
+<li id="index-6"><p class="first"><strong>CWL:</strong> Allows you to find an optimal value for the CWL, repositioning the spectra
+on the detector array. For example, you can fine-tune the CWL to avoid some emission
+line getting lost in the detector gaps, or if you rather have the blue than the red
+ends of the spectra truncated by the detector boundaries. The CWL must be entered in the
+<a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>. <em>Changing the CWL is safe, it
+does not compromise the mask design.</em> The blue redo arrow to the right will restore
+the setting for which the mask was created. Switch on the wavelength overlay to fully
+exploit this capability.</p>
+</li>
+</ul>
+<ul id="atomic-identifiers-label">
+<li><p class="first"><strong>Show other wavelengths [nm] / redshift:</strong>
+Takes a blank-separated list of user-defined wavelengths and / or atomic identifiers.
+The wavelengths will be displayed using a cyan color. If the ODF table contains individual redshifts,
+then the lines will be redshifted accordingly. If a redshift is entered in the explicit “redshift”
+field, then that redshift will override the individual redshifts in the ODF table.
+The following atomic identifiers are available:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="97%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Identifier</th>
+<th class="head">Expands into the following transition wavelengths</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>He</td>
+<td>HeII 164.0, HeII 320.4, HeI 389.0, HeII 468.7, HeII 541.3, HeI 587.7, HeI 668.0, HeI 1083, HeI 2058</td>
+</tr>
+<tr class="row-odd"><td>H</td>
+<td><span class="math">{\rm Ly}\alpha</span> 121.6, <span class="math">{\rm H}\delta</span> 410.3, <span class="math">{\rm H}\gamma</span> 434.3, <span class="math">{\rm H}\beta</span> 486.4, <span class="math">{\rm H}\alpha</span> 656.5, <span class="math">{\rm Pa}\gamma</span> 1094, <span class="math">{\rm Pa}\beta</span> 1282, <span class="math">{\rm Pa}\alpha</span> 1875, <span class="math">{\rm Br}\gamma</span> 2166, <span class="math">{\rm H}_2</span> 1-0 2122, <span class="math">{\rm H}_2</span> 2-1 2248</td>
+</tr>
+<tr class="row-even"><td>O</td>
+<td>OVI 103.2, OVI 103.8, [OII] 372.7, [OIII] 436.3, [OIII] 496.0, [OIII] 500.8, [OI] 630.2, [OI] 636.6, [OII] 732.1</td>
+</tr>
+<tr class="row-odd"><td>N</td>
+<td>[NII] 655.0, [NII] 658.6</td>
+</tr>
+<tr class="row-even"><td>C</td>
+<td>CIII 97.7, CIV 154.9, CII] 232.6</td>
+</tr>
+<tr class="row-odd"><td>Ar</td>
+<td>[ArIII] 713.8</td>
+</tr>
+<tr class="row-even"><td>S</td>
+<td>[SII] 406.9, [SII] 407.6, SII 520.3, [SII] 671.8, [SII] 673.3, [SIII] 907.1, [SIII] 953.3</td>
+</tr>
+<tr class="row-odd"><td>Na</td>
+<td>D2 589.0, D1 589.6</td>
+</tr>
+<tr class="row-even"><td>Ne</td>
+<td>[NeIV] 242.4, [NeV] 334.7, [NeV] 342.7, [NeIII] 386.9, [NeIII] 396.8</td>
+</tr>
+<tr class="row-odd"><td>Ca</td>
+<td>CaH 393.4, CaK 396.9, CaT1 849.9, CaT2 854.2, CaT3 866.2</td>
+</tr>
+<tr class="row-even"><td>Mg</td>
+<td>[MgII] 279.9, Mgb 516.7, Mgb 517.3, Mgb 518.4</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>8.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id7">
+<a class="reference internal image-reference" href="_images/gmmps_ODF3.png"><img alt="_images/gmmps_ODF3.png" src="_images/gmmps_ODF3.png" style="width: 518.5px; height: 347.5px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.2 </span><span class="caption-text"><em>Highlighting the acquisition stars. This option allows to quickly assess the
+acquisition stars, suppressing the spectral footprints of the science targets.
+If an acquisition star is found within 4.0” of a detector gap or the boundary of the slit
+placement area, then it will be colored yellow.</em></span></p>
+</div>
+<div class="figure" id="id8">
+<a class="reference internal image-reference" href="_images/gmmps_ODF_wavelengthoverlay.png"><img alt="_images/gmmps_ODF_wavelengthoverlay.png" src="_images/gmmps_ODF_wavelengthoverlay.png" style="width: 527.0px; height: 460.0px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.3 </span><span class="caption-text"><em>A wavelength grid can be overlaid over each of the spectra,
+including the wavelength intervals masked by the detector gaps. This is accurate to
+within about a nm. The gap wavelengths are rounded to the nearest integer.
+In this example, the position of the [SII]673.3 nm line is also overplotted, using the
+“Show other wavelengths” option.</em></span></p>
+</div>
+<div class="figure" id="id9">
+<span id="index-7"></span><a class="reference internal image-reference" href="_images/gmmps_ODF_2ndorderoverlap.png"><img alt="_images/gmmps_ODF_2ndorderoverlap.png" src="_images/gmmps_ODF_2ndorderoverlap.png" style="width: 468.0px; height: 455.5px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.4 </span><span class="caption-text"><em>Overlapping orders occurring for the (fixed) grating / filter combination
+can be overlaid (orange shaded areas to the left). A red warning will also be
+shown in the white message window (see the Fig. below).</em></span></p>
+</div>
+<div class="figure" id="id10">
+<span id="index-8"></span><a class="reference internal image-reference" href="_images/gmmps_cwl.png"><img alt="_images/gmmps_cwl.png" src="_images/gmmps_cwl.png" style="width: 520.08px; height: 703.56px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.5 </span><span class="caption-text"><em>CWL choice. Top: A GMOS mask design using the R400 with an r-band filter and CWL = 550 nm.
+The filter cuts out a relatively small spectral range, so that two spectral banks fit next
+to each other in dispersion direction. However, the CWL is too blue for the grating / filter
+choice, pushing all spectra toward the left (red) end of the detector array. Bottom:
+Same setup, but with CWL = 635 nm, chosen automatically by GMMPS. The spectral banks are
+optimally placed on the detector.</em></span></p>
+</div>
+<div class="figure" id="id11">
+<a class="reference internal image-reference" href="_images/gmmps_bandshuffleODF.png"><img alt="_images/gmmps_bandshuffleODF.png" src="_images/gmmps_bandshuffleODF.png" style="width: 491.2px; height: 373.6px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.6 </span><span class="caption-text"><em>Storage bands (yellow) in a band-shuffle mask have equal height and appear at
+regularly spaced intervals. Storage bands are always displayed for bandshuffling masks, and do not
+contain any slits.</em></span></p>
+</div>
+<div class="figure" id="id12">
+<a class="reference internal image-reference" href="_images/gmmps_microshuffleODF.png"><img alt="_images/gmmps_microshuffleODF.png" src="_images/gmmps_microshuffleODF.png" style="width: 498.0px; height: 377.6px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.7 </span><span class="caption-text"><em>In a micro-shuffling mask, each object has its own adjacent storage bands
+(red) above and below. Storage bands can have different heights (because they are shared
+between objects if overlapping), and are at least as high as the science slits. Contrary
+to a band-shuffle mask, the storage bands are not regularly spaced. Storage bands are
+always displayed, and do not contain any slits.</em></span></p>
+</div>
+<span class="target" id="index-9"></span></div>
+<div class="section" id="observing-tool-setup">
+<span id="index-10"></span><h2>8.4. Observing Tool Setup<a class="headerlink" href="#observing-tool-setup" title="Permalink to this headline">¶</a></h2>
+<p>With the <em>Slits &amp; Spectra</em> checkbox switched on, <em>GMMPS</em> displays important information about
+the parameters <strong>you must use</strong> in the <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>
+when defining the phase II observations. In doing so you avoid errors in the setup and minimize
+overheads.</p>
+<div class="figure" id="id13">
+<a class="reference internal image-reference" href="_images/gmmps_ODF_OTsetup.png"><img alt="_images/gmmps_ODF_OTsetup.png" src="_images/gmmps_ODF_OTsetup.png" style="width: 311.0px; height: 215.5px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.8 </span><span class="caption-text"><em>When displaying the spectra in the ODF window, GMMPS will show all relevant parameters
+for the phase II setup in the Observing Tool. In addition, warnings about acquisition
+stars and order overlap will be shown.</em></span></p>
+</div>
+<p>The parameters displayed for the <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a> are:</p>
+<ul class="simple">
+<li><em>RA, DEC</em> (target component)</li>
+<li><em>Position angle</em> (instrument component)</li>
+<li><em>Grating/Grism</em> (instrument component)</li>
+<li><em>Filter</em> (instrument component)</li>
+<li><em>CWL</em> (instrument component; GMOS only)</li>
+<li><em>N&amp;S Offset (detector rows)</em> (instrument component; GMOS Nod &amp; Shuffle masks only)</li>
+</ul>
+<p>If you enter different values for <em>RA</em>, <em>DEC</em> and the position angle, then the acquisition
+process will involve more iterations to align the mask on sky. If you deviate too much, then
+it could become impossible for us to acquire your mask, and the time lost will be charged to
+your program. A future version of the <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>
+will cross-check the information in the submitted ODFs with the phase II setup.
+The only exception is the CWL setting, which may be changed freely within the limitations
+of the grating and filter chosen. A change in CWL is immediately shown as a displacement of the
+spectral banks. Use this to optimize your phase II.</p>
+</div>
+<div class="section" id="odf-summary-file">
+<h2>8.5. ODF summary file<a class="headerlink" href="#odf-summary-file" title="Permalink to this headline">¶</a></h2>
+<p><em>GMMPS</em> creates a summary file for each loaded and displayed ODF. It is called</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">ODF_file_name</span><span class="o">&gt;</span><span class="n">_summary</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>and contains the complete information about the <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>
+setup as well as other characteristic parameters. Therefore, it is not necessary to load the ODF
+into <em>GMMPS</em> to access this information.</p>
+<p>After a mask has been cut and installed in the instrument, a mask image is being taken
+and analyzed to verify its integrity. At the end of the summary file further information
+is shown that helps Gemini staff to interpret the images. This information can be ignored
+by PIs.</p>
+<p>An example ODF summary file is displayed below.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Band-shuffling mask:
+Shuffle dist. = 500 [unbinned pixel]
+Band size     = 500 [unbinned pixel]
+y offset      = 180 [unbinned pixel]
+
+Number of good acquisition stars: 4
+
+OT setup:
+Target RA  = 359.73382
+Target Dec = -55.42539
+Pos. angle = 347.1
+Grating    = R400
+Filter     = r
+CWL        = 635
+N&amp;S Offset = 500 (detector rows)
+
+Other parameters:
+Spectral range  = 548.8 - 721.1 nm
+Lin. dispersion = 0.1511 nm/pixel
+
+Comments for interpreting mask images (PIs ignore please):
+Slit 39: close to, partially or fully hidden by detector gap.
+Slit 127: possibly on top of amplifier boundary.
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="submit.html" title="9. Submitting the mask designs"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ns.html" title="7. Nod &amp; Shuffle masks (GMOS only)"
+             >previous</a> |</li>
+<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Mischa Schirmer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

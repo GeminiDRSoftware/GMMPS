@@ -1,0 +1,54 @@
+GMOS-S data have been measured.
+GMOS-N data are assumed to be very similar to GMOS-S
+(dealing with different pixel scales etc inside gmmps tcl sources).
+
+This table has the following matrix per grating (F2 example)
+============================================================
+R1200_JH 0 0 20726.7 0.0 0.0
+R1200_JH 0 1 0.0 0.0 0.0
+R1200_JH 0 2 0.0 0.0 0.0
+R1200_JH 0 3 0.0 0.0 0.0
+R1200_JH 0 4 0.0 0.0 0.0
+R1200_JH 1 0 -6.6667 0.0 0.0
+R1200_JH 1 1 0.0 0.0 0.0
+R1200_JH 1 2 0.0 0.0 0.0
+R1200_JH 2 0 0.0 0.0 0.0
+R1200_JH 2 1 0.0 0.0 0.0
+R1200_JH 2 2 0.0 0.0 0.0
+R1200_JH 3 0 0.0 0.0 0.0
+R1200_JH 3 1 0.0 0.0 0.0
+R1200_JH 3 2 0.0 0.0 0.0
+
+Lambda is calculated as:
+
+lambda = c0 + c1*x + c2*x^2 + c3*x^3
+
+The second column, running from 0-3, represents c0, c1, c2, c3
+
+The 5 rows within c0, and the three rows within c1-c3, are:
+
+c0: quadratic dependence on xslit and yslit, 5 free parameters,
+numbered in the third column:
+c0 = p0 + p1*xs + p2*xs^2 + p3*ys + p4*ys^2
+
+p0...p4 depend on the CWL, parameterised as a quadratic function,
+e.g.:
+p0 = a + b*cwl + c*cwl^2
+The a,b,c are found in columns 3-5
+
+
+Therefore, the table is:
+R1200_JH c0 p0  a b c
+R1200_JH c0 p1  a b c
+R1200_JH c0 p2  a b c
+R1200_JH c0 p3  a b c
+R1200_JH c0 p4  a b c
+R1200_JH c1 p0  a b c
+R1200_JH c1 p1  a b c
+R1200_JH c1 p2  a b c
+R1200_JH c2 p0  a b c
+R1200_JH c2 p1  a b c
+R1200_JH c2 p2  a b c
+R1200_JH c3 p0  a b c
+R1200_JH c3 p1  a b c
+R1200_JH c3 p2  a b c
