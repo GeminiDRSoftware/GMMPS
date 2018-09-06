@@ -881,7 +881,7 @@ itcl::class cat::gmmps_spoc {
 	# Add the spec dimensions to the output file
 	set msg [append_specdims [file rootname $mycatname].dat $Spec_lmin $Spec_lmax $instType $Grating $Filter $cwl_user]
 	if {$msg == "ERROR"} {
-	    ::cat::vmAstroCat::error_message "Some of the targets could not have their spectra dimensions calculated.\nThis is most likely a bug in GMMPS.\n Please contact mschirme@gemini.edu"
+	    ::cat::vmAstroCat::error_dialog "Some of the targets could not have their spectra dimensions calculated.\nThis is most likely a bug in GMMPS.\n Please submit a helpdesk ticket at https://www.gemini.edu/sciops/helpdesk."
 	    return
 	}
 

@@ -1,3 +1,10 @@
+2018-02-12 bmiller
+
+	* VERSION
+	Pushed version number to 1.4.6
+	
+	* src/gmmps_spoc.tcl, scripts/build_gmmps, build_gmmps.sh
+	
 2017-10-24  mischa  <mischa@lab>
 
 	* VERSION

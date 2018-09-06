@@ -4,11 +4,12 @@
 
 echo "#!/bin/bash"
 echo
+echo "export LANG=en_US.UTF-8"
 echo "export GMMPS=$1"
 echo 'OPTION="-with_grid 1 -scrollbars 1 -rtd 0"'
-echo 'export INTROOT=$GMMPS; export INTROOT;'
-echo 'export SKYCAT_PLUGIN=$INTROOT/src/SkyCat_plugin.tcl; export SKYCAT_PLUGIN'
-echo "export PATH=$1/bin"':$PATH:'
+echo 'export INTROOT=$GMMPS'
+echo 'export SKYCAT_PLUGIN=$INTROOT/src/SkyCat_plugin.tcl'
+echo "export PATH=$1/bin"':$PATH'
 echo "$1/scripts/version_check.sh $1"
 
 
