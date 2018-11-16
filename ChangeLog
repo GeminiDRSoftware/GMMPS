@@ -1,3 +1,8 @@
+2018-11-26 bmiller
+
+	* src/vmAstroCat.tcl
+	Fixed problems with opening help pages in a browser on Mac
+	
 2018-02-12 bmiller
 
 	* VERSION

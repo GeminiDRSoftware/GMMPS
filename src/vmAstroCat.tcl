@@ -3667,19 +3667,20 @@ itcl::class cat::vmAstroCat {
 
 
     ##########################################################################
-    # Pick a web browser
+    # Pick a web browser in Linux
     ##########################################################################
     public method get_browser {} {
-	set os [exec uname -s]
-	if {[exec which firefox] != ""} {
+    set os [exec uname -s]
+    if {$os == "Darwin"} {
+		return "open"
+	} elseif {[catch {exec which xdg-open} message] == 0} {
+    	return "xdg-open"
+	} elseif {[catch {exec which firefox} message] == 0} {
 	    return "firefox"
-	} elseif {[exec which chrome] != ""} {
+	} elseif {[catch {exec which chrome} message] == 0} {
 	    return "chrome"
-	} elseif {[exec which opera] != ""} {
+	} elseif {[catch {exec which opera} message] == 0} {
 	    return "opera"
-	} elseif {$os == "Darwin"} {
-	    # if we are on a Mac and no other browser has been found:
-	    return "Safari"
 	} else {
 	    error_dialog "Could not find a web browser on your machine. Please open the documentation web pages outside GMMPS."
 	    return ""
@@ -3917,14 +3918,13 @@ itcl::class cat::vmAstroCat {
     # Load the help pages
     ##########################################################################
     public method help {URL} {
-	set browser [cat::vmAstroCat::get_browser]
+	
+	set browser [cat::vmAstroCat::get_browser]	
 	if {$browser != ""} {
-	    set os [exec uname -s]
-	    if {$os != "Darwin"} {
-		exec $browser $URL
-	    } else {
-		exec open -a ${browser} $URL
-	    }
+		set status [catch {exec $browser $URL} message]
+		if {$status != 0} {
+			error_dialog $message
+		}
 	}
     }
 
