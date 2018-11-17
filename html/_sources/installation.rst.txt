@@ -55,7 +55,7 @@ The following pre-requisites **must be met** before installing *GMMPS*:
 
 * `Skycat v3.1.2 (or v3.1.3) <http://archive.eso.org/cms/tools-documentation/skycat/eso-skycat-download.html>`_ (*GMMPS* is a plugin for Skycat; Skycat has its own dependencies, amongst others `Tcl/Tk 8.4 <https://www.tcl.tk/software/tcltk/8.4.html>`_. Note that for recent Debian/Ubuntu versions Skycat is available from the respective repositories including all dependencies.)
 * `Gemini IRAF <http://www.gemini.edu/sciops/data-and-results/processing-software?q=node/11823>`_ (to create the input object tables and, if necessary, pseudo-images)
-* `awk <https://www.gnu.org/software/gawk/manual/gawk.html>`_ and `wget <https://www.gnu.org/software/wget/>`_ must be found in your PATH variable
+* `awk <http://www.gnu.org/software/gawk/manual/gawk.html>`_ and `curl <http://curl.haxx.se/>`_ must be found in your PATH variable
 * `Standard TCL library (tcllib) <http://www.tcl.tk/software/tcllib/>`_
 * python-tk
 * python (v2)

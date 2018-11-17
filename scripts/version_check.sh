@@ -10,20 +10,21 @@ URL_GMMPS="http://software.gemini.edu/gmmps/"
 # The URL with the text file containing the version string
 URL_VERSION="http://software.gemini.edu/gmmps/VERSION"
 
-# Version check (only if 'wget' is installed):
+# Version check (only if 'curl' is installed):
 mkdir -p ${HOME}/.gmmps
 current_userversion_orig=`cat ${GMMPS}/VERSION`
 current_userversion=`echo ${current_userversion_orig} | sed 's/\.//g' | awk '{print $1*1}'`
 
-# check if 'wget' is available
-check_wget=`which wget`
+# check if 'curl' is available
+check_curl=`which curl`
 
-if [ "${check_wget}_A" != "_A" ]; then
+if [ "${check_curl}_A" != "_A" ]; then
     rm -f ${HOME}/.gmmps/VERSION
     echo "Checking for updates ... " 
     # Download the version text file; timeout after 5 seconds
-    wget -T 5 -t 1 -O ${HOME}/.gmmps/VERSION ${URL_VERSION} -o ${HOME}/.gmmps/wget.log
-    connection_test=`grep "Connection timed out" ${HOME}/.gmmps/wget.log`
+    #wget -T 5 -t 1 -O ${HOME}/.gmmps/VERSION ${URL_VERSION} -o ${HOME}/.gmmps/wget.log
+    curl --connect-timeout 5 --retry 0 -o ${HOME}/.gmmps/VERSION ${URL_VERSION} --stderr ${HOME}/.gmmps/curl.log
+    connection_test=`grep "Connection timed out" ${HOME}/.gmmps/curl.log`
 
     # if no connection could be established
     if [ "${connection_test}_A" != "_A" ]; then
@@ -57,7 +58,7 @@ if [ "${check_wget}_A" != "_A" ]; then
         fi
     fi
 
-# If 'wget' is not installed on the user's system
+# If 'curl' is not installed on the user's system
 else
     echo ">>   "
     echo ">>   You are currently running GMMPS version ${current_userversion_orig}"
@@ -66,7 +67,7 @@ else
     echo ">>   "
     echo ">>   ${URL_GMMPS}"
     echo ">>   "
-    echo ">>   If you install \'wget\', GMMPS will perform a version check automatically"
+    echo ">>   If you install \'curl\', GMMPS will perform a version check automatically"
     echo ">>   during startup and notify you if a more recent version has been released."
     echo ">>   "
     sleep 2
