@@ -1,7 +1,7 @@
-2018-11-26 bmiller
+2018-11-16 bmiller
 
-	* src/vmAstroCat.tcl
-	Fixed problems with opening help pages in a browser on Mac
+	* src/vmAstroCat.tcl, install.sh, scripts/locate_libs.sh
+	Fixed problems with opening help pages in a browser on Mac, support skycat 3.1.4
 	
 2018-02-12 bmiller
 

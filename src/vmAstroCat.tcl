@@ -3921,13 +3921,9 @@ itcl::class cat::vmAstroCat {
 	
 	set browser [cat::vmAstroCat::get_browser]	
 	if {$browser != ""} {
-		set status [catch {exec $browser $URL} message]
-		if {$status != 0} {
-			error_dialog $message
-		}
+		exec $browser $URL
 	}
     }
-
 
     #############################################################
     # A nicer error dialog that does not suffer from HUGE fonts

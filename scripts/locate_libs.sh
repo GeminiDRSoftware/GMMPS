@@ -17,10 +17,12 @@ OS=$1
 
 if [ $OS = "Darwin" ]; then
     libsuffix=".dylib"
+    mdfind -name libskycat3.1.4.dylib > libsfound_$$
     mdfind -name libskycat3.1.3.dylib > libsfound_$$
     mdfind -name libskycat3.1.2.dylib >> libsfound_$$
 else
     libsuffix=".so"
+    locate -e -b '\libskycat3.1.4.so' > libsfound_$$
     locate -e -b '\libskycat3.1.3.so' > libsfound_$$
     locate -e -b '\libskycat3.1.2.so' >> libsfound_$$
 fi
