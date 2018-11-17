@@ -345,12 +345,7 @@ itcl::class gmmps::band_def_UI {
     public method help {URL} {
 	set browser [cat::vmAstroCat::get_browser]
 	if {$browser != ""} {
-	    set os [exec uname -s]
-	    if {$os != "Darwin"} {
-		exec $browser $URL
-	    } else {
-		exec open -a ${browser} $URL
-	    }
+		exec $browser $URL &
 	}
     }
 

@@ -3921,7 +3921,7 @@ itcl::class cat::vmAstroCat {
 	
 	set browser [cat::vmAstroCat::get_browser]	
 	if {$browser != ""} {
-		exec $browser $URL
+		exec $browser $URL &
 	}
     }
 
