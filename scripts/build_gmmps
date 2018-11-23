@@ -5,6 +5,10 @@
 echo "#!/bin/bash"
 echo
 echo "export LANG=en_US.UTF-8"
+if [ "$3" != "Darwin" ]; then
+    echo "ibus exit >& /dev/null"
+    echo "./icemcfd >& /dev/null"
+fi
 echo "export GMMPS=$1"
 echo 'OPTION="-with_grid 1 -scrollbars 1 -rtd 0"'
 echo 'export INTROOT=$GMMPS'
@@ -22,6 +26,6 @@ fi
 # Find the skycat binary
 skycat=`which skycat`
 
-echo "export SKYCAT=${skycat}"	
+echo "export SKYCAT=${skycat}"  
 
 echo '$SKYCAT $OPTION $*'
