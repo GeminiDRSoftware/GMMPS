@@ -107,8 +107,6 @@ gmmps_sel: gmmps_sel.o
 	$(CXX) $(LDFLAGS) gmmps_sel.cc gmmps_sel.o -o $(BIN)/gmmps_sel -lcat4.1.0 -lastrotcl2.1.0 -ltclutil2.1.0 -lBLT24 -ltcl8.4 -ltk8.4
 
 throughput:
-	cp $(shell pwd)/gmmps_throughput.py ../bin/
-#	ln -sfr $(shell pwd)/gmmps_throughput.py ../bin/
 	rm -f *.o
 
 clean : 

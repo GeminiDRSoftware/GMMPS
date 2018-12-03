@@ -3667,7 +3667,7 @@ itcl::class cat::vmAstroCat {
 
 
     ##########################################################################
-    # Pick a web browser in Linux
+    # Pick a web browser
     ##########################################################################
     public method get_browser {} {
     set os [exec uname -s]
@@ -3687,6 +3687,81 @@ itcl::class cat::vmAstroCat {
 	}
     }
 
+    #########################################################################
+    # Create and display a throughput plot using BLT
+    #########################################################################
+    public method loadThroughputPlot {wavemin wavemax title} {
+
+	set home $::env(GMMPS)
+	# package require Img
+	package require BLT
+
+	set cwlfloat [expr ($wavemax + $wavemin) / 2.]
+	set cwl [expr int(round($cwlfloat))]
+
+	set wavelength {}
+	set throughput {}
+	set maxthroughput 0.0
+	set tfile [open ".total_system_throughput.dat" r]
+	while {[gets $tfile line] >= 0} {
+		set tline [string trim $line]
+		scan $tline "%f %f" wave tput
+		# puts [format "%.3f %.3f" $wave $tput]
+		lappend wavelength $wave
+		lappend throughput $tput
+# 		if {($wave >= $wavemin) && ($wave <= $wavemax)} {
+# 			lappend wavelength $wave
+# 			lappend throughput $tput
+# 		}
+		if {$wave == $cwl} {
+			set cwl_throughput $tput
+		}
+		if {$tput > $maxthroughput} {
+			set maxthroughput $tput
+		}
+	}
+	::close $tfile
+	
+# 	puts $maxthroughput
+	
+	# padding 50nm to the left and right. However, the space between
+	# min and max throughput wavelengths must at least be 50% of the plot 
+	# width, so we decreasethe padding accordingly (narrow-band filters)
+	set pad 50.
+	set width [expr $wavemax - $wavemin]
+	if {[expr $width/(2.*$pad)] < 1.} {
+	    set pad [expr $width / 2.]
+	}
+# 	puts $pad
+	set xmin [expr $wavemin - $pad]
+	set xmax [expr $wavemax + $pad]
+	set xlab [expr $cwl - $width/25.]
+		
+	# Delete previous image before loading a new one
+	destroy $w_.throughputimage
+	blt::graph $w_.throughputimage -title $title
+	pack  $w_.throughputimage -in $w_.throughput
+	$w_.throughputimage element create line -symbol none -linewidth 3 -color "#006699"  \
+		-xdata $wavelength -ydata $throughput 
+	$w_.throughputimage legend configure -hide yes
+	$w_.throughputimage axis configure x -title {Wavelength [nm]} -min $xmin -max $xmax \
+		-titlefont { Helvetica 12 } -tickfont { Helvetica 10 }
+	$w_.throughputimage axis configure y -title {Throughput} -min 0.0 -max 1.0 \
+		-titlefont { Helvetica 12 } -tickfont { Helvetica 10 }
+
+	$w_.throughputimage marker create line -coords { $wavemin 0.0 $wavemin 1.0 } \
+		-dashes dash -linewidth 2 -outline forestgreen
+	$w_.throughputimage marker create line -coords { $wavemax 0.0 $wavemax 1.0 } \
+		-dashes dash -linewidth 2 -outline forestgreen
+
+	$w_.throughputimage marker create line -coords { $cwl 0.0 $cwl $cwl_throughput } \
+		-dashes dash -linewidth 2 -outline red
+	$w_.throughputimage marker create text -text [format "CWL = %d" $cwl] -rotate 90 \
+		-coords { $xlab 0.2 } -font { Helvetica 14 } -outline red	
+
+	update
+    }
+    
     #############################################################
     #  Name: ot_slit_add_dialog_buttons
     #
@@ -3739,7 +3814,7 @@ itcl::class cat::vmAstroCat {
 
 	# The 5 slit parameters we keep available for editing
 	pack \
-	    [label $w_.slitLabel -text "(Bulk) Edit Slits" -bg $ot_bg_ -foreground #55f -anchor w] \
+	    [label $w_.slitLabel -text "(Bulk) Edit Slits" -bg $ot_bg_ -foreground "#55f" -anchor w] \
 	    [frame $w_.slitEditSpacer1 -height 10 -bg $ot_bg_] \
 	    [LabelEntry $w_.slitsize_x -text "Size X  :" -valuewidth 3 -labelwidth 10 -background $ot_bg_ \
 		 -command [code $this _sel_parent Sall]] \
@@ -3753,8 +3828,8 @@ itcl::class cat::vmAstroCat {
 		 -command [code $this _sel_parent Sall]] \
 	    -side top -anchor w -in $w_.editSlitFrame -fill x
 	
-	pack [button $w_.updateslit -text "Update Slit(s)" -bg #ff9 -fg $button_text_ot_ \
-		  -activebackground #ffb -activeforeground $button_text_active_ot_ \
+	pack [button $w_.updateslit -text "Update Slit(s)" -bg "#ff9" -fg $button_text_ot_ \
+		  -activebackground "#ffb" -activeforeground $button_text_active_ot_ \
 		  -command [code $this _sel_parent Sall] ] \
 	    -side bottom -anchor w -in $w_.editSlitFrame -fill x
 
@@ -3782,22 +3857,22 @@ itcl::class cat::vmAstroCat {
 	
 	# Add the priority buttons
 	pack \
-	    [label $w_.prioLabel -text "Set Priority" -bg $ot_bg_ -foreground #55f -anchor w] \
+	    [label $w_.prioLabel -text "Set Priority" -bg $ot_bg_ -foreground "#55f" -anchor w] \
 	    [frame $w_.slitEditSpacer2 -height 10 -bg $ot_bg_] \
-	    [button $w_.prio0button -text "Acquisition" -bg #fcc -fg $button_text_ot_ \
-		 -activebackground #fee -activeforeground $button_text_active_ot_ \
+	    [button $w_.prio0button -text "Acquisition" -bg "#fcc" -fg $button_text_ot_ \
+		 -activebackground "#fee" -activeforeground $button_text_active_ot_ \
 		 -command [code $this _sel_parent 0]] \
-	    [button $w_.prio1button -text "Priority 1" -bg #fcc -fg $button_text_ot_ \
-		 -activebackground #fee -activeforeground $button_text_active_ot_ \
+	    [button $w_.prio1button -text "Priority 1" -bg "#fcc" -fg $button_text_ot_ \
+		 -activebackground "#fee" -activeforeground $button_text_active_ot_ \
 		 -command [code $this _sel_parent 1]] \
-	    [button $w_.prio2button -text "Priority 2" -bg #fcc -fg $button_text_ot_ \
-		 -activebackground #fee -activeforeground $button_text_active_ot_ \
+	    [button $w_.prio2button -text "Priority 2" -bg "#fcc" -fg $button_text_ot_ \
+		 -activebackground "#fee" -activeforeground $button_text_active_ot_ \
 		 -command [code $this _sel_parent 2]] \
-	    [button $w_.prio3button -text "Priority 3" -bg #fcc -fg $button_text_ot_ \
-		 -activebackground #fee -activeforeground $button_text_active_ot_ \
+	    [button $w_.prio3button -text "Priority 3" -bg "#fcc" -fg $button_text_ot_ \
+		 -activebackground "#fee" -activeforeground $button_text_active_ot_ \
 		 -command [code $this _sel_parent 3]] \
-	    [button $w_.prioXbutton -text "Ignore" -bg #fcc -fg $button_text_ot_ \
-		 -activebackground #fee -activeforeground $button_text_active_ot_ \
+	    [button $w_.prioXbutton -text "Ignore" -bg "#fcc" -fg $button_text_ot_ \
+		 -activebackground "#fee" -activeforeground $button_text_active_ot_ \
 		 -command [code $this _sel_parent X]] \
 	    -side top -anchor w -in $w_.editPriorityFrame -fill x
 
@@ -3863,8 +3938,8 @@ itcl::class cat::vmAstroCat {
 	
 	if {$instType == "GMOS-N" || $instType == "GMOS-S"} {
 	    pack [button $w_.defineBands -text "Configure Nod & Shuffle Mask" \
-		      -bg #bfb -fg $button_text_ot_ \
-		      -activebackground #dfd \
+		      -bg "#bfb" -fg $button_text_ot_ \
+		      -activebackground "#dfd" \
 		      -activeforeground $button_text_active_ot_ \
 		      -command [code $this define_bands]] \
 		-side top -in $w_.controlMainFrame -fill x
@@ -3893,18 +3968,18 @@ itcl::class cat::vmAstroCat {
 	##################################################################
 	#                 The Help Main Frame
 	##################################################################    
-	pack [button $w_.helpOT -text "Help - About Object tables" -bg #9ff -fg #000 \
-		  -activebackground #bff -activeforeground #000 \
+	pack [button $w_.helpOT -text "Help - About Object tables" -bg "#9ff" -fg "#000" \
+		  -activebackground "#bff" -activeforeground "#000" \
 		  -command [code $this help file://$home/html/OTformat.html] -anchor w] \
 	    -side left -anchor w -in $w_.help -padx 10
 
-	pack [button $w_.helpOTwindow -text "Help - This window" -bg #9ff -fg #000 \
-		  -activebackground #bff -activeforeground #000 \
+	pack [button $w_.helpOTwindow -text "Help - This window" -bg "#9ff" -fg "#000" \
+		  -activebackground "#bff" -activeforeground "#000" \
 		  -command [code $this help file://$home/html/editOT.html] -anchor w] \
 	    -side left -anchor w -in $w_.help -padx 10
 
-	pack [button $w_.helpOTacqstars -text "Help - Acquisition stars" -bg #9ff -fg #000 \
-		  -activebackground #bff -activeforeground #000 \
+	pack [button $w_.helpOTacqstars -text "Help - Acquisition stars" -bg "#9ff" -fg "#000" \
+		  -activebackground "#bff" -activeforeground "#000" \
 		  -command [code $this help file://$home/html/acquisition.html] -anchor w] \
 	    -side left -anchor w -in $w_.help -padx 10
 

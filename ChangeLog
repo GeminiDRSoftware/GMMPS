@@ -1,7 +1,16 @@
-2018-11-16 bmiller
+2018-11-30 bmiller
+
+	* src/vmAstroCat.tcl, gmmps_spoc.tcl, waveMapper.tcl, Makefile*, SkyCat_plugin.tcl
+	* removed src/gmmps_throughput.py
+	Make throughput plot with BLT instead of matplotlib
+	
+2018-11-16 bmiller, mhoenig
 
 	* src/vmAstroCat.tcl, install.sh, scripts/locate_libs.sh
 	Fixed problems with opening help pages in a browser on Mac, support skycat 3.1.4
+	
+	* scripts/version_check.sh and related help pages
+	Replace wget with curl
 	
 2018-02-12 bmiller
 
@@ -9,6 +18,7 @@
 	Pushed version number to 1.4.6
 	
 	* src/gmmps_spoc.tcl, scripts/build_gmmps, build_gmmps.sh
+	Force LANG=en_US.UTF-8, improvements for typing in text box issues
 	
 2017-10-24  mischa  <mischa@lab>
 

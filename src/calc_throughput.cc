@@ -135,16 +135,16 @@ int main (int argc, char *argv[]) {
     
     outfile.close();
     
-    // Create the python checkplot
-    string command = "gmmps_throughput.py ";
-    string lmin = NumberToString(lambda_cutoff_min);
-    string lmax = NumberToString(lambda_cutoff_max);
-    
-    command = command+" "+lmin+" "+lmax+" "+plottitle;
-    
-    if ( system(command.c_str()) == -1) {
-      cerr << "WARNING: Could not create the throughput plot!" << endl;
-    }
+    // Create the python checkplot - commented out 2018-11-30 bmiller
+//     string command = "gmmps_throughput.py ";
+//     string lmin = NumberToString(lambda_cutoff_min);
+//     string lmax = NumberToString(lambda_cutoff_max);
+//     
+//     command = command+" "+lmin+" "+lmax+" "+plottitle;
+//     
+//     if ( system(command.c_str()) == -1) {
+//       cerr << "WARNING: Could not create the throughput plot!" << endl;
+//     }
   }
 
   return 0;

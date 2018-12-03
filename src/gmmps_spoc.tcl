@@ -270,7 +270,7 @@ itcl::class cat::gmmps_spoc {
 	
 	# Pack the instrumental setup widgets
 	pack \
-	    [label $w_.instSetup.label -text "$instType Setup" -foreground #55f -anchor w] \
+	    [label $w_.instSetup.label -text "$instType Setup" -foreground "#55f" -anchor w] \
 	    -side top -anchor w -in $w_.instSetup \
 	    -padx 5 -ipadx 5 -ipady 5 -fill x
 
@@ -309,7 +309,7 @@ itcl::class cat::gmmps_spoc {
 		-side top -anchor w -padx 5 -pady 5 -ipadx 5 -ipady 5 -in $w_.instSetup
 
 	    pack \
-		[button $w_.cwlButtonFrame.button -bg #bbf -foreground black \
+		[button $w_.cwlButtonFrame.button -bg "#bbf" -foreground black \
 		     -activeforeground black \
 		     -text "Auto CWL" \
 		     -command [code $this calcSpectrum $instType "update"]] \
@@ -348,7 +348,7 @@ itcl::class cat::gmmps_spoc {
 
 	# Slit expansion and packing
 	pack \
-	    [label $w_.instSetup.labelSmart -text "Slit placement" -foreground #55f -anchor w] \
+	    [label $w_.instSetup.labelSmart -text "Slit placement" -foreground "#55f" -anchor w] \
 	    [checkbutton $w_.instSetup.bias -text "Auto expansion" -variable spoc_autoexpansion] \
 	    [checkbutton $w_.instSetup.pack -text "Pack spectra" -variable pack_spectra] \
 	    -side top -anchor w -padx 5 -ipadx 5 -ipady 5
@@ -450,11 +450,11 @@ itcl::class cat::gmmps_spoc {
 
 	# Now place the help button and the two final buttons for mask making and closure
 	pack \
-	    [button $w_.masterButtonFrame.helpSpoc -text "Help" -bg #9ff -fg #000 \
-		  -activebackground #bff -activeforeground #000 -anchor n\
+	    [button $w_.masterButtonFrame.helpSpoc -text "Help" -bg "#9ff" -fg "#000" \
+		  -activebackground "#bff" -activeforeground "#000" -anchor n\
 		  -command [code $this help file://$home/html/createODF.html]] \
-	    [button $w_.masterButtonFrame.spoc -bg #bfb -foreground black \
-		 -activebackground #dfd -activeforeground black  -anchor n\
+	    [button $w_.masterButtonFrame.spoc -bg "#bfb" -foreground black \
+		 -activebackground "#dfd" -activeforeground black  -anchor n\
 		 -text "Make Masks" \
 		 -command [code $this spoc $mycatname $instType]] \
 	    [button $w_.masterButtonFrame.close -foreground black  -anchor n\
@@ -1253,30 +1253,6 @@ itcl::class cat::gmmps_spoc {
 	return
     }
 
-
-
-    #########################################################################
-    # Create and display a throughput plot using python
-    # Currently does not work when invoked on 64 bit systems that have a 32bit 
-    # skycat installation. The scisoft python libraries shadow the system 
-    # libraries and I don't know how to fix that.
-    #########################################################################
-    method loadThroughputPlot {} {
-
-	set home $::env(GMMPS)
-	package require Img
-
-	# IMPORTANT! This assumes that GMMPS was launched from within the directory 
-	# with the image and the OT catalog
-	image create photo myImage -file ".throughput.png"
-
-	# Delete previous image before loading a new one
-	destroy $w_.throughputimage
-	pack [label $w_.throughputimage -image myImage] -in $w_.throughput
-	update
-    }
-    
-
     #########################################################################
     # Retrieve F2 wavelength based on selected filter. 
     #########################################################################
@@ -1443,15 +1419,15 @@ itcl::class cat::gmmps_spoc {
 	    return
 	}
 
-	# Update the throughput plot
-	loadThroughputPlot
-
 	# The automatically estimated throughput boundaries, and their mid-point;
 	# The latter is the best-guess CWL
 	set lambda_min [lindex $output 0]
 	set lambda_max [lindex $output 1]
 	set cwl_ideal [expr {round([lindex $output 2])}]
 
+	# Update the throughput plot
+	::cat::vmAstroCat::loadThroughputPlot $lambda_min $lambda_max $title
+	
 	# gRequest is the CWL times the number of rulings per nm;
 	# NOTE: here we must use the value from the line edit, as the user might want to
 	# override the automatic value
@@ -1600,7 +1576,7 @@ itcl::class cat::gmmps_spoc {
 	$catClass_ gmmps_config_ [list "$instType-cenwave" ] [list $cwl_user]
 
 	# delete temporary throughput files
-	catch {file delete ".throughput.png"}
+	#catch {file delete ".throughput.png"}
 	catch {file delete ".total_system_throughput.dat"}
 	destroy $w_ 
     }

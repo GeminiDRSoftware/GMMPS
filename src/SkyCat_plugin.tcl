@@ -134,8 +134,8 @@ proc SkyCat_plugin {this} {
 
 	# The stuff below is not working. I keeep it alive just in case these variables are needed somewhere else...
     	set last_cat [string trim [lindex $lastImageAndCatalog 0 ]]
-   	set last_image [string trim [lindex $lastImageAndCatalog 1 ]]
-  	set last_inst  [string trim [lindex $lastImageAndCatalog 2 ]]
+   		set last_image [string trim [lindex $lastImageAndCatalog 1 ]]
+  		set last_inst  [string trim [lindex $lastImageAndCatalog 2 ]]
     	set last_type [string trim [lindex $lastImageAndCatalog 3 ]]
     	
     	set id [lindex $menu_info 0 ]

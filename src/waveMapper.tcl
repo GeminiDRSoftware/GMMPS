@@ -98,7 +98,7 @@ itcl::class cat::waveMapper {
 	    -side right -anchor e -fill both -in $w_.wmodfInstTypeFrame
 
 	pack [label $w_.topLeft.label -text "Wavelength maps for" \
-		  -background $wmodf_bg_ -foreground #55f] \
+		  -background $wmodf_bg_ -foreground "#55f"] \
 	    -in $w_.topLeft -anchor w -ipady 5
 	# The options
 	pack [LabelMenu $w_.topLeft.options \
@@ -107,8 +107,8 @@ itcl::class cat::waveMapper {
 	    -side top -anchor w -in $w_.topLeft \
 	    -padx 5 -ipadx 5 -ipady 5
 	
-	pack [button $w_.help -text "Help" -bg #9ff -fg #00f \
-		  -activebackground #bff -activeforeground #00f \
+	pack [button $w_.help -text "Help" -bg "#9ff" -fg "#00f" \
+		  -activebackground "#bff" -activeforeground "#00f" \
 		  -command [code $this help file://$home/html/wavemapper.html] -anchor w] \
 	    -side right -anchor n -in $w_.topRight
 
@@ -531,9 +531,6 @@ itcl::class cat::waveMapper {
 	    return
 	}
 
-	# Update the throughput plot
-	loadThroughputPlot
-
 	# The automatically estimated throughput boundaries, and their mid-point;
 	# The latter is the best-guess CWL
 	set lambda_min [lindex $output 0]
@@ -544,6 +541,9 @@ itcl::class cat::waveMapper {
 	    $w_.wmodfCWLSpinBox set $cwl_ideal
 	}
 
+	# Update the throughput plot
+	::cat::vmAstroCat::loadThroughputPlot $lambda_min $lambda_max $title
+		
 	# gRequest is the CWL times the number of rulings per nm;
 	# How and why this relates to the Gtilt? I have no idea...
 
@@ -2224,30 +2224,6 @@ itcl::class cat::waveMapper {
 	catch {clearslits_WMODF}
         catch {destroy $w_ }
     }
-
-    
-
-    #########################################################################
-    # Create and display a throughput plot using python
-    # Currently does not work when invoked on 64 bit systems that have a 32bit 
-    # skycat installation. The scisoft python libraries shadow the system 
-    # libraries and I don't know how to fix that.
-    #########################################################################
-    method loadThroughputPlot {} {
-
-	set home $::env(GMMPS)
-	package require Img
-
-	# IMPORTANT! This assumes that GMMPS was launched from within the directory 
-	# with the image and the OT catalog
-	image create photo myImage -file ".throughput.png"
-
-	# Delete previous image before loading a new one
-	destroy $w_.throughputimage
-	pack [label $w_.throughputimage -image myImage] -in $w_.throughput
-	update
-    }
-
 
      ################################################################
     # Collect basic information about this image and the instrument,

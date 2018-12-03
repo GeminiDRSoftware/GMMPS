@@ -1,5 +1,6 @@
 # user library
-USER_LIB = $(shell ./skycatlib.sh)
+# USER_LIB = $(shell ./skycatlib.sh)
+USER_LIB = 
 
 # Forcing the shell // do we need that? (mischa)
 SHELL = /bin/sh 
@@ -7,7 +8,7 @@ SHELL = /bin/sh
 # machine-specific stuff
 platform = 
 os = $(shell uname -s)
-libvers = $(shell ./discoverOS.sh)
+# libvers = $(shell ./discoverOS.sh)
 
 ifeq ($(os),Linux)
   platform = $(os)
@@ -34,7 +35,7 @@ endif
 LIBRARIES    := m
 
 # For Darwin / uncomment if needed
-ifeq ($(os),Darwin)
+#ifeq ($(os),Darwin)
 #  CC=gcc
 #  CXX=g++
 #  INCLUDE_DIRS += /usr/X11R6/include/X11
@@ -43,7 +44,7 @@ ifeq ($(os),Darwin)
 #  INCLUDE_DIRS += /opt/X11/include
 #  LIBRARY_DIRS += /usr/X11R6/lib
 #  LIBRARY_DIRS += /opt/X11/
-endif
+#endif
 
 # add the include and library (dirs) to the makefile variables
 
@@ -120,7 +121,6 @@ gmmps_sel: gmmps_sel.o
 	$(CXX) $(LDFLAGS) gmmps_sel.cc gmmps_sel.o -o $(BIN)/gmmps_sel -lcat4.1.0
 
 throughput:
-	cp $(shell pwd)/gmmps_throughput.py ../bin/
 	cp $(shell pwd)/create_gemwm_input.sh ../bin/
 	cp $(shell pwd)/get_propermotion.sh ../bin/
 	cp $(shell pwd)/vizquery ../bin/
