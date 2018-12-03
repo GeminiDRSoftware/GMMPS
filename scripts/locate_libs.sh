@@ -27,8 +27,6 @@ else
     locate -e -b '\libskycat3.1.2.so' >> libsfound_$$
 fi
 
-cat libsfound_$$
-
 ############################################
 # How many libs were found? Leave if none
 ############################################
