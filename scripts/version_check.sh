@@ -16,16 +16,23 @@ current_userversion_orig=`cat ${GMMPS}/VERSION`
 current_userversion=`echo ${current_userversion_orig} | sed 's/\.//g' | awk '{print $1*1}'`
 
 # check if 'curl' is available
-check_curl=`which curl`
+check_app=`which curl`
+if [ "${check_app}_A" = "_A" ]; then
+	check_app=`which wget`
+fi
 
-if [ "${check_curl}_A" != "_A" ]; then
+if [ "${check_app}_A" != "_A" ]; then
     rm -f ${HOME}/.gmmps/VERSION
     echo "Checking for updates ... " 
-    # Download the version text file; timeout after 5 seconds
-    #wget -T 5 -t 1 -O ${HOME}/.gmmps/VERSION ${URL_VERSION} -o ${HOME}/.gmmps/wget.log
-    curl --connect-timeout 5 --retry 0 -o ${HOME}/.gmmps/VERSION ${URL_VERSION} --stderr ${HOME}/.gmmps/curl.log
-    connection_test=`grep "Connection timed out" ${HOME}/.gmmps/curl.log`
-
+    # Download the version text file; timeout after 5 seconds    
+	if [ ${check_app} = "curl" ]; then
+    	curl --connect-timeout 5 --retry 0 -o ${HOME}/.gmmps/VERSION ${URL_VERSION} --stderr ${HOME}/.gmmps/checkver.log
+    else
+    	wget -T 5 -t 1 -O ${HOME}/.gmmps/VERSION ${URL_VERSION} -o ${HOME}/.gmmps/checkver.log
+    fi
+    
+    connection_test=`grep "Connection timed out" ${HOME}/.gmmps/checkver.log`
+    
     # if no connection could be established
     if [ "${connection_test}_A" != "_A" ]; then
         echo "No response from server."
@@ -67,7 +74,7 @@ else
     echo ">>   "
     echo ">>   ${URL_GMMPS}"
     echo ">>   "
-    echo ">>   If you install \'curl\', GMMPS will perform a version check automatically"
+    echo ">>   If you install \'curl\' or \'wget\' GMMPS will perform a version check automatically"
     echo ">>   during startup and notify you if a more recent version has been released."
     echo ">>   "
     sleep 2
