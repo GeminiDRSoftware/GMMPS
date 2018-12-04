@@ -30,56 +30,41 @@ mkdir -p bin.$OS lib.$OS
 ln -sf bin.$OS bin
 ln -sf lib.$OS lib
 
-# Check that skycat is found
-skycat=`which skycat`
-test=`echo $skycat | awk '{if ($0=="" || $0 ~/:/) {print "bad"}}'`
-if [ "${test}" = "bad" ]; then
-    "ERROR: Could not find the skycat executable in your PATH variable."
-    exit
+###############################################################################
+# 1: Compile Tcl/Tk and skycat
+###############################################################################
+
+echo " "
+echo "################################################################### "
+echo "GMMPS Installer: Installing Tcl/Tk ... "
+echo "################################################################### "
+echo " "
+
+tar xfz tarfiles/tcltk-8.4.1-1.tar.gz
+cd tcltk-8.4.1/
+make prefix=${GMMPS}
+cd ${GMMPS}
+
+echo " "
+echo "################################################################### "
+echo "GMMPS Installer: Installing Skycat ... "
+echo "################################################################### "
+echo " "
+
+tar xfz tarfiles/skycat-3.1.4-1.tar.gz
+cd skycat-3.1.4/
+if [ $OS = "Darwin" ]; then
+    export CPLUS_INCLUDE_PATH=/usr/X11/include
+    export LIBRARY_PATH=/usr/X11/lib
 fi
+./configure --prefix=${GMMPS}
+make all install
+cd ${GMMPS}
 
-
-######################################################################
-# 1: Check that essential skycat (v3.1.2 or 3.1.3 or 3.1.4) libs are available
-# This check DOES NOT verify that ALL skycat dependencies are met.
-######################################################################
-
-skycatpath=`scripts/locate_libs.sh $OS`
-
+export skycatpath=${GMMPS}/lib
 export LIBRARY_PATH=${skycatpath}
 
-if [ ${skycatpath}_A != "_A" ]; then
-    echo "Compatible skycat libraries found in: $skycatpath"
-else
-    echo "'locate' does not know the location of these skycat libraries:"
-    echo "   libskycat3.1.2$libsuffix or libskycat3.1.3$libsuffix or libskycat3.1.4$libsuffix"
-    echo "   libastrotcl2.1.0$libsuffix"
-    echo "   libtclutil2.1.0$libsuffix"
-    echo "   libcat4.1.0$libsuffix"
-    read -p "Enter their path and press [ENTER]: " skycatpath
-    if [ -e $skycatpath/libskycat3.1.4${libsuffix} ]; then
-    	skycatver="3.1.4"
-    elif [ -e $skycatpath/libskycat3.1.3${libsuffix} ]; then
-    	skycatver="3.1.3"
-    elif [ -e $skycatpath/libskycat3.1.2${libsuffix} ]; then
-    	skycatver="3.1.2"
-	fi
-	c0=`./scripts/check_os_compatibility.sh $skycatpath/libskycat${skycatver}${libsuffix}`
-    c1=`./scripts/check_os_compatibility.sh $skycatpath/libastrotcl2.1.0${libsuffix}`
-    c2=`./scripts/check_os_compatibility.sh $skycatpath/libtclutil2.1.0${libsuffix}`
-    c3=`./scripts/check_os_compatibility.sh $skycatpath/libcat4.1.0${libsuffix}`
-    if [ ${c0} != 1 ] || [ ${c1} != 1 ] || [ ${c2} != 1 ] || [ ${c3} != 1 ]; then
-	echo "Not all libraries exist, or they are incompatible with $OS"
-	exit
-    else
-	echo "Libraries checked OK."
-	echo " "
-    fi
-fi
-
 sleep 1
-
-cd ${GMMPS}
 
 ###############################################################################
 # 2: Install CFITSIO
@@ -93,7 +78,7 @@ echo " "
 
 sleep 1
 
-tar xvfz cfitsio3410.tar.gz
+tar xfz tarfiles/cfitsio3410.tar.gz
 cd cfitsio
 
 ./configure | tee cfitsio.log
@@ -134,7 +119,7 @@ fi
 
 make install
 rm cfitsio.log
-
+# make clean
 
 ###############################################################################
 # 3: Install wcstools
@@ -224,3 +209,8 @@ echo "to your PATH variable. Restart your shell and type 'gmmps' to run GMMPS."
 echo ""
 echo "########################################################################"
 echo
+
+# clean up
+rm -rf tcltk-8.4.1
+rm -rf skycat-3.1.4
+rm -rf cfitsio

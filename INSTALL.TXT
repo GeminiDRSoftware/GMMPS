@@ -1,4 +1,4 @@
-Both pre-compiled binaries as well as the source code are
+Both pre-compiled binaries as well as the source code may be
 contained in the GMMPS distribution package. Installation 
 instructions for both are given below.
 
@@ -10,32 +10,11 @@ The GMMPS users manual is available online at
 1. Dependencies
 =============================================================
 
-You must have 'skycat' installed. GMMPS was designed and 
-tested for use with Skycat 3.1.2 and YOU MUST USE that 
-version. Both installer scripts check the presence of the
-required shared libraries.
-You can download Skycat at:
-
-   http://archive.eso.org/cms/tools-documentation/skycat/eso-skycat-download.html
-
-NOTE for Ubuntu and other Debian-based systems:
-
-Skycat and its associated Tcl/Tk modules are distributed as
-rpm packages. To install them on a Debian-based system they 
-must be converted to a 'deb' package using 'alien'. For example:
-
-   sudo apt-get update
-   sudo apt-get install alien
-   sudo alien -k tcltk-8.4.1-1.el5.x86_64.rpm
-   sudo alien -k --scripts skycat-3.1.2-1.el5.x86_64.rpm
-   sudo dpkg -i tcltk_8.4.1-1_amd64.deb
-   sudo dpkg -i skycat_3.1.2-1_amd64.deb
-
-NOTE for MacOS users:
-
-You must use MacOS 10.6 or later. Earlier versions require an older
-skycat library which is not supported anymore by GMMPS.
-
+There should not be any. GMMPS now comes with all the
+packages required to run it including Tcl/Tk and Skycat 3.1.4. 
+If you chose to compile from sources, these will be compiled 
+first. They are installed in the bin and lib directories of GMMPS
+to keep them isolated from any other versions on your system.
 
 2. Source Code Installation Instructions (default)
 =============================================================

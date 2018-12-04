@@ -21,11 +21,15 @@ else
 fi
 
 # Check that skycat is found
-skycat=`which skycat`
-test=`echo $skycat | awk '{if ($0=="" || $0 ~/:/) {print "bad"}}'`
-if [ "${test}" = "bad" ]; then
-    "ERROR: Could not find the skycat executable in your PATH variable."
-    exit
+if [ -e ${GMMPS}/bin/skycat ]; then
+	export skycat=${GMMPS}/bin/skycat
+else
+	skycat=`which skycat`
+	test=`echo $skycat | awk '{if ($0=="" || $0 ~/:/) {print "bad"}}'`
+	if [ "${test}" = "bad" ]; then
+    	"ERROR: Could not find the skycat executable in your PATH variable."
+    	exit
+	fi
 fi
 
 skycatpath=`scripts/locate_libs.sh $OS`
@@ -36,16 +40,19 @@ if [ ${skycatpath}_A != "_A" ]; then
     echo "Compatible skycat libraries found in: $skycatpath"
 else
     echo "'locate' does not know the location of these skycat libraries:"
-    echo "   libskycat3.1.2$libsuffix or libskycat3.1.3$libsuffix"
+    echo "   libskycat3.1.2$libsuffix or libskycat3.1.3$libsuffix or libskycat3.1.4$libsuffix"
     echo "   libastrotcl2.1.0$libsuffix"
     echo "   libtclutil2.1.0$libsuffix"
     echo "   libcat4.1.0$libsuffix"
     read -p "Enter their path and press [ENTER]: " skycatpath
-    if [ -e $skycatpath/libskycat3.1.2${libsuffix} ]; then
-	c0=`./scripts/check_os_compatibility.sh $skycatpath/libskycat3.1.2${libsuffix}`
-    else
-	c0=`./scripts/check_os_compatibility.sh $skycatpath/libskycat3.1.3${libsuffix}`
-    fi	
+    if [ -e $skycatpath/libskycat3.1.4${libsuffix} ]; then
+    	skycatver="3.1.4"
+    elif [ -e $skycatpath/libskycat3.1.3${libsuffix} ]; then
+    	skycatver="3.1.3"
+    elif [ -e $skycatpath/libskycat3.1.2${libsuffix} ]; then
+    	skycatver="3.1.2"
+	fi
+	c0=`./scripts/check_os_compatibility.sh $skycatpath/libskycat${skycatver}${libsuffix}`	
     c1=`./scripts/check_os_compatibility.sh $skycatpath/libastrotcl2.1.0${libsuffix}`
     c2=`./scripts/check_os_compatibility.sh $skycatpath/libtclutil2.1.0${libsuffix}`
     c3=`./scripts/check_os_compatibility.sh $skycatpath/libcat4.1.0${libsuffix}`

@@ -23,8 +23,17 @@ else
     echo 'export LD_LIBRARY_PATH=$GMMPS/lib:'"$2"':/usr/lib:$LD_LIBRARY_PATH'
 fi
 
-# Find the skycat binary
-skycat=`which skycat`
+# Check that skycat is found
+if [ -e $1/bin/skycat ]; then
+	export skycat=$1/bin/skycat
+else
+	skycat=`which skycat`
+	test=`echo $skycat | awk '{if ($0=="" || $0 ~/:/) {print "bad"}}'`
+	if [ "${test}" = "bad" ]; then
+    	"ERROR: Could not find the skycat executable in your PATH variable."
+    	exit
+	fi
+fi
 
 echo "export SKYCAT=${skycat}"  
 

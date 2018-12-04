@@ -1,3 +1,11 @@
+2018-12-03 bmiller
+
+	* VERSION
+	Pushed version number to 1.5.0
+	
+	* install.sh, tarfiles/*, INSTALL.TXT, related help files
+	Include tcltk and skycat sources, these are built first when compiling
+	
 2018-11-30 bmiller
 
 	* src/vmAstroCat.tcl, gmmps_spoc.tcl, waveMapper.tcl, Makefile*, SkyCat_plugin.tcl
