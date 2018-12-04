@@ -3,12 +3,8 @@
 # Used to construct the gmmps executable.
 
 echo "#!/bin/bash"
-echo
+echo ""
 echo "export LANG=en_US.UTF-8"
-if [ "$3" != "Darwin" ]; then
-    echo "ibus exit >& /dev/null"
-    echo "./icemcfd >& /dev/null"
-fi
 echo "export GMMPS=$1"
 echo 'OPTION="-with_grid 1 -scrollbars 1 -rtd 0"'
 echo 'export INTROOT=$GMMPS'
@@ -16,23 +12,26 @@ echo 'export SKYCAT_PLUGIN=$INTROOT/src/SkyCat_plugin.tcl'
 echo "export PATH=$1/bin"':$PATH'
 echo "$1/scripts/version_check.sh $1"
 
-
 if [ "$3" == "Darwin" ]; then
     echo 'export DYLD_LIBRARY_PATH=$GMMPS/lib:'"$2"':/usr/lib:$DYLD_LIBRARY_PATH'
 else
     echo 'export LD_LIBRARY_PATH=$GMMPS/lib:'"$2"':/usr/lib:$LD_LIBRARY_PATH'
+    ibus=`which ibus`
+    if [ ${ibus}_A != "_A" ]; then
+        echo "ibus exit"
+    fi
 fi
 
 # Check that skycat is found
 if [ -e $1/bin/skycat ]; then
-	export skycat=$1/bin/skycat
+    export skycat=$1/bin/skycat
 else
-	skycat=`which skycat`
-	test=`echo $skycat | awk '{if ($0=="" || $0 ~/:/) {print "bad"}}'`
-	if [ "${test}" = "bad" ]; then
-    	"ERROR: Could not find the skycat executable in your PATH variable."
-    	exit
-	fi
+    skycat=`which skycat`
+    test=`echo $skycat | awk '{if ($0=="" || $0 ~/:/) {print "bad"}}'`
+    if [ "${test}" = "bad" ]; then
+        "ERROR: Could not find the skycat executable in your PATH variable."
+        exit
+    fi
 fi
 
 echo "export SKYCAT=${skycat}"  
