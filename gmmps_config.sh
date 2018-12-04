@@ -23,6 +23,7 @@ fi
 # Check that skycat is found
 if [ -e ${GMMPS}/bin/skycat ]; then
 	export skycat=${GMMPS}/bin/skycat
+	export skycatpath=${GMMPS}/lib
 else
 	skycat=`which skycat`
 	test=`echo $skycat | awk '{if ($0=="" || $0 ~/:/) {print "bad"}}'`
@@ -30,9 +31,8 @@ else
     	"ERROR: Could not find the skycat executable in your PATH variable."
     	exit
 	fi
+	skycatpath=`scripts/locate_libs.sh $OS`
 fi
-
-skycatpath=`scripts/locate_libs.sh $OS`
 
 export LIBRARY_PATH=${skycatpath}
 
