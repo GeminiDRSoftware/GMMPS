@@ -40,6 +40,30 @@ echo "GMMPS Installer: Installing Tcl/Tk ... "
 echo "################################################################### "
 echo " "
 
+
+if [ $OS = "Darwin" ]; then
+    export CPLUS_INCLUDE_PATH=/usr/X11/include
+    export LIBRARY_PATH=/usr/X11/lib
+    libext=`mdfind -name libXext.6.dylib`
+    if [ ${libext}_A = "_A" ]; then
+        echo "Could not find libXext.6.dylib."
+        echo "Please be sure that XQuartz (https://www.xquartz.org) is installed."
+        exit 1
+    fi
+else
+    libext=`find '/usr' -name 'libXext.so' 2> tmp | grep -v 'Permission denied' ; rm tmp`
+    if [ ${libext}_A = "_A" ]; then
+        libext6=`find '/usr' -name 'libXext.so.6' 2> tmp | grep -v 'Permission denied' ; rm tmp`
+        if [ ${libext6}_A != "_A" ]; then
+            ln -s ${libext6} lib.${OS}/libXext.so
+        else
+            echo "Could not find libXext.so.6."
+            echo "Please confirm that the X11 development libraries are installed."
+            exit 1
+        fi
+    fi
+fi
+
 tar xfz tarfiles/tcltk-8.4.1-1.tar.gz
 cd tcltk-8.4.1/
 make prefix=${GMMPS}
@@ -53,10 +77,6 @@ echo " "
 
 tar xfz tarfiles/skycat-3.1.4-1.tar.gz
 cd skycat-3.1.4/
-if [ $OS = "Darwin" ]; then
-    export CPLUS_INCLUDE_PATH=/usr/X11/include
-    export LIBRARY_PATH=/usr/X11/lib
-fi
 ./configure --prefix=${GMMPS}
 make all install
 cd ${GMMPS}
