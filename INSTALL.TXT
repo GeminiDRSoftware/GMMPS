@@ -5,18 +5,39 @@ instructions for both are given below.
 The GMMPS users manual is available online at
    
    http://www.gemini.edu/node/10458
-
+   
 
 1. Dependencies
 =============================================================
 
-There should not be any. GMMPS now comes with all the
-packages required to run it including Tcl/Tk and Skycat 3.1.4. 
-If you chose to compile from sources, these will be compiled 
-first. They are installed in the bin and lib directories of GMMPS
-to keep them isolated from any other versions on your system.
+Running GMMPS requires a standard unix-like X11 environment. 
+MacOS users should install XQuartz (https://www.xquartz.org/).
+Users of recent Ubuntu releases should start a X11 session.
 
-2. Source Code Installation Instructions (default)
+Compiling GMMPS from sources requires gcc, make, and X11 
+development libraries. MacOS users will need to download Xcode
+from the Mac App Store and run it at least once to install 
+the command line tools. 
+
+GMMPS now comes with all the packages required to compile it 
+including Tcl/Tk and Skycat. They are installed into the 
+bin and lib directories of GMMPS to keep them isolated from 
+any other versions on your system.
+
+
+2. Configuring pre-compiled binaries
+=============================================================
+
+Pre-compiled versions of GMMPS are available for MacOS and 
+a few standard flavors of Linux. Untar the distribution file
+and then run
+
+    ./gmmps_config.sh
+
+to configure the paths in the GMMPS startup script.
+
+
+3. Source Code Installation Instructions
 =============================================================
 
 Run:
@@ -24,7 +45,7 @@ Run:
     ./install.sh
 
 
-3. Launching GMMPS
+4. Launching GMMPS
 =============================================================
 
 Launch GMMPS directly from its installation directory:
@@ -44,7 +65,7 @@ gmmps &
 
 
 
-4. Earlier versions of GMMPS
+5. Earlier versions of GMMPS
 =============================================================
 
 Earlier version of GMMPS on your system must be renamed, or 
