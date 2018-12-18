@@ -123,6 +123,4 @@ filter, and in case of GMOS, the central wavelength. From here, proceed as for o
    in this mode, because slits must have the same lengths, and objects
    must be located at identical positions in the slit (otherwise some of
    them might be driven off the slit by a nod offset). All other settings
-   are identical as for normal masks. Auto-expansion is available for
-   band-shuffle masks, though.*
-
+   are identical as for normal masks.*

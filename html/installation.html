@@ -4,27 +4,19 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>1. Getting started &#8212; GMMPS 1.5.0 documentation</title>
+    <title>1. Getting started &#8212; GMMPS 1.5.1 documentation</title>
     <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.5.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2. Loading Images" href="loadimage.html" />
-    <link rel="prev" title="GMMPS 1.5.0: Documentation" href="index.html" /> 
+    <link rel="prev" title="GMMPS 1.5.1: Documentation" href="index.html" /> 
     <script type="text/javascript">
       // intelligent scrolling of the sidebar content
       $(window).scroll(function() {
@@ -54,8 +46,7 @@
       });
     </script>
 
-  </head>
-  <body>
+  </head><body>
 <div class="pageheader">
   <ul>
     <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
@@ -79,16 +70,16 @@
           <a href="loadimage.html" title="2. Loading Images"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="GMMPS 1.5.0: Documentation"
+          <a href="index.html" title="GMMPS 1.5.1: Documentation"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.0 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">1. Getting started</a><ul>
 <li><a class="reference internal" href="#step-by-step-examples">1.1. Step-by-step examples</a></li>
@@ -104,18 +95,20 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter">GMMPS 1.5.0: Documentation</a></p>
+                        title="previous chapter">GMMPS 1.5.1: Documentation</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="loadimage.html"
                         title="next chapter">2. Loading Images</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -140,9 +133,9 @@ forward is to follow these three step-by-step examples:</p>
 </div>
 <div class="section" id="download">
 <h2>1.2. Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
-<p><em>GMMPS</em> 1.5.0 comes with the source code and example images.
+<p><em>GMMPS</em> 1.5.1 comes with the source code and example images. The latest version is recommended. At least version 1.4.5 is required.
 It is available at
-<a class="reference external" href="http://software.gemini.edu/gmmps/gmmps-1.5.0.tgz">http://software.gemini.edu/gmmps/gmmps-1.5.0.tgz</a> (136 MB). <strong>This version is mandatory.</strong></p>
+<a class="reference external" href="http://software.gemini.edu/gmmps/gmmps-1.5.1.tgz">http://software.gemini.edu/gmmps/gmmps-1.5.1.tgz</a> (155 MB).</p>
 <p>The following instruments are supported:</p>
 <ul class="simple">
 <li><a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/">GMOS-N</a> (Hamamatsu CCDs)</li>
@@ -162,37 +155,82 @@ aspects of <em>GMMPS</em>.</p>
 </div>
 <div class="section" id="dependencies">
 <span id="index-1"></span><h2>1.3. Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<p>The following pre-requisites <strong>must be met</strong> before installing <em>GMMPS</em>:</p>
-<ul class="simple">
-<li>C/C++ compilers and the “make” utilities</li>
-<li><a class="reference external" href="http://www.gemini.edu/sciops/data-and-results/processing-software?q=node/11823">Gemini IRAF</a> (to create the input object tables and, if necessary, pseudo-images)</li>
-<li><a class="reference external" href="http://www.gnu.org/software/gawk/manual/gawk.html">awk</a> and <a class="reference external" href="http://curl.haxx.se/">curl</a> must be found in your PATH variable</li>
-</ul>
+<p>Running <em>GMMPS</em> requires a standard unix-like X11 environment. MacOS users should install <a class="reference external" href="https://www.xquartz.org/">XQuartz</a>. Users of recent Ubuntu releases should start a Xorg session.</p>
+<p>Compiling <em>GMMPS</em> from sources requires a C/C++ compiler, make, and X11 development libraries. MacOS users will need to download Xcode from the Mac App Store and run it at least once to install
+the command line tools.</p>
+<p><em>GMMPS</em> now comes with all the packages required to compile it including Tcl/Tk and Skycat. They are installed into the bin and lib directories of <em>GMMPS</em> to keep them isolated from any other versions on your system.</p>
+<p>The <a class="reference external" href="http://www.gemini.edu/node/11823">Gemini IRAF package</a> is
+also needed to create the input object tables and, if necessary,
+pseudo-images.</p>
 </div>
 <div class="section" id="installation">
 <span id="index-2"></span><h2>1.4. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p><em>GMMPS</em> is a
-<a class="reference external" href="http://archive.eso.org/cms/tools-documentation/skycat/eso-skycat-download.html">Skycat</a>
-plugin. <em>GMMPS</em> now includes Skycat and all necessary libraries.</p>
-<p>Installing <em>GMMPS</em> itself is easy:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="n">xvfz</span> <span class="n">gmmps</span><span class="o">-&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">_src</span><span class="o">.</span><span class="n">tgz</span>
+<p>Pre-compiled versions of GMMPS are available for MacOS and
+a few standard flavors of Linux. The compatibility list is not
+exhaustive, it only lists systems that have been tested.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="68%" />
+<col width="12%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">File</th>
+<th class="head">Compiled on</th>
+<th class="head">Compatible With</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference external" href="http://software.gemini.edu/gmmps/gmmps-1.5.1_rh5_32.tgz">gmmps-1.5.1_rh5_32.tgz</a></td>
+<td>CentOS 5</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://software.gemini.edu/gmmps/gmmps-1.5.1_rh6_64.tgz">gmmps-1.5.1_rh6_64.tgz</a></td>
+<td>CentOS 6</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://software.gemini.edu/gmmps/gmmps-1.5.1_rh7_64.tgz">gmmps-1.5.1_rh7_64.tgz</a></td>
+<td>CentOS 7</td>
+<td>Ubuntu 17/18, Fedora 28</td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="http://software.gemini.edu/gmmps/gmmps-1.5.1_ub16_64.tgz">gmmps-1.5.1_ub16_64.tgz</a></td>
+<td>Ubuntu 16.04</td>
+<td>Ubuntu 17/18</td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="http://software.gemini.edu/gmmps/gmmps-1.5.1_macos.tgz">gmmps-1.5.1_macos.tgz</a></td>
+<td>macOS 10.13.6</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>Untar the distribution file and then:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">some_path</span><span class="o">/</span><span class="n">gmmps</span><span class="o">-&lt;</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">./</span><span class="n">gmmps_config</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>to configure the paths in the <em>GMMPS</em> startup script (./bin/gmmps).</p>
+<p>To compile <em>GMMPS</em> from raw sources, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="n">xvfz</span> <span class="n">gmmps</span><span class="o">-&lt;</span><span class="n">version</span><span class="o">&gt;.</span><span class="n">tgz</span>
+<span class="n">cd</span> <span class="n">gmmps</span><span class="o">-&lt;</span><span class="n">version</span><span class="o">&gt;</span>
 <span class="o">./</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
+<p>There are known problems with compiling <em>GMMPS</em> on Ubuntu 17, 18, and Fedora 28. Please use the compatible binary releases on these operating systems.</p>
+<p>Finally, put /some_path/gmmps-&lt;version&gt;/bin/gmmps in your path.</p>
 <div class="section" id="notes-for-macos-users">
 <span id="index-3"></span><h3>1.4.1. Notes for MacOS users<a class="headerlink" href="#notes-for-macos-users" title="Permalink to this headline">¶</a></h3>
 <p>You must use MacOS 10.6 or later. There might be a version conflict depending on
 which compiler suite (<em>clang</em>, <em>gcc</em>) was installed on your Mac, and how it was
 installed (<em>homebrew</em>, <em>Xcode</em>, …). To test whether you are affected, do the
 following:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>cd gmmps-&lt;version&gt;/src/
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd gmmps-&lt;version&gt;/src/
 make
 </pre></div>
 </div>
 <p>If this runs without errors then you are fine. Just execute the installation script.</p>
 <p>If you encounter a problem, edit <em>src/Makefile</em>. Therein, you find the following
 section:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span># For Darwin / uncomment if needed
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># For Darwin / uncomment if needed
 ifeq ($(os),Darwin)
 #  CC=gcc
 #  CXX=g++
@@ -205,7 +243,7 @@ ifeq ($(os),Darwin)
 endif
 </pre></div>
 </div>
-<p>If you have <em>gcc/g++</em> installed (the real ones, not the <em>clang</em> derivatives),
+<p>If you have <em>gcc/g++</em> installed (not the <em>clang</em> derivatives),
 uncomment the lines that set the CC and CXX variables and try again.
 Perhaps you need to provide the full path to the executables to distinguish
 them from their <em>clang</em> cousins.</p>
@@ -232,15 +270,15 @@ of the INCLUDE_DIRS and LIBRARY_DIRS lines.</p>
           <a href="loadimage.html" title="2. Loading Images"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="GMMPS 1.5.0: Documentation"
+          <a href="index.html" title="GMMPS 1.5.1: Documentation"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.0 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, Gemini Observatory/AURA.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+        &#169; Copyright 2018, AURA/Gemini Observatory.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
   </body>
 </html>

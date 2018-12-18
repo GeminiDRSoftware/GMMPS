@@ -23,9 +23,9 @@ forward is to follow these three step-by-step examples:
 Download
 ========
 
-*GMMPS* |version| comes with the source code and example images.
+*GMMPS* |version| comes with the source code and example images. The latest version is recommended. At least version 1.4.5 is required.
 It is available at
-`http://software.gemini.edu/gmmps/gmmps-1.4.5.tgz <http://software.gemini.edu/gmmps/gmmps-1.4.5.tgz>`_ (136 MB). **This version is mandatory.**
+`http://software.gemini.edu/gmmps/gmmps-1.5.1.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.1.tgz>`_ (155 MB).
 
 The following instruments are supported:
 
@@ -41,7 +41,7 @@ aspects of *GMMPS*.
 `Latest changes <../ChangeLog>`_
 
 .. note::
-   Not all features in the 
+   Not all features in the
    `original design specifications <http://www.gemini.edu/sciops/instruments/gmos/gmosmaskmakingv104.ps.gz>`_ have been implemented in the current version (e.g. curved slits, and some of the desired interactivity). Many other features have been included, though, for which the necessity arose over time. Amongst them are wavelength displays, further automatisation, much improved user friendliness, and internal consistency checks.
 
 .. index:: Dependencies
@@ -49,32 +49,53 @@ aspects of *GMMPS*.
 Dependencies
 ============
 
-The following pre-requisites **must be met** before installing *GMMPS*:
+Running *GMMPS* requires a standard unix-like X11 environment. MacOS users should install `XQuartz <https://www.xquartz.org/>`_. Users of recent Ubuntu releases should start a Xorg session.
 
-* C/C++ compilers and the "make" utilities
+Compiling *GMMPS* from sources requires a C/C++ compiler, make, and X11 development libraries. MacOS users will need to download Xcode from the Mac App Store and run it at least once to install
+the command line tools.
 
-* `Skycat v3.1.2 (or v3.1.3) <http://archive.eso.org/cms/tools-documentation/skycat/eso-skycat-download.html>`_ (*GMMPS* is a plugin for Skycat; Skycat has its own dependencies, amongst others `Tcl/Tk 8.4 <https://www.tcl.tk/software/tcltk/8.4.html>`_. Note that for recent Debian/Ubuntu versions Skycat is available from the respective repositories including all dependencies.)
-* `Gemini IRAF <http://www.gemini.edu/sciops/data-and-results/processing-software?q=node/11823>`_ (to create the input object tables and, if necessary, pseudo-images)
-* `awk <http://www.gnu.org/software/gawk/manual/gawk.html>`_ and `curl <http://curl.haxx.se/>`_ must be found in your PATH variable
-* `Standard TCL library (tcllib) <http://www.tcl.tk/software/tcllib/>`_
-* python-tk
-* python (v2)
-* `matplotlib <http://matplotlib.org/>`_
+*GMMPS* now comes with all the packages required to compile it including Tcl/Tk and Skycat. They are installed into the bin and lib directories of *GMMPS* to keep them isolated from any other versions on your system.
 
+The `Gemini IRAF package <http://www.gemini.edu/node/11823>`_ is 
+also needed to create the input object tables and, if necessary, 
+pseudo-images.
 
 .. index:: Installation
 
 Installation
 ============
 
-*GMMPS* is a
-`Skycat <http://archive.eso.org/cms/tools-documentation/skycat/eso-skycat-download.html>`_
-plugin. You must have a working Skycat installation before you can install *GMMPS*. 
+Pre-compiled versions of GMMPS are available for MacOS and 
+a few standard flavors of Linux. The compatibility list is not 
+exhaustive, it only lists systems that have been tested.
 
-Installing *GMMPS* itself is easy: ::
+======================================================================================  =============== =========================
+File                                                                                    Compiled on     Compatible With
+======================================================================================  =============== =========================
+`gmmps-1.5.1_rh5_32.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.1_rh5_32.tgz>`_     CentOS 5
+`gmmps-1.5.1_rh6_64.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.1_rh6_64.tgz>`_     CentOS 6
+`gmmps-1.5.1_rh7_64.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.1_rh7_64.tgz>`_     CentOS 7        Ubuntu 17/18, Fedora 28
+`gmmps-1.5.1_ub16_64.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.1_ub16_64.tgz>`_   Ubuntu 16.04    Ubuntu 17/18
+`gmmps-1.5.1_macos.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.1_macos.tgz>`_       macOS 10.13.6 
+======================================================================================  =============== =========================
 
-  tar xvfz gmmps-<version>_src.tgz
+Untar the distribution file and then::
+
+  cd /some_path/gmmps-<version>
+  ./gmmps_config.sh
+
+to configure the paths in the *GMMPS* startup script (./bin/gmmps).
+
+
+To compile *GMMPS* from raw sources, do: ::
+
+  tar xvfz gmmps-<version>.tgz
+  cd gmmps-<version>
   ./install.sh
+
+There are known problems with compiling *GMMPS* on Ubuntu 17, 18, and Fedora 28. Please use the compatible binary releases on these operating systems.
+
+Finally, put /some_path/gmmps-<version>/bin/gmmps in your path.
 
 .. index:: Installation; MacOS
 
@@ -110,8 +131,8 @@ section:
    #  LIBRARY_DIRS += /opt/X11/
    endif
 
-If you have *gcc/g++* installed (the real ones, not the *clang* derivatives),
-uncomment the lines that set the CC and CXX variables and try again. 
+If you have *gcc/g++* installed (not the *clang* derivatives),
+uncomment the lines that set the CC and CXX variables and try again.
 Perhaps you need to provide the full path to the executables to distinguish
 them from their *clang* cousins.
 

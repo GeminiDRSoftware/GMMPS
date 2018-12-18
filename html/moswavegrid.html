@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>16. Appendix: GMMPS wavelength overlays &#8212; GMMPS 1.4.5 documentation</title>
+    <title>16. Appendix: GMMPS wavelength overlays &#8212; GMMPS 1.5.1 documentation</title>
     <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.4.5',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -54,8 +46,7 @@
       });
     </script>
 
-  </head>
-  <body>
+  </head><body>
 <div class="pageheader">
   <ul>
     <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
@@ -81,14 +72,14 @@
         <li class="right" >
           <a href="spoc.html" title="15. Appendix: Slit selection algorithm"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">16. Appendix: <em>GMMPS</em> wavelength overlays</a><ul>
 <li><a class="reference internal" href="#nonlinear-model-per-grating">16.1. Nonlinear model (per grating)</a></li>
@@ -107,12 +98,14 @@
                         title="next chapter">17. Appendix: GMOS WaveMapper</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -144,24 +137,24 @@ the B600 grating.</em></span></p>
 <h2>16.1. Nonlinear model (per grating)<a class="headerlink" href="#nonlinear-model-per-grating" title="Permalink to this headline">¶</a></h2>
 <p>Up to 80 arc lines per slit were matched with a reference line catalog, and a third order
 polynomial was fit to the arc spectrum with a typical accuracy of 0.15 pixel for both
-GMOS-N and GMOS-S. The wavelength at a certain detector position <span class="math">(x_d/y_d)</span> depends on
-the slit position <span class="math">(x_s/y_s)</span> and the chosen central wavelength, <span class="math">{\rm CWL}</span>.
+GMOS-N and GMOS-S. The wavelength at a certain detector position <img class="math" src="_images/math/4c959901170d29e0ddc14cbf219f2157b93c7315.png" alt="(x_d/y_d)"/> depends on
+the slit position <img class="math" src="_images/math/ded650f0f37bab6ca791d6b7f0826b92d1d99d3b.png" alt="(x_s/y_s)"/> and the chosen central wavelength, <img class="math" src="_images/math/dddf336e131ed53b9fe74471774601a3e07e04de.png" alt="{\rm CWL}"/>.
 Each grating is modeled independently using a cubic polynomial:</p>
 <div class="math">
-<p><span class="math">\lambda = \sum_{i=0}^3 c_i(x_s,y_s,{\rm CWL}) \, x_d^i</span></p>
-</div><p>The coefficients <span class="math">c_i</span> themselves have a cubic dependence on <span class="math">x_s</span>, and
-a quadratic dependence on <span class="math">y_s</span>, the latter describing the typical curved appearance
+<p><img src="_images/math/5471280692f809c724e5d14bf19ac7c2320c7ca1.png" alt="\lambda = \sum_{i=0}^3 c_i(x_s,y_s,{\rm CWL}) \, x_d^i"/></p>
+</div><p>The coefficients <img class="math" src="_images/math/ff90a5f025d9fd305aac19c8dd64fa15f0c789a1.png" alt="c_i"/> themselves have a cubic dependence on <img class="math" src="_images/math/1514c939d86b56b1d47cfef99412c57bfbcf70ca.png" alt="x_s"/>, and
+a quadratic dependence on <img class="math" src="_images/math/2a2162770fa74755798cded70311c62184a15ad1.png" alt="y_s"/>, the latter describing the typical curved appearance
 of the GMOS arcs:</p>
 <div class="math">
-<p><span class="math">c_i = \sum_{j=0}^3 p_{ij}({\rm CWL})\,x_s^j + \sum_{j=1}^2 q_{ij}({\rm CWL})\,y_s^j</span></p>
+<p><img src="_images/math/78a9c82f0ca0c75765062d09a940cea38e0a4a4f.png" alt="c_i = \sum_{j=0}^3 p_{ij}({\rm CWL})\,x_s^j + \sum_{j=1}^2 q_{ij}({\rm CWL})\,y_s^j"/></p>
 </div><p>with</p>
 <div class="math">
-<p><span class="math">q_{ij} = 0\; {\rm for\;} i\geq2\;{(\rm\;i.e.\;}c_{2,3}{\;\rm do\;not\;dependend\;on\;}y_s),</span></p>
-</div><p>and a quadratic dependence on <span class="math">{\rm CWL}</span>:</p>
+<p><img src="_images/math/fea765f59104770b8daceb4398b0d7a9a871b5e7.png" alt="q_{ij} = 0\; {\rm for\;} i\geq2\;{(\rm\;i.e.\;}c_{2,3}{\;\rm do\;not\;dependend\;on\;}y_s),"/></p>
+</div><p>and a quadratic dependence on <img class="math" src="_images/math/dddf336e131ed53b9fe74471774601a3e07e04de.png" alt="{\rm CWL}"/>:</p>
 <div class="math">
-<p><span class="math">p_{ij} = \sum_{k=0}^2 r_{ijk}\;{\rm CWL}^k</span></p>
+<p><img src="_images/math/85d7f5e32582f11c748cf36b25af1dd3a4531837.png" alt="p_{ij} = \sum_{k=0}^2 r_{ijk}\;{\rm CWL}^k"/></p>
 </div><div class="math">
-<p><span class="math">q_{ij} = \sum_{k=0}^2 s_{ijk}\;{\rm CWL}^k\;.</span></p>
+<p><img src="_images/math/24f738acebeaf6d46912ca73d4786b0eee1537b6.png" alt="q_{ij} = \sum_{k=0}^2 s_{ijk}\;{\rm CWL}^k\;."/></p>
 </div><p>In total, there are 60 free parameters per grating. The models are accurate to about 1 Angstrom,
 and mostly limited by the
 <a class="reference internal" href="#grating-mechanism-accuracy-label"><span class="std std-ref">grating mechanism and its calibrating equation</span></a>
@@ -173,13 +166,13 @@ uncertainty is comparable to the detector gap width.</p>
 <h2>16.2. CWL displacement and dispersion factor<a class="headerlink" href="#cwl-displacement-and-dispersion-factor" title="Permalink to this headline">¶</a></h2>
 <p>The following images illustrate the behaviour of just two low order descriptors derived from the
 mathematical models for each of the gratings. The square panels represent the slit placement area
-for GMOS, about <span class="math">4200\times4200</span> pixel wide.</p>
+for GMOS, about <img class="math" src="_images/math/f25d010724ec2e573fbe7bfd8e3212e24375cb30.png" alt="4200\times4200"/> pixel wide.</p>
 <p>The first descriptor is the <em>offset of the central wavelength from the slit position</em>, displayed
 in the upper panel.
 If the <a class="reference external" href="https://nickkonidaris.com/2014/10/17/anamorphic-factor/">anamorphic factor</a>
-was equal to <span class="math">A=1.0</span>, then the central wavelength would appear at the slit position.
-For <span class="math">A&gt;1.0</span>, the central wavelengths are offsets inwards, towards the central column
-of the GMOS detector array; for <span class="math">A&lt;1</span>, they are pushed outwards. The contour lines
+was equal to <img class="math" src="_images/math/16722554fbc8e10c385e41b432b944b0816e0cd6.png" alt="A=1.0"/>, then the central wavelength would appear at the slit position.
+For <img class="math" src="_images/math/082abec73ccb3190a9d9a08c666bb7386dcb3461.png" alt="A&gt;1.0"/>, the central wavelengths are offsets inwards, towards the central column
+of the GMOS detector array; for <img class="math" src="_images/math/3de8724a90ea857c7739f16885bf78c41f4b15df.png" alt="A&lt;1"/>, they are pushed outwards. The contour lines
 reflect the typical curvature observed in GMOS longslit arcs. It can be seen that the
 anamorphic factor is highly non-uniform across the GMOS detector array, and also strongly
 dependent on central wavelength.</p>
@@ -213,7 +206,7 @@ The gratings were stepped through the CWLs continuously without interruption.</p
 <a class="reference internal image-reference" href="_images/GMOS-S_wavecal_solution_lambda.png"><img alt="_images/GMOS-S_wavecal_solution_lambda.png" src="_images/GMOS-S_wavecal_solution_lambda.png" style="width: 349.65px; height: 209.7px;" /></a>
 <a class="reference internal image-reference" href="_images/GMOS-S_wavecal_solution_pixel.png"><img alt="_images/GMOS-S_wavecal_solution_pixel.png" src="_images/GMOS-S_wavecal_solution_pixel.png" style="width: 349.65px; height: 209.7px;" /></a>
 <p>Fig. 16.5 <em>CWL residuals for GMOS-S, in Angstrom (left) and unbinned pixels (right).</em></p>
-<p><strong>R150:</strong> Shows a CWL oscillation of <span class="math">\pm</span> 80 nm, which is of little
+<p><strong>R150:</strong> Shows a CWL oscillation of <img class="math" src="_images/math/50d6e780b5b859608e650113d8bb954183926a02.png" alt="\pm"/> 80 nm, which is of little
 relevance because of the grating’s low spectral resolution. The amplitude corresponds to about 40 pixel.</p>
 <p><strong>R400:</strong> The CWL is reproduced within 1 nm across the entire wavelength
 range.</p>
@@ -222,7 +215,7 @@ range. In 2nd order mode, the CWL for the R831 is badly reproduced between
 475 and 550nm, which is currently under investigation. This is critical,
 because the second order of the R831 grating has high blue sensitivity
 (comparable to the B1200, but with 40% higher resolution).</p>
-<p><strong>B600:</strong> Shows an oscillation with an amplitude of about <span class="math">\pm</span> 2 nm
+<p><strong>B600:</strong> Shows an oscillation with an amplitude of about <img class="math" src="_images/math/50d6e780b5b859608e650113d8bb954183926a02.png" alt="\pm"/> 2 nm
 (30 pixel) and periodicity of about 90-100 CWL nm. The cause of this is
 unknown, perhaps a mechanical issue with the grating mechanism. Note that 2 nm
 is still smaller than the detector gap width.</p>
@@ -303,13 +296,13 @@ coordinates).</em></p>
         <li class="right" >
           <a href="spoc.html" title="15. Appendix: Slit selection algorithm"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017, Mischa Schirmer.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+        &#169; Copyright 2018, AURA/Gemini Observatory.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
   </body>
 </html>

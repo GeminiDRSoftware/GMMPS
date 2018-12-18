@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>10. Example 1: Redshift survey (GMOS-S) &#8212; GMMPS 1.4.5 documentation</title>
+    <title>10. Example 1: Redshift survey (GMOS-S) &#8212; GMMPS 1.5.1 documentation</title>
     <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.4.5',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -54,8 +46,7 @@
       });
     </script>
 
-  </head>
-  <body>
+  </head><body>
 <div class="pageheader">
   <ul>
     <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
@@ -81,14 +72,14 @@
         <li class="right" >
           <a href="submit.html" title="9. Submitting the mask designs"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">10. Example 1: Redshift survey (GMOS-S)</a><ul>
 <li><a class="reference internal" href="#creating-the-ot">10.1. Creating the OT</a></li>
@@ -112,12 +103,14 @@
                         title="next chapter">11. Example 2: Band-shuffling (GMOS-S)</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -139,24 +132,24 @@ installed.</p>
 <p>First, create a working directory somewhere on your computer,
 and copy the GMOS-S image and SExtractor configuration files
 that come with <em>GMMPS</em> into it:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>mkdir ~/gmmps_practice/
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir ~/gmmps_practice/
 cd ~/gmmps_practice/
 cp /some_path/gmmps-&lt;version&gt;/examples/* .
 </pre></div>
 </div>
 <p>Second, run Sextractor:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>sex -c gmmps.conf NGC7796_GMOS-S.fits -CATALOG_NAME objects_zsurvey.fits
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sex -c gmmps.conf NGC7796_GMOS-S.fits -CATALOG_NAME objects_zsurvey.fits
 </pre></div>
 </div>
 <p>Launch Gemini IRAF in the working directory and open the <em>mostools</em> package:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>ecl&gt; gemini
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ecl&gt; gemini
 ecl&gt; gmos
 ecl&gt; mostools
 </pre></div>
 </div>
 <p>Convert the SExtractor FITS table using <em>stsdas2objt</em>, so that <em>GMMPS</em>
 can understand it:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>ecl&gt; epar stsdas2objt
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ecl&gt; epar stsdas2objt
 
 intable = objects_zsurvey.fits
 image   = NGC7796_GMOS-S.fits
@@ -169,7 +162,7 @@ y_col   = Y_IMAGE
 </pre></div>
 </div>
 <p>This creates the OT table, <em>objects_zsurvey_OT.fits</em>. Launch GMMPS:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>gmmps NGC7796_GMOS-S.fits
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gmmps NGC7796_GMOS-S.fits
 </pre></div>
 </div>
 <p>Adjust the contrast by setting the low / high counts to 1800 and 2500,
@@ -363,13 +356,13 @@ scheduled.</p>
         <li class="right" >
           <a href="submit.html" title="9. Submitting the mask designs"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017, Mischa Schirmer.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+        &#169; Copyright 2018, AURA/Gemini Observatory.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
   </body>
 </html>

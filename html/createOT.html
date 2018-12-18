@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>4. Creating OTs &#8212; GMMPS 1.4.5 documentation</title>
+    <title>4. Creating OTs &#8212; GMMPS 1.5.1 documentation</title>
     <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.4.5',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -54,8 +46,7 @@
       });
     </script>
 
-  </head>
-  <body>
+  </head><body>
 <div class="pageheader">
   <ul>
     <li><a href="http://www.gemini.edu/sciops/instruments/gmos">GMOS</a></li>
@@ -81,14 +72,14 @@
         <li class="right" >
           <a href="OTformat.html" title="3. Object Tables (OTs) – Format"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
+  <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">4. Creating OTs</a><ul>
 <li><a class="reference internal" href="#comparing-pre-images-and-pseudo-images">4.1. Comparing pre-images and pseudo-images</a><ul>
@@ -123,12 +114,14 @@
                         title="next chapter">5. The OT window</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -220,7 +213,7 @@ nor does it correct the slit positions for proper motions.</li>
 <p id="index-2">Use <a class="reference external" href="http://www.astromatic.net/software/sextractor">SExtractor</a> to detect
 objects in the pre-image. You need the following configuration files,
 available in the <em>examples/</em> sub-directory in the <em>GMMPS</em> distribution tree:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gmmps</span><span class="o">.</span><span class="n">conv</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gmmps</span><span class="o">.</span><span class="n">conv</span>
 <span class="n">gmmps</span><span class="o">.</span><span class="n">conf</span>
 <span class="n">gmmps</span><span class="o">.</span><span class="n">nnw</span>
 <span class="n">gmmps</span><span class="o">.</span><span class="n">param</span>
@@ -228,7 +221,7 @@ available in the <em>examples/</em> sub-directory in the <em>GMMPS</em> distribu
 </div>
 <p>Copy all files into the directory with your pre-image. Change to that
 directory, and then run</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sex</span> <span class="o">-</span><span class="n">c</span> <span class="n">gmmps</span><span class="o">.</span><span class="n">conf</span> <span class="o">&lt;</span><span class="n">image</span><span class="o">.</span><span class="n">fits</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sex</span> <span class="o">-</span><span class="n">c</span> <span class="n">gmmps</span><span class="o">.</span><span class="n">conf</span> <span class="o">&lt;</span><span class="n">image</span><span class="o">.</span><span class="n">fits</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>This will create a FITS table called <em>preimage.sex.fits</em>, requiring that the <em>SExtractor</em>
@@ -238,7 +231,7 @@ executable can be found in your PATH variable. Detection parameters can be chang
 The conversion is done with <em>stsdas2objt</em>, available in <em>gemini.gmos.mostools</em> in
 <a class="reference external" href="http://www.gemini.edu/sciops/data-and-results/processing-software?q=node/11823">Gemini IRAF</a>.
 Open an <em>IRAF</em> session and do:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">image</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">image</span>
 <span class="n">gemini</span>
 <span class="n">gmos</span>
 <span class="n">mostools</span>
@@ -247,7 +240,7 @@ Open an <em>IRAF</em> session and do:</p>
 </div>
 <p>Configure the task <em>stsdas2objt</em> like this, leaving the other parameters
 empty or at their default values:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>intable = preimage.sex.fits
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>intable = preimage.sex.fits
 image   = &lt;image.fits&gt;
 fl_wcs  = yes
 instrum = gmos-n (gmos-s, flamingos2)
@@ -267,12 +260,12 @@ we recommend you keep the <em>_OT.fits</em> suffix.</p>
 <span id="index-4"></span><h3>4.3.2. Object detection with IRAF<a class="headerlink" href="#object-detection-with-iraf" title="Permalink to this headline">¶</a></h3>
 <p><em>IRAF</em> may also be used to create the object tables using <em>daophot</em>.</p>
 <p>First, find the objects</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">daofind</span> <span class="n">mrgN20011021S104_add</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">output</span><span class="o">=</span><span class="n">mrgN20011021S104</span><span class="o">.</span><span class="n">coo</span> \
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">daofind</span> <span class="n">mrgN20011021S104_add</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">output</span><span class="o">=</span><span class="n">mrgN20011021S104</span><span class="o">.</span><span class="n">coo</span> \
      <span class="n">fwhm</span><span class="o">=</span><span class="mi">12</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">100</span> <span class="n">verify</span><span class="o">-</span> <span class="n">ccdread</span><span class="o">=</span><span class="s2">&quot;RDNOISE&quot;</span> <span class="n">gain</span><span class="o">=</span><span class="s2">&quot;GAIN&quot;</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">14.</span>
 </pre></div>
 </div>
 <p>Aperture photometry using <em>apphot.phot</em></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">photpars</span><span class="o">.</span><span class="n">apertures</span><span class="o">=</span><span class="s2">&quot;10&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">photpars</span><span class="o">.</span><span class="n">apertures</span><span class="o">=</span><span class="s2">&quot;10&quot;</span>
 <span class="n">phot</span> <span class="n">mrgN20011021S104_add</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">coords</span><span class="o">=</span><span class="n">mrgN20011021S104</span><span class="o">.</span><span class="n">coo</span> \
      <span class="n">output</span><span class="o">=</span><span class="n">mrgN20011021S104</span><span class="o">.</span><span class="n">mag</span>  <span class="n">ccdread</span><span class="o">=</span><span class="s2">&quot;RDNOISE&quot;</span> <span class="n">gain</span><span class="o">=</span><span class="s2">&quot;GAIN&quot;</span> \
      <span class="n">sigma</span><span class="o">=</span><span class="mf">14.</span> <span class="n">verify</span><span class="o">-</span> <span class="n">verbose</span><span class="o">-</span> <span class="n">inter</span><span class="o">-</span>
@@ -281,7 +274,7 @@ we recommend you keep the <em>_OT.fits</em> suffix.</p>
 <p>Like before with <em>SExtractor</em>, the resulting <em>daophot</em> table must be converted to OT format.
 To this end use the task <em>gemini.gmos.mostools.app2objt</em>. Note that <em>app2objt</em> will remove
 any objects with mag=INDEF since <em>GMMPS</em> cannot handle these values.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">app2objt</span> <span class="n">mrgN20011021S104</span><span class="o">.</span><span class="n">mag</span> <span class="n">verbose</span><span class="o">+</span> <span class="n">image</span><span class="o">=</span><span class="n">mrgN20011021S104_add</span><span class="o">.</span><span class="n">fits</span> <span class="n">priority</span><span class="o">=</span><span class="s2">&quot;2&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">app2objt</span> <span class="n">mrgN20011021S104</span><span class="o">.</span><span class="n">mag</span> <span class="n">verbose</span><span class="o">+</span> <span class="n">image</span><span class="o">=</span><span class="n">mrgN20011021S104_add</span><span class="o">.</span><span class="n">fits</span> <span class="n">priority</span><span class="o">=</span><span class="s2">&quot;2&quot;</span>
 </pre></div>
 </div>
 <p>The result, <em>mrgN20011021S104_OT.fits</em>, can be loaded in <em>GMMPS</em>.</p>
@@ -308,7 +301,7 @@ GMOS / F2 pre-image.</p>
 <p>The pseudo-image and the OT for the mask design are built using
 the <em>Gemini IRAF</em> task <em>gmskcreate</em>. This task is available in
 <em>gemini.gmos.mostools</em> and <strong>must be</strong> configured as follows:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>indata    = Input ASCII file containing the spectroscopy targets (see below)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>indata    = Input ASCII file containing the spectroscopy targets (see below)
 inimage   = Input FITS file used to create the pseudo-image (see below)
 gprgid    = Your Gemini program ID (e.g. GS-2017A-Q-1)
 instrume  = Instrument (gmos-n|gmos-s|flamingos2)
@@ -340,7 +333,7 @@ on the pseudo-image using the <em>IRAF</em> task <em>tvmark</em>.</p>
 <h3>4.4.2. Input ASCII file for <em>gmskcreate</em><a class="headerlink" href="#input-ascii-file-for-gmskcreate" title="Permalink to this headline">¶</a></h3>
 <p>The input file must contain one line per spectroscopic target,
 in this order (note that the line below is not included in the file):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ID</span>   <span class="n">RA</span>   <span class="n">DEC</span>   <span class="n">MAG</span>   <span class="n">priority</span>   <span class="n">slitsize_x</span>   <span class="n">slitsize_y</span>   <span class="n">slittilt</span>   <span class="n">slitpos_y</span><span class="o">/</span><span class="n">x</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ID</span>   <span class="n">RA</span>   <span class="n">DEC</span>   <span class="n">MAG</span>   <span class="n">priority</span>   <span class="n">slitsize_x</span>   <span class="n">slitsize_y</span>   <span class="n">slittilt</span>   <span class="n">slitpos_y</span><span class="o">/</span><span class="n">x</span>
 </pre></div>
 </div>
 <p><em>ID</em>, <em>RA</em>, <em>DEC</em> and <em>MAG</em> are <a class="reference internal" href="OTformat.html#mandatory-ot-columns-label"><span class="std std-ref">mandatory columns</span></a>.
@@ -348,7 +341,7 @@ The others are <a class="reference internal" href="OTformat.html#optional-ot-col
 Values must be <strong>blank separated</strong>. Optional values may be set for some
 objects and omitted for others. If provided, then all five optional values
 must be set, otherwise they will be defaulted as</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>priority   = 1
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>priority   = 1
 slitsize_x = slitszx
 slitsize_y = slitszy
 slittilt   = 0
@@ -383,13 +376,13 @@ so that they can be recognized as such when submitted to the observatory.</p>
 <div class="section" id="example">
 <h3>4.4.4. Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>The input ASCII file contains the following columns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ID</span>   <span class="n">RA</span>   <span class="n">DEC</span>   <span class="n">MAG</span>   <span class="n">priority</span>   <span class="n">slitsize_x</span>   <span class="n">slitsize_y</span>   <span class="n">slittilt</span>   <span class="n">slitpos_y</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ID</span>   <span class="n">RA</span>   <span class="n">DEC</span>   <span class="n">MAG</span>   <span class="n">priority</span>   <span class="n">slitsize_x</span>   <span class="n">slitsize_y</span>   <span class="n">slittilt</span>   <span class="n">slitpos_y</span>
 </pre></div>
 </div>
 <p>Note that for F2 <em>slitpos_y</em> would be replaced by <em>slitpos_x</em> (offset along the slit).</p>
 <p>The actual input file would look like this (note that the column names listed above
 are absent):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">10</span>    <span class="mf">201.67725788</span>    <span class="o">-</span><span class="mf">47.65156978</span>    <span class="mi">17</span>      <span class="mi">2</span>   <span class="mf">1.0</span>   <span class="mf">15.0</span>  <span class="mf">0.0</span>   <span class="mf">3.0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>    <span class="mf">201.67725788</span>    <span class="o">-</span><span class="mf">47.65156978</span>    <span class="mi">17</span>      <span class="mi">2</span>   <span class="mf">1.0</span>   <span class="mf">15.0</span>  <span class="mf">0.0</span>   <span class="mf">3.0</span>
 <span class="mi">11</span>    <span class="mf">201.68830528</span>    <span class="o">-</span><span class="mf">47.64194528</span>    <span class="mi">17</span>
 <span class="mi">12</span>    <span class="mf">201.66749228</span>    <span class="o">-</span><span class="mf">47.65391578</span>    <span class="mi">17</span>      <span class="mi">2</span>   <span class="mf">1.0</span>   <span class="mf">15.0</span> <span class="o">-</span><span class="mf">6.0</span>   <span class="mf">0.0</span>
 <span class="mi">13</span>    <span class="mf">201.68427878</span>    <span class="o">-</span><span class="mf">47.66114059</span>    <span class="mi">17</span>
@@ -411,7 +404,7 @@ values provided will be ignored and <em>slitsize_x/y = 2.0</em>, <em>slittilt = 
 enforced. The aquisition objects can be changed interactively in <em>GMMPS</em>. It is
 important that the OT contains sufficiently many potential acquisition sources to allow for flexibility in the mask design.</p>
 <p>Configure <em>gmskcreate</em> as follows:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>indata     = test
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>indata     = test
 gprgid     = GS-2017A-Q-1
 instrument = gmos-s
 rafield    = 201.68298
@@ -432,7 +425,7 @@ fraunits   = degrees
 <li><em>gmos.log</em> - a log file</li>
 </ul>
 <p>GMItest_OT.fits contains</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#     ID      RA        DEC           x_ccd     y_ccd       MAG       priority   slitsize_x   slitsize_y  slittilt  slitpos_y</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#     ID      RA        DEC           x_ccd     y_ccd       MAG       priority   slitsize_x   slitsize_y  slittilt  slitpos_y</span>
 <span class="c1">#             H         deg           pixels    pixels      mag                  arcsec       arcsec      degrees   arcsec</span>
 <span class="mi">1</span>     <span class="mi">10</span>      <span class="mf">13.44515</span>  <span class="o">-</span><span class="mf">47.65157</span>     <span class="mf">3291.15</span>   <span class="mf">2561.97</span>     <span class="mf">17.</span>       <span class="mi">2</span>          <span class="mf">1.0</span>          <span class="mf">15.0</span>        <span class="mf">0.0</span>       <span class="mf">3.0</span>
 <span class="mi">2</span>     <span class="mi">11</span>      <span class="mf">13.44589</span>  <span class="o">-</span><span class="mf">47.64194</span>     <span class="mf">2924.58</span>   <span class="mf">2088.10</span>     <span class="mf">17.</span>       <span class="mi">1</span>          <span class="mf">1.0</span>           <span class="mf">5.0</span>        <span class="mf">0.0</span>       <span class="mf">0.0</span>
@@ -502,13 +495,13 @@ allocation.</p>
         <li class="right" >
           <a href="OTformat.html" title="3. Object Tables (OTs) – Format"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.4.5 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017, Mischa Schirmer.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+        &#169; Copyright 2018, AURA/Gemini Observatory.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
   </body>
 </html>

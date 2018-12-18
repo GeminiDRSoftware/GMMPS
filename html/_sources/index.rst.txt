@@ -8,7 +8,7 @@ GMMPS |version|: Documentation
 ==============================
 
 :Last update: |today|
-:Latest changes: `ChangeLog <http://www.gemini.edu/sciops/instruments/gmos/gmmps/ChangeLog>`_
+:Latest changes: `ChangeLog <http://software.gemini.edu/gmmps/ChangeLog>`_
 
 About GMMPS
 ===========
@@ -37,7 +37,7 @@ Contents
    Example 1: Redshift survey (GMOS-S) <example1.rst>
    Example 2: Band-shuffle mask (GMOS-S) <example2.rst>
    Example 3: F2 mask design <example3.rst>
-   Appendix: Mask check instructions <ngo.rst> 
+   Appendix: Mask check instructions <ngo.rst>
    Appendix: Acquisition stars <acquisition.rst>
    Appendix: Slit selection algorithm <spoc.rst>
    Appendix: GMMPS wavelength overlays <moswavegrid.rst>
@@ -48,11 +48,14 @@ Contents
 Acknowledgements
 ================
 
-*GMMPS* has been originally derived from the ESO/VIMOS Mask Preparation 
-Software (`VMMPS <https://www.eso.org/sci/observing/phase2/SMGuidelines/VMMPS.html>`_), after agreement with the European Southern Observatory. 
-*VMMPS* was developed originally by Dario Bottini at the Istituto di 
-Fisica Cosmica G.Occhialini - CNR, Italy. It has been modified by 
-Jennifer Dunn, Craig Allen, Dustin Fennell, Bryan Miller and Mischa 
-Schirmer to work with Gemini Instrumentation.
+This documentation is partly based on previous texts written by
+Dione Scheltus and Bryan Miller.
+
+*GMMPS* has been originally derived from the ESO/VIMOS Mask Preparation
+Software (`VMMPS <https://www.eso.org/sci/observing/phase2/SMGuidelines/VMMPS.html>`_), after agreement with the European Southern Observatory.
+*VMMPS* was developed originally by Dario Bottini at the Istituto di
+Fisica Cosmica G.Occhialini - CNR, Italy. It has been modified by
+Jennifer Dunn, Craig Allen, Dustin Fennell, Bryan Miller, Mischa
+Schirmer, and Michael Hoenig to work with Gemini instrumentation.
 
 Current *GMMPS* support: Bryan Miller

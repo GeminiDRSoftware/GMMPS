@@ -12,26 +12,42 @@ The GMMPS users manual is available online at
 
 Running GMMPS requires a standard unix-like X11 environment. 
 MacOS users should install XQuartz (https://www.xquartz.org/).
-Users of recent Ubuntu releases should start a X11 session.
+Users of recent Ubuntu releases should start a Xorg session.
 
-Compiling GMMPS from sources requires gcc, make, and X11 
-development libraries. MacOS users will need to download Xcode
-from the Mac App Store and run it at least once to install 
-the command line tools. 
+Compiling GMMPS from sources requires a C/C++ compiler, make, 
+and X11  development libraries. MacOS users will need 
+to download Xcode from the Mac App Store and run it at least 
+once to install the command line tools. 
 
 GMMPS now comes with all the packages required to compile it 
 including Tcl/Tk and Skycat. They are installed into the 
 bin and lib directories of GMMPS to keep them isolated from 
 any other versions on your system.
 
+The Gemini IRAF package (http://www.gemini.edu/node/11823) is 
+also needed to create the input object tables and, if necessary, 
+pseudo-images.
 
 2. Configuring pre-compiled binaries
 =============================================================
 
 Pre-compiled versions of GMMPS are available for MacOS and 
-a few standard flavors of Linux. Untar the distribution file
-and then run
+a few standard flavors of Linux. The compatibility list is not 
+exhaustive, it only lists systems that have been tested.
 
+========================  =============== =========================
+File                      Compiled on     Compatible With
+========================  =============== =========================
+gmmps-1.5.1_rh5_32.tgz    CentOS 5
+gmmps-1.5.1_rh6_64.tgz    CentOS 6
+gmmps-1.5.1_rh7_64.tgz    CentOS 7        Ubuntu 17/18, Fedora 28
+gmmps-1.5.1_ub16_64.tgz   Ubuntu 16.04    Ubuntu 17/18
+gmmps-1.5.1_macos.tgz     macOS 10.13.6   
+========================  =============== =========================
+
+Untar the distribution file and then run
+
+	cd /some_path/gmmps-<version>
     ./gmmps_config.sh
 
 to configure the paths in the GMMPS startup script.
@@ -42,8 +58,15 @@ to configure the paths in the GMMPS startup script.
 
 Run:
 
+	tar xvfz gmmps-<version>.tgz
+	cd gmmps-<version>
     ./install.sh
 
+There are known problems with compiling GMMPS on Ubuntu 17, 18, 
+and Fedora 28. Please use the compatible binary releases on these 
+operating systems.
+
+Finally, put /some_path/gmmps-<version>/bin/gmmps in your path.
 
 4. Launching GMMPS
 =============================================================
