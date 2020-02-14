@@ -1,3 +1,10 @@
+2020-02-14 bmiller
+
+	* VERSION
+	Pushed version number to 1.5.2
+	
+	* Updated install.sh for compilation on MacOS 10.15 (Catalina)
+	
 2018-12-18 bmiller
 
 	* VERSION

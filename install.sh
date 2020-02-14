@@ -46,9 +46,12 @@ if [ $OS = "Darwin" ]; then
     export LIBRARY_PATH=/usr/X11/lib
     libext=`mdfind -name libXext.6.dylib`
     if [ ${libext}_A = "_A" ]; then
-        echo "Could not find libXext.6.dylib."
-        echo "Please be sure that XQuartz (https://www.xquartz.org) is installed."
-        exit 1
+    	# If macOS 10.15, check the standard location
+    	if [ ! -e $LIBRARY_PATH ]; then
+        	echo "Could not find the X11 libraries."
+        	echo "Please be sure that XQuartz (https://www.xquartz.org) is installed."
+        	exit 1
+        fi
     fi
 else
     libext=`find '/usr' -name 'libXext.so' 2> tmp | grep -v 'Permission denied' ; rm tmp`
@@ -57,7 +60,7 @@ else
         if [ ${libext6}_A != "_A" ]; then
             ln -s ${libext6} lib.${OS}/libXext.so
         else
-            echo "Could not find libXext.so.6."
+            echo "Could not find the X11 libraries."
             echo "Please confirm that the X11 development libraries are installed."
             exit 1
         fi
