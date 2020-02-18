@@ -1,18 +1,17 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>9. Submitting the mask designs &#8212; GMMPS 1.5.1 documentation</title>
+    <meta charset="utf-8" />
+    <title>9. Submitting the mask designs &#8212; GMMPS 1.5.2 documentation</title>
     <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="10. Example 1: Redshift survey (GMOS-S)" href="example1.html" />
@@ -72,7 +71,7 @@
         <li class="right" >
           <a href="loadODF.html" title="8. The ODF window"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
@@ -90,22 +89,20 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="loadODF.html"
-                        title="previous chapter">8. The ODF window</a></p>
+                        title="previous chapter"><span class="section-number">8. </span>The ODF window</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="example1.html"
-                        title="next chapter">10. Example 1: Redshift survey (GMOS-S)</a></p>
+                        title="next chapter"><span class="section-number">10. </span>Example 1: Redshift survey (GMOS-S)</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -115,71 +112,73 @@
           <div class="body" role="main">
             
   <div class="section" id="submitting-the-mask-designs">
-<span id="submit-masks-label"></span><h1>9. Submitting the mask designs<a class="headerlink" href="#submitting-the-mask-designs" title="Permalink to this headline">¶</a></h1>
+<span id="submit-masks-label"></span><h1><span class="section-number">9. </span>Submitting the mask designs<a class="headerlink" href="#submitting-the-mask-designs" title="Permalink to this headline">¶</a></h1>
 <p>Once the ODFs have been created and verified, you submit the ODF <strong>FITS</strong>
 to Gemini by means of the <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>
 for double-checking and final cutting.</p>
 <span class="target" id="odf-naming-convention-label"></span><div class="section" id="standard-naming-convention-for-odfs">
-<span id="index-0"></span><h2>9.1. Standard naming convention for ODFs<a class="headerlink" href="#standard-naming-convention-for-odfs" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2><span class="section-number">9.1. </span>Standard naming convention for ODFs<a class="headerlink" href="#standard-naming-convention-for-odfs" title="Permalink to this headline">¶</a></h2>
 <p>The standard naming convention when submitting a mask is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="n">S</span><span class="p">)</span><span class="n">YYYYS</span><span class="o">&lt;</span><span class="nb">type</span><span class="o">&gt;</span><span class="n">PPP</span><span class="o">-</span><span class="n">XX_ODF</span><span class="o">.</span><span class="n">fits</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">N/S:</th><td class="field-body">North or South</td>
-</tr>
-<tr class="field-even field"><th class="field-name">YYYY:</th><td class="field-body">Year</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">S:</th><td class="field-body">Semester (A or B)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">type:</th><td class="field-body">Q (Normal Queue Programs), LP (Large and Long Programs), DD (Director’s Discretionary Time), FT (Fast Turnaround)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">PPP:</th><td class="field-body">Your program number</td>
-</tr>
-<tr class="field-even field"><th class="field-name">XX:</th><td class="field-body">The mask number</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">N/S</dt>
+<dd class="field-odd"><p>North or South</p>
+</dd>
+<dt class="field-even">YYYY</dt>
+<dd class="field-even"><p>Year</p>
+</dd>
+<dt class="field-odd">S</dt>
+<dd class="field-odd"><p>Semester (A or B)</p>
+</dd>
+<dt class="field-even">type</dt>
+<dd class="field-even"><p>Q (Normal Queue Programs), LP (Large and Long Programs), DD (Director’s Discretionary Time), FT (Fast Turnaround)</p>
+</dd>
+<dt class="field-odd">PPP</dt>
+<dd class="field-odd"><p>Your program number</p>
+</dd>
+<dt class="field-even">XX</dt>
+<dd class="field-even"><p>The mask number</p>
+</dd>
+</dl>
 <p>Examples:</p>
 <ul class="simple">
-<li><strong>GS2015AQ023-01_ODF.fits:</strong> Regular queue program at Gemini South, mask 01</li>
-<li><strong>GN2014BLP001-04_ODF.fits:</strong> Long-term program at Gemini North, mask 04</li>
-<li><strong>GS2014BDD008-03_ODF.fits:</strong> Director’s time at Gemini South, mask 03</li>
+<li><p><strong>GS2015AQ023-01_ODF.fits:</strong> Regular queue program at Gemini South, mask 01</p></li>
+<li><p><strong>GN2014BLP001-04_ODF.fits:</strong> Long-term program at Gemini North, mask 04</p></li>
+<li><p><strong>GS2014BDD008-03_ODF.fits:</strong> Director’s time at Gemini South, mask 03</p></li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Masks that do not follow this naming convention will be removed from the
+<p class="admonition-title">Note</p>
+<p>Masks that do not follow this naming convention will be removed from the
 <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a> and must be re-submitted.</p>
 </div>
 <p id="index-1">The root name (e.g. GS2015AQ023-01) of a mask must be entered into the
 Observing Tool’s <em>Custom Mask MDF</em> field in the instrument static component
 when defining the phase II observations:</p>
-<div class="figure" id="id3">
+<div class="figure align-default" id="id3">
 <a class="reference internal image-reference" href="_images/gmmps_GMOS_MDF_component.png"><img alt="_images/gmmps_GMOS_MDF_component.png" src="_images/gmmps_GMOS_MDF_component.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 9.1 </span><span class="caption-text"><em>Entering the ODF’s root name in the Observing Tool.</em></span></p>
+<p class="caption"><span class="caption-number">Fig. 9.1 </span><span class="caption-text"><em>Entering the ODF’s root name in the Observing Tool.</em></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <span class="target" id="index-2"></span></div>
 <div class="section" id="uploading-odfs-et-al">
-<span id="index-3"></span><h2>9.2. Uploading ODFs (et al.)<a class="headerlink" href="#uploading-odfs-et-al" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2><span class="section-number">9.2. </span>Uploading ODFs (et al.)<a class="headerlink" href="#uploading-odfs-et-al" title="Permalink to this headline">¶</a></h2>
 <p>Use the Observing Tool’s
 <a class="reference external" href="http://www.gemini.edu/node/11200#summary">file attachment facility</a>
 to upload the following files:</p>
 <ul class="simple">
-<li>ODF FITS files (*.cat files are not accepted)</li>
-<li>Pre-images or <a class="reference internal" href="createOT.html#pseudo-image-label"><span class="std std-ref">pseudo-images</span></a> (if the masks are based on external catalogs instead of pre-imaging)</li>
+<li><p>ODF FITS files (*.cat files are not accepted)</p></li>
+<li><p>Pre-images or <a class="reference internal" href="createOT.html#pseudo-image-label"><span class="std std-ref">pseudo-images</span></a> (if the masks are based on external catalogs instead of pre-imaging)</p></li>
 </ul>
 <p>Once the ODF is uploaded, you must add a comment to it in the
 <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a> that unambiguously associates
 the ODF with its pre-image (or pseudo-image). Likewise, you may add a comment to each
 pre-image associating it with its respective ODF(s). At least one of the two is
 required.</p>
-<div class="figure" id="id4">
+<div class="figure align-default" id="id4">
 <a class="reference internal image-reference" href="_images/gmmps_fileattachment.png"><img alt="_images/gmmps_fileattachment.png" src="_images/gmmps_fileattachment.png" style="width: 591.36px; height: 396.66px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 9.2 </span><span class="caption-text"><em>Add comments to the preimages (or ODFs) that
-unambiguously tell us which ones belong together.</em></span></p>
+unambiguously tell us which ones belong together.</em></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -202,13 +201,13 @@ unambiguously tell us which ones belong together.</em></span></p>
         <li class="right" >
           <a href="loadODF.html" title="8. The ODF window"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, AURA/Gemini Observatory.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+        &#169; Copyright 2020, AURA/Gemini Observatory.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
     </div>
   </body>
 </html>

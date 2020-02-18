@@ -1,18 +1,17 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>8. The ODF window &#8212; GMMPS 1.5.1 documentation</title>
+    <meta charset="utf-8" />
+    <title>8. The ODF window &#8212; GMMPS 1.5.2 documentation</title>
     <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="9. Submitting the mask designs" href="submit.html" />
@@ -72,7 +71,7 @@
         <li class="right" >
           <a href="ns.html" title="7. Nod &amp; Shuffle masks (GMOS only)"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
@@ -93,22 +92,20 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="ns.html"
-                        title="previous chapter">7. Nod &amp; Shuffle masks (GMOS only)</a></p>
+                        title="previous chapter"><span class="section-number">7. </span>Nod &amp; Shuffle masks (GMOS only)</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="submit.html"
-                        title="next chapter">9. Submitting the mask designs</a></p>
+                        title="next chapter"><span class="section-number">9. </span>Submitting the mask designs</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -118,16 +115,16 @@
           <div class="body" role="main">
             
   <div class="section" id="the-odf-window">
-<span id="index-0"></span><h1>8. The ODF window<a class="headerlink" href="#the-odf-window" title="Permalink to this headline">¶</a></h1>
-<div class="figure" id="id6">
+<span id="index-0"></span><h1><span class="section-number">8. </span>The ODF window<a class="headerlink" href="#the-odf-window" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-default" id="id6">
 <span id="odf-window-label"></span><a class="reference internal image-reference" href="_images/gmmps_ODFcombo.png"><img alt="_images/gmmps_ODFcombo.png" src="_images/gmmps_ODFcombo.png" style="width: 100%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8.1 </span><span class="caption-text"><em>Visualizing the mask design. Left: The ODF window shows a table with the objects that
 have been placed in the mask. It also offers some visualization options. The text window offers
 information about acquisition stars and parameters for the phase II definition in the
-Observing Tool. The image window on the right displays the objects and spectra in this mask.</em></span></p>
+Observing Tool. The image window on the right displays the objects and spectra in this mask.</em></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <span class="target" id="load-odf-label"></span><div class="section" id="loading-an-odf">
-<span id="index-1"></span><h2>8.1. Loading an ODF<a class="headerlink" href="#loading-an-odf" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">8.1. </span>Loading an ODF<a class="headerlink" href="#loading-an-odf" title="Permalink to this headline">¶</a></h2>
 <p>To load a mask, select <em>GMMPS -&gt; Load Object Definition File (ODF *.fits)</em>. The ODF
 window looks similar to the <a class="reference internal" href="editOT.html#ot-window-label"><span class="std std-ref">OT window</span></a> and is distinguished
 by a blue menu bar. A single mask can be visualized at a time. If the ODF FITS has changed
@@ -137,7 +134,7 @@ the <em>Reload ODF</em> button.</p>
 their suffix (<em>.cat</em>). They can also be loaded:
 <em>GMMPS -&gt; Load Object Definition File (ODF *.cat)</em>; however, you should avoid doing this:</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
+<p class="admonition-title">Warning</p>
 <p>In <em>GMMPS</em>, you may modify the ODF table and visualize the effects on the mask design.
 <strong>However, you cannot store these modifications.</strong> Any changes you want to make to the
 ODF (removing objects, changing slit lengths, …) must be done to the OT, and then you
@@ -145,27 +142,26 @@ recreate the ODF. Alternatively, the ODF may be
 edited directly <a class="reference internal" href="editOT.html#external-fits-editors-label"><span class="std std-ref">using an external FITS table editor</span></a>,
 and visualized again in <em>GMMPS</em> to verify the validity of the changes (e.g. no slit
 overlaps etc.).</p>
-<p class="last"><strong>You must submit the ODF FITS to Gemini.</strong> Changes you make to the ASCII file, in case you
+<p><strong>You must submit the ODF FITS to Gemini.</strong> Changes you make to the ASCII file, in case you
 have loaded it, will not be reflected in the FITS file.</p>
 </div>
 </div>
 <div class="section" id="display-options">
-<h2>8.2. Display Options<a class="headerlink" href="#display-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.2. </span>Display Options<a class="headerlink" href="#display-options" title="Permalink to this headline">¶</a></h2>
 <p>Various overlays may be toggled on/off in the image window:</p>
 <ul>
-<li><p class="first"><strong>Objects:</strong> Displays the objects in the ODF. They are plotted based on their
+<li><p><strong>Objects:</strong> Displays the objects in the ODF. They are plotted based on their
 (RA,DEC) coordinates. If you want to select an object in the image window, this
 option must be <em>ON</em>. <a class="reference internal" href="editOT.html#priority-label"><span class="std std-ref">Priorities</span></a> are represented by
-<a class="reference internal" href="editOT.html#priority-symbol-label"><span class="std std-ref">different symbols</span></a>.</p>
-</li>
-<li><p class="first"><strong>Slits and spectra:</strong>
+<a class="reference internal" href="editOT.html#priority-symbol-label"><span class="std std-ref">different symbols</span></a>.</p></li>
+<li><p><strong>Slits and spectra:</strong>
 Displays the slits (yellow), the spectral footprints (gray), as well as general information
 about the mask design and phase II <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>
 parameters. You may need to toggle this option off/on to update the display.</p>
 </li>
-<li id="index-2"><p class="first"><strong>Shading:</strong> Toggles on/off the shading of the spectral boxes.</p>
+<li id="index-2"><p><strong>Shading:</strong> Toggles on/off the shading of the spectral boxes.</p>
 </li>
-<li id="index-3"><p class="first"><strong>Wavelengths:</strong> Toggles on/off the wavelength grids. For F2, the wavelength
+<li id="index-3"><p><strong>Wavelengths:</strong> Toggles on/off the wavelength grids. For F2, the wavelength
 grid is based on the linear grism dispersion factor and should be accurate to within
 30 nm. For GMOS, the wavelength grid is based on extensive fully nonlinear models
 of the spectrograph and accurate to within about one nm (smaller than the gap
@@ -174,89 +170,360 @@ displayed for each spectrum. The CWL is shown as a red line connected to the obj
 <a class="reference external" href="https://nickkonidaris.com/2014/10/17/anamorphic-factor/">Anamorphism</a> offsets the
 CWL with respect to the slit positions.</p>
 </li>
-<li id="index-4"><p class="first"><strong>Order overlap:</strong> Displays any order overlap that occurs for the configuration
+<li id="index-4"><p><strong>Order overlap:</strong> Displays any order overlap that occurs for the configuration
 of this mask design. This includes 2nd order overlap for all GMOS gratings used
 in first order mode. For the R831 used in 2nd order mode (the only grating <em>GMMPS</em>
 allows to use in 2nd order mode), overlap by the first order will be shown.
 In case the R150 grating is used, the zero-th order position will be shown.
 Order overlap is not available for F2: First, it uses grisms and thus the order
 positions are not straight forward to calculate. Second, F2 uses fixed grism
-positions and thus there is nothing you can do about the (negligible) order overlap.</p>
+positions and thus there is nothing you can do about the (negligible) order overlap.</p></li>
+<li><p><strong>Grayscale:</strong> Toggles between a grayscale image and the native <em>Skycat</em> color scheme.</p>
 </li>
-<li><p class="first"><strong>Grayscale:</strong> Toggles between a grayscale image and the native <em>Skycat</em> color scheme.</p>
-</li>
-<li id="index-5"><p class="first"><strong>Highlight acq stars:</strong> Only the acquisition stars are shown for easier mask checking.</p>
-</li>
-<li><p class="first"><strong>Slit placement area:</strong> A cyan polygon indicating where slits may be placed. This area
+<li id="index-5"><p><strong>Highlight acq stars:</strong> Only the acquisition stars are shown for easier mask checking.</p></li>
+<li><p><strong>Slit placement area:</strong> A cyan polygon indicating where slits may be placed. This area
 is smaller than the detector array. Its size and shape is determined by the opto-mechanical
-design of the instrument and (in case of GMOS) by the bar code stuck to the mask.</p>
-</li>
-<li><p class="first"><strong>Pointing center:</strong> This corresponds to the (RA, DEC) you must specify in the
+design of the instrument and (in case of GMOS) by the bar code stuck to the mask.</p></li>
+<li><p><strong>Pointing center:</strong> This corresponds to the (RA, DEC) you must specify in the
 phase II observations (corresponding to your pre-imaging data). Actually, what is plotted
 are the <em>CRPIX1/2</em> coordinates in case of pre-imaging, and the image center in case of
 a <a class="reference internal" href="createOT.html#pseudo-image-label"><span class="std std-ref">pseudo-image</span></a> (which may have its <em>CRPIX1/2</em> at wildly
 different locations).</p>
 </li>
-<li id="index-6"><p class="first"><strong>CWL:</strong> Allows you to find an optimal value for the CWL, repositioning the spectra
+<li id="index-6"><p><strong>CWL:</strong> Allows you to find an optimal value for the CWL, repositioning the spectra
 on the detector array. For example, you can fine-tune the CWL to avoid some emission
 line getting lost in the detector gaps, or if you rather have the blue than the red
 ends of the spectra truncated by the detector boundaries. The CWL must be entered in the
 <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>. <em>Changing the CWL is safe, it
 does not compromise the mask design.</em> The blue redo arrow to the right will restore
 the setting for which the mask was created. Switch on the wavelength overlay to fully
-exploit this capability.</p>
-</li>
+exploit this capability.</p></li>
 </ul>
 <ul id="atomic-identifiers-label">
-<li><p class="first"><strong>Show other wavelengths [nm] / redshift:</strong>
+<li><p><strong>Show other wavelengths [nm] / redshift:</strong>
 Takes a blank-separated list of user-defined wavelengths and / or atomic identifiers.
 The wavelengths will be displayed using a cyan color. If the ODF table contains individual redshifts,
 then the lines will be redshifted accordingly. If a redshift is entered in the explicit “redshift”
 field, then that redshift will override the individual redshifts in the ODF table.
 The following atomic identifiers are available:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="3%" />
-<col width="97%" />
+<col style="width: 3%" />
+<col style="width: 97%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Identifier</th>
-<th class="head">Expands into the following transition wavelengths</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Identifier</p></th>
+<th class="head"><p>Expands into the following transition wavelengths</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>He</td>
-<td>HeII 164.0, HeII 320.4, HeI 389.0, HeII 468.7, HeII 541.3, HeI 587.7, HeI 668.0, HeI 1083, HeI 2058</td>
+<tbody>
+<tr class="row-even"><td><p>He</p></td>
+<td><p>HeII 164.0, HeII 320.4, HeI 389.0, HeII 468.7, HeII 541.3, HeI 587.7, HeI 668.0, HeI 1083, HeI 2058</p></td>
 </tr>
-<tr class="row-odd"><td>H</td>
-<td><img class="math" src="_images/math/258c0a62e170a3aa501e526d4733485d3e9199b8.png" alt="{\rm Ly}\alpha"/> 121.6, <img class="math" src="_images/math/2351a97ec2adfadc5c0e94469d68a03da696237f.png" alt="{\rm H}\delta"/> 410.3, <img class="math" src="_images/math/b39f04a57607f239a3211356c3bbafb540e77b1f.png" alt="{\rm H}\gamma"/> 434.3, <img class="math" src="_images/math/2430f7518e0223f4fd5711d0709c904883575069.png" alt="{\rm H}\beta"/> 486.4, <img class="math" src="_images/math/f22040b1cfd8dbd1a8fa1480f855d9d2810fe688.png" alt="{\rm H}\alpha"/> 656.5, <img class="math" src="_images/math/52b97281d06c3eaae7f984cd1c1b1f9da0dac259.png" alt="{\rm Pa}\gamma"/> 1094, <img class="math" src="_images/math/8168c1c0fa73c108be59859bc160e2f4c0d7207a.png" alt="{\rm Pa}\beta"/> 1282, <img class="math" src="_images/math/762853ab3019183582cbb5ccdb5f2a7c3ec09c54.png" alt="{\rm Pa}\alpha"/> 1875, <img class="math" src="_images/math/d78c1f8e0e096548a654499b7b131620d4fd8cc8.png" alt="{\rm Br}\gamma"/> 2166, <img class="math" src="_images/math/f5687b423472da2e6049681f39b9d23bd732ed3a.png" alt="{\rm H}_2"/> 1-0 2122, <img class="math" src="_images/math/f5687b423472da2e6049681f39b9d23bd732ed3a.png" alt="{\rm H}_2"/> 2-1 2248</td>
+<tr class="row-odd"><td><p>H</p></td>
+<td><p><div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">{\rm Ly}\alpha</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ 121.6, <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">{\rm H}\delta</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ 410.3, <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">{\rm H}\gamma</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ 434.3, <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">{\rm H}\beta</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ 486.4, <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">{\rm H}\alpha</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ 656.5, <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">{\rm Pa}\gamma</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ 1094, <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">{\rm Pa}\beta</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ 1282, <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">{\rm Pa}\alpha</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ 1875, <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">{\rm Br}\gamma</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ 2166, <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">{\rm H}_2</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ 1-0 2122, <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">{\rm H}_2</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ 2-1 2248</p></td>
 </tr>
-<tr class="row-even"><td>O</td>
-<td>OVI 103.2, OVI 103.8, [OII] 372.7, [OIII] 436.3, [OIII] 496.0, [OIII] 500.8, [OI] 630.2, [OI] 636.6, [OII] 732.1</td>
+<tr class="row-even"><td><p>O</p></td>
+<td><p>OVI 103.2, OVI 103.8, [OII] 372.7, [OIII] 436.3, [OIII] 496.0, [OIII] 500.8, [OI] 630.2, [OI] 636.6, [OII] 732.1</p></td>
 </tr>
-<tr class="row-odd"><td>N</td>
-<td>[NII] 655.0, [NII] 658.6</td>
+<tr class="row-odd"><td><p>N</p></td>
+<td><p>[NII] 655.0, [NII] 658.6</p></td>
 </tr>
-<tr class="row-even"><td>C</td>
-<td>CIII 97.7, CIV 154.9, CII] 232.6</td>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>CIII 97.7, CIV 154.9, CII] 232.6</p></td>
 </tr>
-<tr class="row-odd"><td>Ar</td>
-<td>[ArIII] 713.8</td>
+<tr class="row-odd"><td><p>Ar</p></td>
+<td><p>[ArIII] 713.8</p></td>
 </tr>
-<tr class="row-even"><td>S</td>
-<td>[SII] 406.9, [SII] 407.6, SII 520.3, [SII] 671.8, [SII] 673.3, [SIII] 907.1, [SIII] 953.3</td>
+<tr class="row-even"><td><p>S</p></td>
+<td><p>[SII] 406.9, [SII] 407.6, SII 520.3, [SII] 671.8, [SII] 673.3, [SIII] 907.1, [SIII] 953.3</p></td>
 </tr>
-<tr class="row-odd"><td>Na</td>
-<td>D2 589.0, D1 589.6</td>
+<tr class="row-odd"><td><p>Na</p></td>
+<td><p>D2 589.0, D1 589.6</p></td>
 </tr>
-<tr class="row-even"><td>Ne</td>
-<td>[NeIV] 242.4, [NeV] 334.7, [NeV] 342.7, [NeIII] 386.9, [NeIII] 396.8</td>
+<tr class="row-even"><td><p>Ne</p></td>
+<td><p>[NeIV] 242.4, [NeV] 334.7, [NeV] 342.7, [NeIII] 386.9, [NeIII] 396.8</p></td>
 </tr>
-<tr class="row-odd"><td>Ca</td>
-<td>CaH 393.4, CaK 396.9, CaT1 849.9, CaT2 854.2, CaT3 866.2</td>
+<tr class="row-odd"><td><p>Ca</p></td>
+<td><p>CaH 393.4, CaK 396.9, CaT1 849.9, CaT2 854.2, CaT3 866.2</p></td>
 </tr>
-<tr class="row-even"><td>Mg</td>
-<td>[MgII] 279.9, Mgb 516.7, Mgb 517.3, Mgb 518.4</td>
+<tr class="row-even"><td><p>Mg</p></td>
+<td><p>[MgII] 279.9, Mgb 516.7, Mgb 517.3, Mgb 518.4</p></td>
 </tr>
 </tbody>
 </table>
@@ -264,72 +531,72 @@ The following atomic identifiers are available:</p>
 </ul>
 </div>
 <div class="section" id="examples">
-<h2>8.3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="figure" id="id7">
+<h2><span class="section-number">8.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id7">
 <a class="reference internal image-reference" href="_images/gmmps_ODF3.png"><img alt="_images/gmmps_ODF3.png" src="_images/gmmps_ODF3.png" style="width: 518.5px; height: 347.5px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8.2 </span><span class="caption-text"><em>Highlighting the acquisition stars. This option allows to quickly assess the
 acquisition stars, suppressing the spectral footprints of the science targets.
 If an acquisition star is found within 4.0” of a detector gap or the boundary of the slit
-placement area, then it will be colored yellow.</em></span></p>
+placement area, then it will be colored yellow.</em></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id8">
+<div class="figure align-default" id="id8">
 <a class="reference internal image-reference" href="_images/gmmps_ODF_wavelengthoverlay.png"><img alt="_images/gmmps_ODF_wavelengthoverlay.png" src="_images/gmmps_ODF_wavelengthoverlay.png" style="width: 527.0px; height: 460.0px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8.3 </span><span class="caption-text"><em>A wavelength grid can be overlaid over each of the spectra,
 including the wavelength intervals masked by the detector gaps. This is accurate to
 within about a nm. The gap wavelengths are rounded to the nearest integer.
 In this example, the position of the [SII]673.3 nm line is also overplotted, using the
-“Show other wavelengths” option.</em></span></p>
+“Show other wavelengths” option.</em></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id9">
+<div class="figure align-default" id="id9">
 <span id="index-7"></span><a class="reference internal image-reference" href="_images/gmmps_ODF_2ndorderoverlap.png"><img alt="_images/gmmps_ODF_2ndorderoverlap.png" src="_images/gmmps_ODF_2ndorderoverlap.png" style="width: 468.0px; height: 455.5px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8.4 </span><span class="caption-text"><em>Overlapping orders occurring for the (fixed) grating / filter combination
 can be overlaid (orange shaded areas to the left). A red warning will also be
-shown in the white message window (see the Fig. below).</em></span></p>
+shown in the white message window (see the Fig. below).</em></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id10">
-<span id="index-8"></span><a class="reference internal image-reference" href="_images/gmmps_cwl.png"><img alt="_images/gmmps_cwl.png" src="_images/gmmps_cwl.png" style="width: 520.08px; height: 703.56px;" /></a>
+<div class="figure align-default" id="id10">
+<span id="index-8"></span><a class="reference internal image-reference" href="_images/gmmps_cwl.png"><img alt="_images/gmmps_cwl.png" src="_images/gmmps_cwl.png" style="width: 520.08px; height: 703.5600000000001px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8.5 </span><span class="caption-text"><em>CWL choice. Top: A GMOS mask design using the R400 with an r-band filter and CWL = 550 nm.
 The filter cuts out a relatively small spectral range, so that two spectral banks fit next
 to each other in dispersion direction. However, the CWL is too blue for the grating / filter
 choice, pushing all spectra toward the left (red) end of the detector array. Bottom:
 Same setup, but with CWL = 635 nm, chosen automatically by GMMPS. The spectral banks are
-optimally placed on the detector.</em></span></p>
+optimally placed on the detector.</em></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id11">
-<a class="reference internal image-reference" href="_images/gmmps_bandshuffleODF.png"><img alt="_images/gmmps_bandshuffleODF.png" src="_images/gmmps_bandshuffleODF.png" style="width: 491.2px; height: 373.6px;" /></a>
+<div class="figure align-default" id="id11">
+<a class="reference internal image-reference" href="_images/gmmps_bandshuffleODF.png"><img alt="_images/gmmps_bandshuffleODF.png" src="_images/gmmps_bandshuffleODF.png" style="width: 491.20000000000005px; height: 373.6px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8.6 </span><span class="caption-text"><em>Storage bands (yellow) in a band-shuffle mask have equal height and appear at
 regularly spaced intervals. Storage bands are always displayed for bandshuffling masks, and do not
-contain any slits.</em></span></p>
+contain any slits.</em></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id12">
+<div class="figure align-default" id="id12">
 <a class="reference internal image-reference" href="_images/gmmps_microshuffleODF.png"><img alt="_images/gmmps_microshuffleODF.png" src="_images/gmmps_microshuffleODF.png" style="width: 498.0px; height: 377.6px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8.7 </span><span class="caption-text"><em>In a micro-shuffling mask, each object has its own adjacent storage bands
 (red) above and below. Storage bands can have different heights (because they are shared
 between objects if overlapping), and are at least as high as the science slits. Contrary
 to a band-shuffle mask, the storage bands are not regularly spaced. Storage bands are
-always displayed, and do not contain any slits.</em></span></p>
+always displayed, and do not contain any slits.</em></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </div>
 <span class="target" id="index-9"></span></div>
 <div class="section" id="observing-tool-setup">
-<span id="index-10"></span><h2>8.4. Observing Tool Setup<a class="headerlink" href="#observing-tool-setup" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2><span class="section-number">8.4. </span>Observing Tool Setup<a class="headerlink" href="#observing-tool-setup" title="Permalink to this headline">¶</a></h2>
 <p>With the <em>Slits &amp; Spectra</em> checkbox switched on, <em>GMMPS</em> displays important information about
 the parameters <strong>you must use</strong> in the <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>
 when defining the phase II observations. In doing so you avoid errors in the setup and minimize
 overheads.</p>
-<div class="figure" id="id13">
+<div class="figure align-default" id="id13">
 <a class="reference internal image-reference" href="_images/gmmps_ODF_OTsetup.png"><img alt="_images/gmmps_ODF_OTsetup.png" src="_images/gmmps_ODF_OTsetup.png" style="width: 311.0px; height: 215.5px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8.8 </span><span class="caption-text"><em>When displaying the spectra in the ODF window, GMMPS will show all relevant parameters
 for the phase II setup in the Observing Tool. In addition, warnings about acquisition
-stars and order overlap will be shown.</em></span></p>
+stars and order overlap will be shown.</em></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </div>
 <p>The parameters displayed for the <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a> are:</p>
 <ul class="simple">
-<li><em>RA, DEC</em> (target component)</li>
-<li><em>Position angle</em> (instrument component)</li>
-<li><em>Grating/Grism</em> (instrument component)</li>
-<li><em>Filter</em> (instrument component)</li>
-<li><em>CWL</em> (instrument component; GMOS only)</li>
-<li><em>N&amp;S Offset (detector rows)</em> (instrument component; GMOS Nod &amp; Shuffle masks only)</li>
+<li><p><em>RA, DEC</em> (target component)</p></li>
+<li><p><em>Position angle</em> (instrument component)</p></li>
+<li><p><em>Grating/Grism</em> (instrument component)</p></li>
+<li><p><em>Filter</em> (instrument component)</p></li>
+<li><p><em>CWL</em> (instrument component; GMOS only)</p></li>
+<li><p><em>N&amp;S Offset (detector rows)</em> (instrument component; GMOS Nod &amp; Shuffle masks only)</p></li>
 </ul>
 <p>If you enter different values for <em>RA</em>, <em>DEC</em> and the position angle, then the acquisition
 process will involve more iterations to align the mask on sky. If you deviate too much, then
@@ -341,7 +608,7 @@ of the grating and filter chosen. A change in CWL is immediately shown as a disp
 spectral banks. Use this to optimize your phase II.</p>
 </div>
 <div class="section" id="odf-summary-file">
-<h2>8.5. ODF summary file<a class="headerlink" href="#odf-summary-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.5. </span>ODF summary file<a class="headerlink" href="#odf-summary-file" title="Permalink to this headline">¶</a></h2>
 <p><em>GMMPS</em> creates a summary file for each loaded and displayed ODF. It is called</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">ODF_file_name</span><span class="o">&gt;</span><span class="n">_summary</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
@@ -400,13 +667,13 @@ Slit 127: possibly on top of amplifier boundary.
         <li class="right" >
           <a href="ns.html" title="7. Nod &amp; Shuffle masks (GMOS only)"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, AURA/Gemini Observatory.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+        &#169; Copyright 2020, AURA/Gemini Observatory.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
     </div>
   </body>
 </html>

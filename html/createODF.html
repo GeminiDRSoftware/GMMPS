@@ -1,18 +1,17 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>6. Creating Masks (ODFs) &#8212; GMMPS 1.5.1 documentation</title>
+    <meta charset="utf-8" />
+    <title>6. Creating Masks (ODFs) &#8212; GMMPS 1.5.2 documentation</title>
     <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="7. Nod &amp; Shuffle masks (GMOS only)" href="ns.html" />
@@ -72,7 +71,7 @@
         <li class="right" >
           <a href="editOT.html" title="5. The OT window"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
@@ -95,22 +94,20 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="editOT.html"
-                        title="previous chapter">5. The OT window</a></p>
+                        title="previous chapter"><span class="section-number">5. </span>The OT window</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="ns.html"
-                        title="next chapter">7. Nod &amp; Shuffle masks (GMOS only)</a></p>
+                        title="next chapter"><span class="section-number">7. </span>Nod &amp; Shuffle masks (GMOS only)</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -120,79 +117,77 @@
           <div class="body" role="main">
             
   <div class="section" id="creating-masks-odfs">
-<span id="creating-odf-label"></span><span id="index-0"></span><h1>6. Creating Masks (ODFs)<a class="headerlink" href="#creating-masks-odfs" title="Permalink to this headline">¶</a></h1>
+<span id="creating-odf-label"></span><span id="index-0"></span><h1><span class="section-number">6. </span>Creating Masks (ODFs)<a class="headerlink" href="#creating-masks-odfs" title="Permalink to this headline">¶</a></h1>
 <p>Once object priorities and slit geometries are set, you are
 ready to create <em>Object Definition Files</em> (ODFs). The ODF is
 the <em>mask design</em> you submit to Gemini.</p>
-<div class="figure" id="id1">
+<div class="figure align-default" id="id1">
 <span id="index-1"></span><a class="reference internal image-reference" href="_images/gmmps_createODF_GMOS.png"><img alt="_images/gmmps_createODF_GMOS.png" src="_images/gmmps_createODF_GMOS.png" style="width: 496.98px; height: 474.54px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text"><em>The mask configuration window. The graphics in the upper right shows the total system throughput (grating, filter, detector, atmosphere; neglecting optics for GMOS) for the chosen configuration. The thick blue line is normalised to the peak throughput of this combination, whereas the thin gray line displays the absolute throughput. It also displays the central wavelength (CWL) for this throughput curve, from which you may deviate. The summary window at the bottom displays the number of objects selected per mask and per priority after the slit selection algorithm was run.</em></span></p>
+<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text"><em>The mask configuration window. The graphics in the upper right shows the total system throughput (grating, filter, detector, atmosphere; neglecting optics for GMOS) for the chosen configuration. The thick blue line is normalised to the peak throughput of this combination, whereas the thin gray line displays the absolute throughput. It also displays the central wavelength (CWL) for this throughput curve, from which you may deviate. The summary window at the bottom displays the number of objects selected per mask and per priority after the slit selection algorithm was run.</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="how-to-create-an-odf-from-the-ot">
-<span id="index-2"></span><h2>6.1. How to create an ODF from the OT<a class="headerlink" href="#how-to-create-an-odf-from-the-ot" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">6.1. </span>How to create an ODF from the OT<a class="headerlink" href="#how-to-create-an-odf-from-the-ot" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Click on the <em>Configure Mask</em> button in the <a class="reference internal" href="editOT.html#ot-window-label"><span class="std std-ref">OT window</span></a>.
+<li><p>Click on the <em>Configure Mask</em> button in the <a class="reference internal" href="editOT.html#ot-window-label"><span class="std std-ref">OT window</span></a>.
 If an acquisition star is too close or within a detector gap, or too close
 to the border of the slit placement area, an error will be reported.
 <a class="reference internal" href="editOT.html#remove-object-inot-label"><span class="std std-ref">Remove</span></a> the object from the OT, or change
 its priority. <em>GMMPS</em> will inform you about potential order overlap and
-performs other consistency checks.</p>
-</li>
-<li><p class="first">If the acquisition stars are ok, the <em>Configure Mask</em> button will bring up the mask
+performs other consistency checks.</p></li>
+<li><p>If the acquisition stars are ok, the <em>Configure Mask</em> button will bring up the mask
 making window shown above. There are two
 categories of parameters, <em>Instrument Setup</em> and <em>Slit Placement</em>,
 described below. <em>GMMPS</em> will remember the settings made and replay them
-next time you make a mask.</p>
-</li>
-<li><p class="first">Under <em>Instrument Setup</em> you choose:</p>
+next time you make a mask.</p></li>
+<li><p>Under <em>Instrument Setup</em> you choose:</p>
 <ul class="simple">
-<li><strong>Grating/grisms</strong> for <a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/spectroscopy-overview?q=node/10375">GMOS</a> and <a class="reference external" href="http://www.gemini.edu/sciops/instruments/flamingos2/spectroscopy?q=node/11139">F2</a></li>
-<li><strong>(Order sorting) filters</strong> for <a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/?q=node/10419">GMOS</a> and <a class="reference external" href="http://www.gemini.edu/sciops/instruments/flamingos2/imaging?q=node/11132">F2</a>.</li>
-<li><strong>Central wavelength</strong> is user-defineable for GMOS. <em>GMMPS</em> will
+<li><p><strong>Grating/grisms</strong> for <a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/spectroscopy-overview?q=node/10375">GMOS</a> and <a class="reference external" href="http://www.gemini.edu/sciops/instruments/flamingos2/spectroscopy?q=node/11139">F2</a></p></li>
+<li><p><strong>(Order sorting) filters</strong> for <a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/?q=node/10419">GMOS</a> and <a class="reference external" href="http://www.gemini.edu/sciops/instruments/flamingos2/imaging?q=node/11132">F2</a>.</p></li>
+<li><p><strong>Central wavelength</strong> is user-defineable for GMOS. <em>GMMPS</em> will
 automatically pick the CWL that corresponds to the center of the
 total throughput curve. Of course you may deviate from this
 within certain limits (<a class="reference internal" href="#cwl-label"><span class="std std-numref">Sect. 6.2</span></a>).
 For F2 the central wavelength is fixed, determined by the grism/filter
-combination.</li>
+combination.</p></li>
 </ul>
 </li>
-<li><p class="first">Under <em>Slit Placement</em> you set:</p>
+<li><p>Under <em>Slit Placement</em> you set:</p>
 <span id="index-3"></span><ul class="simple" id="autoexpansion-label">
-<li><strong>Auto Expansion:</strong> This mode will expand all slits placed in a mask
+<li><p><strong>Auto Expansion:</strong> This mode will expand all slits placed in a mask
 to maximize the amount of sky covered by each slit. This is an asymmetric
 process, and targets will not be centered along the slit afterwards.
 Auto expansion is not available for micro-shuffling mode
-(<a class="reference internal" href="ns.html#ns-autoexpansion-label"><span class="std std-numref">Sect. 7.2</span></a>).</li>
+(<a class="reference internal" href="ns.html#ns-autoexpansion-label"><span class="std std-numref">Sect. 7.2</span></a>).</p></li>
 </ul>
 <span id="index-4"></span><ul class="simple" id="packing-button-label">
-<li><strong>Pack spectra:</strong> If the grating / filter combination results in short
+<li><p><strong>Pack spectra:</strong> If the grating / filter combination results in short
 spectra, then <em>GMMPS</em> will place two or more slits in the dispersion
 direction (only if the spectra do not overlap;
-<a class="reference internal" href="#packing-label"><span class="std std-numref">see Sect. 6.4</span></a>).</li>
+<a class="reference internal" href="#packing-label"><span class="std std-numref">see Sect. 6.4</span></a>).</p></li>
 </ul>
 <span id="index-5"></span><ul class="simple" id="min-slit-sep-label">
-<li><strong>Minimum separation</strong> defines how many pixels should be left between
+<li><p><strong>Minimum separation</strong> defines how many pixels should be left between
 the spectra. Default is 4 pixels, which is sufficient for
-software to automatically recognize the various spectral footprints.</li>
+software to automatically recognize the various spectral footprints.</p></li>
 </ul>
 <span id="index-6"></span><ul class="simple" id="wiggling-label">
-<li><strong>Wiggle amount [%]:</strong> The percentage by which <em>GMMPS</em> may decenter
+<li><p><strong>Wiggle amount [%]:</strong> The percentage by which <em>GMMPS</em> may decenter
 the slit with respect to the object, to maximise the number of slits per mask.
 The upper limit is 50%, meaning a displacement by half the slit length (which
 will truncate the object, so perhaps stay a bit below that number).
 Wiggling is not available for micro-shuffling mode
-(<a class="reference internal" href="ns.html#ns-autoexpansion-label"><span class="std std-numref">Sect. 7.2</span></a>).</li>
+(<a class="reference internal" href="ns.html#ns-autoexpansion-label"><span class="std std-numref">Sect. 7.2</span></a>).</p></li>
 </ul>
 <span id="index-7"></span><ul class="simple" id="number-of-masks-label">
-<li><strong>Number of Masks:</strong> How many ODFs (masks) will be created
+<li><p><strong>Number of Masks:</strong> How many ODFs (masks) will be created
 from this OT. If more than one mask is made, then each
 mask will include the maximum possible number of priority 1 objects,
 with lower priority objects filling any spaces. The following mask will
 not include any objects used in the prior masks, except for acquisition
-stars, which will be included in all masks.</li>
+stars, which will be included in all masks.</p></li>
 </ul>
 </li>
-<li id="index-8"><p class="first">Click on <em>Make Masks</em> to run the slit placement algorithm. If you have
+<li id="index-8"><p>Click on <em>Make Masks</em> to run the slit placement algorithm. If you have
 already created a mask for the current image, <em>GMMPS</em> will warn you that
 the mask name already exists. You may then enter a new filename (without the
 ODF.fits extension) or select an existing ODF FITS from a file dialog.
@@ -201,26 +196,24 @@ as tabulated in the PPMXL catalog from the CDS server in France. If
 the proper motion in any direction (RA or DEC) is higher than 100 mas/yr,
 then a warning will be shown. If it is higher than 250 mas/yr, the task
 returns with an error. In this case, you must remove the offending acquisition
-star from the mask design.</p>
-</li>
-<li><p class="first">Verify the masks (load the ODFs). If you are not satisfied, you must go
+star from the mask design.</p></li>
+<li><p>Verify the masks (load the ODFs). If you are not satisfied, you must go
 back and edit the OT. However, be sure to close all mask making windows
-first.</p>
-</li>
+first.</p></li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<ul class="last simple">
-<li>The position of the slit center is calculated as
-(x_ccd + slitpos_x, y_ccd + slitpos_y).</li>
-<li>If any priority changes are required, then you must close all mask
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The position of the slit center is calculated as
+(x_ccd + slitpos_x, y_ccd + slitpos_y).</p></li>
+<li><p>If any priority changes are required, then you must close all mask
 making windows first. Otherwise any changes made in the OT window
-are not recognized by the already-open mask making windows.</li>
+are not recognized by the already-open mask making windows.</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="choosing-the-right-cwl-for-gmos">
-<span id="cwl-label"></span><span id="index-9"></span><h2>6.2. Choosing the right CWL for GMOS<a class="headerlink" href="#choosing-the-right-cwl-for-gmos" title="Permalink to this headline">¶</a></h2>
+<span id="cwl-label"></span><span id="index-9"></span><h2><span class="section-number">6.2. </span>Choosing the right CWL for GMOS<a class="headerlink" href="#choosing-the-right-cwl-for-gmos" title="Permalink to this headline">¶</a></h2>
 <p>The CWL is updated every time you choose a different grating and / or filter.
 <em>GMMPS</em> will default the CWL to the center of the total throughput bandpass.
 That means that for a slit near the detector center the spectrum will have
@@ -234,95 +227,92 @@ sections of this bandpass. Also, spectra closer to the detector edges
 will be truncated in wavelength more than others.</p>
 </div>
 <div class="section" id="internal-consistency-and-safety-checks">
-<h2>6.3. Internal consistency and safety checks<a class="headerlink" href="#internal-consistency-and-safety-checks" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Internal consistency and safety checks<a class="headerlink" href="#internal-consistency-and-safety-checks" title="Permalink to this headline">¶</a></h2>
 <p><em>GMMPS</em> performs a number of checks before placing slits on a mask,
 and informs you accordingly:</p>
 <ol class="arabic">
-<li><p class="first">If the CWL is chosen very asymmetrically with respect to the transmitted
-bandpass, pushing the spectra to either side of the detector.</p>
-</li>
-<li><p class="first">If the chosen grating / filter combination is highly inefficient,
-and another combination offers much higher throughput</p>
-</li>
-<li><p class="first">If order overlap occurs within spectra, including
+<li><p>If the CWL is chosen very asymmetrically with respect to the transmitted
+bandpass, pushing the spectra to either side of the detector.</p></li>
+<li><p>If the chosen grating / filter combination is highly inefficient,
+and another combination offers much higher throughput</p></li>
+<li><p>If order overlap occurs within spectra, including
 information at which wavelengths this happens.
 Order overlap can be visualized in the
 <a class="reference internal" href="loadODF.html#odf-window-label"><span class="std std-ref">ODF window</span></a> to decide
 whether or not an order sorting filter is required.</p>
 </li>
-<li id="index-10"><p class="first">If order overlap occurs between packed spectra, i.e. 2nd orders
+<li id="index-10"><p>If order overlap occurs between packed spectra, i.e. 2nd orders
 of one spectrum overlap the first orders of another spectrum located
-in dispersion direction (see below).</p>
-</li>
+in dispersion direction (see below).</p></li>
 </ol>
 </div>
 <div class="section" id="packing-spectra">
-<span id="packing-label"></span><h2>6.4. Packing spectra<a class="headerlink" href="#packing-spectra" title="Permalink to this headline">¶</a></h2>
+<span id="packing-label"></span><h2><span class="section-number">6.4. </span>Packing spectra<a class="headerlink" href="#packing-spectra" title="Permalink to this headline">¶</a></h2>
 <p><em>GMMPS</em> tries to place as many slits as possible in a single mask.
 If the grating / filter combination produces short spectra, then two or more spectra
 may be placed next to each other in dispersion direction without overlapping (“packing”).</p>
 <p>This is the default mode for all GMOS and F2 configurations. With GMOS, many configurations
 produce short spectra. In case of F2, packing will only occur for:</p>
 <ul class="simple">
-<li>R1200_JH grism with Y, J, or H filters
-(as compared to the default JH wide filter)</li>
-<li>R1200_HK grism with H, K-short, K-long, K-red, K-blue filters
-(as compared to the default HK wide filter)</li>
+<li><p>R1200_JH grism with Y, J, or H filters
+(as compared to the default JH wide filter)</p></li>
+<li><p>R1200_HK grism with H, K-short, K-long, K-red, K-blue filters
+(as compared to the default HK wide filter)</p></li>
 </ul>
 <p>The advantages are obvious, as up to several hundred slits can be placed in a single mask
 if one is interested in a small spectral region, only.</p>
 <div class="section" id="caveats-in-packed-mask-designs">
-<h3>6.4.1. Caveats in packed mask designs<a class="headerlink" href="#caveats-in-packed-mask-designs" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.1. </span>Caveats in packed mask designs<a class="headerlink" href="#caveats-in-packed-mask-designs" title="Permalink to this headline">¶</a></h3>
 <p>Masks with packed spectra present a few (mild) disadvantages, and therefore packing can be turned off (<em>GMMPS</em> v1.4 or later).</p>
 <ul class="simple">
-<li><strong>Footprint detection:</strong> The Gemini IRAF reduction package (in particular, the <em>gscut</em> task)
+<li><p><strong>Footprint detection:</strong> The Gemini IRAF reduction package (in particular, the <em>gscut</em> task)
 may not fully automatically detect the spectral footprints for packed mask designs. Manual
-intervention might be required (GMOS and F2).</li>
+intervention might be required (GMOS and F2).</p></li>
 </ul>
 <p>The following caveats apply to GMOS, only.</p>
 <ul>
-<li><p class="first"><strong>Uneven sky coverage:</strong> If two spectra can be placed next to each other, then
+<li><p><strong>Uneven sky coverage:</strong> If two spectra can be placed next to each other, then
 <em>GMMPS</em> will place more slits to the left and the right, on the expense of slits
 in the center (assuming equal priorities). If more than one mask is designed from
 the OT, then this will continue until the targets at the sides have been depleted.
 No such asymmetry will arise if three or more spectra can be placed next to each
 other. For F2 this is not an issue because of the relatively small extent of the
 slit placement area in the spatial dimension.</p>
-<div class="figure" id="id2">
+<div class="figure align-default" id="id2">
 <a class="reference internal image-reference" href="_images/gmmps_pack2.png"><img alt="_images/gmmps_pack2.png" src="_images/gmmps_pack2.png" style="width: 402.3px; height: 284.4px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text"><em>Packing occurs if more than one spectrum can be placed in dispersion
 direction. In case of two spectra, asymmetric sky coverage may occur
 in case of equal priorities (in this case, the R400 grating and
-the z+CaT filter combination).</em></span></p>
+the z+CaT filter combination).</em></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id3">
-<a class="reference internal image-reference" href="_images/gmmps_pack4.png"><img alt="_images/gmmps_pack4.png" src="_images/gmmps_pack4.png" style="width: 402.6px; height: 282.0px;" /></a>
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="_images/gmmps_pack4.png"><img alt="_images/gmmps_pack4.png" src="_images/gmmps_pack4.png" style="width: 402.59999999999997px; height: 282.0px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6.3 </span><span class="caption-text"><em>A more even sky coverage is achieved if three or
-more spectra can be packed (R150 grating, r filter).</em></span></p>
+more spectra can be packed (R150 grating, r filter).</em></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </li>
-<li><p class="first"><strong>Second order overlap (R150, only):</strong> The <em>second orders of the slits in the right half</em>
+<li><p><strong>Second order overlap (R150, only):</strong> The <em>second orders of the slits in the right half</em>
 of GMOS may overlap the <em>first orders of the slits in the left half</em> of GMOS. This occurs almost
 exclusively for the R150 grating, only. As the second orders of the R150 are faint
 (on the order of 1% of the first order), this is of little concern for many application
 and the order overlap may be ignored.
 The only other scenario where this occurs is for the R400 grating in combination with
 the g-filter, a rather insensitive combination where minimal overlap occurs.</p>
-<div class="figure" id="id4">
-<a class="reference internal image-reference" href="_images/gmmps_pack4_overlap.png"><img alt="_images/gmmps_pack4_overlap.png" src="_images/gmmps_pack4_overlap.png" style="width: 402.6px; height: 282.0px;" /></a>
+<div class="figure align-default" id="id4">
+<a class="reference internal image-reference" href="_images/gmmps_pack4_overlap.png"><img alt="_images/gmmps_pack4_overlap.png" src="_images/gmmps_pack4_overlap.png" style="width: 402.59999999999997px; height: 282.0px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6.4 </span><span class="caption-text"><em>Order overlap for the R150 and r filter: The 2nd orders of the slits in
 the right half of GMOS overlap the first orders of the slits in the left
 half (large orange spectra). The zero-th order of the left slits overlap
-the first orders of the right slits (compact orange spectra).</em></span></p>
+the first orders of the right slits (compact orange spectra).</em></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id5">
+<div class="figure align-default" id="id5">
 <a class="reference internal image-reference" href="_images/gmmps_pack5_overlap.png"><img alt="_images/gmmps_pack5_overlap.png" src="_images/gmmps_pack5_overlap.png" style="width: 467.7px; height: 282.9px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6.5 </span><span class="caption-text"><em>Order overlap for the R150 and z+CaT filter: The order overlap
-by second and zero orders decreases for redder bandpasses.</em></span></p>
+by second and zero orders decreases for redder bandpasses.</em></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Order sorting filters do not necessarily help here as they reduce overlap
+<p class="admonition-title">Note</p>
+<p>Order sorting filters do not necessarily help here as they reduce overlap
 between 1st and 2nd orders of <em>the same</em> target, but not <em>between
 different</em> targets. The effect is less pronounced for redder bandpasses.</p>
 </div>
@@ -350,13 +340,13 @@ different</em> targets. The effect is less pronounced for redder bandpasses.</p>
         <li class="right" >
           <a href="editOT.html" title="5. The OT window"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, AURA/Gemini Observatory.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+        &#169; Copyright 2020, AURA/Gemini Observatory.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
     </div>
   </body>
 </html>

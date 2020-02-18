@@ -1,18 +1,17 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>11. Example 2: Band-shuffling (GMOS-S) &#8212; GMMPS 1.5.1 documentation</title>
+    <meta charset="utf-8" />
+    <title>11. Example 2: Band-shuffling (GMOS-S) &#8212; GMMPS 1.5.2 documentation</title>
     <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="12. Example 3: Flamingos-2 mask" href="example3.html" />
@@ -72,7 +71,7 @@
         <li class="right" >
           <a href="example1.html" title="10. Example 1: Redshift survey (GMOS-S)"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
@@ -95,22 +94,20 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="example1.html"
-                        title="previous chapter">10. Example 1: Redshift survey (GMOS-S)</a></p>
+                        title="previous chapter"><span class="section-number">10. </span>Example 1: Redshift survey (GMOS-S)</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="example3.html"
-                        title="next chapter">12. Example 3: Flamingos-2 mask</a></p>
+                        title="next chapter"><span class="section-number">12. </span>Example 3: Flamingos-2 mask</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -120,12 +117,12 @@
           <div class="body" role="main">
             
   <div class="section" id="example-2-band-shuffling-gmos-s">
-<span id="example2-label"></span><span id="index-0"></span><h1>11. Example 2: Band-shuffling (GMOS-S)<a class="headerlink" href="#example-2-band-shuffling-gmos-s" title="Permalink to this headline">¶</a></h1>
+<span id="example2-label"></span><span id="index-0"></span><h1><span class="section-number">11. </span>Example 2: Band-shuffling (GMOS-S)<a class="headerlink" href="#example-2-band-shuffling-gmos-s" title="Permalink to this headline">¶</a></h1>
 <p>This step-by-step example shows how to create a band-shuffle mask for GMOS-S.
 It is assumed that you have <a class="reference external" href="http://www.astromatic.net/software/sextractor">SExtractor</a>
 installed.</p>
 <div class="section" id="creating-the-ot">
-<span id="example2-object-detection-label"></span><h2>11.1. Creating the OT<a class="headerlink" href="#creating-the-ot" title="Permalink to this headline">¶</a></h2>
+<span id="example2-object-detection-label"></span><h2><span class="section-number">11.1. </span>Creating the OT<a class="headerlink" href="#creating-the-ot" title="Permalink to this headline">¶</a></h2>
 <p>Now we are interested in the globular cluster system around that large
 elliptical galaxy. You want to get spectra for a large number of objects
 in a small region, and therefore the GMOS bandshuffle mode is your best
@@ -147,7 +144,7 @@ DEBLEND_MINCONT = 0.000001
 <p>Don’t forget to run this table through <em>stsdas2objt</em> as in the <a class="reference internal" href="example1.html#example1-object-detection-label"><span class="std std-ref">first example</span></a>.</p>
 </div>
 <div class="section" id="prioritizing-objects">
-<h2>11.2. Prioritizing objects<a class="headerlink" href="#prioritizing-objects" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.2. </span>Prioritizing objects<a class="headerlink" href="#prioritizing-objects" title="Permalink to this headline">¶</a></h2>
 <p>Launch <em>GMMPS</em> and load the new OT FITS table.</p>
 <p>Many objects are present in the OT table, and the view is cluttered.
 In the dark red top menu bar of the OT window, click on
@@ -158,13 +155,13 @@ and <em>$priority == “2”</em>. Highlight them, and reduce their symbol size 
 <p>Next, manually click on all your globular cluster candidates and assign
 them priority 1 (probably you have some multi-color information available
 that helped you to filter the SExtractor table in first place).</p>
-<div class="figure" id="id1">
+<div class="figure align-default" id="id1">
 <a class="reference internal image-reference" href="_images/example_globclus_objselection.png"><img alt="_images/example_globclus_objselection.png" src="_images/example_globclus_objselection.png" style="width: 371.4px; height: 279.3px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11.1 </span><span class="caption-text"><em>Selection of globular cluster candidates.</em></span></p>
+<p class="caption"><span class="caption-number">Fig. 11.1 </span><span class="caption-text"><em>Selection of globular cluster candidates.</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="sorting-the-ot">
-<h2>11.3. Sorting the OT<a class="headerlink" href="#sorting-the-ot" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.3. </span>Sorting the OT<a class="headerlink" href="#sorting-the-ot" title="Permalink to this headline">¶</a></h2>
 <p>You have set the priority to 1, but forgot to decrease the slit length to
 0.6” at the same time. In band-shuffle mode, you can use very short slits
 because the sky will be obtained in separate exposures where the telescope
@@ -174,9 +171,9 @@ in the OT window with respect to the “priority” column:</p>
 <p>In the dark red top menu bar, select <em>Options -&gt; Set Sort Columns…</em>.
 Locate <em>priority</em> under <em>Table Headings</em>, and then press the left arrow
 to move <em>priority</em> into the “Sort Keys”.</p>
-<div class="figure" id="id2">
-<a class="reference internal image-reference" href="_images/example_globclus_sorting.png"><img alt="_images/example_globclus_sorting.png" src="_images/example_globclus_sorting.png" style="width: 336.6px; height: 257.4px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11.2 </span><span class="caption-text"><em>The object table can be sorted.</em></span></p>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="_images/example_globclus_sorting.png"><img alt="_images/example_globclus_sorting.png" src="_images/example_globclus_sorting.png" style="width: 336.59999999999997px; height: 257.4px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11.2 </span><span class="caption-text"><em>The object table can be sorted.</em></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>In the table view of the OT window, scroll to the top where you will find
 all priority 1 objects. Click on the first, and shift-click on the last
@@ -186,32 +183,32 @@ objects with yellow color, and probably auto-adjust the scroll bar
 yellow <em>Update Slit(s)</em> button.</p>
 </div>
 <div class="section" id="define-the-science-bands">
-<h2>11.4. Define the science bands<a class="headerlink" href="#define-the-science-bands" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.4. </span>Define the science bands<a class="headerlink" href="#define-the-science-bands" title="Permalink to this headline">¶</a></h2>
 <p>Click on <em>Configure Nod &amp; Shuffle Mask</em>. Select <em>Band-shuffle Mode</em>, and set</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Band Size (unbinned pix)      = 810
 Bands y Offset (unbinned pix) = 50
 Shuffle Amt (unbinned pix)    = 810
 </pre></div>
 </div>
-<div class="figure" id="id3">
+<div class="figure align-default" id="id3">
 <a class="reference internal image-reference" href="_images/example_globclus_bandshuffle.png"><img alt="_images/example_globclus_bandshuffle.png" src="_images/example_globclus_bandshuffle.png" style="width: 668.0px; height: 494.0px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 11.3 </span><span class="caption-text"><em>Fine-tune the height of the science and storage bands, and a global
 starting offset, to match your scientific needs.
 In this example we want a wide(r) science band on top of the large elliptical
 galaxy. A storage band at least as high as the science band is required above
 the science band. If you wanted a very wide science band, you would need to
-take another pre-image with the galaxy centered in the detector center.</em></span></p>
+take another pre-image with the galaxy centered in the detector center.</em></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>This will define two science and three storage bands. The top science
 band is centered on the large elliptical galaxy.</p>
 </div>
 <div class="section" id="acquisition-stars">
-<h2>11.5. Acquisition stars<a class="headerlink" href="#acquisition-stars" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.5. </span>Acquisition stars<a class="headerlink" href="#acquisition-stars" title="Permalink to this headline">¶</a></h2>
 <p>Next, we need to find some acquisition stars. These must be located inside
 the science bands. Let’s pick the stars at 798/1515, 801/593 and 1532/517.</p>
 </div>
 <div class="section" id="mask-design">
-<h2>11.6. Mask design<a class="headerlink" href="#mask-design" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.6. </span>Mask design<a class="headerlink" href="#mask-design" title="Permalink to this headline">¶</a></h2>
 <p>Let’s assume we are interested in a small spectral range only, for example
 the Ca triplett at 850, 854 and 866 nm, at the galaxy’s hypothetical
 redshift of z=0.08. We choose the R400 grating and the z+CaT filter
@@ -224,22 +221,22 @@ so that more slits can be placed at the same time.</p>
 <p>The information window tells us how many objects of each priority
 were included in the two mask designs. The same three acquisition
 stars are used in both masks.</p>
-<div class="figure" id="id4">
+<div class="figure align-default" id="id4">
 <a class="reference internal image-reference" href="_images/example_globclus_makemask.png"><img alt="_images/example_globclus_makemask.png" src="_images/example_globclus_makemask.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11.4 </span><span class="caption-text"><em>Summary of the object types placed in the masks</em></span></p>
+<p class="caption"><span class="caption-number">Fig. 11.4 </span><span class="caption-text"><em>Summary of the object types placed in the masks</em></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="displaying-the-mask-design">
-<h2>11.7. Displaying the mask design<a class="headerlink" href="#displaying-the-mask-design" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.7. </span>Displaying the mask design<a class="headerlink" href="#displaying-the-mask-design" title="Permalink to this headline">¶</a></h2>
 <p>The two masks are called <em>objects_globclus_OTODF1.fits</em> and
 <em>objects_globclus_OTODF2.fits</em>. Load the first one, enter the redshift of
 the bright elliptical galaxy (z=0.08), and enter “Ca” in the field
 <em>Show other wavelengths</em>. Set CWL=920 to avoid any of the Ca triplet
 lines being lost in the detector gaps.</p>
-<div class="figure" id="id5">
+<div class="figure align-default" id="id5">
 <a class="reference internal image-reference" href="_images/example_globclus_ODF1.png"><img alt="_images/example_globclus_ODF1.png" src="_images/example_globclus_ODF1.png" style="width: 90%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 11.5 </span><span class="caption-text"><em>The CWL has been adjusted so that the Ca triplet lines stay clear
-of the detector gaps.</em></span></p>
+of the detector gaps.</em></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -262,13 +259,13 @@ of the detector gaps.</em></span></p>
         <li class="right" >
           <a href="example1.html" title="10. Example 1: Redshift survey (GMOS-S)"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, AURA/Gemini Observatory.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+        &#169; Copyright 2020, AURA/Gemini Observatory.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
     </div>
   </body>
 </html>

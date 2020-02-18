@@ -1,18 +1,17 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2. Loading Images &#8212; GMMPS 1.5.1 documentation</title>
+    <meta charset="utf-8" />
+    <title>2. Loading Images &#8212; GMMPS 1.5.2 documentation</title>
     <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3. Object Tables (OTs) – Format" href="OTformat.html" />
@@ -72,7 +71,7 @@
         <li class="right" >
           <a href="installation.html" title="1. Getting started"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
@@ -90,22 +89,20 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="installation.html"
-                        title="previous chapter">1. Getting started</a></p>
+                        title="previous chapter"><span class="section-number">1. </span>Getting started</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="OTformat.html"
-                        title="next chapter">3. Object Tables (OTs) – Format</a></p>
+                        title="next chapter"><span class="section-number">3. </span>Object Tables (OTs) – Format</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -115,25 +112,25 @@
           <div class="body" role="main">
             
   <div class="section" id="loading-images">
-<span id="load-image-skycat-label"></span><span id="index-0"></span><h1>2. Loading Images<a class="headerlink" href="#loading-images" title="Permalink to this headline">¶</a></h1>
+<span id="load-image-skycat-label"></span><span id="index-0"></span><h1><span class="section-number">2. </span>Loading Images<a class="headerlink" href="#loading-images" title="Permalink to this headline">¶</a></h1>
 <p>An image for visual reference is always required when designing a mask with <em>GMMPS</em>.
 The image is either a reduced GMOS/F2 image (<em>pre-image</em>) supplied by Gemini, or a
 reduced image from a different telescope that has been re-formatted so that it appears
 as if it was taken with GMOS or F2 (a <a class="reference internal" href="createOT.html#pseudo-image-label"><span class="std std-ref">pseudo-image</span></a>).</p>
 <div class="section" id="loading">
-<h2>2.1. Loading<a class="headerlink" href="#loading" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1. </span>Loading<a class="headerlink" href="#loading" title="Permalink to this headline">¶</a></h2>
 <p>Launch <em>GMMPS</em> directly with the image name,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gmmps</span> <span class="o">&lt;</span><span class="n">image</span><span class="o">.</span><span class="n">fits</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>or use the <em>File -&gt; Open</em> command in the <em>Skycat</em> menu.</p>
-<div class="figure" id="id1">
+<div class="figure align-default" id="id1">
 <a class="reference internal image-reference" href="_images/gmmps_loadimage.png"><img alt="_images/gmmps_loadimage.png" src="_images/gmmps_loadimage.png" style="width: 673.0px; height: 434.5px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text"><em>FITS image displayed in Skycat.</em></span></p>
+<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text"><em>FITS image displayed in Skycat.</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <span class="target" id="adjust-skycat-cutlevels-label"></span></div>
 <div class="section" id="adjusting-the-dynamic-range">
-<span id="index-1"></span><h2>2.2. Adjusting the dynamic range<a class="headerlink" href="#adjusting-the-dynamic-range" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">2.2. </span>Adjusting the dynamic range<a class="headerlink" href="#adjusting-the-dynamic-range" title="Permalink to this headline">¶</a></h2>
 <p>Click on <em>Auto Set Cut Levels</em> or go to <em>View -&gt; Cut levels</em> to adjust the dynamic
 range. Alternatively, enter <em>Low</em> and <em>High</em> levels. For the low value, choose a
 number somewhat less than the background value. Pixels exceeding the <em>High</em> threshold
@@ -159,13 +156,13 @@ will be displayed white.</p>
         <li class="right" >
           <a href="installation.html" title="1. Getting started"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, AURA/Gemini Observatory.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+        &#169; Copyright 2020, AURA/Gemini Observatory.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
     </div>
   </body>
 </html>

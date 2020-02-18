@@ -1,18 +1,17 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>16. Appendix: GMMPS wavelength overlays &#8212; GMMPS 1.5.1 documentation</title>
+    <meta charset="utf-8" />
+    <title>16. Appendix: GMMPS wavelength overlays &#8212; GMMPS 1.5.2 documentation</title>
     <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="17. Appendix: GMOS WaveMapper" href="wavemapper.html" />
@@ -72,7 +71,7 @@
         <li class="right" >
           <a href="spoc.html" title="15. Appendix: Slit selection algorithm"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
@@ -92,22 +91,20 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="spoc.html"
-                        title="previous chapter">15. Appendix: Slit selection algorithm</a></p>
+                        title="previous chapter"><span class="section-number">15. </span>Appendix: Slit selection algorithm</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="wavemapper.html"
-                        title="next chapter">17. Appendix: GMOS WaveMapper</a></p>
+                        title="next chapter"><span class="section-number">17. </span>Appendix: GMOS WaveMapper</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -117,45 +114,345 @@
           <div class="body" role="main">
             
   <div class="section" id="appendix-gmmps-wavelength-overlays">
-<span id="gmmps-wavelength-calculations-label"></span><span id="index-0"></span><h1>16. Appendix: <em>GMMPS</em> wavelength overlays<a class="headerlink" href="#appendix-gmmps-wavelength-overlays" title="Permalink to this headline">¶</a></h1>
+<span id="gmmps-wavelength-calculations-label"></span><span id="index-0"></span><h1><span class="section-number">16. </span>Appendix: <em>GMMPS</em> wavelength overlays<a class="headerlink" href="#appendix-gmmps-wavelength-overlays" title="Permalink to this headline">¶</a></h1>
 <p>GMOS is a highly versatile spectrograph with interchangable gratings, and
 adjustable central wavelength (CWL) settings. Optical aberrations introduce significant
 non-linear dependencies. A MOS mask with 135 slits evenly covering the slit placement area
 was observed with all gratings, stepping from 380nm to 950nm. Wavelength solutions were
 obtained for each slit. In total, 17224 arc spectra were calibrated.</p>
-<div class="figure" id="id1">
+<div class="figure align-default" id="id1">
 <a class="reference internal image-reference" href="_images/grid.png"><img alt="_images/grid.png" src="_images/grid.png" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 16.1 </span><span class="caption-text"><em>A special mask was cut with 135 evenly spaced slits to determine the
-wavelength models for GMOS.</em></span></p>
+wavelength models for GMOS.</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id2">
+<div class="figure align-default" id="id2">
 <a class="reference internal image-reference" href="_images/arcfield.jpg"><img alt="_images/arcfield.jpg" src="_images/arcfield.jpg" style="width: 50%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 16.2 </span><span class="caption-text"><em>A typical arc spectrum obtained using the special mask, observed with
-the B600 grating.</em></span></p>
+the B600 grating.</em></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="nonlinear-model-per-grating">
-<h2>16.1. Nonlinear model (per grating)<a class="headerlink" href="#nonlinear-model-per-grating" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">16.1. </span>Nonlinear model (per grating)<a class="headerlink" href="#nonlinear-model-per-grating" title="Permalink to this headline">¶</a></h2>
 <p>Up to 80 arc lines per slit were matched with a reference line catalog, and a third order
 polynomial was fit to the arc spectrum with a typical accuracy of 0.15 pixel for both
-GMOS-N and GMOS-S. The wavelength at a certain detector position <img class="math" src="_images/math/4c959901170d29e0ddc14cbf219f2157b93c7315.png" alt="(x_d/y_d)"/> depends on
-the slit position <img class="math" src="_images/math/ded650f0f37bab6ca791d6b7f0826b92d1d99d3b.png" alt="(x_s/y_s)"/> and the chosen central wavelength, <img class="math" src="_images/math/dddf336e131ed53b9fe74471774601a3e07e04de.png" alt="{\rm CWL}"/>.
+GMOS-N and GMOS-S. The wavelength at a certain detector position <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">(x_d/y_d)</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ depends on
+the slit position <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">(x_s/y_s)</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ and the chosen central wavelength, <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">{\rm CWL}</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+.
 Each grating is modeled independently using a cubic polynomial:</p>
-<div class="math">
-<p><img src="_images/math/5471280692f809c724e5d14bf19ac7c2320c7ca1.png" alt="\lambda = \sum_{i=0}^3 c_i(x_s,y_s,{\rm CWL}) \, x_d^i"/></p>
-</div><p>The coefficients <img class="math" src="_images/math/ff90a5f025d9fd305aac19c8dd64fa15f0c789a1.png" alt="c_i"/> themselves have a cubic dependence on <img class="math" src="_images/math/1514c939d86b56b1d47cfef99412c57bfbcf70ca.png" alt="x_s"/>, and
-a quadratic dependence on <img class="math" src="_images/math/2a2162770fa74755798cded70311c62184a15ad1.png" alt="y_s"/>, the latter describing the typical curved appearance
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">\lambda = \sum_{i=0}^3 c_i(x_s,y_s,{\rm CWL}) \, x_d^i
+
+</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+<p>The coefficients <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">c_i</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ themselves have a cubic dependence on <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">x_s</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+, and
+a quadratic dependence on <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">y_s</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+, the latter describing the typical curved appearance
 of the GMOS arcs:</p>
-<div class="math">
-<p><img src="_images/math/78a9c82f0ca0c75765062d09a940cea38e0a4a4f.png" alt="c_i = \sum_{j=0}^3 p_{ij}({\rm CWL})\,x_s^j + \sum_{j=1}^2 q_{ij}({\rm CWL})\,y_s^j"/></p>
-</div><p>with</p>
-<div class="math">
-<p><img src="_images/math/fea765f59104770b8daceb4398b0d7a9a871b5e7.png" alt="q_{ij} = 0\; {\rm for\;} i\geq2\;{(\rm\;i.e.\;}c_{2,3}{\;\rm do\;not\;dependend\;on\;}y_s),"/></p>
-</div><p>and a quadratic dependence on <img class="math" src="_images/math/dddf336e131ed53b9fe74471774601a3e07e04de.png" alt="{\rm CWL}"/>:</p>
-<div class="math">
-<p><img src="_images/math/85d7f5e32582f11c748cf36b25af1dd3a4531837.png" alt="p_{ij} = \sum_{k=0}^2 r_{ijk}\;{\rm CWL}^k"/></p>
-</div><div class="math">
-<p><img src="_images/math/24f738acebeaf6d46912ca73d4786b0eee1537b6.png" alt="q_{ij} = \sum_{k=0}^2 s_{ijk}\;{\rm CWL}^k\;."/></p>
-</div><p>In total, there are 60 free parameters per grating. The models are accurate to about 1 Angstrom,
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">c_i = \sum_{j=0}^3 p_{ij}({\rm CWL})\,x_s^j + \sum_{j=1}^2 q_{ij}({\rm CWL})\,y_s^j
+
+</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+<p>with</p>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">q_{ij} = 0\; {\rm for\;} i\geq2\;{(\rm\;i.e.\;}c_{2,3}{\;\rm do\;not\;dependend\;on\;}y_s),
+
+</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+<p>and a quadratic dependence on <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">{\rm CWL}</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+:</p>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">p_{ij} = \sum_{k=0}^2 r_{ijk}\;{\rm CWL}^k
+
+</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">q_{ij} = \sum_{k=0}^2 s_{ijk}\;{\rm CWL}^k\;.
+
+</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+<p>In total, there are 60 free parameters per grating. The models are accurate to about 1 Angstrom,
 and mostly limited by the
 <a class="reference internal" href="#grating-mechanism-accuracy-label"><span class="std std-ref">grating mechanism and its calibrating equation</span></a>
 (yielding a typical accuracy of one or a few nm, usually smaller than the wavelength interval
@@ -163,16 +460,116 @@ cut out by the detector gaps). To be conservative, one should assume that the wa
 uncertainty is comparable to the detector gap width.</p>
 </div>
 <div class="section" id="cwl-displacement-and-dispersion-factor">
-<h2>16.2. CWL displacement and dispersion factor<a class="headerlink" href="#cwl-displacement-and-dispersion-factor" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">16.2. </span>CWL displacement and dispersion factor<a class="headerlink" href="#cwl-displacement-and-dispersion-factor" title="Permalink to this headline">¶</a></h2>
 <p>The following images illustrate the behaviour of just two low order descriptors derived from the
 mathematical models for each of the gratings. The square panels represent the slit placement area
-for GMOS, about <img class="math" src="_images/math/f25d010724ec2e573fbe7bfd8e3212e24375cb30.png" alt="4200\times4200"/> pixel wide.</p>
+for GMOS, about <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">4200\times4200</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ pixel wide.</p>
 <p>The first descriptor is the <em>offset of the central wavelength from the slit position</em>, displayed
 in the upper panel.
 If the <a class="reference external" href="https://nickkonidaris.com/2014/10/17/anamorphic-factor/">anamorphic factor</a>
-was equal to <img class="math" src="_images/math/16722554fbc8e10c385e41b432b944b0816e0cd6.png" alt="A=1.0"/>, then the central wavelength would appear at the slit position.
-For <img class="math" src="_images/math/082abec73ccb3190a9d9a08c666bb7386dcb3461.png" alt="A&gt;1.0"/>, the central wavelengths are offsets inwards, towards the central column
-of the GMOS detector array; for <img class="math" src="_images/math/3de8724a90ea857c7739f16885bf78c41f4b15df.png" alt="A&lt;1"/>, they are pushed outwards. The contour lines
+was equal to <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">A=1.0</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+, then the central wavelength would appear at the slit position.
+For <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">A&gt;1.0</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+, the central wavelengths are offsets inwards, towards the central column
+of the GMOS detector array; for <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">A&lt;1</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+, they are pushed outwards. The contour lines
 reflect the typical curvature observed in GMOS longslit arcs. It can be seen that the
 anamorphic factor is highly non-uniform across the GMOS detector array, and also strongly
 dependent on central wavelength.</p>
@@ -189,7 +586,7 @@ on the position of the slit as well as the central wavelength.</p>
 <p>Fig. 16.4 <em>CWL offset and dispersion factor for R831 (2nd order), B600 and B1200.</em></p>
 </div>
 <div class="section" id="residuals-of-the-wavelength-maps">
-<span id="grating-mechanism-accuracy-label"></span><h2>16.3. Residuals of the wavelength maps<a class="headerlink" href="#residuals-of-the-wavelength-maps" title="Permalink to this headline">¶</a></h2>
+<span id="grating-mechanism-accuracy-label"></span><h2><span class="section-number">16.3. </span>Residuals of the wavelength maps<a class="headerlink" href="#residuals-of-the-wavelength-maps" title="Permalink to this headline">¶</a></h2>
 <p>The CWL is chosen by sending a certain tilt angle to the grating mechanism.
 The grating calibration equation, which ultimately relates CWL and tilt angle,
 is updated infrequently; an effort has been made at Gemini-North for more
@@ -203,10 +600,35 @@ observed central wavelength and the commanded central wavelength, for a
 slit at the detector center where anamorphic displacement is zero. The
 residuals are shown in Angstrom and (unbinned) pixels, respectively.
 The gratings were stepped through the CWLs continuously without interruption.</p>
-<a class="reference internal image-reference" href="_images/GMOS-S_wavecal_solution_lambda.png"><img alt="_images/GMOS-S_wavecal_solution_lambda.png" src="_images/GMOS-S_wavecal_solution_lambda.png" style="width: 349.65px; height: 209.7px;" /></a>
-<a class="reference internal image-reference" href="_images/GMOS-S_wavecal_solution_pixel.png"><img alt="_images/GMOS-S_wavecal_solution_pixel.png" src="_images/GMOS-S_wavecal_solution_pixel.png" style="width: 349.65px; height: 209.7px;" /></a>
+<a class="reference internal image-reference" href="_images/GMOS-S_wavecal_solution_lambda.png"><img alt="_images/GMOS-S_wavecal_solution_lambda.png" src="_images/GMOS-S_wavecal_solution_lambda.png" style="width: 349.65000000000003px; height: 209.70000000000002px;" /></a>
+<a class="reference internal image-reference" href="_images/GMOS-S_wavecal_solution_pixel.png"><img alt="_images/GMOS-S_wavecal_solution_pixel.png" src="_images/GMOS-S_wavecal_solution_pixel.png" style="width: 349.65000000000003px; height: 209.70000000000002px;" /></a>
 <p>Fig. 16.5 <em>CWL residuals for GMOS-S, in Angstrom (left) and unbinned pixels (right).</em></p>
-<p><strong>R150:</strong> Shows a CWL oscillation of <img class="math" src="_images/math/50d6e780b5b859608e650113d8bb954183926a02.png" alt="\pm"/> 80 nm, which is of little
+<p><strong>R150:</strong> Shows a CWL oscillation of <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">\pm</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ 80 nm, which is of little
 relevance because of the grating’s low spectral resolution. The amplitude corresponds to about 40 pixel.</p>
 <p><strong>R400:</strong> The CWL is reproduced within 1 nm across the entire wavelength
 range.</p>
@@ -215,7 +637,32 @@ range. In 2nd order mode, the CWL for the R831 is badly reproduced between
 475 and 550nm, which is currently under investigation. This is critical,
 because the second order of the R831 grating has high blue sensitivity
 (comparable to the B1200, but with 40% higher resolution).</p>
-<p><strong>B600:</strong> Shows an oscillation with an amplitude of about <img class="math" src="_images/math/50d6e780b5b859608e650113d8bb954183926a02.png" alt="\pm"/> 2 nm
+<p><strong>B600:</strong> Shows an oscillation with an amplitude of about <div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">\pm</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2019-10-01&gt; patch level 3
+
+! LaTeX Error: File `article.cls' not found.
+
+Type X to quit or &lt;RETURN&gt; to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+! Emergency stop.
+&lt;read *&gt; 
+         
+l.2 \usepackage
+               [utf8]{inputenc}^^M
+No pages of output.
+Transcript written on math.log.
+</p>
+</div>
+ 2 nm
 (30 pixel) and periodicity of about 90-100 CWL nm. The cause of this is
 unknown, perhaps a mechanical issue with the grating mechanism. Note that 2 nm
 is still smaller than the detector gap width.</p>
@@ -223,16 +670,16 @@ is still smaller than the detector gap width.</p>
 At wavelengths redder than 750 nm (where the grating is inefficient),
 large deviations occur.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>While these systematic offsets are easily measured, they are not reflected
 in the mathematical models which use a quadratic polynomial, only, to
 describe the CWL dependence of the wavelength solutions.</p>
-<p class="last">Wavelength mapping for GMOS-N is pending. For the time being, the same
+<p>Wavelength mapping for GMOS-N is pending. For the time being, the same
 models as for GMOS-S are used, because the optics are very similar.</p>
 </div>
 </div>
 <div class="section" id="cwl-repeatability">
-<h2>16.4. CWL repeatability<a class="headerlink" href="#cwl-repeatability" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">16.4. </span>CWL repeatability<a class="headerlink" href="#cwl-repeatability" title="Permalink to this headline">¶</a></h2>
 <p>To study the long-term repeatability of the CWL, GMOS-N and GMOS-S long-slit
 archival data (taken over several years) were analyzed. The histograms below
 show the difference between the requested CWL and the observed CWL for both
@@ -243,14 +690,14 @@ in December 2016 has a more recent origin.</p>
 <p>Note that the R150, R831 and B1200 gratings are interchanged frequently,
 whereas the R400 and the B600 are permanently installed. Further comments
 in the Figure captions.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="_images/global_grating_accuracy_GMOS-N.png"><img alt="GMOS-Nnm" class="align-middle" src="_images/global_grating_accuracy_GMOS-N.png" style="width: 303.0px; height: 379.5px;" /></a></td>
-<td><a class="reference internal" href="_images/global_grating_accuracy_GMOS-S.png"><img alt="GMOS-Snm" class="align-middle" src="_images/global_grating_accuracy_GMOS-S.png" style="width: 303.0px; height: 380.1px;" /></a></td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_images/global_grating_accuracy_GMOS-N.png"><img alt="GMOS-Nnm" class="align-middle" src="_images/global_grating_accuracy_GMOS-N.png" style="width: 303.0px; height: 379.5px;" /></a></p></td>
+<td><p><a class="reference internal" href="_images/global_grating_accuracy_GMOS-S.png"><img alt="GMOS-Snm" class="align-middle" src="_images/global_grating_accuracy_GMOS-S.png" style="width: 303.0px; height: 380.09999999999997px;" /></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -260,14 +707,14 @@ GMOS-N were taken between January 2012 and April 2016, and for GMOS-S between Au
 2014 (commissioning of the GMOS-S Hamamatsu detectors) and April 2016. Used were all
 available arcs taken with 2x2 binning, central spectrum readout, and slit widths of
 1 arcsecond or less.</em></p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="_images/global_grating_accuracy_GMOS-N_pixel.png"><img alt="GMOS-Npix" class="align-middle" src="_images/global_grating_accuracy_GMOS-N_pixel.png" style="width: 303.0px; height: 365.7px;" /></a></td>
-<td><a class="reference internal" href="_images/global_grating_accuracy_GMOS-S_pixel.png"><img alt="GMOS-Spix" class="align-middle" src="_images/global_grating_accuracy_GMOS-S_pixel.png" style="width: 303.0px; height: 380.1px;" /></a></td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_images/global_grating_accuracy_GMOS-N_pixel.png"><img alt="GMOS-Npix" class="align-middle" src="_images/global_grating_accuracy_GMOS-N_pixel.png" style="width: 303.0px; height: 365.7px;" /></a></p></td>
+<td><p><a class="reference internal" href="_images/global_grating_accuracy_GMOS-S_pixel.png"><img alt="GMOS-Spix" class="align-middle" src="_images/global_grating_accuracy_GMOS-S_pixel.png" style="width: 303.0px; height: 380.09999999999997px;" /></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -296,13 +743,13 @@ coordinates).</em></p>
         <li class="right" >
           <a href="spoc.html" title="15. Appendix: Slit selection algorithm"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.1 Documentation </a> &raquo;</li>
+<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
  
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, AURA/Gemini Observatory.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+        &#169; Copyright 2020, AURA/Gemini Observatory.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
     </div>
   </body>
 </html>
