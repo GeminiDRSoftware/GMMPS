@@ -1,3 +1,11 @@
+2020-02-18 bmiller
+
+	* Added filters
+		GMOS-N: ri, OVI, OVIC
+		GMOS-S: OVI, OVIC
+		
+	* Documentation updates
+	
 2020-02-14 bmiller
 
 	* VERSION
