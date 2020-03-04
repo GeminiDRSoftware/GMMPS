@@ -34,7 +34,7 @@ all slits.
    `Observing Tool <http://www.gemini.edu/node/11161>`_, not in *GMMPS*. 
    You may either nod in the slits (increasing the observing efficiency) or nod off to 
    sky. *GMMPS* will design the masks with the objects centered in the slits. 
-   If you use tilted slits, then one of the nod positions must be :math:`q=0`, as otherwise
+   If you use tilted slits, then one of the nod positions must be q=0, as otherwise
    the object will never be placed in the slit.
    
 .. _BDF_label:
