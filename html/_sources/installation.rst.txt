@@ -51,7 +51,7 @@ Dependencies
 
 Running *GMMPS* requires a standard unix-like X11 environment. MacOS users should install `XQuartz <https://www.xquartz.org/>`_. Users of recent Ubuntu releases should start a Xorg session.
 
-Compiling *GMMPS* from sources requires a C/C++ compiler, make, and X11 development libraries. MacOS users will need to download Xcode from the Mac App Store and run it at least once to install the command line tools.
+Compiling *GMMPS* from sources requires a C/C++ compiler, make, and X11 development libraries. MacOS users will need to download Xcode from the Mac App Store and run it at least once to install various components.
 
 *GMMPS* now comes with all the packages required to compile it including Tcl/Tk and Skycat. They are installed into the bin and lib directories of *GMMPS* to keep them isolated from any other versions on your system.
 
@@ -64,8 +64,17 @@ pseudo-images.
 Installation
 ============
 
-Pre-compiled versions of *GMMPS* are available for macOS and 
-a few standard flavors of Linux. The compatibility list is not 
+Unless there are known compilation issues for your operating system you should first try to compile *GMMPS* from source. This helps ensure compatibility with your system and avoids Gatekeeper problems on macOS 10.15 (Catalina). There are known problems with compiling *GMMPS* on Ubuntu 17/18, and Fedora 28. Please use the compatible binary releases on these operating systems.
+
+To compile *GMMPS* from raw sources, do: ::
+
+  tar xvfz gmmps-<version>.tgz
+  cd gmmps-<version>
+  ./install.sh
+
+Finally, put /some_path/gmmps-<version>/bin/gmmps in your path.
+
+Pre-compiled versions of *GMMPS* are available for macOS and a few standard flavors of Linux. The compatibility list is not 
 exhaustive, it only lists systems that have been tested.
 
 ======================================================================================  =============== =========================
@@ -85,22 +94,14 @@ Untar the distribution file and then::
 
 to configure the paths in the *GMMPS* startup script (./bin/gmmps).
 
-There are known problems with compiling *GMMPS* on Ubuntu 17/18, and Fedora 28. Please use the compatible binary releases on these operating systems.
-
-To compile *GMMPS* from raw sources, do: ::
-
-  tar xvfz gmmps-<version>.tgz
-  cd gmmps-<version>
-  ./install.sh
-
-Finally, put /some_path/gmmps-<version>/bin/gmmps in your path.
+If you install the pre-compiled Mac binaries on macOS 10.15 (Catalina) then the first time that you run it you will need to give each executable component permission to run. You can do this by opening System Preferences and selecting Security & Privacy -> General and click on Open Anyway. Finally, click Open in the next dialog. This has to be done multiple times. All this can be avoided by compiling from source (see above).
 
 If you are not able to compile or run *GMMPS* on a machine, then one alternative is to run it in a compatible operating system within a virtual machine. Gemini has one Linux virtual machine available for running *GMMPS* when a local installation is not possible. Please submit a `helpdesk ticket <https://www.gemini.edu/sciops/helpdesk/submit-general-helpdesk-request>`_ to request a temporary account on this machine.
 
 .. index:: Installation; macOS
 
-Notes for macOS users
----------------------
+Compilation notes for macOS users
+---------------------------------
 
 You must use macOS 10.6 or later. There might be a version conflict depending on
 which compiler suite (*clang*, *gcc*) was installed on your Mac, and how it was

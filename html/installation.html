@@ -85,7 +85,7 @@
 <li><a class="reference internal" href="#download">1.2. Download</a></li>
 <li><a class="reference internal" href="#dependencies">1.3. Dependencies</a></li>
 <li><a class="reference internal" href="#installation">1.4. Installation</a><ul>
-<li><a class="reference internal" href="#notes-for-macos-users">1.4.1. Notes for macOS users</a></li>
+<li><a class="reference internal" href="#compilation-notes-for-macos-users">1.4.1. Compilation notes for macOS users</a></li>
 </ul>
 </li>
 </ul>
@@ -153,7 +153,7 @@ aspects of <em>GMMPS</em>.</p>
 <div class="section" id="dependencies">
 <span id="index-1"></span><h2><span class="section-number">1.3. </span>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <p>Running <em>GMMPS</em> requires a standard unix-like X11 environment. MacOS users should install <a class="reference external" href="https://www.xquartz.org/">XQuartz</a>. Users of recent Ubuntu releases should start a Xorg session.</p>
-<p>Compiling <em>GMMPS</em> from sources requires a C/C++ compiler, make, and X11 development libraries. MacOS users will need to download Xcode from the Mac App Store and run it at least once to install the command line tools.</p>
+<p>Compiling <em>GMMPS</em> from sources requires a C/C++ compiler, make, and X11 development libraries. MacOS users will need to download Xcode from the Mac App Store and run it at least once to install various components.</p>
 <p><em>GMMPS</em> now comes with all the packages required to compile it including Tcl/Tk and Skycat. They are installed into the bin and lib directories of <em>GMMPS</em> to keep them isolated from any other versions on your system.</p>
 <p>The <a class="reference external" href="http://www.gemini.edu/node/11823">Gemini IRAF package</a> is
 also needed to create the input object tables and, if necessary,
@@ -161,8 +161,15 @@ pseudo-images.</p>
 </div>
 <div class="section" id="installation">
 <span id="index-2"></span><h2><span class="section-number">1.4. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Pre-compiled versions of <em>GMMPS</em> are available for macOS and
-a few standard flavors of Linux. The compatibility list is not
+<p>Unless there are known compilation issues for your operating system you should first try to compile <em>GMMPS</em> from source. This helps ensure compatibility with your system and avoids Gatekeeper problems on macOS 10.15 (Catalina). There are known problems with compiling <em>GMMPS</em> on Ubuntu 17/18, and Fedora 28. Please use the compatible binary releases on these operating systems.</p>
+<p>To compile <em>GMMPS</em> from raw sources, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="n">xvfz</span> <span class="n">gmmps</span><span class="o">-&lt;</span><span class="n">version</span><span class="o">&gt;.</span><span class="n">tgz</span>
+<span class="n">cd</span> <span class="n">gmmps</span><span class="o">-&lt;</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">./</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Finally, put /some_path/gmmps-&lt;version&gt;/bin/gmmps in your path.</p>
+<p>Pre-compiled versions of <em>GMMPS</em> are available for macOS and a few standard flavors of Linux. The compatibility list is not
 exhaustive, it only lists systems that have been tested.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -205,17 +212,10 @@ exhaustive, it only lists systems that have been tested.</p>
 </pre></div>
 </div>
 <p>to configure the paths in the <em>GMMPS</em> startup script (./bin/gmmps).</p>
-<p>There are known problems with compiling <em>GMMPS</em> on Ubuntu 17/18, and Fedora 28. Please use the compatible binary releases on these operating systems.</p>
-<p>To compile <em>GMMPS</em> from raw sources, do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="n">xvfz</span> <span class="n">gmmps</span><span class="o">-&lt;</span><span class="n">version</span><span class="o">&gt;.</span><span class="n">tgz</span>
-<span class="n">cd</span> <span class="n">gmmps</span><span class="o">-&lt;</span><span class="n">version</span><span class="o">&gt;</span>
-<span class="o">./</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span>
-</pre></div>
-</div>
-<p>Finally, put /some_path/gmmps-&lt;version&gt;/bin/gmmps in your path.</p>
+<p>If you install the pre-compiled Mac binaries on macOS 10.15 (Catalina) then the first time that you run it you will need to give each executable component permission to run. You can do this by opening System Preferences and selecting Security &amp; Privacy -&gt; General and click on Open Anyway. Finally, click Open in the next dialog. This has to be done multiple times. All this can be avoided by compiling from source (see above).</p>
 <p>If you are not able to compile or run <em>GMMPS</em> on a machine, then one alternative is to run it in a compatible operating system within a virtual machine. Gemini has one Linux virtual machine available for running <em>GMMPS</em> when a local installation is not possible. Please submit a <a class="reference external" href="https://www.gemini.edu/sciops/helpdesk/submit-general-helpdesk-request">helpdesk ticket</a> to request a temporary account on this machine.</p>
-<div class="section" id="notes-for-macos-users">
-<span id="index-3"></span><h3><span class="section-number">1.4.1. </span>Notes for macOS users<a class="headerlink" href="#notes-for-macos-users" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="compilation-notes-for-macos-users">
+<span id="index-3"></span><h3><span class="section-number">1.4.1. </span>Compilation notes for macOS users<a class="headerlink" href="#compilation-notes-for-macos-users" title="Permalink to this headline">¶</a></h3>
 <p>You must use macOS 10.6 or later. There might be a version conflict depending on
 which compiler suite (<em>clang</em>, <em>gcc</em>) was installed on your Mac, and how it was
 installed (<em>homebrew</em>, <em>Xcode</em>, …). To test whether you are affected, do the
