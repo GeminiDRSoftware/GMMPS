@@ -25,7 +25,7 @@ Download
 
 *GMMPS* |version| comes with the source code and example images. The latest version is recommended. At least version 1.4.5 is required.
 It is available at
-`http://software.gemini.edu/gmmps/gmmps-1.5.2.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.2.tgz>`_ (155 MB).
+`http://software.gemini.edu/gmmps/gmmps-1.5.3.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.3.tgz>`_ (155 MB).
 
 The following instruments are supported:
 
@@ -64,7 +64,7 @@ pseudo-images.
 Installation
 ============
 
-Unless there are known compilation issues for your operating system you should first try to compile *GMMPS* from source. This helps ensure compatibility with your system and avoids Gatekeeper problems on macOS 10.15 (Catalina). There are known problems with compiling *GMMPS* on Ubuntu 17/18, and Fedora 28. Please use the compatible binary releases on these operating systems.
+Unless there are known compilation issues for your operating system you should first try to compile *GMMPS* from source. This helps ensure compatibility with your system and avoids Gatekeeper problems on macOS 10.15 (Catalina) and 11.0 (Big Sur). There are known problems with compiling *GMMPS* on Ubuntu 17/18, and Fedora 28 and macOS 11.0. Please use the compatible binary releases on these operating systems.
 
 To compile *GMMPS* from raw sources, do: ::
 
@@ -80,11 +80,9 @@ exhaustive, it only lists systems that have been tested.
 ======================================================================================  =============== =========================
 File                                                                                    Compiled on     Compatible With
 ======================================================================================  =============== =========================
-`gmmps-1.5.2_rh5_32.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.2_rh5_32.tgz>`_     CentOS 5
-`gmmps-1.5.2_rh6_64.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.2_rh6_64.tgz>`_     CentOS 6
-`gmmps-1.5.2_rh7_64.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.2_rh7_64.tgz>`_     CentOS 7        Ubuntu 17/18, Fedora 28
-`gmmps-1.5.2_ub16_64.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.2_ub16_64.tgz>`_   Ubuntu 16.04    Ubuntu 17/18
-`gmmps-1.5.2_macos.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.2_macos.tgz>`_       macOS 10.13.6   macOS 10.14/10.15
+`gmmps-1.5.3_rh7_64.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.3_rh7_64.tgz>`_     CentOS 7        Ubuntu 17/22
+`gmmps-1.5.3_ub16_64.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.3_ub16_64.tgz>`_   Ubuntu 16.04    Ubuntu 17/22
+`gmmps-1.5.3_macos.tgz <http://software.gemini.edu/gmmps/gmmps-1.5.3_macos.tgz>`_       macOS 10.13.6   macOS 10.14/13.0
 ======================================================================================  =============== =========================
 
 Untar the distribution file and then::
@@ -94,7 +92,7 @@ Untar the distribution file and then::
 
 to configure the paths in the *GMMPS* startup script (./bin/gmmps).
 
-If you install the pre-compiled Mac binaries on macOS 10.15 (Catalina) then the first time that you run it you will need to give each executable permission to run. You can do this by opening System Preferences and selecting Security & Privacy -> General and click on Open Anyway. Finally, click Open in the next dialog. This has to be done multiple times. All this can be avoided by compiling from source (see above).
+If you install the pre-compiled Mac binaries on macOS 10.15 (Catalina) or 11.0 (Big Sur) then the first time that you run it you will need to give each executable permission to run. You can do this by opening System Preferences and selecting Security & Privacy -> General and click on Open Anyway. Finally, click Open in the next dialog. This has to be done multiple times. All this can be avoided by compiling from source (see above) or by opening System Preferences, selecting Security & Privacy, Privacy, and then Developer Tools from the left-hand list. Finally, click on the padlock to allow changes and click the checkbox next to Terminal icon to allow execution of command line applications that do not meet the security policies.
 
 If you are not able to compile or run *GMMPS* on a machine, then one alternative is to run it in a compatible operating system within a virtual machine. Gemini has one Linux virtual machine available for running *GMMPS* when a local installation is not possible. Please submit a `helpdesk ticket <https://www.gemini.edu/sciops/helpdesk/submit-general-helpdesk-request>`_ to request a temporary account on this machine.
 

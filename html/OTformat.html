@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>3. Object Tables (OTs) – Format &#8212; GMMPS 1.5.2 documentation</title>
-    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. Object Tables (OTs) – Format &#8212; GMMPS 1.5.3rc documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gmmps.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4. Creating OTs" href="createOT.html" />
@@ -71,15 +70,17 @@
         <li class="right" >
           <a href="loadimage.html" title="2. Loading Images"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>Object Tables (OTs) – Format</a></li> 
       </ul>
     </div>
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">3. Object Tables (OTs) – Format</a><ul>
 <li><a class="reference internal" href="#mandatory-columns">3.1. Mandatory columns</a></li>
 <li><a class="reference internal" href="#optional-columns">3.2. Optional columns</a><ul>
@@ -92,22 +93,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="loadimage.html"
-                        title="previous chapter"><span class="section-number">2. </span>Loading Images</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="createOT.html"
-                        title="next chapter"><span class="section-number">4. </span>Creating OTs</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="loadimage.html"
+                          title="previous chapter"><span class="section-number">2. </span>Loading Images</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="createOT.html"
+                          title="next chapter"><span class="section-number">4. </span>Creating OTs</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -116,31 +122,31 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="object-tables-ots-format">
-<span id="index-0"></span><h1><span class="section-number">3. </span>Object Tables (OTs) – Format<a class="headerlink" href="#object-tables-ots-format" title="Permalink to this headline">¶</a></h1>
+  <section id="object-tables-ots-format">
+<span id="index-0"></span><h1><span class="section-number">3. </span>Object Tables (OTs) – Format<a class="headerlink" href="#object-tables-ots-format" title="Permalink to this heading">¶</a></h1>
 <p>Object Tables (OTs) are FITS tables containing all necessary information
 for the mask design. This section describes the OT format, and the next
 section <a class="reference internal" href="createOT.html#create-ot-label"><span class="std std-ref">how to create an OT</span></a>.</p>
-<div class="section" id="mandatory-columns">
-<span id="mandatory-ot-columns-label"></span><span id="index-1"></span><h2><span class="section-number">3.1. </span>Mandatory columns<a class="headerlink" href="#mandatory-columns" title="Permalink to this headline">¶</a></h2>
+<section id="mandatory-columns">
+<span id="mandatory-ot-columns-label"></span><span id="index-1"></span><h2><span class="section-number">3.1. </span>Mandatory columns<a class="headerlink" href="#mandatory-columns" title="Permalink to this heading">¶</a></h2>
 <p>OTs have the following mandatory columns, ideally in this order:</p>
 <dl class="field-list simple">
-<dt class="field-odd">ID</dt>
+<dt class="field-odd">ID<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Unique object id (16-bit <strong>integer</strong>)</p>
 </dd>
-<dt class="field-even">RA</dt>
+<dt class="field-even">RA<span class="colon">:</span></dt>
 <dd class="field-even"><p>Right ascension in hours (<strong>float</strong>)</p>
 </dd>
-<dt class="field-odd">DEC</dt>
+<dt class="field-odd">DEC<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Declination in degrees (<strong>float</strong>)</p>
 </dd>
-<dt class="field-even">x_ccd</dt>
+<dt class="field-even">x_ccd<span class="colon">:</span></dt>
 <dd class="field-even"><p>X coordinate of object position in pixels (<strong>float</strong>)</p>
 </dd>
-<dt class="field-odd">y_ccd</dt>
+<dt class="field-odd">y_ccd<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Y coordinate of object position in pixels (<strong>float</strong>)</p>
 </dd>
-<dt class="field-even">MAG</dt>
+<dt class="field-even">MAG<span class="colon">:</span></dt>
 <dd class="field-even"><p>Relative magnitude (<strong>float</strong>)</p>
 </dd>
 </dl>
@@ -152,38 +158,38 @@ section <a class="reference internal" href="createOT.html#create-ot-label"><span
 positions in the image. Cartesian x and y coordinates are used to define
 (and plot) the positions of the slits.</p>
 </div>
-</div>
-<div class="section" id="optional-columns">
-<span id="optional-ot-columns-label"></span><span id="index-2"></span><h2><span class="section-number">3.2. </span>Optional columns<a class="headerlink" href="#optional-columns" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="optional-columns">
+<span id="optional-ot-columns-label"></span><span id="index-2"></span><h2><span class="section-number">3.2. </span>Optional columns<a class="headerlink" href="#optional-columns" title="Permalink to this heading">¶</a></h2>
 <p>The following columns (if absent) will be added automatically by <em>GMMPS</em>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">slitsize_x</dt>
+<dt class="field-odd">slitsize_x<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Slit extent in X-direction in arcsec (<strong>float</strong>)</p>
 </dd>
-<dt class="field-even">slitsize_y</dt>
+<dt class="field-even">slitsize_y<span class="colon">:</span></dt>
 <dd class="field-even"><p>Slit extent in Y-direction in arcsec (<strong>float</strong>)</p>
 </dd>
-<dt class="field-odd">slitpos_x</dt>
+<dt class="field-odd">slitpos_x<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Offset in X-direction relative to the object in arcsec (<strong>float</strong>)</p>
 </dd>
-<dt class="field-even">slitpos_y</dt>
+<dt class="field-even">slitpos_y<span class="colon">:</span></dt>
 <dd class="field-even"><p>Offset in Y-direction relative to the object in arcsec (<strong>float</strong>)</p>
 </dd>
-<dt class="field-odd">slittilt</dt>
+<dt class="field-odd">slittilt<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Slit position angle in degrees (<strong>float</strong>)</p>
 </dd>
-<dt class="field-even">slittype</dt>
+<dt class="field-even">slittype<span class="colon">:</span></dt>
 <dd class="field-even"><p>Slit type. Currently, only rectangular slits are allowed (slittype = R; <strong>char*1</strong>)</p>
 </dd>
-<dt class="field-odd">priority</dt>
+<dt class="field-odd">priority<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Priority (<strong>char*1</strong>)</p>
 </dd>
-<dt class="field-even">redshift</dt>
+<dt class="field-even">redshift<span class="colon">:</span></dt>
 <dd class="field-even"><p>Redshift of the source (if any, otherwise zero) (<strong>float</strong>)</p>
 </dd>
 </dl>
-<div class="section" id="priority">
-<span id="index-3"></span><h3><span class="section-number">3.2.1. </span>Priority<a class="headerlink" href="#priority" title="Permalink to this headline">¶</a></h3>
+<section id="priority">
+<span id="index-3"></span><h3><span class="section-number">3.2.1. </span>Priority<a class="headerlink" href="#priority" title="Permalink to this heading">¶</a></h3>
 <p>An object’s priority is represented by a single character with 5 possible
 values.</p>
 <ul class="simple">
@@ -194,9 +200,9 @@ values.</p>
 <li><p><em>priority = X</em>: Ignore object</p></li>
 </ul>
 <p>More information on <a class="reference internal" href="spoc.html#gmmakemasks-label"><span class="std std-ref">how GMMPS uses priorities</span></a>.</p>
-</div>
-<div class="section" id="slitsize-and-slitpos">
-<span id="index-4"></span><h3><span class="section-number">3.2.2. </span>slitsize and slitpos<a class="headerlink" href="#slitsize-and-slitpos" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="slitsize-and-slitpos">
+<span id="index-4"></span><h3><span class="section-number">3.2.2. </span>slitsize and slitpos<a class="headerlink" href="#slitsize-and-slitpos" title="Permalink to this heading">¶</a></h3>
 <p><strong>GMOS has a horizontal dispersion</strong> (in image coordinates), and
 therefore <em>slitsize_x/y</em> refer to the slit width and slit length,
 respectively. To offset the object along the slit you would introduce
@@ -217,9 +223,9 @@ for point-like objects as they are driven off the slit.</p>
 <li><p><em>slittilt = 0.0</em></p></li>
 <li><p><em>priority = 2</em></p></li>
 </ul>
-</div>
-<div class="section" id="tilted-and-curved-slits">
-<span id="tilted-slits-label"></span><span id="index-6"></span><h3><span class="section-number">3.2.3. </span>Tilted and curved slits<a class="headerlink" href="#tilted-and-curved-slits" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tilted-and-curved-slits">
+<span id="tilted-slits-label"></span><span id="index-6"></span><h3><span class="section-number">3.2.3. </span>Tilted and curved slits<a class="headerlink" href="#tilted-and-curved-slits" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Positive angles rotate the slit counter-clockwise.</p></li>
 <li><p>Angles larger than 45 degrees are not permitted.</p></li>
@@ -229,15 +235,16 @@ for GMOS, and <em>slitsize_y</em> for F2). The spectral resolution is
 conserved among slits with different tilt angles and identical
 widths.</p></li>
 <li><p>Tilted slits are permitted in Nod &amp; Shuffle masks, provided
-a <div class="system-message">
+a <aside class="system-message">
 <p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">q=0</span>)</p>
 <p>latex exited with error
 [stdout]
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=latex)
  restricted \write18 enabled.
 entering extended mode
 (./math.tex
-LaTeX2e &lt;2019-10-01&gt; patch level 3
+LaTeX2e &lt;2023-06-01&gt;
+L3 programming layer &lt;2023-06-05&gt;
 
 ! LaTeX Error: File `article.cls' not found.
 
@@ -253,18 +260,19 @@ l.2 \usepackage
 No pages of output.
 Transcript written on math.log.
 </p>
-</div>
+</aside>
  offset is used in the GMOS Nod &amp; Shuffle component
 of the <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>
 (<a class="reference internal" href="ngo.html#tiltslit-in-ns-label"><span class="std std-ref">see here</span></a>).</p></li>
 <li><p>Curved slits are not supported. They can be mimicked by
 concatenating neighboring slits with different tilt angles.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -282,13 +290,14 @@ concatenating neighboring slits with different tilt angles.</p></li>
         <li class="right" >
           <a href="loadimage.html" title="2. Loading Images"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>Object Tables (OTs) – Format</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, AURA/Gemini Observatory.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
+        &#169; Copyright 2023, AURA/Gemini Observatory.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

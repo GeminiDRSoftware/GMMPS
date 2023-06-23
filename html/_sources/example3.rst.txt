@@ -10,11 +10,11 @@ Example 3: Flamingos-2 mask
 
 This step-by-step example shows how to create a mask for F2.
 It is assumed that you have `SExtractor <http://www.astromatic.net/software/sextractor>`_
-installed. 
+and the `Gemini/IRAF <http://www.gemini.edu/observing/phase-iii/understanding-and-processing-data/data-processing-software/download-latest>`_ package installed. 
 
 .. _example3_object_detection_label:
 
-Creating the OT
+Creating the Object Table (OT)
 ===============
 
 Create a working directory and copy the test data like for the
@@ -61,8 +61,9 @@ can understand it:
    x_col   = X_IMAGE
    y_col   = Y_IMAGE
 
+Executing stsdas2objt will produce the OT n159_objects_OT.fits that can now be used by gmmps.
 
-Acquisition stars
+Acquisition stars for mask alignment
 =================
 
 Launch *GMMPS* as
@@ -71,7 +72,7 @@ Launch *GMMPS* as
 
    gmmps N159_F2.fits
 
-and adjust the brightness level using 1600 and 2000 for the low and high
+and adjust the brightness level using 1600 and 1900 for the low and high
 thresholds, respectively.
 
 Load the OT table from the main menu:
@@ -82,7 +83,7 @@ Load the OT table from the main menu:
 
 Select three non-saturated acquisition stars at (x/y) = 475/1227, 1237/817 and
 1843/1075, which are well separated and yet do not interfere too much with
-the placement of the science slits.
+the placement of the science slits. By clicking the “Acquisition” button below “Set priority”, the selected stars will become acquisition stars with the highest priority for mask design and assigning to each a 2x2 arcsec box.
 
 Sky subtraction
 ===============
@@ -141,8 +142,8 @@ Our selection also included the three acquisition stars.
 
    *Prioritizing targets and adjusting slit geometries in the OT window.*
 
-In this example we arbitrarily select some of the brighter nots in the
-nebulae: click on the green squares in the image display, and then on the
+In this example we arbitrarily select some of the brighter knots in the
+nebulae: click (or shift-click if you want to select several at once) on the green squares in the image display, and then on the
 pink *Priority 1* button.
 
 For the lower right compact nebula, we use shorter slit lengths of 1.5
@@ -190,13 +191,16 @@ one would have to manually define the spectral traces when reducing the
 data.
 
 We let *GMMPS* offset the slits by up to 40% of their length (*auto-finesse*),
-to allow for more slits on the mask. We are happy with a single mask.
+to allow for more slits on the mask. Note that for the first sky subtraction method you want the objects to remain at the center of the slit and therefore an auto-finesse of zero must be chosen. We are happy with a single mask. 
 
 Upon clicking the green *Make Masks* button, the slits will be placed
 on the mask according to their priorities. *GMMPS* informs us that
 515 objects are available in the slit placement area, 89 of which were placed
 on the mask: 3 acquisition stars, 21 high priority targets, and 57 other
 objects.
+
+The system will alert you if you have chosen stars with a high proper motion (>100 mas/year) as acquisition stars. While these are OK to use for recent preimages, they should not be used when the mask is designed from a catalog.
+
 
 .. note::
    Unlike GMOS, F2 uses fixed optical configurations that do not allow
@@ -245,3 +249,5 @@ The mask design is visualized in the Figures below.
    *Using the J instead of the JH filter,
    significantly shorter spectra are produced and GMMPS may place up to
    twice as many slits on the mask (in this case, 140 slits).*
+
+Once you are happy with your mask, it is useful to go through the mask `checklist <https://gmmps-documentation.readthedocs.io/en/latest/ngo.html>`_ to ensure consistency with observing tool information, among others.

@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>5. The OT window &#8212; GMMPS 1.5.2 documentation</title>
-    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5. The OT window &#8212; GMMPS 1.5.3rc documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gmmps.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="6. Creating Masks (ODFs)" href="createODF.html" />
@@ -71,15 +70,17 @@
         <li class="right" >
           <a href="createOT.html" title="4. Creating OTs"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">5. </span>The OT window</a></li> 
       </ul>
     </div>
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">5. The OT window</a><ul>
 <li><a class="reference internal" href="#loading-ots">5.1. Loading OTs</a></li>
 <li><a class="reference internal" href="#editing-ots">5.2. Editing OTs</a><ul>
@@ -99,22 +100,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="createOT.html"
-                        title="previous chapter"><span class="section-number">4. </span>Creating OTs</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="createODF.html"
-                        title="next chapter"><span class="section-number">6. </span>Creating Masks (ODFs)</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="createOT.html"
+                          title="previous chapter"><span class="section-number">4. </span>Creating OTs</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="createODF.html"
+                          title="next chapter"><span class="section-number">6. </span>Creating Masks (ODFs)</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -123,16 +129,18 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="the-ot-window">
-<h1><span class="section-number">5. </span>The OT window<a class="headerlink" href="#the-ot-window" title="Permalink to this headline">¶</a></h1>
-<div class="figure align-default" id="id1">
+  <section id="the-ot-window">
+<h1><span class="section-number">5. </span>The OT window<a class="headerlink" href="#the-ot-window" title="Permalink to this heading">¶</a></h1>
+<figure class="align-default" id="id1">
 <span id="ot-window-label"></span><span id="index-0"></span><a class="reference internal image-reference" href="_images/gmmps_OTandDisplay.png"><img alt="_images/gmmps_OTandDisplay.png" src="_images/gmmps_OTandDisplay.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text"><em>The OT window (left) allows you to interact with the targets. You may change slit
+<figcaption>
+<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text"><em>The OT window (left) allows you to interact with the targets. You may change slit
 geometries and priorities. Detector gaps (for GMOS) and the area where slits may
 be placed (cyan polygon) are shown in the Image window (right).</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-<div class="section" id="loading-ots">
-<span id="index-1"></span><h2><span class="section-number">5.1. </span>Loading OTs<a class="headerlink" href="#loading-ots" title="Permalink to this headline">¶</a></h2>
+</figcaption>
+</figure>
+<section id="loading-ots">
+<span id="index-1"></span><h2><span class="section-number">5.1. </span>Loading OTs<a class="headerlink" href="#loading-ots" title="Permalink to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">The first step after <a class="reference internal" href="loadimage.html#load-image-skycat-label"><span class="std std-ref">loading the image</span></a> is to load an OT FITS file from the main menu:</div>
 <div class="line"><em>GMMPS -&gt; Load Object Table (OT *.fits)</em>.</div>
@@ -148,9 +156,9 @@ at any time and without warning. They use a specific (undocumented) syntax that 
 very easily corrupted by tabs, blanks or any other string of characters, even in
 what might appear as a comment section. By all means, leave them alone.</p>
 </div>
-</div>
-<div class="section" id="editing-ots">
-<span id="index-2"></span><h2><span class="section-number">5.2. </span>Editing OTs<a class="headerlink" href="#editing-ots" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="editing-ots">
+<span id="index-2"></span><h2><span class="section-number">5.2. </span>Editing OTs<a class="headerlink" href="#editing-ots" title="Permalink to this heading">¶</a></h2>
 <p>The OT FITS table can be easily edited in the OT window (<a class="reference internal" href="#ot-window-label"><span class="std std-numref">Fig. 5.1</span></a>).
 No external FITS table editor is required. Your changes are immediately visualized in the
 image overlay.</p>
@@ -183,8 +191,8 @@ prior to <em>GMMPS</em>.</p>
 </div>
 <blockquote id="external-fits-editors-label">
 <div></div></blockquote>
-<div class="section" id="external-fits-table-editors">
-<span id="index-3"></span><h3><span class="section-number">5.2.1. </span>External FITS table editors<a class="headerlink" href="#external-fits-table-editors" title="Permalink to this headline">¶</a></h3>
+<section id="external-fits-table-editors">
+<span id="index-3"></span><h3><span class="section-number">5.2.1. </span>External FITS table editors<a class="headerlink" href="#external-fits-table-editors" title="Permalink to this heading">¶</a></h3>
 <p>Consider the following FITS editors when it comes to substantial editing of the OT:</p>
 <p id="index-4"><strong>Fv</strong> <a class="reference external" href="http://heasarc.gsfc.nasa.gov/ftools/fv/">http://heasarc.gsfc.nasa.gov/ftools/fv/</a></p>
 <p id="index-5"><strong>Topcat</strong> <a class="reference external" href="http://www.star.bris.ac.uk/~mbt/topcat/">http://www.star.bris.ac.uk/~mbt/topcat/</a></p>
@@ -193,32 +201,34 @@ prior to <em>GMMPS</em>.</p>
 and do calculations on them. While <em>Fv</em> also offers some basic plotting capabilities,
 <em>Topcat</em> is a powerful tool to visualize data sets and interact with them. For more
 information about <em>IRAF</em>’s table editing tools type <em>help ttools</em>.</p>
-</div>
-<div class="section" id="edit-menu">
-<span id="remove-object-inot-label"></span><h3><span class="section-number">5.2.2. </span>Edit Menu<a class="headerlink" href="#edit-menu" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="edit-menu">
+<span id="remove-object-inot-label"></span><h3><span class="section-number">5.2.2. </span>Edit Menu<a class="headerlink" href="#edit-menu" title="Permalink to this heading">¶</a></h3>
 <p>To edit any other column of a single object, choose
 <em>Edit -&gt; Edit selected object…</em> from the main menu. This will bring up the
 dialog below. Using the same <em>Edit -&gt; …</em> menu you may also remove objects
 from the OT or add new ones.</p>
-<div class="figure align-default" id="id2">
+<figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="_images/gmmps_editsingleobject.png"><img alt="_images/gmmps_editsingleobject.png" src="_images/gmmps_editsingleobject.png" style="width: 222.5px; height: 282.5px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.2 </span><span class="caption-text"><em>The dialog window to edit individual object entries.</em></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="options-menu">
-<h3><span class="section-number">5.2.3. </span>Options Menu<a class="headerlink" href="#options-menu" title="Permalink to this headline">¶</a></h3>
+<figcaption>
+<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text"><em>The dialog window to edit individual object entries.</em></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="options-menu">
+<h3><span class="section-number">5.2.3. </span>Options Menu<a class="headerlink" href="#options-menu" title="Permalink to this heading">¶</a></h3>
 <p>In the <em>Options</em> menu you can</p>
 <ul class="simple">
 <li><p>sort the OT table with respect to an arbitrary column</p></li>
 <li><p>hide columns</p></li>
 <li><p>set the symbols used to plot objects with different priorities (see below)</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="set-priority">
-<span id="priority-label"></span><span id="index-6"></span><h2><span class="section-number">5.3. </span>Set Priority<a class="headerlink" href="#set-priority" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="how-to-prioritize">
-<h3><span class="section-number">5.3.1. </span>How to prioritize<a class="headerlink" href="#how-to-prioritize" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="set-priority">
+<span id="priority-label"></span><span id="index-6"></span><h2><span class="section-number">5.3. </span>Set Priority<a class="headerlink" href="#set-priority" title="Permalink to this heading">¶</a></h2>
+<section id="how-to-prioritize">
+<h3><span class="section-number">5.3.1. </span>How to prioritize<a class="headerlink" href="#how-to-prioritize" title="Permalink to this heading">¶</a></h3>
 <p>Objects in the OT need to be prioritized. Priorities can be edited like
 any other slit parameter. You may also select one or more targets in the
 OT or the image window, and then click on the desired pink priority button.</p>
@@ -246,9 +256,9 @@ at least three acquisition stars. Add a fourth star if you
 are uncertain about one of them. More than 4 acquisition stars are
 not recommended and will lead to excessive overheads.</p>
 </div>
-</div>
-<div class="section" id="visualizing-different-priorities">
-<span id="priority-symbol-label"></span><h3><span class="section-number">5.3.2. </span>Visualizing different priorities<a class="headerlink" href="#visualizing-different-priorities" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="visualizing-different-priorities">
+<span id="priority-symbol-label"></span><h3><span class="section-number">5.3.2. </span>Visualizing different priorities<a class="headerlink" href="#visualizing-different-priorities" title="Permalink to this heading">¶</a></h3>
 <p>Priorities are visualized by different symbols.</p>
 <p>The default plot symbols are:</p>
 <ul class="simple">
@@ -260,19 +270,23 @@ not recommended and will lead to excessive overheads.</p>
 </ul>
 <p>This can be configured under <em>Options -&gt; Set Plot Symbols…</em> from the main menu,
 displaying the following dialog:</p>
-<div class="figure align-default" id="id3">
+<figure class="align-default" id="id3">
 <span id="choose-plot-symbol-label"></span><a class="reference internal image-reference" href="_images/gmmps_plotsymbols.png"><img alt="_images/gmmps_plotsymbols.png" src="_images/gmmps_plotsymbols.png" style="width: 452.5px; height: 336.5px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.3 </span><span class="caption-text"><em>Each priority level has a different symbol that can be configured by the user.
+<figcaption>
+<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text"><em>Each priority level has a different symbol that can be configured by the user.
 Here priority 1 objects are associated with a red circle.</em></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id4">
+</figcaption>
+</figure>
+<figure class="align-default" id="id4">
 <a class="reference internal image-reference" href="_images/gmmps_prioritysymbols.png"><img alt="_images/gmmps_prioritysymbols.png" src="_images/gmmps_prioritysymbols.png" style="width: 383.0px; height: 362.5px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.4 </span><span class="caption-text"><em>Default plot symbols for objects with different priorities.</em></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
-<div class="section" id="display-options">
-<h2><span class="section-number">5.4. </span>Display Options<a class="headerlink" href="#display-options" title="Permalink to this headline">¶</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text"><em>Default plot symbols for objects with different priorities.</em></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="display-options">
+<h2><span class="section-number">5.4. </span>Display Options<a class="headerlink" href="#display-options" title="Permalink to this heading">¶</a></h2>
 <p id="index-7">Various overlays may be toggled on/off in the image window:</p>
 <ul class="simple">
 <li><p><strong>Objects:</strong> Displays the objects in the OT. They are plotted based on their
@@ -291,18 +305,19 @@ a <a class="reference internal" href="createOT.html#pseudo-image-label"><span cl
 different locations).</p></li>
 <li><p><strong>Grayscale:</strong> Toggles between a grayscale image and the native <em>Skycat</em> color scheme.</p></li>
 </ul>
-</div>
-<div class="section" id="launching-the-mask-design">
-<h2><span class="section-number">5.5. </span>Launching the Mask Design<a class="headerlink" href="#launching-the-mask-design" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="launching-the-mask-design">
+<h2><span class="section-number">5.5. </span>Launching the Mask Design<a class="headerlink" href="#launching-the-mask-design" title="Permalink to this heading">¶</a></h2>
 <p>Once you are done editing and prioritizing the OT, you launch the actual
 mask design process. For GMOS, you have the choice between
 <em>Configure Mask</em> and <em>Configure Nod&amp;Shuffle Mask</em>, the latter requiring
 an intermediate step.</p>
 <p><em>GMMPS</em> can create several masks from a single OT.</p>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -320,13 +335,14 @@ an intermediate step.</p>
         <li class="right" >
           <a href="createOT.html" title="4. Creating OTs"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">5. </span>The OT window</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, AURA/Gemini Observatory.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
+        &#169; Copyright 2023, AURA/Gemini Observatory.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

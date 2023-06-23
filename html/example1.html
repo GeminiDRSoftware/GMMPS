@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>10. Example 1: Redshift survey (GMOS-S) &#8212; GMMPS 1.5.2 documentation</title>
-    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10. Example 1: Redshift survey (GMOS-S) &#8212; GMMPS 1.5.3rc documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gmmps.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="11. Example 2: Band-shuffling (GMOS-S)" href="example2.html" />
@@ -71,15 +70,17 @@
         <li class="right" >
           <a href="submit.html" title="9. Submitting the mask designs"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">10. </span>Example 1: Redshift survey (GMOS-S)</a></li> 
       </ul>
     </div>
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">10. Example 1: Redshift survey (GMOS-S)</a><ul>
 <li><a class="reference internal" href="#creating-the-ot">10.1. Creating the OT</a></li>
 <li><a class="reference internal" href="#acquisition-stars">10.2. Acquisition stars</a></li>
@@ -94,22 +95,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="submit.html"
-                        title="previous chapter"><span class="section-number">9. </span>Submitting the mask designs</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="example2.html"
-                        title="next chapter"><span class="section-number">11. </span>Example 2: Band-shuffling (GMOS-S)</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="submit.html"
+                          title="previous chapter"><span class="section-number">9. </span>Submitting the mask designs</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="example2.html"
+                          title="next chapter"><span class="section-number">11. </span>Example 2: Band-shuffling (GMOS-S)</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -118,14 +124,14 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="example-1-redshift-survey-gmos-s">
-<span id="example1-label"></span><span id="index-0"></span><h1><span class="section-number">10. </span>Example 1: Redshift survey (GMOS-S)<a class="headerlink" href="#example-1-redshift-survey-gmos-s" title="Permalink to this headline">¶</a></h1>
+  <section id="example-1-redshift-survey-gmos-s">
+<span id="example1-label"></span><span id="index-0"></span><h1><span class="section-number">10. </span>Example 1: Redshift survey (GMOS-S)<a class="headerlink" href="#example-1-redshift-survey-gmos-s" title="Permalink to this heading">¶</a></h1>
 <p>This step-by-step example shows how to create a normal mask for GMOS-S.
 It is assumed that you have
 <a class="reference external" href="http://www.astromatic.net/software/sextractor">SExtractor</a>
 installed.</p>
-<div class="section" id="creating-the-ot">
-<span id="example1-object-detection-label"></span><h2><span class="section-number">10.1. </span>Creating the OT<a class="headerlink" href="#creating-the-ot" title="Permalink to this headline">¶</a></h2>
+<section id="creating-the-ot">
+<span id="example1-object-detection-label"></span><h2><span class="section-number">10.1. </span>Creating the OT<a class="headerlink" href="#creating-the-ot" title="Permalink to this heading">¶</a></h2>
 <p>First, create a working directory somewhere on your computer,
 and copy the GMOS-S image and SExtractor configuration files
 that come with <em>GMMPS</em> into it:</p>
@@ -165,9 +171,9 @@ y_col   = Y_IMAGE
 <p>Adjust the contrast by setting the low / high counts to 1800 and 2500,
 respectively. Open the <em>objects_zsurvey_OT.fits</em> FITS table:
 <em>GMMPS -&gt; Load Object Table (OT *.fits)</em></p>
-</div>
-<div class="section" id="acquisition-stars">
-<h2><span class="section-number">10.2. </span>Acquisition stars<a class="headerlink" href="#acquisition-stars" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="acquisition-stars">
+<h2><span class="section-number">10.2. </span>Acquisition stars<a class="headerlink" href="#acquisition-stars" title="Permalink to this heading">¶</a></h2>
 <p>All objects in the FITS table appear as green squares, meaning they have
 the default priority 2.</p>
 <p>Select three well separated, non-saturated acquisition stars at x/y
@@ -175,13 +181,15 @@ coordinates 655/388, 2171/399 and 1582/1949. Click on them to highlight
 the green square, then click on the pink “Acquisition” box. The symbol
 around the object changes to a magenta diamond
 (see <a class="reference internal" href="#fig-with-acqstars-label"><span class="std std-numref">Fig. 10.2</span></a>).</p>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="_images/example3_OT.png"><img alt="_images/example3_OT.png" src="_images/example3_OT.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.1 </span><span class="caption-text"><em>Use the OT window to prioritize targets and adjust slit geometries.</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="prioritize-science-targets">
-<h2><span class="section-number">10.3. </span>Prioritize science targets<a class="headerlink" href="#prioritize-science-targets" title="Permalink to this headline">¶</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 10.1 </span><span class="caption-text"><em>Use the OT window to prioritize targets and adjust slit geometries.</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="prioritize-science-targets">
+<h2><span class="section-number">10.3. </span>Prioritize science targets<a class="headerlink" href="#prioritize-science-targets" title="Permalink to this heading">¶</a></h2>
 <p>Assume you want to conduct a redshift survey of brighter field galaxies.
 Select each object of interest, and click on the pink “Priority 1”
 button. The symbol around the object changes to a red circle.
@@ -201,14 +209,16 @@ repeated ctrl-clicks in the image, and then do a final click on
 a much larger number of objects in the OT table display with a yellow
 background. Make the multiple selection go away by clicking anywhere in
 the table, or on any object in the field.</p>
-<div class="figure align-default" id="id2">
+<figure class="align-default" id="id2">
 <span id="fig-with-acqstars-label"></span><a class="reference internal image-reference" href="_images/example_zsurvey.png"><img alt="_images/example_zsurvey.png" src="_images/example_zsurvey.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.2 </span><span class="caption-text"><em>Acquisition stars are shown by magenta diamonds, and priority
+<figcaption>
+<p><span class="caption-number">Fig. 10.2 </span><span class="caption-text"><em>Acquisition stars are shown by magenta diamonds, and priority
 1 objects by red circles.</em></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="adjusting-slit-geometries">
-<h2><span class="section-number">10.4. </span>Adjusting slit geometries<a class="headerlink" href="#adjusting-slit-geometries" title="Permalink to this headline">¶</a></h2>
+</figcaption>
+</figure>
+</section>
+<section id="adjusting-slit-geometries">
+<h2><span class="section-number">10.4. </span>Adjusting slit geometries<a class="headerlink" href="#adjusting-slit-geometries" title="Permalink to this heading">¶</a></h2>
 <p>By default, all slits are 1” wide and 5” long. To adjust
 the slit geometry, select the object(s) of interest, enter the
 <em>Size X</em> and <em>Size Y</em> parameters under <em>(Bulk) Edit Slits</em>, and then
@@ -226,13 +236,15 @@ Due to a short-coming in <em>GMMPS</em>, you must again turn on the <em>Slits</e
 display option after each edit to visualize the change.</p>
 <p>Change the slit length to <em>Size Y = 9</em> (arcsec) and the slit angle to
 <em>Tilt = -8</em> (degrees) to probe the entire extent of this galaxy.</p>
-<div class="figure align-default" id="id3">
+<figure class="align-default" id="id3">
 <span id="object-with-tilted-slit-label"></span><a class="reference internal image-reference" href="_images/example_zsurvey_tilt.png"><img alt="_images/example_zsurvey_tilt.png" src="_images/example_zsurvey_tilt.png" style="width: 593.2px; height: 241.20000000000002px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.3 </span><span class="caption-text"><em>Shifting and tilting a slit</em></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="making-the-mask">
-<h2><span class="section-number">10.5. </span>Making the mask<a class="headerlink" href="#making-the-mask" title="Permalink to this headline">¶</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 10.3 </span><span class="caption-text"><em>Shifting and tilting a slit</em></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="making-the-mask">
+<h2><span class="section-number">10.5. </span>Making the mask<a class="headerlink" href="#making-the-mask" title="Permalink to this heading">¶</a></h2>
 <p>Click on the green <em>Configure Mask</em> button to launch the final step of the
 mask design. These galaxies are typically at low redshift, and you
 expect the most interesting spectral features in the observed
@@ -254,9 +266,9 @@ order sorting filter to avoid the overlap. However, in this case you
 would lose the spectrum below 455nm (where you expect some
 important redshift features), so lets accept the overlap.
 Close the mask design window and the OT window.</p>
-</div>
-<div class="section" id="displaying-the-mask">
-<h2><span class="section-number">10.6. </span>Displaying the mask<a class="headerlink" href="#displaying-the-mask" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="displaying-the-mask">
+<h2><span class="section-number">10.6. </span>Displaying the mask<a class="headerlink" href="#displaying-the-mask" title="Permalink to this heading">¶</a></h2>
 <p>Load the mask design, <em>objects_zsurvey_OTODF1.fits</em>:</p>
 <p><em>GMMPS -&gt; Load Object Definition File (ODF *.fits)</em></p>
 <p>The figure below shows all objects that were included in the mask.
@@ -273,13 +285,15 @@ pre-image with Gemini (time charged to your program). If you are
 working with a pseudo-image, you could simply recreate the
 pseudo-image with a different position angle.</p></li>
 </ol>
-<div class="figure align-default" id="id4">
+<figure class="align-default" id="id4">
 <a class="reference internal image-reference" href="_images/example_zsurvey_ODF1.png"><img alt="_images/example_zsurvey_ODF1.png" src="_images/example_zsurvey_ODF1.png" style="width: 586.5px; height: 478.5px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.4 </span><span class="caption-text"><em>Objects included in the mask design.</em></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="wavelength-overlay">
-<h2><span class="section-number">10.7. </span>Wavelength overlay<a class="headerlink" href="#wavelength-overlay" title="Permalink to this headline">¶</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 10.4 </span><span class="caption-text"><em>Objects included in the mask design.</em></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="wavelength-overlay">
+<h2><span class="section-number">10.7. </span>Wavelength overlay<a class="headerlink" href="#wavelength-overlay" title="Permalink to this heading">¶</a></h2>
 <p>Next, display “Slits &amp; Spectra*. This will show a bunch of information,
 some of which can be hidden for more clarity:</p>
 <ol class="arabic simple">
@@ -289,13 +303,16 @@ some of which can be hidden for more clarity:</p>
 <li><p>Second order overlap (orange shaded region), which appears for
 objects in the right half of the detector, only.</p></li>
 </ol>
-<div class="figure align-default" id="id5">
+<figure class="align-default" id="id5">
 <a class="reference internal image-reference" href="_images/example_zsurvey_ODF2.png"><img alt="_images/example_zsurvey_ODF2.png" src="_images/example_zsurvey_ODF2.png" style="width: 454.0px; height: 468.5px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.5 </span><span class="caption-text"><em>Wavelength overlay. Note the tilted slit in the bottom half.</em></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id6">
+<figcaption>
+<p><span class="caption-number">Fig. 10.5 </span><span class="caption-text"><em>Wavelength overlay. Note the tilted slit in the bottom half.</em></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id6">
 <a class="reference internal image-reference" href="_images/example_zsurvey_ODF3.png"><img alt="_images/example_zsurvey_ODF3.png" src="_images/example_zsurvey_ODF3.png" style="width: 505.5px; height: 344.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10.6 </span><span class="caption-text"><em>Clicking on “Highlight acq stars” displays
+<figcaption>
+<p><span class="caption-number">Fig. 10.6 </span><span class="caption-text"><em>Clicking on “Highlight acq stars” displays
 the lowest guide star in yellow, meaning it is within 4”
 of the detector gap (or the boundary of the slit placement area).
 Most likely, this acquisition star is fine. Since this mask design is
@@ -304,10 +321,11 @@ be sufficient to align the mask on sky in case the lowest acquisition
 star turns out to be problematic. GMMPS will issue an error during mask
 design if an acquisition star gets too close to a gap or the field
 boundary.</em></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="fine-tuning-the-cwl">
-<h2><span class="section-number">10.8. </span>Fine-tuning the CWL<a class="headerlink" href="#fine-tuning-the-cwl" title="Permalink to this headline">¶</a></h2>
+</figcaption>
+</figure>
+</section>
+<section id="fine-tuning-the-cwl">
+<h2><span class="section-number">10.8. </span>Fine-tuning the CWL<a class="headerlink" href="#fine-tuning-the-cwl" title="Permalink to this heading">¶</a></h2>
 <p>Let’s assume you want to verify that most galaxies belong to some
 cluster at redshift 0.25. The best way to do this would be to look for
 the prominent [OIII] and [OII] emission lines, and the strong Ca H+K
@@ -318,9 +336,9 @@ each spectrum, and you can optimize the central wavelength using the CWL
 spinbox so that no (or a minimum number of) lines get lost in a detector gap.
 Alternatively, instead of “O Ca” you could also enter “501 327” if interested
 in the two brightest oxygen lines, only.</p>
-</div>
-<div class="section" id="ot-setup-and-mask-submission">
-<h2><span class="section-number">10.9. </span>OT setup and mask submission<a class="headerlink" href="#ot-setup-and-mask-submission" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ot-setup-and-mask-submission">
+<h2><span class="section-number">10.9. </span>OT setup and mask submission<a class="headerlink" href="#ot-setup-and-mask-submission" title="Permalink to this heading">¶</a></h2>
 <p>Once you activate the <em>Slits &amp; Spectra</em> overlay, <em>GMMPS</em> will also show
 the relevant phase-II parameters. Make sure you use exactly these values
 in the <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>.</p>
@@ -332,10 +350,11 @@ facility.</p>
 Otherwise, the mask will be cut, inspected, and stored in our summit mask cabinet.
 The mask will be installed in the instrument when your observations are
 scheduled.</p>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -353,13 +372,14 @@ scheduled.</p>
         <li class="right" >
           <a href="submit.html" title="9. Submitting the mask designs"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">10. </span>Example 1: Redshift survey (GMOS-S)</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, AURA/Gemini Observatory.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
+        &#169; Copyright 2023, AURA/Gemini Observatory.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

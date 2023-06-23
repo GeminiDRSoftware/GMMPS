@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>14. Appendix: Acquisition stars &#8212; GMMPS 1.5.2 documentation</title>
-    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>14. Appendix: Acquisition stars &#8212; GMMPS 1.5.3rc documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gmmps.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="15. Appendix: Slit selection algorithm" href="spoc.html" />
@@ -71,15 +70,17 @@
         <li class="right" >
           <a href="ngo.html" title="13. Appendix: Mask check instructions"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">14. </span>Appendix: Acquisition stars</a></li> 
       </ul>
     </div>
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">14. Appendix: Acquisition stars</a><ul>
 <li><a class="reference internal" href="#requirements">14.1. Requirements</a></li>
 <li><a class="reference internal" href="#recommendations">14.2. Recommendations</a></li>
@@ -87,22 +88,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="ngo.html"
-                        title="previous chapter"><span class="section-number">13. </span>Appendix: Mask check instructions</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="spoc.html"
-                        title="next chapter"><span class="section-number">15. </span>Appendix: Slit selection algorithm</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="ngo.html"
+                          title="previous chapter"><span class="section-number">13. </span>Appendix: Mask check instructions</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="spoc.html"
+                          title="next chapter"><span class="section-number">15. </span>Appendix: Slit selection algorithm</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -111,14 +117,14 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="appendix-acquisition-stars">
-<span id="acquisition-label"></span><h1><span class="section-number">14. </span>Appendix: Acquisition stars<a class="headerlink" href="#appendix-acquisition-stars" title="Permalink to this headline">¶</a></h1>
+  <section id="appendix-acquisition-stars">
+<span id="acquisition-label"></span><h1><span class="section-number">14. </span>Appendix: Acquisition stars<a class="headerlink" href="#appendix-acquisition-stars" title="Permalink to this heading">¶</a></h1>
 <p id="index-0">MOS masks are acquired by centering at least two acquisitions stars in
 reference slits (2x2 arcsec square boxes). To this end, the centroids of
 the reference slit and of the star are measured.</p>
 <p>A list of requirements and recommendations is given below.</p>
-<div class="section" id="requirements">
-<h2><span class="section-number">14.1. </span>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<section id="requirements">
+<h2><span class="section-number">14.1. </span>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p><strong>How many stars:</strong> At least two (recommended: three)
 acquisition stars are required if the mask was designed based on
@@ -148,9 +154,9 @@ star’s <a class="reference internal" href="editOT.html#priority-label"><span c
 <li><p><strong>No OIWFS guide stars:</strong> OIWFS guide stars are shadowed by the guide
 probe arm. They cannot be used as acquisition stars.</p></li>
 </ol>
-</div>
-<div class="section" id="recommendations">
-<h2><span class="section-number">14.2. </span>Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="recommendations">
+<h2><span class="section-number">14.2. </span>Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Stars, not galaxies:</strong> Stars should always be preferred over galaxies as
 they have better defined centroids, and the centroid is independent of the
@@ -175,20 +181,23 @@ boxes must be less than 25% of the slit width of the narrowest science
 slit. Otherwise the observing software decides that the mask cannot be
 aligned.</p>
 </div>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="_images/gmmps_acq_proximity.png"><img alt="_images/gmmps_acq_proximity.png" src="_images/gmmps_acq_proximity.png" style="width: 411.18px; height: 344.52000000000004px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 14.1 </span><span class="caption-text"><em>The acquisition star to the lower right is within 4.0” of the border of
+<figcaption>
+<p><span class="caption-number">Fig. 14.1 </span><span class="caption-text"><em>The acquisition star to the lower right is within 4.0” of the border of
 the slit placement area. Most likely this is ok, but its spectrum is shown
 yellow to highlight it as potentially problematic. An additional
 acquisition star must be included in the mask design unless there are
 already 2 (pre-image) or 3 (pseudo-image) good acquisition stars present.
 The acquisition star to the upper left has a safe distance to the GMOS
 detector gap.</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
+</figcaption>
+</figure>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -206,13 +215,14 @@ detector gap.</em></span><a class="headerlink" href="#id1" title="Permalink to t
         <li class="right" >
           <a href="ngo.html" title="13. Appendix: Mask check instructions"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">14. </span>Appendix: Acquisition stars</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, AURA/Gemini Observatory.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
+        &#169; Copyright 2023, AURA/Gemini Observatory.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

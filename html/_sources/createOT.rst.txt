@@ -142,7 +142,7 @@ empty or at their default values:
    intable = preimage.sex.fits
    image   = <image.fits>
    fl_wcs  = yes
-   instrum = gmos-n (gmos-s, flamingos2)
+   instrum = gmos (gmos|flamingos)
    id_col  = NUMBER
    mag_col = MAG_AUTO
    x_col   = X_IMAGE
