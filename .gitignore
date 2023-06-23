@@ -51,5 +51,8 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# Mac .DS_Store
+.DS_Store
+
 # GMMPS docs
 gmmpsdoc

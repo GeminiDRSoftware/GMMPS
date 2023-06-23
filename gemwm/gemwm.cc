@@ -153,6 +153,7 @@ void read_slittable(const string filename, instrument &inst)
   if (inst.name.compare("GMOS-S") == 0 || inst.name.compare("GMOS-N") == 0) {
     if (inst.disperser.compare("R150") == 0)     dlambda = 1000;
     if (inst.disperser.compare("R400") == 0)     dlambda = 500;
+    if (inst.disperser.compare("B480") == 0)     dlambda = 350;
     if (inst.disperser.compare("B600") == 0)     dlambda = 250;
     if (inst.disperser.compare("R600") == 0)     dlambda = 250;
     if (inst.disperser.compare("R831") == 0)     dlambda = 200;

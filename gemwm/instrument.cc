@@ -32,6 +32,7 @@ void instrument::check_instconfig()
     valid_disperser.push_back("R831_2nd");
     valid_disperser.push_back("B600");
     valid_disperser.push_back("B1200");
+    valid_disperser.push_back("B480");
 
     valid_mode.push_back("MOS");
     // valid_mode.push_back("LSS");

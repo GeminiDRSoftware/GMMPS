@@ -1048,6 +1048,8 @@ itcl::class cat::waveMapper {
 	    set R 400.
 	} elseif {$grating == "R150"} {
 	    set R 150.
+	} elseif {$grating == "B480"} {
+	    set R 480.
 	} else {
 	    ::cat::vmAstroCat::error_dialog "grating_to_R: Grating $grating not known!"
 	    return -1
@@ -1111,6 +1113,11 @@ itcl::class cat::waveMapper {
 		set p1 [expr -4.746415e-01 -1.739428e-05 * $CWL +1.671325e-09 * $CWL*$CWL ]
 		set p2 [expr +6.571810e-07 +2.335510e-10 * $CWL -9.952524e-14 * $CWL*$CWL ]
 		set p3 [expr +1.424845e-09 -2.710707e-13 * $CWL +1.767501e-17 * $CWL*$CWL ]
+	    } elseif {$grating == "B480"} {		    		          
+		set p0 0.
+		set p1 0.
+		set p2 0.
+		set p3 0.
 	    }
 	}
 
@@ -1144,6 +1151,11 @@ itcl::class cat::waveMapper {
 		set p1 [expr -4.768037e-01 -1.752517e-05 * $CWL +1.761947e-09 * $CWL*$CWL ]
 		set p2 [expr -2.493240e-06 +1.101568e-09 * $CWL -1.606944e-13 * $CWL*$CWL ]
 		set p3 [expr +3.091190e-09 -7.610527e-13 * $CWL +5.176919e-17 * $CWL*$CWL ]
+	    } elseif {$grating == "B480"} {		    		          
+		set p0 0.
+		set p1 0.
+		set p2 0.
+		set p3 0.
 	    }
 	}
 	
@@ -1177,7 +1189,12 @@ itcl::class cat::waveMapper {
 		    set p1 [expr -4.682847e-01 -1.885458e-05 * $CWL +1.717804e-09 * $CWL*$CWL ]
 		    set p2 [expr -1.068371e-05 +3.847067e-09 * $CWL -3.587057e-13 * $CWL*$CWL ]
 		    set p3 0.
-		}
+		} elseif {$grating == "B480"} {		    		          
+			set p0 0.
+			set p1 0.
+			set p2 0.
+			set p3 0.
+	    }
 	    }
 
 	    # Right slit
@@ -1207,7 +1224,12 @@ itcl::class cat::waveMapper {
 		    set p1 [expr -4.988556e-01 -1.035226e-05 * $CWL +1.070431e-09 * $CWL*$CWL ]
 		    set p2 [expr +8.979963e-06 -1.585921e-09 * $CWL +3.612282e-14 * $CWL*$CWL ]
 		    set p3 0.
-		}
+		} elseif {$grating == "B480"} {		    		          
+			set p0 0.
+			set p1 0.
+			set p2 0.
+			set p3 0.
+	    }
 	    }
 	}
 
@@ -1237,6 +1259,11 @@ itcl::class cat::waveMapper {
 		set p1 [expr -4.365627e-01 -1.470472e-05 * $CWL +1.403729e-09 * $CWL*$CWL ]
 		set p2 [expr +3.236079e-06 -4.631113e-10 * $CWL -3.044672e-14 * $CWL*$CWL ]
 		set p3 [expr +7.345513e-10 -1.277076e-13 * $CWL +6.924252e-18 * $CWL*$CWL ]
+	    } elseif {$grating == "B480"} {		    		          
+		set p0 0.
+		set p1 0.
+		set p2 0.
+		set p3 0.
 	    }
 	}
 
@@ -1266,6 +1293,11 @@ itcl::class cat::waveMapper {
 		set p1 [expr -3.774367e-01 -3.910647e-05 * $CWL +3.901736e-09 * $CWL*$CWL ]
 		set p2 [expr -4.012357e-05 +1.636085e-08 * $CWL -1.663204e-12 * $CWL*$CWL ]
 		set p3 [expr +9.897124e-09 -3.716916e-12 * $CWL +3.555667e-16 * $CWL*$CWL ]
+	    } elseif {$grating == "B480"} {		    		          
+		set p0 0.
+		set p1 0.
+		set p2 0.
+		set p3 0.
 	    }
 	}
 
@@ -1301,7 +1333,12 @@ itcl::class cat::waveMapper {
 		    set p0 [expr +2.245234e+02 +1.044247e+00 * $CWL -1.890037e-06 * $CWL*$CWL ]
 		    set p1 [expr -4.412075e-01 -1.343027e-05 * $CWL +1.293003e-09 * $CWL*$CWL ]
 		    set p2 [expr +1.145761e-05 -3.058908e-09 * $CWL +1.898305e-13 * $CWL*$CWL ]
-		}
+		} elseif {$grating == "B480"} {		    		          
+			set p0 0.
+			set p1 0.
+			set p2 0.
+			set p3 0.
+	    }
 	    }
 
 	    # Right slit
@@ -1331,7 +1368,12 @@ itcl::class cat::waveMapper {
 		    set p1 [expr -4.496164e-01 -1.336423e-05 * $CWL +1.468092e-09 * $CWL*$CWL ]
 		    set p2 [expr +8.671850e-06 -1.231516e-09 * $CWL -1.836226e-14 * $CWL*$CWL ]
 		    set p3 0.
-		}
+		} elseif {$grating == "B480"} {		    		          
+			set p0 0.
+			set p1 0.
+			set p2 0.
+			set p3 0.
+	    }
 	    }
 	}
 
