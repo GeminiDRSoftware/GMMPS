@@ -100,8 +100,8 @@
 puts "Derived from the VIMOS Mask Preparation Software"
 puts "Developed originally by Dario Bottini at the"
 puts "Istituto di Fisica Cosmica G.Occhialini - CNR, Italy."
-puts "Modified by Jennifer Dunn, Craig Allen, Dustin Fennell, Bryan Miller"
-puts "and Mischa Schirmer\n"
+puts "Modified by Jennifer Dunn, Craig Allen, Dustin Fennell, Bryan Miller,"
+puts "Mischa Schirmer, and Joy Chavez\n"
 
 # This proc is required. It will be called once for each skycat
 # instance. The parameter is the name ("$this") of the SkyCat
