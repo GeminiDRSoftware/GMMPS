@@ -1085,6 +1085,8 @@ itcl::class cat::waveMapper {
 
 	# p0: note the pow(x,5) term, and absence of pow(x,4)
 	# p1: no CWL dependence
+
+	# Values for Grating B480 are interpolated, so only using 2 significant digits.
 	if {$type == "GMOS-S Longslit"} {
 	    if {$grating == "R150"} {
 		set p0 [expr +5.655718e+03 +1.155098e+00 * $CWL -1.150032e-05 * $CWL*$CWL ]
@@ -1096,6 +1098,11 @@ itcl::class cat::waveMapper {
 		set p1 [expr -1.454243e+00 -1.888055e-05 * $CWL +1.071748e-09 * $CWL*$CWL ]
 		set p2 [expr -1.492328e-06 +5.014962e-09 * $CWL -5.119544e-13 * $CWL*$CWL ]
 		set p3 [expr +7.427494e-09 -1.990126e-12 * $CWL +1.529461e-16 * $CWL*$CWL ]
+		} elseif {$grating == "B480"} {
+		set p0 [expr +1.80E+03 +1.03E+00 * $CWL -1.37E-06 * $CWL*$CWL ]
+		set p1 [expr -1.19E+00 -1.46E-05 * $CWL +7.28E-10 * $CWL*$CWL ]
+		set p2 [expr +4.29E-06 +2.00E-09 * $CWL -2.49E-13 * $CWL*$CWL ]
+		set p3 [expr +4.56E-09 -1.18E-12 * $CWL +8.88E-17 * $CWL*$CWL ]
 	    } elseif {$grating == "B600"} {		    		          
 		set p0 [expr +1.496648e+03 +1.024727e+00 * $CWL -1.168811e-06 * $CWL*$CWL ]
 		set p1 [expr -9.821197e-01 -1.198473e-05 * $CWL +6.503497e-10 * $CWL*$CWL ]
@@ -1127,6 +1134,12 @@ itcl::class cat::waveMapper {
 		set p2 [expr +1.383041e-05 -7.109480e-10 * $CWL -2.177409e-14 * $CWL*$CWL ]
 		set p3 [expr +1.942608e-09 -2.515047e-13 * $CWL +1.696197e-17 * $CWL*$CWL ]
 	    }
+	    if {$grating == "B480"} {
+		set p0 [expr +1.85E+03 +1.02E+00 * $CWL -8.66E-07 * $CWL*$CWL ]
+		set p1 [expr -1.22E+00 -7.27E-06 * $CWL +1.90E-10 * $CWL*$CWL ]
+		set p2 [expr +1.45E-05 -1.96E-09 * $CWL +8.75E-14 * $CWL*$CWL ]
+		set p3 [expr +7.41E-10 +8.76E-14 * $CWL -1.10E-17 * $CWL*$CWL ]
+		}
 	    if {$grating == "B600"} {
 		set p0 [expr +1.483557e+03 +1.035310e+00 * $CWL -2.268159e-06 * $CWL*$CWL ]
 		set p1 [expr -9.981875e-01 -8.484970e-06 * $CWL +4.127739e-10 * $CWL*$CWL ]
@@ -1162,6 +1175,11 @@ itcl::class cat::waveMapper {
 		    set p1 [expr -1.484936e+00 -9.605755e-06 * $CWL +2.801125e-10 * $CWL*$CWL ]
 		    set p2 [expr +2.435962e-05 -2.322717e-09 * $CWL +7.185940e-14 * $CWL*$CWL ]
 		    set p3 0.
+		} elseif {$grating == "B480"} {
+		    set p0 [expr +8.50E+02 +1.02E+00 * $CWL +2.75E-07 * $CWL*$CWL ]
+		    set p1 [expr -1.22E+00 -5.56E-06 * $CWL +1.24E-10 * $CWL*$CWL ]
+		    set p2 [expr +3.30E-05 -5.14E-09 * $CWL +2.28E-13 * $CWL*$CWL ]
+		    set p3 0.
 		} elseif {$grating == "B600"} {
 		    set p0 [expr +7.171127e+02 +1.020263e+00 * $CWL +4.999612e-07 * $CWL*$CWL ]
 		    set p1 [expr -9.804777e-01 -1.303941e-05 * $CWL +7.034823e-10 * $CWL*$CWL ]
@@ -1192,6 +1210,11 @@ itcl::class cat::waveMapper {
 		    set p1 [expr -1.518913e+00 -7.276286e-06 * $CWL +2.980340e-10 * $CWL*$CWL ]
 		    set p2 [expr +3.072999e-05 -2.305014e-09 * $CWL +3.992211e-14 * $CWL*$CWL ]
 		    set p3 0.
+		} elseif {$grating == "B480"} {
+		    set p0 [expr +2.92E+03 +9.87E-01 * $CWL +3.17E-07 * $CWL*$CWL ]
+		    set p1 [expr -1.25E+00 -1.31E-06 * $CWL -2.88E-10 * $CWL*$CWL ]
+		    set p2 [expr +2.65E-05 -3.05E-09 * $CWL +1.39E-13 * $CWL*$CWL ]
+		    set p3 0.
 		} elseif {$grating == "B600"} {
 		    set p0 [expr +2.475059e+03 +9.658196e-01 * $CWL +1.912408e-06 * $CWL*$CWL ]
 		    set p1 [expr -1.064715e+00 +1.151301e-05 * $CWL -1.283022e-09 * $CWL*$CWL ]
@@ -1208,7 +1231,6 @@ itcl::class cat::waveMapper {
 		    set p2 [expr +8.979963e-06 -1.585921e-09 * $CWL +3.612282e-14 * $CWL*$CWL ]
 		    set p3 0.
 		}
-	    }
 	}
 
 	if {$type == "GMOS-N Longslit"} {
@@ -1222,7 +1244,12 @@ itcl::class cat::waveMapper {
 		set p1 [expr -1.337395e+00 -1.140258e-05 * $CWL +3.739519e-10 * $CWL*$CWL ]
 		set p2 [expr +9.035038e-06 +4.935751e-10 * $CWL -7.560706e-14 * $CWL*$CWL ]
 		set p3 [expr +3.127098e-09 -6.346868e-13 * $CWL +3.691598e-17 * $CWL*$CWL ]
-	    } elseif {$grating == "B600"} {
+	    } elseif {$grating == "B480"} {
+		set p0 [expr +1.65E+03 +1.02E+00 * $CWL -6.78E-07 * $CWL*$CWL ]
+		set p1 [expr -1.09E+00 -1.19E-05 * $CWL +4.77E-10 * $CWL*$CWL ]
+		set p2 [expr +6.68E-06 +4.90E-10 * $CWL -8.00E-14 * $CWL*$CWL ]
+		set p3 [expr +2.47E-09 -5.15E-13 * $CWL +3.05E-17 * $CWL*$CWL ]
+		} elseif {$grating == "B600"} {
 		set p0 [expr +1.365436e+03 +1.019302e+00 * $CWL -8.308851e-07 * $CWL*$CWL ]
 		set p1 [expr -8.885767e-01 -1.234977e-05 * $CWL +6.331752e-10 * $CWL*$CWL ]
 		set p2 [expr +7.484338e-06 -2.170800e-10 * $CWL -4.611808e-14 * $CWL*$CWL ]
@@ -1251,7 +1278,12 @@ itcl::class cat::waveMapper {
 		set p1 [expr -1.355762e+00 -8.943455e-06 * $CWL +2.544056e-10 * $CWL*$CWL ]
 		set p2 [expr +1.653039e-05 -1.674798e-09 * $CWL +6.336200e-14 * $CWL*$CWL ]
 		set p3 [expr -7.467655e-10 +3.490098e-13 * $CWL -2.461557e-17 * $CWL*$CWL ]
-	    } elseif {$grating == "B600"} {		    		          
+	    } elseif {$grating == "B480"} {
+		set p0 [expr +1.68E+03 +1.01E+00 * $CWL -5.71E-07 * $CWL*$CWL ]
+		set p1 [expr -1.10E+00 -9.67E-06 * $CWL +3.61E-10 * $CWL*$CWL ]
+		set p2 [expr +8.96E-06 -3.22E-10 * $CWL -2.23E-14 * $CWL*$CWL ]
+		set p3 [expr +1.36E-09 -2.67E-13 * $CWL +1.64E-17 * $CWL*$CWL ]
+		} elseif {$grating == "B600"} {
 		set p0 [expr +1.389305e+03 +1.013805e+00 * $CWL -5.554779e-07 * $CWL*$CWL ]
 		set p1 [expr -9.025855e-01 -9.585727e-06 * $CWL +4.701958e-10 * $CWL*$CWL ]
 		set p2 [expr +5.480141e-06 -5.451921e-11 * $CWL -4.098774e-14 * $CWL*$CWL ]
@@ -1286,6 +1318,11 @@ itcl::class cat::waveMapper {
 		    set p1 [expr -1.321620e+00 -1.627890e-05 * $CWL +7.196424e-10 * $CWL*$CWL ]
 		    set p2 [expr -1.876339e-05 +8.710156e-09 * $CWL -6.590458e-13 * $CWL*$CWL ]
 		    set p3 0.
+		} elseif {$grating == "B480"} {
+		    set p0 [expr +6.61E+02 +1.04E+00 * $CWL -9.74E-07 * $CWL*$CWL ]
+		    set p1 [expr -1.11E+00 -1.61E-05 * $CWL +8.20E-10 * $CWL*$CWL ]
+		    set p2 [expr -1.22E-05 +6.83E-09 * $CWL -5.78E-13 * $CWL*$CWL ]
+		    set p3 0.
 		} elseif {$grating == "B600"} {
 		    set p0 [expr +4.112061e+02 +1.068663e+00 * $CWL -3.399504e-06 * $CWL*$CWL ]
 		    set p1 [expr -8.707982e-01 -1.925200e-05 * $CWL +1.243123e-09 * $CWL*$CWL ]
@@ -1315,6 +1352,11 @@ itcl::class cat::waveMapper {
 		    set p0 [expr +3.538204e+03 +9.309951e-01 * $CWL +4.488626e-06 * $CWL*$CWL ]
 		    set p1 [expr -1.404928e+00 +5.978735e-06 * $CWL -8.567674e-10 * $CWL*$CWL ]
 		    set p2 [expr +2.566722e-05 -3.159719e-09 * $CWL +1.675236e-13 * $CWL*$CWL ]
+		    set p3 0.
+		}elseif {$grating == "B480"} {
+		    set p0 [expr +2.80E+03 +9.95E-01 * $CWL -8.40E-07 * $CWL*$CWL ]
+		    set p1 [expr -1.17E+00 -4.26E-07 * $CWL -3.25E-10 * $CWL*$CWL ]
+		    set p2 [expr +2.02E-05 -2.24E-09 * $CWL +9.66E-14 * $CWL*$CWL ]
 		    set p3 0.
 		} elseif {$grating == "B600"} {
 		    set p0 [expr +2.080952e+03 +1.043602e+00 * $CWL -4.460090e-06 * $CWL*$CWL ]
