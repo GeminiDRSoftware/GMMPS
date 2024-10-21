@@ -56,6 +56,6 @@ Software (`VMMPS <https://www.eso.org/sci/observing/phase2/SMGuidelines/VMMPS.ht
 *VMMPS* was developed originally by Dario Bottini at the Istituto di
 Fisica Cosmica G.Occhialini - CNR, Italy. It has been modified by
 Jennifer Dunn, Craig Allen, Dustin Fennell, Bryan Miller, Mischa
-Schirmer, and Michael Hoenig to work with Gemini instrumentation.
+Schirmer, Michael Hoenig, and Joy Chavez to work with Gemini instrumentation.
 
-Current *GMMPS* support: Bryan Miller
+Current *GMMPS* support: Bryan Miller, Joy Chavez

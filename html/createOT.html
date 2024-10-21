@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>4. Creating OTs &#8212; GMMPS 1.5.2 documentation</title>
-    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4. Creating OTs &#8212; GMMPS 1.5.3rc documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gmmps.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="5. The OT window" href="editOT.html" />
@@ -71,15 +70,17 @@
         <li class="right" >
           <a href="OTformat.html" title="3. Object Tables (OTs) – Format"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">4. </span>Creating OTs</a></li> 
       </ul>
     </div>
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">4. Creating OTs</a><ul>
 <li><a class="reference internal" href="#comparing-pre-images-and-pseudo-images">4.1. Comparing pre-images and pseudo-images</a><ul>
 <li><a class="reference internal" href="#pre-images-pros-and-cons">4.1.1. Pre-images: Pros and Cons</a></li>
@@ -105,22 +106,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="OTformat.html"
-                        title="previous chapter"><span class="section-number">3. </span>Object Tables (OTs) – Format</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="editOT.html"
-                        title="next chapter"><span class="section-number">5. </span>The OT window</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="OTformat.html"
+                          title="previous chapter"><span class="section-number">3. </span>Object Tables (OTs) – Format</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="editOT.html"
+                          title="next chapter"><span class="section-number">5. </span>The OT window</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -129,32 +135,34 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="creating-ots">
-<span id="create-ot-label"></span><span id="index-0"></span><h1><span class="section-number">4. </span>Creating OTs<a class="headerlink" href="#creating-ots" title="Permalink to this headline">¶</a></h1>
+  <section id="creating-ots">
+<span id="create-ot-label"></span><span id="index-0"></span><h1><span class="section-number">4. </span>Creating OTs<a class="headerlink" href="#creating-ots" title="Permalink to this heading">¶</a></h1>
 <p>OTs can be created in two different ways:</p>
 <ol class="arabic simple">
 <li><p>Using a GMOS/F2 pre-image that shows all science targets</p></li>
 <li><p>Using a RA/DEC catalog and an external image (pseudo-image)</p></li>
 </ol>
 <p>One method’s strength is the other’s weakness, and vice versa.</p>
-<div class="section" id="comparing-pre-images-and-pseudo-images">
-<h2><span class="section-number">4.1. </span>Comparing pre-images and pseudo-images<a class="headerlink" href="#comparing-pre-images-and-pseudo-images" title="Permalink to this headline">¶</a></h2>
+<section id="comparing-pre-images-and-pseudo-images">
+<h2><span class="section-number">4.1. </span>Comparing pre-images and pseudo-images<a class="headerlink" href="#comparing-pre-images-and-pseudo-images" title="Permalink to this heading">¶</a></h2>
 <p>Mask designs based on pre-images and pseudo-images are equally accurate,
 provided the external catalog used with the pseudo-image has sufficiently
 high relative astrometric accuracy (0.1” or better). In this case, slit
 positions between the two methods are well within a single pixel:</p>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="_images/pseudoimage_results.png"><img alt="_images/pseudoimage_results.png" src="_images/pseudoimage_results.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text"><em>Accuracy of the pseudo-image mode. In 2017, the transformations
+<figcaption>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text"><em>Accuracy of the pseudo-image mode. In 2017, the transformations
 from the RA/DEC system to distorted image coordinates have been
 re-measured. We observed stellar fields in good seeing, and
 calibrated the data against GAIA DR1. The new transformations
 dramatically improve the performance compared to the previous
 tranformations that were obtained
 in 2006.</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-<div class="section" id="pre-images-pros-and-cons">
-<h3><span class="section-number">4.1.1. </span>Pre-images: Pros and Cons<a class="headerlink" href="#pre-images-pros-and-cons" title="Permalink to this headline">¶</a></h3>
+</figcaption>
+</figure>
+<section id="pre-images-pros-and-cons">
+<h3><span class="section-number">4.1.1. </span>Pre-images: Pros and Cons<a class="headerlink" href="#pre-images-pros-and-cons" title="Permalink to this heading">¶</a></h3>
 <p><strong>Advantages:</strong></p>
 <ul class="simple">
 <li><p>Always highly accurate relative slit positions</p></li>
@@ -168,9 +176,9 @@ be taken soon thereafter.</p></li>
 <li><p>Lag between the semester start and the start of the MOS observations.
 The pre-images must be taken before masks can be designed.</p></li>
 </ul>
-</div>
-<div class="section" id="pseudo-images-pros-and-cons">
-<h3><span class="section-number">4.1.2. </span>Pseudo-images: Pros and Cons<a class="headerlink" href="#pseudo-images-pros-and-cons" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pseudo-images-pros-and-cons">
+<h3><span class="section-number">4.1.2. </span>Pseudo-images: Pros and Cons<a class="headerlink" href="#pseudo-images-pros-and-cons" title="Permalink to this heading">¶</a></h3>
 <p><strong>Advantages:</strong></p>
 <ul class="simple">
 <li><p>Masks can be designed early, no need to wait for pre-images</p></li>
@@ -182,10 +190,10 @@ targets’ sky coordinates</p></li>
 <li><p>Proper motions may render the mask design invalid if the data is older than
 about a year.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="impact-of-proper-motions">
-<span id="proper-motion-label"></span><span id="index-1"></span><h2><span class="section-number">4.2. </span>Impact of proper motions<a class="headerlink" href="#impact-of-proper-motions" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="impact-of-proper-motions">
+<span id="proper-motion-label"></span><span id="index-1"></span><h2><span class="section-number">4.2. </span>Impact of proper motions<a class="headerlink" href="#impact-of-proper-motions" title="Permalink to this heading">¶</a></h2>
 <p>Each mask has at least two reference slits (squared, 2” wide)
 to align the mask on sky, using acquisition stars (<a class="reference internal" href="acquisition.html#acquisition-label"><span class="std std-numref">Sect. 14</span></a>).
 Proper motions may void a mask design in two ways:</p>
@@ -202,11 +210,11 @@ drive stellar science targets off their respective slits. In its current
 version, <em>GMMPS</em> does not check the proper motions of science targets,
 nor does it correct the slit positions for proper motions.</p></li>
 </ol>
-</div>
-<div class="section" id="creating-ots-based-on-pre-images">
-<span id="ot-from-preimage-label"></span><h2><span class="section-number">4.3. </span>Creating OTs based on pre-images<a class="headerlink" href="#creating-ots-based-on-pre-images" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="object-detection-with-sextractor">
-<h3><span class="section-number">4.3.1. </span>Object detection with SExtractor<a class="headerlink" href="#object-detection-with-sextractor" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="creating-ots-based-on-pre-images">
+<span id="ot-from-preimage-label"></span><h2><span class="section-number">4.3. </span>Creating OTs based on pre-images<a class="headerlink" href="#creating-ots-based-on-pre-images" title="Permalink to this heading">¶</a></h2>
+<section id="object-detection-with-sextractor">
+<h3><span class="section-number">4.3.1. </span>Object detection with SExtractor<a class="headerlink" href="#object-detection-with-sextractor" title="Permalink to this heading">¶</a></h3>
 <p id="index-2">Use <a class="reference external" href="http://www.astromatic.net/software/sextractor">SExtractor</a> to detect
 objects in the pre-image. You need the following configuration files,
 available in the <em>examples/</em> sub-directory in the <em>GMMPS</em> distribution tree:</p>
@@ -240,7 +248,7 @@ empty or at their default values:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>intable = preimage.sex.fits
 image   = &lt;image.fits&gt;
 fl_wcs  = yes
-instrum = gmos-n (gmos-s, flamingos2)
+instrum = gmos (gmos|flamingos)
 id_col  = NUMBER
 mag_col = MAG_AUTO
 x_col   = X_IMAGE
@@ -252,9 +260,9 @@ headers (<em>fl_wcs = yes</em>). This is because <em>SExtractor</em> calculates 
 degrees, but <em>stsdas2objt</em> wants it in hours instead. The converted FITS table
 will be called <em>preimage.sex_OT.fits</em>. You may rename it arbitrarily. However,
 we recommend you keep the <em>_OT.fits</em> suffix.</p>
-</div>
-<div class="section" id="object-detection-with-iraf">
-<span id="index-4"></span><h3><span class="section-number">4.3.2. </span>Object detection with IRAF<a class="headerlink" href="#object-detection-with-iraf" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="object-detection-with-iraf">
+<span id="index-4"></span><h3><span class="section-number">4.3.2. </span>Object detection with IRAF<a class="headerlink" href="#object-detection-with-iraf" title="Permalink to this heading">¶</a></h3>
 <p><em>IRAF</em> may also be used to create the object tables using <em>daophot</em>.</p>
 <p>First, find the objects</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">daofind</span> <span class="n">mrgN20011021S104_add</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">output</span><span class="o">=</span><span class="n">mrgN20011021S104</span><span class="o">.</span><span class="n">coo</span> \
@@ -279,10 +287,10 @@ any objects with mag=INDEF since <em>GMMPS</em> cannot handle these values.</p>
 <div class="line">Further examples and explanations can be found in these two IRAF scripts:</div>
 <div class="line"><a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/gmmps/objtexample1.cl">objtexample1.cl</a> <a class="reference external" href="http://www.gemini.edu/sciops/instruments/gmos/gmmps/objtexample2.cl">objtexample2.cl</a></div>
 </div>
-</div>
-</div>
-<div class="section" id="creating-ots-based-on-target-lists-and-pseudo-images">
-<span id="external-catalog-label"></span><h2><span class="section-number">4.4. </span>Creating OTs based on target lists and pseudo-images<a class="headerlink" href="#creating-ots-based-on-target-lists-and-pseudo-images" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="creating-ots-based-on-target-lists-and-pseudo-images">
+<span id="external-catalog-label"></span><h2><span class="section-number">4.4. </span>Creating OTs based on target lists and pseudo-images<a class="headerlink" href="#creating-ots-based-on-target-lists-and-pseudo-images" title="Permalink to this heading">¶</a></h2>
 <p>A mask can also be designed based on a list of RA/DEC coordinates. The relative
 accuracy of the coordinates should be equal or better than 0.1”. The RA/DEC values
 are transformed to the x/y coordinates the targets would have in a (distorted)
@@ -293,8 +301,8 @@ which the target list was extracted; it merely serves as a visual reference in
 <em>GMMPS</em>. The image will be transformed into a <em>pseudo-image</em>, mimicking a
 GMOS / F2 pre-image.</p>
 <p><em>The slit positions are entirely based on the list of sky coordinates.</em></p>
-<div class="section" id="configuring-gmskcreate">
-<span id="pseudo-image-label"></span><span id="gmskcreate-label"></span><span id="index-5"></span><h3><span class="section-number">4.4.1. </span>Configuring <em>gmskcreate</em><a class="headerlink" href="#configuring-gmskcreate" title="Permalink to this headline">¶</a></h3>
+<section id="configuring-gmskcreate">
+<span id="pseudo-image-label"></span><span id="gmskcreate-label"></span><span id="index-5"></span><h3><span class="section-number">4.4.1. </span>Configuring <em>gmskcreate</em><a class="headerlink" href="#configuring-gmskcreate" title="Permalink to this heading">¶</a></h3>
 <p>The pseudo-image and the OT for the mask design are built using
 the <em>Gemini IRAF</em> task <em>gmskcreate</em>. This task is available in
 <em>gemini.gmos.mostools</em> and <strong>must be</strong> configured as follows:</p>
@@ -325,9 +333,9 @@ angle.</p>
 instrumental (x,y) coordinates, one object per line. It is not used
 by <em>GMMPS</em>, but may be useful for overplotting the (x,y) coordinates
 on the pseudo-image using the <em>IRAF</em> task <em>tvmark</em>.</p>
-</div>
-<div class="section" id="input-ascii-file-for-gmskcreate">
-<h3><span class="section-number">4.4.2. </span>Input ASCII file for <em>gmskcreate</em><a class="headerlink" href="#input-ascii-file-for-gmskcreate" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="input-ascii-file-for-gmskcreate">
+<h3><span class="section-number">4.4.2. </span>Input ASCII file for <em>gmskcreate</em><a class="headerlink" href="#input-ascii-file-for-gmskcreate" title="Permalink to this heading">¶</a></h3>
 <p>The input file must contain one line per spectroscopic target,
 in this order (note that the line below is not included in the file):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ID</span>   <span class="n">RA</span>   <span class="n">DEC</span>   <span class="n">MAG</span>   <span class="n">priority</span>   <span class="n">slitsize_x</span>   <span class="n">slitsize_y</span>   <span class="n">slittilt</span>   <span class="n">slitpos_y</span><span class="o">/</span><span class="n">x</span>
@@ -357,9 +365,9 @@ acquisition stars will be ignored.</p>
 input image, otherwise plotting symbols in <em>GMMPS</em> will not line up
 properly.</p>
 </div>
-</div>
-<div class="section" id="input-fits-image-for-gmskcreate">
-<h3><span class="section-number">4.4.3. </span>Input FITS image for <em>gmskcreate</em><a class="headerlink" href="#input-fits-image-for-gmskcreate" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="input-fits-image-for-gmskcreate">
+<h3><span class="section-number">4.4.3. </span>Input FITS image for <em>gmskcreate</em><a class="headerlink" href="#input-fits-image-for-gmskcreate" title="Permalink to this heading">¶</a></h3>
 <p>The pseudo-image is created from an external image, which must contain
 the WCS keywords <em>CRPIX1/2</em>, <em>CRVAL1/2</em>, and the four CD matrix entries,
 CDi_j. The WCS of the external image should correspond reasonably well with the
@@ -369,9 +377,9 @@ as the slit positions are based on the target catalog. However,
 mask checking will be more difficult.</p>
 <p>The resulting pseudo-images will always be pre-fixed with the string <em>GMI</em>,
 so that they can be recognized as such when submitted to the observatory.</p>
-</div>
-<div class="section" id="example">
-<h3><span class="section-number">4.4.4. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="example">
+<h3><span class="section-number">4.4.4. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h3>
 <p>The input ASCII file contains the following columns:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ID</span>   <span class="n">RA</span>   <span class="n">DEC</span>   <span class="n">MAG</span>   <span class="n">priority</span>   <span class="n">slitsize_x</span>   <span class="n">slitsize_y</span>   <span class="n">slittilt</span>   <span class="n">slitpos_y</span>
 </pre></div>
@@ -437,18 +445,18 @@ fraunits   = degrees
 <span class="mi">11</span>    <span class="mi">21</span>      <span class="mf">13.44902</span>  <span class="o">-</span><span class="mf">47.61178</span>     <span class="mf">1358.33</span>    <span class="mf">599.68</span>     <span class="mf">14.6</span>      <span class="mi">0</span>          <span class="mf">2.0</span>           <span class="mf">2.0</span>        <span class="mf">0.0</span>       <span class="mf">0.0</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="data-sources">
-<h3><span class="section-number">4.4.5. </span>Data sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="data-sources">
+<h3><span class="section-number">4.4.5. </span>Data sources<a class="headerlink" href="#data-sources" title="Permalink to this heading">¶</a></h3>
 <p>Often, input catalogs and images for <em>gmskcreate</em> are related.
 E.g., both catalog and image are based on a particular survey.
 This is not a requirement, though. One could also use e.g. the
 RA/DEC positions from the UCAC4 catalog, and an SDSS FITS image
 of the same area.</p>
-</div>
-</div>
-<div class="section" id="recommendations-and-requirements">
-<span id="index-6"></span><h2><span class="section-number">4.5. </span>Recommendations and requirements<a class="headerlink" href="#recommendations-and-requirements" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="recommendations-and-requirements">
+<span id="index-6"></span><h2><span class="section-number">4.5. </span>Recommendations and requirements<a class="headerlink" href="#recommendations-and-requirements" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Targets and acquisition stars</strong> must be selected from <strong>the same object catalog</strong> with relative astrometry better than 0.1”. Otherwise it is most likely that the mask design is critically flawed (partial or full slit losses).</p></li>
 <li><p><strong>At least 2 acquisition stars</strong> are required for masks created from pre-imaging.</p></li>
@@ -471,10 +479,11 @@ fact that the mask design was bad, then the time will be charged to the program 
 partner country. A new mask design may be submitted to use the remainder of the time
 allocation.</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -492,13 +501,14 @@ allocation.</p>
         <li class="right" >
           <a href="OTformat.html" title="3. Object Tables (OTs) – Format"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">4. </span>Creating OTs</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, AURA/Gemini Observatory.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
+        &#169; Copyright 2023, AURA/Gemini Observatory.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

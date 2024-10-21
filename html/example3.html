@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>12. Example 3: Flamingos-2 mask &#8212; GMMPS 1.5.2 documentation</title>
-    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>12. Example 3: Flamingos-2 mask &#8212; GMMPS 1.5.3rc documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gmmps.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="13. Appendix: Mask check instructions" href="ngo.html" />
@@ -71,18 +70,20 @@
         <li class="right" >
           <a href="example2.html" title="11. Example 2: Band-shuffling (GMOS-S)"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">12. </span>Example 3: Flamingos-2 mask</a></li> 
       </ul>
     </div>
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">12. Example 3: Flamingos-2 mask</a><ul>
-<li><a class="reference internal" href="#creating-the-ot">12.1. Creating the OT</a></li>
-<li><a class="reference internal" href="#acquisition-stars">12.2. Acquisition stars</a></li>
+<li><a class="reference internal" href="#creating-the-object-table-ot">12.1. Creating the Object Table (OT)</a></li>
+<li><a class="reference internal" href="#acquisition-stars-for-mask-alignment">12.2. Acquisition stars for mask alignment</a></li>
 <li><a class="reference internal" href="#sky-subtraction">12.3. Sky subtraction</a></li>
 <li><a class="reference internal" href="#target-selection">12.4. Target selection</a></li>
 <li><a class="reference internal" href="#configuring-the-f2-mask">12.5. Configuring the F2 mask</a></li>
@@ -91,22 +92,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="example2.html"
-                        title="previous chapter"><span class="section-number">11. </span>Example 2: Band-shuffling (GMOS-S)</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="ngo.html"
-                        title="next chapter"><span class="section-number">13. </span>Appendix: Mask check instructions</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="example2.html"
+                          title="previous chapter"><span class="section-number">11. </span>Example 2: Band-shuffling (GMOS-S)</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="ngo.html"
+                          title="next chapter"><span class="section-number">13. </span>Appendix: Mask check instructions</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -115,13 +121,13 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="example-3-flamingos-2-mask">
-<span id="example3-label"></span><span id="index-0"></span><h1><span class="section-number">12. </span>Example 3: Flamingos-2 mask<a class="headerlink" href="#example-3-flamingos-2-mask" title="Permalink to this headline">¶</a></h1>
+  <section id="example-3-flamingos-2-mask">
+<span id="example3-label"></span><span id="index-0"></span><h1><span class="section-number">12. </span>Example 3: Flamingos-2 mask<a class="headerlink" href="#example-3-flamingos-2-mask" title="Permalink to this heading">¶</a></h1>
 <p>This step-by-step example shows how to create a mask for F2.
 It is assumed that you have <a class="reference external" href="http://www.astromatic.net/software/sextractor">SExtractor</a>
-installed.</p>
-<div class="section" id="creating-the-ot">
-<span id="example3-object-detection-label"></span><h2><span class="section-number">12.1. </span>Creating the OT<a class="headerlink" href="#creating-the-ot" title="Permalink to this headline">¶</a></h2>
+and the <a class="reference external" href="http://www.gemini.edu/observing/phase-iii/understanding-and-processing-data/data-processing-software/download-latest">Gemini/IRAF</a> package installed.</p>
+<section id="creating-the-object-table-ot">
+<span id="example3-object-detection-label"></span><h2><span class="section-number">12.1. </span>Creating the Object Table (OT)<a class="headerlink" href="#creating-the-object-table-ot" title="Permalink to this heading">¶</a></h2>
 <p>Create a working directory and copy the test data like for the
 <a class="reference internal" href="example1.html#example1-object-detection-label"><span class="std std-ref">first example</span></a>, this time
 using the image N159_F2.fits.</p>
@@ -157,14 +163,15 @@ x_col   = X_IMAGE
 y_col   = Y_IMAGE
 </pre></div>
 </div>
-</div>
-<div class="section" id="acquisition-stars">
-<h2><span class="section-number">12.2. </span>Acquisition stars<a class="headerlink" href="#acquisition-stars" title="Permalink to this headline">¶</a></h2>
+<p>Executing stsdas2objt will produce the OT n159_objects_OT.fits that can now be used by gmmps.</p>
+</section>
+<section id="acquisition-stars-for-mask-alignment">
+<h2><span class="section-number">12.2. </span>Acquisition stars for mask alignment<a class="headerlink" href="#acquisition-stars-for-mask-alignment" title="Permalink to this heading">¶</a></h2>
 <p>Launch <em>GMMPS</em> as</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gmmps N159_F2.fits
 </pre></div>
 </div>
-<p>and adjust the brightness level using 1600 and 2000 for the low and high
+<p>and adjust the brightness level using 1600 and 1900 for the low and high
 thresholds, respectively.</p>
 <p>Load the OT table from the main menu:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>GMMPS -&gt; Load Object Table (OT *.fits) -&gt; n159_objects_OT.fits
@@ -172,10 +179,10 @@ thresholds, respectively.</p>
 </div>
 <p>Select three non-saturated acquisition stars at (x/y) = 475/1227, 1237/817 and
 1843/1075, which are well separated and yet do not interfere too much with
-the placement of the science slits.</p>
-</div>
-<div class="section" id="sky-subtraction">
-<h2><span class="section-number">12.3. </span>Sky subtraction<a class="headerlink" href="#sky-subtraction" title="Permalink to this headline">¶</a></h2>
+the placement of the science slits. By clicking the “Acquisition” button below “Set priority”, the selected stars will become acquisition stars with the highest priority for mask design and assigning to each a 2x2 arcsec box.</p>
+</section>
+<section id="sky-subtraction">
+<h2><span class="section-number">12.3. </span>Sky subtraction<a class="headerlink" href="#sky-subtraction" title="Permalink to this heading">¶</a></h2>
 <p>Before moving on to the actual mask design you must decide on a
 sky subtraction strategy. While this is also of some relevance
 for optical spectra with GMOS, it is paramount in the near-infrared with
@@ -184,15 +191,16 @@ F2. There are two options:</p>
 <li><p>Use the default slit length of 5”, which allows for sufficient sky
 coverage in case of compact objects, and use a ABBA nodding pattern
 within the slit. Note that in case of tilted slits you must use
-a <div class="system-message">
+a <aside class="system-message">
 <p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">p=0</span>)</p>
 <p>latex exited with error
 [stdout]
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=latex)
  restricted \write18 enabled.
 entering extended mode
 (./math.tex
-LaTeX2e &lt;2019-10-01&gt; patch level 3
+LaTeX2e &lt;2023-06-01&gt;
+L3 programming layer &lt;2023-06-05&gt;
 
 ! LaTeX Error: File `article.cls' not found.
 
@@ -208,7 +216,7 @@ l.2 \usepackage
 No pages of output.
 Transcript written on math.log.
 </p>
-</div>
+</aside>
  nod offset, as otherwise both nod offsets will drive the
 object off the slit.</p></li>
 <li><p>Nod the telescope to a nearby blank sky area, which is required for
@@ -232,9 +240,9 @@ The (p/q) coordinate system used for nodding the Gemini telescopes
 is defined such that p-offsets run along the horizontal detector
 axis, and q-offsets run along the vertical axis.</p>
 </div>
-</div>
-<div class="section" id="target-selection">
-<h2><span class="section-number">12.4. </span>Target selection<a class="headerlink" href="#target-selection" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="target-selection">
+<h2><span class="section-number">12.4. </span>Target selection<a class="headerlink" href="#target-selection" title="Permalink to this heading">¶</a></h2>
 <p>In this case we have to nod to a blank field for sky subtraction.
 Hence, we use 3 arcsec long slits and achieve a higher slit density.
 Select all slits in the OT window using <em>shift-click</em>, and enter</p>
@@ -245,15 +253,16 @@ Select all slits in the OT window using <em>shift-click</em>, and enter</p>
 following Fig.).
 Our selection also included the three acquisition stars.
 <em>GMMPS</em> will not change their slit geometry, which is fixed to
-<div class="system-message">
+<aside class="system-message">
 <p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">2\times2</span>)</p>
 <p>latex exited with error
 [stdout]
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=latex)
  restricted \write18 enabled.
 entering extended mode
 (./math.tex
-LaTeX2e &lt;2019-10-01&gt; patch level 3
+LaTeX2e &lt;2023-06-01&gt;
+L3 programming layer &lt;2023-06-05&gt;
 
 ! LaTeX Error: File `article.cls' not found.
 
@@ -269,36 +278,42 @@ l.2 \usepackage
 No pages of output.
 Transcript written on math.log.
 </p>
-</div>
+</aside>
  arcsec square boxes with zero tilt angle.</p>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="_images/example3_OT.png"><img alt="_images/example3_OT.png" src="_images/example3_OT.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12.1 </span><span class="caption-text"><em>Prioritizing targets and adjusting slit geometries in the OT window.</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-<p>In this example we arbitrarily select some of the brighter nots in the
-nebulae: click on the green squares in the image display, and then on the
+<figcaption>
+<p><span class="caption-number">Fig. 12.1 </span><span class="caption-text"><em>Prioritizing targets and adjusting slit geometries in the OT window.</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In this example we arbitrarily select some of the brighter knots in the
+nebulae: click (or shift-click if you want to select several at once) on the green squares in the image display, and then on the
 pink <em>Priority 1</em> button.</p>
 <p>For the lower right compact nebula, we use shorter slit lengths of 1.5
 arcsec. For the brighter knot near the top of the center nebula at
 x/y = 1130/1263 we use a 12 arcsec long slit with a tilt angle of 25 degrees.</p>
 <p><em>GMMPS</em> may fill the rest of the mask with objects arbitrarily selected
 from the priority 2 list.</p>
-<div class="figure align-default" id="id2">
+<figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="_images/example3_OTselection.png"><img alt="_images/example3_OTselection.png" src="_images/example3_OTselection.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12.2 </span><span class="caption-text"><em>Prioritized OT table for the F2 mask. Objects outside the
+<figcaption>
+<p><span class="caption-number">Fig. 12.2 </span><span class="caption-text"><em>Prioritized OT table for the F2 mask. Objects outside the
 cyan slit placement area are not available for the mask design.</em></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
+</figcaption>
+</figure>
 <p>Click the green “Configure Mask” button to start the mask design.</p>
-</div>
-<div class="section" id="configuring-the-f2-mask">
-<h2><span class="section-number">12.5. </span>Configuring the F2 mask<a class="headerlink" href="#configuring-the-f2-mask" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="configuring-the-f2-mask">
+<h2><span class="section-number">12.5. </span>Configuring the F2 mask<a class="headerlink" href="#configuring-the-f2-mask" title="Permalink to this heading">¶</a></h2>
 <p>The mask configure dialog is shown in the Fig. below:</p>
-<div class="figure align-default" id="id3">
+<figure class="align-default" id="id3">
 <a class="reference internal image-reference" href="_images/example3_spoc.png"><img alt="_images/example3_spoc.png" src="_images/example3_spoc.png" style="width: 50%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12.3 </span><span class="caption-text"><em>Selecting the optical setup and fine-tuning the slit placement.
+<figcaption>
+<p><span class="caption-number">Fig. 12.3 </span><span class="caption-text"><em>Selecting the optical setup and fine-tuning the slit placement.
 The solid blue line in the upper right panel shows the relative throughput,
 the thin grey line the (approximate) absolute throughput.</em></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
+</figcaption>
+</figure>
 <p>We choose the low resolution R1200_JH grism with the JH bandpass filter.
 This will provide full wavelength coverage from 900-1800 nm, as shown by the
 throughput plot.</p>
@@ -313,12 +328,13 @@ of 3 pixels. In principle, one could go as low as zero pixels, but then
 one would have to manually define the spectral traces when reducing the
 data.</p>
 <p>We let <em>GMMPS</em> offset the slits by up to 40% of their length (<em>auto-finesse</em>),
-to allow for more slits on the mask. We are happy with a single mask.</p>
+to allow for more slits on the mask. Note that for the first sky subtraction method you want the objects to remain at the center of the slit and therefore an auto-finesse of zero must be chosen. We are happy with a single mask.</p>
 <p>Upon clicking the green <em>Make Masks</em> button, the slits will be placed
 on the mask according to their priorities. <em>GMMPS</em> informs us that
 515 objects are available in the slit placement area, 89 of which were placed
 on the mask: 3 acquisition stars, 21 high priority targets, and 57 other
 objects.</p>
+<p>The system will alert you if you have chosen stars with a high proper motion (&gt;100 mas/year) as acquisition stars. While these are OK to use for recent preimages, they should not be used when the mask is designed from a catalog.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Unlike GMOS, F2 uses fixed optical configurations that do not allow
@@ -335,37 +351,45 @@ a shorter spectrum, e.g. the J, H or Ks filters with the R1200 grisms.
 In that case, up to two spectra can be packed in the dispersion direction
 (see the Fig. at the very bottom).</p>
 </div>
-</div>
-<div class="section" id="displaying-the-mask-design">
-<h2><span class="section-number">12.6. </span>Displaying the mask design<a class="headerlink" href="#displaying-the-mask-design" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="displaying-the-mask-design">
+<h2><span class="section-number">12.6. </span>Displaying the mask design<a class="headerlink" href="#displaying-the-mask-design" title="Permalink to this heading">¶</a></h2>
 <p>Load the mask designs using <em>GMMPS -&gt; Load Object Definition File
 (ODF *.fits) -&gt; n159_objects_OTODF1.fits</em></p>
 <p>The mask design is visualized in the Figures below.</p>
-<div class="figure align-default" id="id4">
+<figure class="align-default" id="id4">
 <a class="reference internal image-reference" href="_images/example3_ODF.png"><img alt="_images/example3_ODF.png" src="_images/example3_ODF.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12.4 </span><span class="caption-text"><em>Objects selected for the R1200_JH grism and JH filter combination.
+<figcaption>
+<p><span class="caption-number">Fig. 12.4 </span><span class="caption-text"><em>Objects selected for the R1200_JH grism and JH filter combination.
 Most of the detector array is used to map the spectra</em>.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id5">
+</figcaption>
+</figure>
+<figure class="align-default" id="id5">
 <a class="reference internal image-reference" href="_images/example3_ODF_3.png"><img alt="_images/example3_ODF_3.png" src="_images/example3_ODF_3.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12.5 </span><span class="caption-text"><em>Zoom in on the F2 mask design. Looking at the yellow slits, we
+<figcaption>
+<p><span class="caption-number">Fig. 12.5 </span><span class="caption-text"><em>Zoom in on the F2 mask design. Looking at the yellow slits, we
 recognize that GMMPS offset the slits with respect to some objects
 to allow for more slits to be placed (e.g. the slit to the right of the
 tilted spectrum). The wavelengths (yellow numbers)
 are shown in microns, increasing from top to bottom. We also entered
 the atomic identifier “H” in the field “Show other wavelengths”, and
 GMMPS shows the locations of the Paschen Beta and Gamma lines.</em></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id6">
+</figcaption>
+</figure>
+<figure class="align-default" id="id6">
 <a class="reference internal image-reference" href="_images/example3_ODF_packed.png"><img alt="_images/example3_ODF_packed.png" src="_images/example3_ODF_packed.png" style="width: 90%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12.6 </span><span class="caption-text"><em>Using the J instead of the JH filter,
+<figcaption>
+<p><span class="caption-number">Fig. 12.6 </span><span class="caption-text"><em>Using the J instead of the JH filter,
 significantly shorter spectra are produced and GMMPS may place up to
 twice as many slits on the mask (in this case, 140 slits).</em></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
+</figcaption>
+</figure>
+<p>Once you are happy with your mask, it is useful to go through the mask <a class="reference external" href="https://gmmps-documentation.readthedocs.io/en/latest/ngo.html">checklist</a> to ensure consistency with observing tool information, among others.</p>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -383,13 +407,14 @@ twice as many slits on the mask (in this case, 140 slits).</em></span><a class="
         <li class="right" >
           <a href="example2.html" title="11. Example 2: Band-shuffling (GMOS-S)"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">12. </span>Example 3: Flamingos-2 mask</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, AURA/Gemini Observatory.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
+        &#169; Copyright 2023, AURA/Gemini Observatory.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

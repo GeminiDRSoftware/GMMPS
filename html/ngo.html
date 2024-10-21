@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>13. Appendix: Mask check instructions &#8212; GMMPS 1.5.2 documentation</title>
-    <link rel="stylesheet" href="_static/gmmps.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>13. Appendix: Mask check instructions &#8212; GMMPS 1.5.3rc documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/gmmps.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="14. Appendix: Acquisition stars" href="acquisition.html" />
@@ -71,15 +70,17 @@
         <li class="right" >
           <a href="example3.html" title="12. Example 3: Flamingos-2 mask"
              accesskey="P">previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">13. </span>Appendix: Mask check instructions</a></li> 
       </ul>
     </div>
 
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">13. Appendix: Mask check instructions</a><ul>
 <li><a class="reference internal" href="#summary">13.1. Summary</a></li>
 <li><a class="reference internal" href="#before-checking-the-masks">13.2. Before checking the masks</a><ul>
@@ -100,22 +101,27 @@
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="example3.html"
-                        title="previous chapter"><span class="section-number">12. </span>Example 3: Flamingos-2 mask</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="acquisition.html"
-                        title="next chapter"><span class="section-number">14. </span>Appendix: Acquisition stars</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="example3.html"
+                          title="previous chapter"><span class="section-number">12. </span>Example 3: Flamingos-2 mask</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="acquisition.html"
+                          title="next chapter"><span class="section-number">14. </span>Appendix: Acquisition stars</a></p>
+  </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -124,12 +130,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="appendix-mask-check-instructions">
-<h1><span class="section-number">13. </span>Appendix: Mask check instructions<a class="headerlink" href="#appendix-mask-check-instructions" title="Permalink to this headline">¶</a></h1>
+  <section id="appendix-mask-check-instructions">
+<h1><span class="section-number">13. </span>Appendix: Mask check instructions<a class="headerlink" href="#appendix-mask-check-instructions" title="Permalink to this heading">¶</a></h1>
 <p>Below are the step by step mask check instructions for NGOs, PIs and
 Gemini staff.</p>
-<div class="section" id="summary">
-<h2><span class="section-number">13.1. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<section id="summary">
+<h2><span class="section-number">13.1. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line"><strong>Critical:</strong> Must be fixed.</div>
 <div class="line"><strong>Warnings:</strong> May be tolerated, and the PI must be informed about them.</div>
@@ -167,15 +173,16 @@ may not be cut (<strong>warning</strong>)</p></li>
 must be consistent with both nod positions (<strong>critical</strong>)</p></li>
 <li><p><em>Nod &amp; Shuffle offset</em> (ODF window) and <em>Offset (detector rows)</em>
 (<a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>) must be identical (<strong>critical</strong>)</p></li>
-<li><p>Nod &amp; Shuffle masks using tilted slits must use a <div class="system-message">
+<li><p>Nod &amp; Shuffle masks using tilted slits must use a <aside class="system-message">
 <p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">q=0</span>)</p>
 <p>latex exited with error
 [stdout]
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=latex)
  restricted \write18 enabled.
 entering extended mode
 (./math.tex
-LaTeX2e &lt;2019-10-01&gt; patch level 3
+LaTeX2e &lt;2023-06-01&gt;
+L3 programming layer &lt;2023-06-05&gt;
 
 ! LaTeX Error: File `article.cls' not found.
 
@@ -191,7 +198,7 @@ l.2 \usepackage
 No pages of output.
 Transcript written on math.log.
 </p>
-</div>
+</aside>
  nod offset in the
 <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a> (<strong>critical</strong>)</p></li>
 <li><p>Slits must not appear in storage bands (<strong>enforced by GMMPS</strong>)</p></li>
@@ -202,37 +209,39 @@ Transcript written on math.log.
 </ul>
 </li>
 </ol>
-</div>
-<div class="section" id="before-checking-the-masks">
-<h2><span class="section-number">13.2. </span>Before checking the masks<a class="headerlink" href="#before-checking-the-masks" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="naming-convention">
-<span id="naming-convention-label"></span><h3><span class="section-number">13.2.1. </span>Naming convention<a class="headerlink" href="#naming-convention" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="before-checking-the-masks">
+<h2><span class="section-number">13.2. </span>Before checking the masks<a class="headerlink" href="#before-checking-the-masks" title="Permalink to this heading">¶</a></h2>
+<section id="naming-convention">
+<span id="naming-convention-label"></span><h3><span class="section-number">13.2.1. </span>Naming convention<a class="headerlink" href="#naming-convention" title="Permalink to this heading">¶</a></h3>
 <p>PIs must use the
 <a class="reference internal" href="submit.html#odf-naming-convention-label"><span class="std std-ref">standard naming convention</span></a>
 (example: <em>GS2015AQ023-01_ODF.fits</em>) when submitting their ODFs.
 Otherwise ask the PI to remove the masks from the
 <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a> and re-submit them
 with the correct names.</p>
-</div>
-<div class="section" id="obtaining-pre-images-and-odfs">
-<h3><span class="section-number">13.2.2. </span>Obtaining pre-images and ODFs<a class="headerlink" href="#obtaining-pre-images-and-odfs" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="obtaining-pre-images-and-odfs">
+<h3><span class="section-number">13.2.2. </span>Obtaining pre-images and ODFs<a class="headerlink" href="#obtaining-pre-images-and-odfs" title="Permalink to this heading">¶</a></h3>
 <p>Pre-images (and pseudo-images) for the mask designs are provided by the PI in the
 <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool’s</a> file attachment facility.
 Download the images together with the ODF FITS files using the <em>Fetch</em> button in the
 <em>File Attachment</em> window. The Observing Tool will ask for your NGO password. Verify
 that the PI put comments to either the ODF or the images that allow unambiguous
 association:</p>
-<div class="figure align-default" id="id8">
+<figure class="align-default" id="id8">
 <span id="gmmps-fileattachment"></span><a class="reference internal image-reference" href="_images/gmmps_fileattachment.png"><img alt="_images/gmmps_fileattachment.png" src="_images/gmmps_fileattachment.png" style="width: 591.36px; height: 396.66px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13.1 </span><span class="caption-text"><em>The file attachment window. The “Description” field shows the name of the
+<figcaption>
+<p><span class="caption-number">Fig. 13.1 </span><span class="caption-text"><em>The file attachment window. The “Description” field shows the name of the
 pre-images used to generate the masks.</em></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
-<div class="section" id="mask-checks">
-<h2><span class="section-number">13.3. </span>Mask checks<a class="headerlink" href="#mask-checks" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="start-gmmps">
-<h3><span class="section-number">13.3.1. </span>Start <em>GMMPS</em><a class="headerlink" href="#start-gmmps" title="Permalink to this headline">¶</a></h3>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="mask-checks">
+<h2><span class="section-number">13.3. </span>Mask checks<a class="headerlink" href="#mask-checks" title="Permalink to this heading">¶</a></h2>
+<section id="start-gmmps">
+<h3><span class="section-number">13.3.1. </span>Start <em>GMMPS</em><a class="headerlink" href="#start-gmmps" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="loadimage.html#load-image-skycat-label"><span class="std std-ref">Load the pre-image</span></a> into <em>Skycat</em>, and
 <a class="reference internal" href="loadimage.html#adjust-skycat-cutlevels-label"><span class="std std-ref">adjust the dynamic range</span></a> such that the
@@ -242,13 +251,15 @@ image is displayed clearly.</p></li>
 <a class="reference internal" href="loadODF.html#odf-window-label"><span class="std std-ref">ODF window</span></a> (see below) with all relevant
 information at your finger tips.</p></li>
 </ol>
-<div class="figure align-default" id="id9">
+<figure class="align-default" id="id9">
 <span id="gmmps-odfcombo"></span><a class="reference internal image-reference" href="_images/gmmps_ODFcombo.png"><img alt="_images/gmmps_ODFcombo.png" src="_images/gmmps_ODFcombo.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13.2 </span><span class="caption-text"><em>ODF window</em></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="slits">
-<span id="general-checks-label"></span><h3><span class="section-number">13.3.2. </span>Slits<a class="headerlink" href="#slits" title="Permalink to this headline">¶</a></h3>
+<figcaption>
+<p><span class="caption-number">Fig. 13.2 </span><span class="caption-text"><em>ODF window</em></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="slits">
+<span id="general-checks-label"></span><h3><span class="section-number">13.3.2. </span>Slits<a class="headerlink" href="#slits" title="Permalink to this heading">¶</a></h3>
 <p>Switch on the <em>Slits &amp; Spectra</em> overlay.</p>
 <p><strong>Checklist:</strong></p>
 <ol class="arabic simple">
@@ -273,9 +284,9 @@ is nothing that can be done about it.</p></li>
 <li><p><strong>Slits within slit placement area:</strong> Slits outside the cyan slit placement area
 will not be cut. Ask the PI why and how the ODF was modified outside <em>GMMPS</em>.</p></li>
 </ol>
-</div>
-<div class="section" id="acquisition-stars">
-<span id="acquisition-stars-summary-label"></span><h3><span class="section-number">13.3.3. </span>Acquisition stars<a class="headerlink" href="#acquisition-stars" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="acquisition-stars">
+<span id="acquisition-stars-summary-label"></span><h3><span class="section-number">13.3.3. </span>Acquisition stars<a class="headerlink" href="#acquisition-stars" title="Permalink to this heading">¶</a></h3>
 <p>Click on <em>Highlight acq stars</em> in the ODF window. This will show the
 acquisition stars only.</p>
 <p><strong>Checklist:</strong></p>
@@ -314,19 +325,21 @@ star must be included in the mask design unless there are already 2 (pre-image)
 or 3 (pseudo-image) other (good) stars present. Spectra of problematic stars will be
 highlighted in yellow (see example image below).</p></li>
 </ol>
-<div class="figure align-default" id="id10">
+<figure class="align-default" id="id10">
 <span id="gmmps-acq-proximity"></span><a class="reference internal image-reference" href="_images/gmmps_acq_proximity.png"><img alt="_images/gmmps_acq_proximity.png" src="_images/gmmps_acq_proximity.png" style="width: 411.18px; height: 344.52000000000004px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13.3 </span><span class="caption-text"><em>Problematic acquisition stars. The lower right star is
+<figcaption>
+<p><span class="caption-number">Fig. 13.3 </span><span class="caption-text"><em>Problematic acquisition stars. The lower right star is
 within 4.0” of the border of the slit placement area. Most likely this star is
 ok, but its spectrum is shown in yellow to flag it as potentially problematic.
 A backup acquisition star must be included in the mask design unless there are
 already 2 (pre-image) or 3 (pseudo-image) other stars present. The acquisition
 star to the upper left has a safe distance to the GMOS detector gap.</em></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
-<div class="section" id="nod-shuffle-masks">
-<h2><span class="section-number">13.4. </span>Nod &amp; Shuffle masks<a class="headerlink" href="#nod-shuffle-masks" title="Permalink to this headline">¶</a></h2>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="nod-shuffle-masks">
+<h2><span class="section-number">13.4. </span>Nod &amp; Shuffle masks<a class="headerlink" href="#nod-shuffle-masks" title="Permalink to this heading">¶</a></h2>
 <p>Nod &amp; Shuffle masks have strict requirements, enforced by <em>GMMPS</em>.
 They can only be violated if the mask design has been modified outside <em>GMMPS</em>.</p>
 <p>A band-shuffle mask consists of one or more science bands where slits may be placed, and
@@ -340,20 +353,24 @@ only one slit occupies a science band, and all slits must have equal length.</p>
 science bands.</p></li>
 <li><p>Each science band must have the same height.</p></li>
 </ul>
-<div class="figure align-default" id="id11">
+<figure class="align-default" id="id11">
 <span id="gmmps-bandshuffling-1"></span><a class="reference internal image-reference" href="_images/gmmps_bandshuffleODF_2.png"><img alt="_images/gmmps_bandshuffleODF_2.png" src="_images/gmmps_bandshuffleODF_2.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13.4 </span><span class="caption-text"><em>This band-shuffle mask contains three science bands and four
+<figcaption>
+<p><span class="caption-number">Fig. 13.4 </span><span class="caption-text"><em>This band-shuffle mask contains three science bands and four
 storage bands (yellow). The central two storage bands are shared between the adjacent
 science bands.</em></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id12">
+</figcaption>
+</figure>
+<figure class="align-default" id="id12">
 <span id="gmmps-microshuffling-1"></span><a class="reference internal image-reference" href="_images/gmmps_microshuffleODF.png"><img alt="_images/gmmps_microshuffleODF.png" src="_images/gmmps_microshuffleODF.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13.5 </span><span class="caption-text"><em>This is a micro-shuffle mask. Each science slit has its own adjacent storage bands.
+<figcaption>
+<p><span class="caption-number">Fig. 13.5 </span><span class="caption-text"><em>This is a micro-shuffle mask. Each science slit has its own adjacent storage bands.
 Slits and spectra must not be located in the red storage areas.</em></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="finalizing">
-<h2><span class="section-number">13.5. </span>Finalizing<a class="headerlink" href="#finalizing" title="Permalink to this headline">¶</a></h2>
+</figcaption>
+</figure>
+</section>
+<section id="finalizing">
+<h2><span class="section-number">13.5. </span>Finalizing<a class="headerlink" href="#finalizing" title="Permalink to this heading">¶</a></h2>
 <p><strong>Principal contact person:</strong></p>
 <ol class="arabic simple">
 <li><p>If a mask has problems, contact the PI and explain the nature of the
@@ -382,9 +399,9 @@ emails are sent.</p>
 field source and the slits inspected for cutting errors. This is the final quality
 check. If persisting problems are encountered, the mask will be re-cut, or the PI
 will be asked to re-design the mask.</p>
-</div>
-<div class="section" id="phase-ii-checks">
-<span id="phase2-checks-label"></span><h2><span class="section-number">13.6. </span>Phase II checks<a class="headerlink" href="#phase-ii-checks" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="phase-ii-checks">
+<span id="phase2-checks-label"></span><h2><span class="section-number">13.6. </span>Phase II checks<a class="headerlink" href="#phase-ii-checks" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic">
 <li><p><strong>RA, DEC, position angle:</strong> NGOs and Contact Scientists must
 check that RA, DEC, and position angle for a MOS observation in the phase II
@@ -397,9 +414,9 @@ the field of view. Check with Gemini staff if uncertain.</p></li>
 <li><p><strong>Mask name:</strong> The ODF root names with the mask numbers (e.g. <em>GS2015AQ023-01</em>) must
 be used in the field <em>Custom Mask MDF</em> in the GMOS static component of the corresponding
 observation in the <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>:</p>
-<div class="figure align-default" id="gmmps-gmos-mdf-component">
+<figure class="align-default" id="gmmps-gmos-mdf-component">
 <a class="reference internal image-reference" href="_images/gmmps_GMOS_MDF_component.png"><img alt="_images/gmmps_GMOS_MDF_component.png" src="_images/gmmps_GMOS_MDF_component.png" style="width: 100%;" /></a>
-</div>
+</figure>
 <p><em>GMOS static component with the correct mask name.</em></p>
 </li>
 <li><p><strong>Nod offsets:</strong> Check that the slit length and the nod offsets in q-direction
@@ -413,15 +430,16 @@ the science target and a blank sky position), or nod offsets of [0,+0.5] and
 slit) would both be compatible with 2.0 arsec long slits (see Fig. at the very bottom).</p>
 </li>
 <li><p><strong>Nod offset for tilted slits:</strong> Nod &amp; Shuffle masks using tilted slits must
-include a <div class="system-message">
+include a <aside class="system-message">
 <p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">q=0</span>)</p>
 <p>latex exited with error
 [stdout]
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=latex)
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=latex)
  restricted \write18 enabled.
 entering extended mode
 (./math.tex
-LaTeX2e &lt;2019-10-01&gt; patch level 3
+LaTeX2e &lt;2023-06-01&gt;
+L3 programming layer &lt;2023-06-05&gt;
 
 ! LaTeX Error: File `article.cls' not found.
 
@@ -437,32 +455,37 @@ l.2 \usepackage
 No pages of output.
 Transcript written on math.log.
 </p>
-</div>
+</aside>
  nod offset, i.e. [0,0]. Otherwise, the object in question
 will never be located in the tilted slit. <em>GMMPS</em> prints a warning for these masks
 when displaying the ODF.</p>
-<div class="figure align-default" id="id13">
+<figure class="align-default" id="id13">
 <a class="reference internal image-reference" href="_images/gmmps_nstiltwarning.png"><img alt="_images/gmmps_nstiltwarning.png" src="_images/gmmps_nstiltwarning.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13.7 </span><span class="caption-text"><em>A q=0 nod offset is required if tilted slits are used in a Nod &amp; Shuffle mask.
+<figcaption>
+<p><span class="caption-number">Fig. 13.6 </span><span class="caption-text"><em>A q=0 nod offset is required if tilted slits are used in a Nod &amp; Shuffle mask.
 This mask also uses an unrealistically high number of acquisition stars (10).</em></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
-</div>
+</figcaption>
+</figure>
 </li>
 <li><p><strong>Shuffle offset:</strong> Check that the Shuffle offset displayed in the ODF information
 window is the same as the <em>Offset (detector rows)</em> provided in the <em>Nod &amp; Shuffle</em>
 window of the GMOS component in the
 <a class="reference external" href="http://www.gemini.edu/node/11161">Observing Tool</a>.</p>
-<div class="figure align-default" id="id14">
+<figure class="align-default" id="id14">
 <span id="gmmps-microshuffling-ot"></span><a class="reference internal image-reference" href="_images/gmmps_microshuffling_OT.png"><img alt="_images/gmmps_microshuffling_OT.png" src="_images/gmmps_microshuffling_OT.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13.8 </span><span class="caption-text"><em>Nod &amp; Shuffle window inside the GMOS component of the Observing
+<figcaption>
+<p><span class="caption-number">Fig. 13.7 </span><span class="caption-text"><em>Nod &amp; Shuffle window inside the GMOS component of the Observing
 Tool. In this case, a nod distance of +/- 0.5” is good enough for a slit
 length of 2.0”. The shuffle distance (Offset (detector rows)) is 29.</em></span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
-</div>
+</figcaption>
+</figure>
 </li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -480,13 +503,14 @@ length of 2.0”. The shuffle distance (Offset (detector rows)) is 29.</em></spa
         <li class="right" >
           <a href="example3.html" title="12. Example 3: Flamingos-2 mask"
              >previous</a> |</li>
-<li><a href="index.html">GMMPS 1.5.2 Documentation </a> &raquo;</li>
- 
+<li><a href="index.html">GMMPS 1.5.3 Documentation </a> &raquo;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">13. </span>Appendix: Mask check instructions</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, AURA/Gemini Observatory.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0.
+        &#169; Copyright 2023, AURA/Gemini Observatory.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

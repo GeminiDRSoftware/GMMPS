@@ -2958,8 +2958,10 @@ itcl::class cat::vmAstroCat {
 		set spect_disp 0.076
 	    } elseif {$grating == "R150"} {
 		set spect_disp 0.199
+	    } elseif {$grating == "B480"} {
+		set spect_disp 0.062
 	    }
-	} else {
+		} else {
 	    if {$grating == "R1200_JH"} {
 		set spect_disp 0.6667
 	    } elseif {$grating == "R1200_HK"} {
